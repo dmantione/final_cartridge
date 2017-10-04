@@ -1292,28 +1292,40 @@ L8A35:  jsr     L8986
 ; "DOS" Command - send command to drive
 ; ----------------------------------------------------------------
 DOS:    cmp     #'"'
-        beq     L8A5D ; DOS with a command
-L8A47:  jsr     listen_6F_or_error
+        beq     @5 ; DOS with a command
+@3:     jsr     listen_6F_or_error
         jsr     UNLSTN
         jsr     command_channel_talk
         jsr     print_line_from_drive
-L8A53:  rts
+        rts
 
-L8A54:  and     #$0F
+@2:     ; carry is already clear
+        adc     #$0A
+@4:     and     #$0F
         sta     FA
-        bne     L8A5D
+        bne     @5
         jmp     L852C
 
-L8A5D:  jsr     _CHRGET
-        beq     L8A47
-        cmp     #$24
-        bne     L8A69
-        jmp     L8B79
+@5:     jsr     _CHRGET
+        beq     @3
+        cmp     #'$'
+        bne     @6
+        jmp     DIR
 
-L8A69:  cmp     #'8'
-        beq     L8A54
+        ; Accept device numbers 8..15
+@6:     cmp     #'8'
+        beq     @4
         cmp     #'9'
-        beq     L8A54
+        beq     @4
+        cmp     #'1'
+        bne     @1
+        jsr     _CHRGET
+        beq     @3
+        cmp     #'0'
+        bcc     @1
+        cmp     #'6'
+        bcc     @2
+@1:
         jsr     listen_6F_or_error
 
 send_drive_command:
@@ -1459,7 +1471,7 @@ L8B6D:  lda     #3
 ; ----------------------------------------------------------------
 PDIR:   jsr     get_secaddr_and_send_listen
         bcs     L8B6D
-L8B79:  jsr     UNLSTN
+DIR:    jsr     UNLSTN
         lda     #$F0
         jsr     listen_or_error
         lda     $9A
@@ -1475,7 +1487,7 @@ L8B95:  jsr     print_dir
         jsr     set_io_vectors
         jsr     CLRCH
         jsr     set_io_vectors_with_hidden_rom
-        jmp     L8A53
+        rts
 
 ; ----------------------------------------------------------------
 ; common code for DLOAD/DVERIDY/DSAVE/DOS
@@ -1510,9 +1522,9 @@ set_drive:
         bcc     L8BD1 ; device number 9 or above
 L8BCE:  sta     FA
 L8BD0:  rts
-L8BD1:  lda     #9
-        cmp     FA
-        bcs     L8BD0 ; RTS
+L8BD1:  lda     FA
+        cmp     #16
+        bcc     L8BD0 ; RTS
         lda     #8 ; set drive 8
         bne     L8BCE
 L8BDB:  jsr     _lda_TXTPTR_indy

@@ -705,6 +705,3 @@ LA4E6:  lda     $DD0C
         jsr     LA26C
 LA4F0:  rts
 ; ----------------------------------------------------------------
-
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF

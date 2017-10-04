@@ -1415,5 +1415,5 @@ LA9F6:  dex
         rts
 
 ; XXX junk
-        sei
-        rts
+;        sei
+;        rts
