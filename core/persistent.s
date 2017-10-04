@@ -48,22 +48,28 @@ basic_continue_execute         = $A7EF
 basic_check_stop               = $A82C
 basic_string_to_word           = $A96B
 basic_print_char               = $AB47
+basic_FRMNUM                   = $AD8A
 basic_continue_arithmic_element= $AE8D
+basic_ay_to_fac1               = $B395
+basic_GETADR                   = $B7F7
 basic_floatptr22_to_fac1       = $BBA6
 basic_add_a_to_fac1            = $BD7E		; Add a as signed integer to float accu
 basic_LINPRT                   = $BDCD		; Print 16 bit number in AX
-basic_FRMNUM                   = $AD8A
-basic_GETADR                   = $B7F7
-basic_ay_to_fac1               = $B395
 kernal_get_filename            = $E257
 kernal_basic_warmstart         = $E37B		; Kernal basic warm start entry
 kernel_print_startup_messages  = $E422
 kernel_keyboard_handler        = $EB42
 kernal_check_modifier_keys     = $EB48
 
-.segment        "romio"
+.segment        "romio1"
+;
+;
+; ROMIO1 area ($DE00)
+;
+;
 
-LDE00:  .byte   $40
+fc_bank_id:
+		.byte   fcio_bank_0|fcio_nmi_line
 
 ;
 ; Jump into a bank of the FC3 ROM
@@ -127,7 +133,6 @@ enable_all_roms:
 .global _new_load
 _new_load: ; $DE20
         tay
-        tay ; ???
         lda     $01
         pha
         jsr     enable_all_roms
@@ -193,7 +198,12 @@ _kbd_handler:
         jmp     kernel_keyboard_handler ; LDA #$7F : STA $DC00 : RTS
 
 @1:     lda     $A000
-        jmp     kbd_handler_part2
+        cmp     #$94 ; contents of $A000 in BASIC ROM
+        bne     @2 ; BASIC ROM not visible
+        jsr     _enable_fcbank0
+        jmp     kbd_handler
+
+@2:     jmp     kernal_check_modifier_keys ; default kdb vector
 
 .global _load_ac_indy
 _load_ac_indy: ; $DE63
@@ -287,13 +297,14 @@ _check_for_stop: ; $DECA
 _relink: ; $DED3
         jsr     _disable_fc3rom
         jsr     basic_relink ; rebuild BASIC line chaining
-        beq     LDEE1 ; branch always?
+        beq     jmp_enable_fcbank0 ; branch always?
 
 .global _get_filename
 _get_filename: ; $DEDB
         jsr     _disable_fc3rom
         jsr     kernal_get_filename ; get string from BASIC line, set filename
-LDEE1:  jmp     _enable_fcbank0
+jmp_enable_fcbank0:
+        jmp     _enable_fcbank0
 
 .global _int_to_ascii
 _int_to_ascii: ; $DEE4
@@ -302,17 +313,34 @@ _int_to_ascii: ; $DEE4
         jsr     $BDDD ; convert FAC to ASCII
         jmp     _enable_fcbank0
 
+
+
+.segment "romio2"
+;
+;
+; ROMIO2 area ($DF00)
+;
+;
+
+
+;
+; Reserve space for REU
+;
+
+.byte	"REU REU REU REU REU REU REU U2CI"
+
 .global _ay_to_fac1
 _ay_to_fac1: ; $DEF0
         jsr     _disable_fc3rom
         jsr     basic_ay_to_fac1
-        jmp     LDEFF
+        jmp     print_and_exit
 
 .global _int_to_fac1
 _int_to_fac1: ; $DEF9
         jsr     _disable_fc3rom
         jsr     $BBA6 ; convert $22/$23 to FAC
-LDEFF:  iny
+print_and_exit:
+        iny
         jsr     $BDD7 ; print FAC
         jmp     _enable_fcbank0
 
@@ -327,16 +355,14 @@ _print_ax_int: ; $DF06
 _search_for_line: ; $DF0F
         jsr     _disable_fc3rom
         jsr    basic_search_line
-        php
-        jsr     _enable_fcbank0
-        plp
-        rts
+        jmp    enable_fcbank0_and_exit
 
 .global _CHRGET
 _CHRGET: ; $DF1B
         jsr     _disable_fc3rom
         jsr     CHRGET
-LDF21:  php
+enable_fcbank0_and_exit:
+        php
         jsr     _enable_fcbank0
         plp
         rts
@@ -345,7 +371,7 @@ LDF21:  php
 _CHRGOT: ; $DF27
         jsr     _disable_fc3rom
         jsr     CHRGOT
-        jmp     LDF21
+        jmp     enable_fcbank0_and_exit
 
 .global _lda_5a_indy
 _lda_5a_indy: ; $DF30
@@ -405,27 +431,11 @@ _print_banner_load_and_run: ; $DF74
         jsr     _enable_fcbank0
         jmp     load_and_run_program
 
-kbd_handler_part2:
-        cmp     #$94 ; contents of $A000 in BASIC ROM
-        bne     @1 ; BASIC ROM not visible
-        jsr     _enable_fcbank0
-        jmp     kbd_handler
-
-@1:     jmp     kernal_check_modifier_keys ; default kdb vector
-
 .global _new_tokenize
 _new_tokenize: ; $DF8D
         jsr     _enable_fcbank0
         jsr     new_tokenize
         jmp     _disable_fc3rom
-
-;padding
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte   $FF,$FF
 
 ; calls into banks 0+1
 .global _new_ckout
@@ -433,6 +443,10 @@ _new_ckout: ; $DFC0
         jsr     _enable_fcbank0
         jsr     new_ckout
         jmp     _disable_fc3rom
+
+;
+; KERNAL bsout/chrout. Vector $326/$327 points here (ROM original at $F1CA)
+;
 
 .global _new_bsout
 _new_bsout: ; $DFC9
@@ -456,19 +470,20 @@ _new_clrch: ; $DFD5
 ;and thus jumps to $DFE0 of bank 3. The ROM contents of bank 3 are different.
 ;
 
-.segment "romio_bar_irq"
+.segment "romio2_bar_irq"
 
         sei
-        lda     #$42 ; bank 2 (Desktop, Freezer/Print)
+        lda     #fcio_bank_2|fcio_nmi_line ; bank 2 (Desktop, Freezer/Print)
         sta     fcio_reg
 .global _bar_irq
 _bar_irq:
-        lda     LDE00 ; $40 ???
+        lda     fc_bank_id
         pha
-        lda     $A000 ; ???
+        lda     $A000
         pha
-        lda     #$41 ; bank 1 (Notepad, BASIC (Menu Bar))
+        lda     #fcio_bank_1|fcio_nmi_line ; bank 1 (Notepad, BASIC (Menu Bar))
         sta     fcio_reg
+        ; Execution continues in bank 1!
 
 .global _a_colon_asterisk
 _a_colon_asterisk:
