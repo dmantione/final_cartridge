@@ -20,7 +20,7 @@
 .import reset_warmstart
 .import new_tokenize
 .import new_execute
-.import new_expression
+.import evaluate_hex_expression
 .import new_detokenize
 .import new_mainloop
 
@@ -183,8 +183,19 @@ _new_detokenize: ; $DE49
 
 .global _new_expression
 _new_expression: ; $DE4F
+        lda     #0      ; same first three
+        sta     $0D     ; instructions as
+        jsr     CHRGET  ; original code at $AE86
+        php             ; carry and zero flag contain info and need to be saved for
+                        ; jump to BASIC ROM
+        cmp     #'$'
+        beq     @1
+        plp             ; restore carry and zero
+        jmp     basic_continue_arithmic_element ; $AE8D
+@1:
+        plp             ; carry and zero not needed here, but stack needs to be popped
         jsr     _enable_fcbank0
-        jmp     new_expression
+        jmp     evaluate_hex_expression
 
 ;
 ; Keyboard handler. Vector $28F/290 sometimes points here by the BASIC menu bar code
@@ -246,11 +257,6 @@ _add_a_to_fac1: ; $DE85
         jsr     basic_add_a_to_fac1
         jmp     _enable_fcbank0
 
-.global _expression_cont
-_expression_cont: ; $DE8E
-        jsr     _disable_fc3rom
-        jmp     basic_continue_arithmic_element
-
 .global _get_int
 _get_int: ; $DE94
         jsr     _disable_fc3rom
@@ -264,10 +270,6 @@ _new_warmstart:
         jsr     reset_warmstart
         jmp     disable_rom_then_warm_start
 
-.global _evaluate_modifier
-_evaluate_modifier: ; $DEA9
-        jsr     _disable_fc3rom
-        jmp     kernal_check_modifier_keys ; evaluate SHIFT/CTRL/C=
 
 .global _basic_string_to_word
 _basic_string_to_word: ; $DEAF
@@ -328,6 +330,11 @@ _int_to_ascii: ; $DEE4
 ;
 
 .byte	"REU REU REU REU REU REU REU U2CI"
+
+.global _evaluate_modifier
+_evaluate_modifier: ; $DEA9
+        jsr     _disable_fc3rom
+        jmp     kernal_check_modifier_keys ; evaluate SHIFT/CTRL/C=
 
 .global _ay_to_fac1
 _ay_to_fac1: ; $DEF0

@@ -78,7 +78,7 @@
 .import init_write_bam
 
 .global bar_flag
-.global new_expression
+.global evaluate_hex_expression
 .global new_mainloop
 .global new_tokenize
 .global new_execute
@@ -102,14 +102,7 @@ bar_flag        := $02A8
 
 .segment "basic_commands"
 
-new_expression:
-        lda     #0      ; same first three
-        sta     $0D     ; instructions as
-        jsr     _CHRGET ; original code at $AE86
-        cmp     #'$'
-        beq     evaluate_hex_expression
-        jsr     _CHRGOT ; set flags so code can continue
-        jmp     _expression_cont ; continue at $AE8D with ROM off
+        .byte 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
 
 evaluate_hex_expression:
         lda     #0
