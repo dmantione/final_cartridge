@@ -159,5 +159,4 @@ L80FE:  lda     load_save_vectors,y ; overwrite LOAD and SAVE vectors
         bpl     L80FE
         lda     $02A6
         beq     L810F
-        inc     $0330
 L810F:  rts
