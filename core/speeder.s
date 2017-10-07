@@ -309,7 +309,7 @@ L9AED:  jmp     send_byte
 
 L9AF0:  jsr     UNTALK
         jsr     LA691
-        lda     #6
+        lda     #17
         sta     $93
 .import __drive_code_load_LOAD__
 .import __drive_code_load_RUN__
@@ -532,13 +532,13 @@ L9BFE:
         inc     $C3
         bne     @7
         beq     @error         ; If $C3 hits 0 (255 iterations), then there must be a cycle in the sector chain
-        
+
         ;
         ; When we arrive here we either need to continue on a different track, or
         ; we hit the final sector of the file (A=0). Either way the sector_order array
         ; is complete.
         ;
-@8:     cmp     #$24           ; Track >=36 ?
+@8:     cmp     $02AC          ; Track beyond end of disk?
         bcs     @error         ; Then a problem. NOTE: This is incompatible with dual sided disks on 1571.
         sta     $08
         lda     sector_links,x
@@ -705,13 +705,13 @@ L9BFE:
         ; $55..5D contain indexes into the tables with CIA register values
         ldy     #$08        ; Signal C64 with CLOCK OUT high, DATA OUT low
         sty     $1800
-        ldx     $55,y
+@15:    ldx     $55,y
         ; Transmit bits 0-1 of the 4 bits of decoded data
 @17:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         sta     $1800
         ; Transmit bits 2-3 of the 4 bits of decoded data
         lda     regvalue_lookup_23 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
-        ldx     $54,y
+        ldx     $54,y     ; This ldx might look illogicallly placed but is here also for timing reasons!
         sta     $1800
         dey
         bne     @17
@@ -734,7 +734,30 @@ wait_for_header:
         bne     @try_again
         rts
 
+; These tables cannot cross a page boundary because lda absolute,x then costs an extra cycle
+regvalue_lookup_01:
+        .byte   0, 10, 10, 2
+        .byte   0, 10, 10, 2
+        .byte   0, 0, 8, 0
+        .byte   0, 0, 8, 0
+        .byte   0, 2, 8, 0
+        .byte   0, 2, 8, 0
+.assert >* = >regvalue_lookup_01, error, "Page boundary!"
+regvalue_lookup_23:
+        .byte   0, 8, 10, 10
+        .byte   0, 0, 2, 2
+        .byte   0, 0, 10, 10
+        .byte   0, 0, 2, 2
+        .byte   0, 8, 8, 8
+        .byte   0, 0, 0, 0
+.assert >* = >regvalue_lookup_23, error, "Page boundary!"
+
 drivecode_load_initialize:
+        lda     $02AC    ; 1571 stores number of tracks on current disk here (either $24 or $71)
+        bne     @3
+        lda     #$24     ; 1541 has a 0 there, that's quickly fixed
+        sta     $02AC
+@3:
         ldx     #$00     ; CLOCK OUT low, DATA OUT low
         stx     $1800
         stx     $C2
@@ -764,20 +787,6 @@ drivecode_load_initialize:
         sty     $1800
         jmp     $E60A    ; 21, 'read error'
 
-regvalue_lookup_01:
-        .byte   0, 10, 10, 2
-        .byte   0, 10, 10, 2
-        .byte   0, 0, 8, 0
-        .byte   0, 0, 8, 0
-        .byte   0, 2, 8, 0
-        .byte   0, 2, 8, 0
-regvalue_lookup_23:
-        .byte   0, 8, 10, 10
-        .byte   0, 0, 2, 2
-        .byte   0, 0, 10, 10
-        .byte   0, 0, 2, 2
-        .byte   0, 8, 8, 8
-        .byte   0, 0, 0, 0
 sector_links:
 track_links := sector_links + 21
 sector_order := track_links + 21
@@ -984,7 +993,7 @@ LA647:  rts
 LA648:
         jsr     LA6C1
         bne     LA647
-        lda     #7
+        lda     #9
         sta     $93
 .import __drive_code_save_LOAD__
 .import __drive_code_save_RUN__
@@ -1051,6 +1060,7 @@ LA6C8:  jsr     IECIN
         cpy     #'0' ; = no error
         rts
 
+.global transfer_code_to_drive
 transfer_code_to_drive:
         sta     $C3
         sty     $C4
@@ -1070,16 +1080,18 @@ LA6ED:  lda     ($C3),y
         and     #$1F
         bne     LA6ED
         jsr     UNLSTN
+        dec     $93
+        beq     @ready
         tya
         bne     LA6DB
         inc     $C4
         inx
-        cpx     $93
-        bcc     LA6DB
+        bne     LA6DB   ; always taken
+@ready:
         lda     #'E' ; send "M-E"
 LA707:  pha
         lda     #$6F
-        jsr     LA612
+        jsr     LA612   ; LISTEN
         lda     #'M'
         jsr     IECOUT
         lda     #'-'
