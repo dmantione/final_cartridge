@@ -435,11 +435,14 @@ L9AF0:  jsr     UNTALK
 @8:     lda     $C1
         sta     ($93),y
         iny
-@9:     tya
-        pha
+@9:
+;     tya
+;        pha
+        sty     $A6
         jsr     receive_4_bytes ; in $C1..C4
-        pla
-        tay
+        ldy     $A6
+;        pla
+;        tay
         ldx     #3
 @5:     cpy     $A5
         bcs     @6
@@ -764,7 +767,7 @@ L9BFE:
         nop
         nop
         sty     $1800
-        ldy     #18
+        ldy     #16
 @18:
         dey
         bne     @18
