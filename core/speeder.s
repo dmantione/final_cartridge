@@ -96,6 +96,7 @@ receive_4_bytes:
 .assert >* = >@pal, error, "Page boundary!"
         rts
 
+        .byte 0,1,2,3,4,5,6,7
 @ntsc:  ; NTSC
         bit     $DD00
         bvs     @ntsc
@@ -307,9 +308,15 @@ L9AE8:  lda     #$FE
         tya
 L9AED:  jmp     send_byte
 
+
+
+; Serial fastload code
+
+
+
 L9AF0:  jsr     UNTALK
         jsr     LA691
-        lda     #17
+        lda     #20
         sta     $93
 .import __drive_code_load_LOAD__
 .import __drive_code_load_RUN__
@@ -473,7 +480,8 @@ L9BFE:
         ; 
         ; Now we read 5 bytes of the sector data
         ;
-        jsr     $F556      ; Wait for SYNC (sets Y=0)
+        jsr     wait_for_sync ; Sets Y=0
+        clv
 @2:     bvc     @2         ; Loop until byte ready
         clv
         lda     $1C01
@@ -570,7 +578,8 @@ L9BFE:
         ;
         ; This is a sector we need. so read its contents
         ;
-        jsr     $F556     ; Wait for SYNC (sets Y=0)
+        jsr     wait_for_sync ; Sets Y=0
+        clv
         ; Read 256 bytes in the buffer
 @11:    bvc     @11       ; Loop until byte ready
         clv
@@ -613,7 +622,7 @@ L9BFE:
         ldy     #0
 @next:
         dec     $36
-        sty     $1800
+        sty     $1800     ; Y=0 also when entering via branch -> DATA OUT low, CLOCK OUT low
         bne     @transmit_buffer
         dec     $C3       ; Did we read all blocks?
         bne     @9
@@ -703,30 +712,85 @@ L9BFE:
 @transmit_tuple:
         ; Transmit the 4-byte tuple to the C64
         ; $55..5D contain indexes into the tables with CIA register values
-        ldy     #$08        ; Signal C64 with CLOCK OUT high, DATA OUT low
+        ldy     #$08      ; Signal C64 with CLOCK OUT high, DATA OUT low
         sty     $1800
-@15:    ldx     $55,y
+        ldx     $55,y
         ; Transmit bits 0-1 of the 4 bits of decoded data
-@17:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
+@15:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         sta     $1800
         ; Transmit bits 2-3 of the 4 bits of decoded data
         lda     regvalue_lookup_23 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         ldx     $54,y     ; This ldx might look illogicallly placed but is here also for timing reasons!
         sta     $1800
         dey
-        bne     @17
+        bne     @15
 .assert >* = >@transmit_tuple, error, "Page boundary!"
         jmp     @next
+
+@transmit_tuple_2mhz:
+        ; Transmit the 4-byte tuple to the C64
+        ; $55..5D contain indexes into the tables with CIA register values
+;        ldy     #$08      ; Signal C64 with CLOCK OUT high, DATA OUT low
+        sty     $1800
+        nop
+;        nop
+        ldx     $55,y
+        nop
+@17:
+        nop
+        ; Transmit bits 0-1 of the 4 bits of decoded data
+        lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
+        nop
+        nop
+        sta     $1800
+        nop
+        nop
+        ; Transmit bits 2-3 of the 4 bits of decoded data
+        lda     regvalue_lookup_23 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
+        nop
+        nop
+        ldx     $54,y     ; This ldx might look illogicallly placed but is here also for timing reasons!
+        nop
+        nop
+        sta     $1800
+        nop
+        bit     $00       ; Waste 3 cycles
+        dey
+        nop
+        bne     @17
+.assert >* = >@transmit_tuple, error, "Page boundary!"
+        nop
+        nop
+        nop
+        nop
+        sty     $1800
+        ldy     #18
+@18:
+        dey
+        bne     @18
+        jmp     @next
+
+modpoint = @transmit_tuple+2
+
+
+
+wait_for_sync:
+        ; This jmp ismodified by drive_code_initialize to jump to $9754 in case
+        ;of a 1571 in 2MHz mode.
+        jmp     $F556     ; Wait for SYNC on disk (sets Y=0)
 
 wait_for_header:
         ldx     #3
         stx     $31
+        ldx     #90      ; The 1541 ROM also tries 90 times (see $F3B1 onwards)
+        stx     $C4
 @try_again:
-        inx
+        dec     $C4
         bne     @try
         jmp     $F40B    ; Read error
 
-@try:   jsr     $F556    ; Wait for SYNC on disk (sets Y=0)
+@try:   jsr     wait_for_sync ; Sets Y=0
+        clv
 @1:     bvc     @1       ; Loop until byte ready
         clv
         lda     $1C01
@@ -734,23 +798,6 @@ wait_for_header:
         bne     @try_again
         rts
 
-; These tables cannot cross a page boundary because lda absolute,x then costs an extra cycle
-regvalue_lookup_01:
-        .byte   0, 10, 10, 2
-        .byte   0, 10, 10, 2
-        .byte   0, 0, 8, 0
-        .byte   0, 0, 8, 0
-        .byte   0, 2, 8, 0
-        .byte   0, 2, 8, 0
-.assert >* = >regvalue_lookup_01, error, "Page boundary!"
-regvalue_lookup_23:
-        .byte   0, 8, 10, 10
-        .byte   0, 0, 2, 2
-        .byte   0, 0, 10, 10
-        .byte   0, 0, 2, 2
-        .byte   0, 8, 8, 8
-        .byte   0, 0, 0, 0
-.assert >* = >regvalue_lookup_23, error, "Page boundary!"
 
 drivecode_load_initialize:
         lda     $02AC    ; 1571 stores number of tracks on current disk here (either $24 or $71)
@@ -758,6 +805,19 @@ drivecode_load_initialize:
         lda     #$24     ; 1541 has a 0 there, that's quickly fixed
         sta     $02AC
 @3:
+        lda     $180F
+        and     #$20     ; Check for 2MHz mode
+        beq     @4
+        ; 1571 in 2MHz mode. Adjust wait_for_sync to jump to $9754 instead
+        lda     #$54
+        sta     wait_for_sync+1
+        lda     #$97
+        sta     wait_for_sync+2
+        lda     #$D0
+        sta     modpoint
+        lda     #$17
+        sta     modpoint+1
+@4:
         ldx     #$00     ; CLOCK OUT low, DATA OUT low
         stx     $1800
         stx     $C2
@@ -786,6 +846,25 @@ drivecode_load_initialize:
         ldy     #$0A     ; DATA out high, lock out high
         sty     $1800
         jmp     $E60A    ; 21, 'read error'
+
+; These tables cannot cross a page boundary because lda absolute,x then costs an extra cycle
+regvalue_lookup_01:
+        .byte   0, 10, 10, 2
+        .byte   0, 10, 10, 2
+        .byte   0, 0, 8, 0
+        .byte   0, 0, 8, 0
+        .byte   0, 2, 8, 0
+        .byte   0, 2, 8, 0
+.assert >* = >(regvalue_lookup_01-8), error, "Page boundary!"
+
+regvalue_lookup_23:
+        .byte   0, 8, 10, 10
+        .byte   0, 0, 2, 2
+        .byte   0, 0, 10, 10
+        .byte   0, 0, 2, 2
+        .byte   0, 8, 8, 8
+        .byte   0, 0, 0, 0
+.assert >* = >(regvalue_lookup_23-8), error, "Page boundary!"
 
 sector_links:
 track_links := sector_links + 21

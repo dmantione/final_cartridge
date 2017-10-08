@@ -102,7 +102,7 @@ bar_flag        := $02A8
 
 .segment "basic_commands"
 
-        .byte 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
+;        .byte 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
 
 evaluate_hex_expression:
         lda     #0
