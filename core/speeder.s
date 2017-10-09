@@ -316,7 +316,7 @@ L9AED:  jmp     send_byte
 
 L9AF0:  jsr     UNTALK
         jsr     LA691
-        lda     #20
+        lda     #19
         sta     $93
 .import __drive_code_load_LOAD__
 .import __drive_code_load_RUN__
@@ -427,15 +427,15 @@ L9AF0:  jsr     UNTALK
         sta     $AF
 @4:     ldy     #0
         lda     $C3
-        bne     @8
+        bne     @5
         jsr     receive_4_bytes ; in $C1..$C4
         ldy     #2
         ldx     #2
-        bne     @5
-@8:     lda     $C1
+        bne     @9
+@5:     lda     $C1
         sta     ($93),y
         iny
-@9:
+@6:
 ;     tya
 ;        pha
         sty     $A6
@@ -443,18 +443,41 @@ L9AF0:  jsr     UNTALK
         ldy     $A6
 ;        pla
 ;        tay
-        ldx     #3
-@5:     cpy     $A5
-        bcs     @6
-        lda     $C1,x           ; copy bytes ...
+;        ldx     #3
+@7:
+        cpy     $A5
+        bcs     @8
+        lda     $C4             ; copy byte ...
         sta     ($93),y         ; ...to target memory
-@6:     iny
+@8:     iny
         cpy     #$FE
-        bcs     @7
-        dex
-        bpl     @5
-        bmi     @9
-@7:     jmp     @back
+        bcs     @b
+@9:
+        cpy     $A5
+        bcs     @10
+        lda     $C3             ; copy byte ...
+        sta     ($93),y         ; ...to target memory
+@10:    iny
+        cpy     #$FE
+        bcs     @b
+@11:
+        cpy     $A5
+        bcs     @12
+        lda     $C2             ; copy byte ...
+        sta     ($93),y         ; ...to target memory
+@12:     iny
+        cpy     #$FE
+        bcs     @b
+@13:
+        cpy     $A5
+        bcs     @14
+        lda     $C1             ; copy byte ...
+        sta     ($93),y         ; ...to target memory
+@14:     iny
+        cpy     #$FE
+        bcs     @b
+        bcc     @6
+@b:     jmp     @back
 
 ; ----------------------------------------------------------------
 
@@ -624,8 +647,8 @@ L9BFE:
         bcc     @14
         ldy     #0
 @next:
-        dec     $36
         sty     $1800     ; Y=0 also when entering via branch -> DATA OUT low, CLOCK OUT low
+        dec     $36
         bne     @transmit_buffer
         dec     $C3       ; Did we read all blocks?
         bne     @9
@@ -762,12 +785,9 @@ L9BFE:
         nop
         bne     @17
 .assert >* = >@transmit_tuple, error, "Page boundary!"
-        nop
-        nop
-        nop
-        nop
-        sty     $1800
-        ldy     #16
+        ; Because we can convert GCR to kwintents much faster in 2MHz mode, we need a little delay,
+        ; otherwise the C64 write the transmitted bytes to destination memory fast enough
+        ldy     #11
 @18:
         dey
         bne     @18
@@ -808,6 +828,9 @@ drivecode_load_initialize:
         lda     #$24     ; 1541 has a 0 there, that's quickly fixed
         sta     $02AC
 @3:
+        lda     #$37
+        cmp     $E5C6    ; Skip 2MHz check for 1541. Not needed on real hardware, but on the 1541
+        bne     @4       ; Ultimate you would falsely detect 2MHz. Don't check too naive :)
         lda     $180F
         and     #$20     ; Check for 2MHz mode
         beq     @4
@@ -1083,15 +1106,16 @@ LA648:
         ldy     #>__drive_code_save_LOAD__
         ldx     #>__drive_code_save_RUN__
         jsr     transfer_code_to_drive
-        lda     $0330
-        cmp     #<_new_load
-        beq     LA66A ; speeder enabled
+        lda     $02A6
+        beq     @ntsc
+        ; PAL
         lda     #<L059C
         jsr     IECOUT
         lda     #>L059C
         bne     LA671
 
-LA66A:  lda     #<L05AF
+@ntsc:  ;NTSC
+        lda     #<L05AF
         jsr     IECOUT
         lda     #>L05AF
 LA671:  jsr     IECOUT
