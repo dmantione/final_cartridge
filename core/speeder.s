@@ -634,7 +634,7 @@ L9BFE:
         sta     $53
         lda     #sector_not_needed   ; We won't need this sector anymore
         sta     sector_order,x
-        jsr     $F6D0
+        jsr     $F6D0    ; Encode 4 bytes to 5 GCR bytes
         lda     #$42
         sta     $36
 
@@ -682,7 +682,7 @@ L9BFE:
         iny
         bne     @16      ; Not end of regular buffer?
         iny              ; End of register buffer
-        sty     $31
+        sty     $31      ; Y=1
         ldy     #$BA     ; Continue from auxiliary buffer at $01BA
 @16:    lda     ($30),y
         asl     a
@@ -740,7 +740,7 @@ L9BFE:
         ; $55..5D contain indexes into the tables with CIA register values
         ldy     #$08      ; Signal C64 with CLOCK OUT high, DATA OUT low
         sty     $1800
-        ldx     $55,y
+        ldx     $55,y     ; Replaced by bne @transmit_tuple_2mhz in 2MHz mode
         ; Transmit bits 0-1 of the 4 bits of decoded data
 @15:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         sta     $1800
@@ -756,10 +756,6 @@ L9BFE:
 @transmit_tuple_2mhz:
         ; Transmit the 4-byte tuple to the C64
         ; $55..5D contain indexes into the tables with CIA register values
-;        ldy     #$08      ; Signal C64 with CLOCK OUT high, DATA OUT low
-        sty     $1800
-        nop
-;        nop
         ldx     $55,y
         nop
 @17:
@@ -793,7 +789,7 @@ L9BFE:
         bne     @18
         jmp     @next
 
-modpoint = @transmit_tuple+2
+modpoint = @transmit_tuple+5
 
 
 
@@ -841,7 +837,7 @@ drivecode_load_initialize:
         sta     wait_for_sync+2
         lda     #$D0
         sta     modpoint
-        lda     #$17
+        lda     #$14
         sta     modpoint+1
 @4:
         ldx     #$00     ; CLOCK OUT low, DATA OUT low
@@ -901,7 +897,7 @@ sector_order := track_links + 21
 ; ----------------------------------------------------------------
 .segment "drive_code_save"
 
-ram_code := $0150
+ram_code := $0680
 
 drive_code_save:
         lda     L0612
@@ -913,7 +909,9 @@ drive_code_save:
         txa
         adc     #6
         sta     $32
-LA510:  jsr     receive_byte
+LA510:  lda     $180F
+        pha
+        jsr     receive_byte
         beq     :+
         sta     $81
         tax
@@ -924,8 +922,7 @@ LA510:  jsr     receive_byte
         beq     LA534
 
 :       lda     $02FC
-        bne     :+
-        lda     $02FA ; XXX ORing the values together is shorter
+        ora     $02FA
         bne     :+
         lda     #$72
         jmp     $F969 ; DISK FULL
@@ -977,9 +974,8 @@ drive_code_save_timing_selfmod1:
         lda     $1800
         asl     a
         nop
-L0589:
+drive_code_save_timing_selfmod2:
         nop
-L058A:
         ora     $1800
         and     #$0F
         ora     $C0
@@ -988,26 +984,49 @@ L058A:
         sta     $1800
         lda     $C0
         rts
-L0589_end:
+drive_code_save_timing_selfmod2_end:
         nop ; filler, gets overwritten when L0589 gets copied down by 1 byte
 
+
 L059C:
+        ; PAL entry
         lda     #$EA
         sta     drive_code_save_timing_selfmod1
         sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
-        ldx     #L0589_end - L0589 - 1
-LA5A6:  lda     L0589,x
-        sta     L058A,x ; insert 3 cycles into code
+        ldx     #drive_code_save_timing_selfmod2_end - drive_code_save_timing_selfmod2 - 1
+LA5A6:  lda     drive_code_save_timing_selfmod2,x
+        sta     drive_code_save_timing_selfmod2+1,x ; insert 3 cycles into code
         dex
         bpl     LA5A6
 L05AF:
-        ldx     #$64
-LA5B1:  lda     $F575 - 1,x; copy "write data block to disk" to RAM
+        ; NTSC entry
+        ; 9775 + $74
+        lda     #$37
+        cmp     $E5C6    ; Skip 2MHz check for 1541. Not needed on real hardware, but on the 1541
+        bne     @1541    ; Ultimate you would falsely detect 2MHz. Don't check too naive :)
+        lda     $180F
+        and     #$20     ; Check for 2MHz mode
+        beq     @1541
+        ; 1571 in 2MHz mode
+        ldx     #$74
+@1:
+        lda     $9775 - 1,x; copy "write data block to disk" to RAM
         sta     ram_code - 1,x
         dex
-        bne     LA5B1
+        bne     @1
+        lda     #$60
+        sta     ram_code + $74 ; add RTS at the end, just after GCR decoding
+        jmp     @3
+@1541:
+        ldx     #$64
+@2:
+        lda     $F575 - 1,x; copy "write data block to disk" to RAM
+        sta     ram_code - 1,x
+        dex
+        bne     @2
         lda     #$60
         sta     ram_code + $64 ; add RTS at the end, just after GCR decoding
+@3:
         inx
         stx     $82
         stx     $83
@@ -1038,17 +1057,11 @@ LA5E5:  lda     $02
 LA5F4:  ldx     L0612 + 1
         jmp     $E60A
 
-LA5FA:  ldx     #L0608_end - L0608
-LA5FC:  lda     L0608 - 1,x
-        sta     ram_code - 1,x
-        dex
-        bne     LA5FC
-        jmp     ram_code
-
-L0608:
         jsr     $DBA5 ; write directory entry
         jsr     $EEF4 ; write BAM
         jmp     $D227 ; close channel
+
+L0608:
 L0608_end:
 
 L0611:
@@ -1098,7 +1111,7 @@ LA647:  rts
 LA648:
         jsr     LA6C1
         bne     LA647
-        lda     #9
+        lda     #11
         sta     $93
 .import __drive_code_save_LOAD__
 .import __drive_code_save_RUN__
