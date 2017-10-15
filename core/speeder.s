@@ -909,8 +909,7 @@ drive_code_save:
         txa
         adc     #6
         sta     $32
-LA510:  lda     $180F
-        pha
+LA510:
         jsr     receive_byte
         beq     :+
         sta     $81
@@ -956,49 +955,127 @@ receive_byte:
         lda     #$00
         sta     $1800
         lda     #$04
-:       bit     $1800
-        bne     :-
-        sta     $C0
+@1:     bit     $1800
+        bne     @1
+        sta     $C0     ; Replaced by beq @receive_byte_2mhz in 2MHz mode
+        nop
 drive_code_save_timing_selfmod1:
         sta     $C0
         lda     $1800
         asl     a
         nop
         nop
+        bit     $C0
         ora     $1800
         asl     a
         asl     a
         asl     a
         asl     a
-        sta     a:$C0 ; 16 bit address for timing!
+drive_code_save_timing_selfmod2:
+        sta     $C0
+;        sta     $C0 ; 16 bit address for timing!
+;       nop
         lda     $1800
         asl     a
+        bit     $C0
+;drive_code_save_timing_selfmod2:
+;        nop
+;        nop
+        ora     $1800
+        pha
+        lda     #$02
+        sta     $1800
+        pla
+        and     #$0F
+        ora     $C0
+        sta     $C0
+;        lda     $C0
+        rts
+drive_code_save_timing_selfmod2_end:
+        nop ; filler, gets overwritten when L0589 gets copied down by 1 byte
+
+
+drive_code_save_timing_selfmod5 = drive_code_save_timing_selfmod1-2
+
+
+receive_byte_2mhz:
+        sta     $C0
+drive_code_save_timing_selfmod3:
+        sta     $C0
         nop
-drive_code_save_timing_selfmod2:
+        nop
+        nop
+        nop
+        lda     $1800
+        nop
+        nop
+        asl     a
+        nop
+        nop
+        nop
+        nop
         nop
         ora     $1800
+        nop
+        nop
+        asl     a
+        nop
+        asl     a
+        nop
+        asl     a
+        nop
+        asl     a
+        nop
+        sta     a:$C0 ; 16 bit address for timing!
+        nop
+        nop
+        lda     $1800
+        nop
+        nop
+        asl     a
+        nop
+        nop
+        nop
+drive_code_save_timing_selfmod4:
+        nop
+        nop
+        ora     $1800
+        nop
+        nop
         and     #$0F
+        nop
+        nop
+        nop
         ora     $C0
         sta     $C0
         lda     #$02
         sta     $1800
         lda     $C0
         rts
-drive_code_save_timing_selfmod2_end:
+drive_code_save_timing_selfmod4_end:
         nop ; filler, gets overwritten when L0589 gets copied down by 1 byte
 
 
 L059C:
         ; PAL entry
         lda     #$EA
-        sta     drive_code_save_timing_selfmod1
-        sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
-        ldx     #drive_code_save_timing_selfmod2_end - drive_code_save_timing_selfmod2 - 1
-LA5A6:  lda     drive_code_save_timing_selfmod2,x
-        sta     drive_code_save_timing_selfmod2+1,x ; insert 3 cycles into code
-        dex
-        bpl     LA5A6
+;        sta     drive_code_save_timing_selfmod1
+;        sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
+        sta     drive_code_save_timing_selfmod3
+        sta     drive_code_save_timing_selfmod3 + 1 ; insert 1 cycle into code
+;        lda     #$85
+;        sta     drive_code_save_timing_selfmod2
+;        lda     #$EA
+;        sta     drive_code_save_timing_selfmod2+2
+;        ldx     #drive_code_save_timing_selfmod2_end - drive_code_save_timing_selfmod2 - 1
+;LA5A6:  lda     drive_code_save_timing_selfmod2,x
+;        sta     drive_code_save_timing_selfmod2+1,x ; insert 3 cycles into code
+;        dex
+;        bpl     LA5A6
+;        lda     #$EA
+;        sta     drive_code_save_timing_selfmod2
 L05AF:
+        ldx     #$65
         ; NTSC entry
         ; 9775 + $74
         lda     #$37
@@ -1008,31 +1085,29 @@ L05AF:
         and     #$20     ; Check for 2MHz mode
         beq     @1541
         ; 1571 in 2MHz mode
-        ldx     #$74
+        lda     #$F0
+        sta     drive_code_save_timing_selfmod5
+        lda     #$2A
+        sta     drive_code_save_timing_selfmod5 + 1
+        lda     #$73
+        ldx     #$75
+        sta     @mod1571 + 1
+        lda     #$97
+        sta     @mod1571 + 2
+@1541:
+        lda     #$60     ; Opcode for RTS
 @1:
-        lda     $9775 - 1,x; copy "write data block to disk" to RAM
         sta     ram_code - 1,x
+@mod1571:
+        lda     $F575 - 2,x; copy "write data block to disk" to RAM
         dex
         bne     @1
-        lda     #$60
-        sta     ram_code + $74 ; add RTS at the end, just after GCR decoding
-        jmp     @3
-@1541:
-        ldx     #$64
-@2:
-        lda     $F575 - 1,x; copy "write data block to disk" to RAM
-        sta     ram_code - 1,x
-        dex
-        bne     @2
-        lda     #$60
-        sta     ram_code + $64 ; add RTS at the end, just after GCR decoding
-@3:
         inx
-        stx     $82
+        stx     $82      ; X=1
         stx     $83
-        jsr     $DF95
+        jsr     $DF95    ; Get active buffer into A
         inx
-        stx     $1800
+        stx     $1800    ; X=2
 LA5CB:  inx
         bne     LA5CB
         sta     L0612 + 1
@@ -1057,6 +1132,7 @@ LA5E5:  lda     $02
 LA5F4:  ldx     L0612 + 1
         jmp     $E60A
 
+LA5FA:
         jsr     $DBA5 ; write directory entry
         jsr     $EEF4 ; write BAM
         jmp     $D227 ; close channel
@@ -1111,7 +1187,7 @@ LA647:  rts
 LA648:
         jsr     LA6C1
         bne     LA647
-        lda     #11
+        lda     #12
         sta     $93
 .import __drive_code_save_LOAD__
 .import __drive_code_save_RUN__
