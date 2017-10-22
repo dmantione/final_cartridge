@@ -958,30 +958,26 @@ receive_byte:
 @1:     bit     $1800
         bne     @1
         sta     $C0     ; Replaced by beq @receive_byte_2mhz in 2MHz mode
-        nop
 drive_code_save_timing_selfmod1:
         sta     $C0
         lda     $1800
         asl     a
         nop
         nop
-        bit     $C0
         ora     $1800
         asl     a
         asl     a
         asl     a
         asl     a
-drive_code_save_timing_selfmod2:
-        sta     $C0
-;        sta     $C0 ; 16 bit address for timing!
-;       nop
+        sta     a:$C0  ; 16 bit address for timing!
         lda     $1800
         asl     a
-        bit     $C0
 ;drive_code_save_timing_selfmod2:
-;        nop
-;        nop
+        nop
+drive_code_save_timing_selfmod2:
+        nop
         ora     $1800
+drive_code_save_receive_end:
         pha
         lda     #$02
         sta     $1800
@@ -1002,22 +998,23 @@ receive_byte_2mhz:
         sta     $C0
 drive_code_save_timing_selfmod3:
         sta     $C0
-        nop
-        nop
-        nop
+        sta     $C0
+        sta     $C0
         nop
         lda     $1800
         nop
         nop
         asl     a
         nop
+
         nop
         nop
         nop
-        nop
+        bit     $C0
         ora     $1800
         nop
         nop
+
         asl     a
         nop
         asl     a
@@ -1039,41 +1036,49 @@ drive_code_save_timing_selfmod3:
 drive_code_save_timing_selfmod4:
         nop
         nop
+        nop
         ora     $1800
-        nop
-        nop
-        and     #$0F
-        nop
-        nop
-        nop
-        ora     $C0
-        sta     $C0
-        lda     #$02
-        sta     $1800
-        lda     $C0
-        rts
+        jmp     drive_code_save_receive_end
+;        and     #$0F
+;        ora     $C0
+;        sta     $C0
+;        lda     #$02
+;        sta     $1800
+;        lda     $C0
+;        rts
 drive_code_save_timing_selfmod4_end:
         nop ; filler, gets overwritten when L0589 gets copied down by 1 byte
+;        nop
 
 
 L059C:
         ; PAL entry
-        lda     #$EA
-;        sta     drive_code_save_timing_selfmod1
-;        sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
-        sta     drive_code_save_timing_selfmod3
-        sta     drive_code_save_timing_selfmod3 + 1 ; insert 1 cycle into code
 ;        lda     #$85
 ;        sta     drive_code_save_timing_selfmod2
 ;        lda     #$EA
 ;        sta     drive_code_save_timing_selfmod2+2
-;        ldx     #drive_code_save_timing_selfmod2_end - drive_code_save_timing_selfmod2 - 1
-;LA5A6:  lda     drive_code_save_timing_selfmod2,x
-;        sta     drive_code_save_timing_selfmod2+1,x ; insert 3 cycles into code
-;        dex
-;        bpl     LA5A6
+        ldx     #drive_code_save_timing_selfmod2_end - drive_code_save_timing_selfmod2 - 1
+LA5A6:  lda     drive_code_save_timing_selfmod2,x
+        sta     drive_code_save_timing_selfmod2+1,x ; insert 2 cycles into code
+        dex
+        bpl     LA5A6
+
+        ldx     #drive_code_save_timing_selfmod4_end - drive_code_save_timing_selfmod4 - 1
+LA5A62:  lda     drive_code_save_timing_selfmod4,x
+        sta     drive_code_save_timing_selfmod4+1,x ; insert 2 cycles into code
+        dex
+        bpl     LA5A62
+
+        lda     #$EA
+        sta     drive_code_save_timing_selfmod2
 ;        lda     #$EA
-;        sta     drive_code_save_timing_selfmod2
+        sta     drive_code_save_timing_selfmod1
+        sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
+        sta     drive_code_save_timing_selfmod3
+        sta     drive_code_save_timing_selfmod3 + 1 ; insert 1 cycle into code
+        sta     drive_code_save_timing_selfmod3 + 2 ; insert 1 cycle into code
+        sta     drive_code_save_timing_selfmod3 + 3 ; insert 1 cycle into code
+
 L05AF:
         ldx     #$65
         ; NTSC entry
@@ -1212,7 +1217,8 @@ LA671:  jsr     IECOUT
         sei
         lda     $D015
         sta     $93
-        sty     $D015
+        lda     #0
+        sta     $D015
         lda     $DD00
         and     #$07
         sta     $A4
@@ -1223,7 +1229,7 @@ LA671:  jsr     IECOUT
 
 LA691:
         ldy     #0
-        .byte   $2C
+        .byte   $2C    ; opcode for bit $ABCD
 LA694:
         ldy     #8
         bit     $9D
