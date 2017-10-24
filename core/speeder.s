@@ -781,9 +781,9 @@ L9BFE:
         nop
         bne     @17
 .assert >* = >@transmit_tuple, error, "Page boundary!"
-        ; Because we can convert GCR to kwintents much faster in 2MHz mode, we need a little delay,
-        ; otherwise the C64 write the transmitted bytes to destination memory fast enough
-        ldy     #11
+        ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
+        ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
+        ldy     #12
 @18:
         dey
         bne     @18
@@ -1113,8 +1113,8 @@ L05AF:
         jsr     $DF95    ; Get active buffer into A
         inx
         stx     $1800    ; X=2
-LA5CB:  inx
-        bne     LA5CB
+@2:     inx
+        bne     @2
         sta     L0612 + 1
         asl     a
         sta     L0612
