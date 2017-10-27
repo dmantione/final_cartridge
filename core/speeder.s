@@ -181,7 +181,7 @@ new_load2:
         jsr     print_searching
         lda     #$60
         sta     SA
-        jsr     LA71B
+        jsr     open_file
         lda     FA
         jsr     $ED09 ; TALK
         lda     SA
@@ -249,14 +249,15 @@ new_save2:
         bcc     L9A6A ; not a drive
         cmp     #10
         bcs     L9A6A ; not a drive (XXX why only support drives 8 and 9?)
-        ldy     $B7
+        ldy     $B7   ; length of filename
         beq     L9A6A
         lda     #$61
         sta     SA
-        jsr     LA71B
-        jsr     LA77E
-        jsr     LA648
-        bne     L9A67
+        jsr     open_file
+        jsr     print_message ; print message (unless disabled)
+        jsr     fastsave_initialize ; Sets X=0
+        bne     L9A67 ; in case drive returns error code
+        ldy     #0
         stx     ST
         stx     $A4
         jsr     $FB8E ; copy I/O start address to buffer address
@@ -264,27 +265,28 @@ new_save2:
         lda     $AC
         sbc     #2
         sta     $AC
-        bcs     L9AA3
+        bcs     @2
         dec     $AD
-L9AA3:  jsr     L9AD0
+@2:     jsr     L9AD0
         lda     $C1
-        jsr     L9AC7
+        jsr     send_byte_and_increment
         lda     $C2
-        jsr     L9AC7
-L9AB0:  lda     #$35
+        jsr     send_byte_and_increment
+@1:     lda     #$35
         jsr     _load_ac_indy
-        jsr     L9AC7
-        bne     L9AB0
+        jsr     send_byte_and_increment
+        bne     @1
         lda     $A4
-        bmi     L9AC4
+        bmi     @done
         jsr     L9AD0
-        jmp     L9AB0
+        jmp     @1
 
-L9AC4:  cli
+@done:  cli
         clc
         rts
 
-L9AC7:  jsr     send_byte
+send_byte_and_increment:
+        jsr     send_byte
         jsr     $FCDB ; inc $AC/$AD
         dec     $93
         rts
@@ -296,17 +298,17 @@ L9AD0:  sec
         sta     $93
         lda     $AF
         sbc     $AD
-        bne     L9AE8
+        bne     @1
         cpx     #$FF
-        beq     L9AE8
+        beq     @1
         inx
         txa
         dec     $A4
-        bne     L9AED
-L9AE8:  lda     #$FE
+        bne     @2
+@1:     lda     #$FE
         sta     $93
         tya
-L9AED:  jmp     send_byte
+@2:     jmp     send_byte
 
 
 
@@ -1092,7 +1094,8 @@ L05AF:
         ; 1571 in 2MHz mode
         lda     #$F0
         sta     drive_code_save_timing_selfmod5
-        lda     #$2A
+        ;lda     #$2A
+        lda     #receive_byte_2mhz - drive_code_save_timing_selfmod5 - 2
         sta     drive_code_save_timing_selfmod5 + 1
         lda     #$73
         ldx     #$75
@@ -1128,11 +1131,11 @@ LA5DB:  lda     $06,x
         sta     $02
 LA5E5:  lda     $02
         bmi     LA5E5
-        cmp     #2
-        bcc     LA5DB
+        cmp     #2       ; Smaller than 2 means no error
+        bcc     LA5DB    ; Next sector if no error
         cmp     #$72
         bne     LA5F4
-        jmp     $C1C8 ; set error message
+        jmp     $C1C8    ; set error message
 
 LA5F4:  ldx     L0612 + 1
         jmp     $E60A
@@ -1161,7 +1164,8 @@ LA612:  pha
         pla
         jmp     SECOND
 
-LA61C:  lda     #$6F
+open_secondary_channel:
+        lda     #$6F ; $60 + $0F means open secondary channel 15
         pha
         lda     FA
         jsr     TALK
@@ -1187,11 +1191,11 @@ LA63E:  clc
         bcc     LA645
         adc     #$06
 LA645:  adc     #$3A
-LA647:  rts
+rts_01: rts
 
-LA648:
-        jsr     LA6C1
-        bne     LA647
+fastsave_initialize:
+        jsr     check_for_error
+        bne     rts_01
         lda     #12
         sta     $93
 .import __drive_code_save_LOAD__
@@ -1225,7 +1229,7 @@ LA671:  jsr     IECOUT
         ora     #$10
         sta     $A5
         sta     $DD00
-        jmp     LA9F6
+        jmp     wait_for_next_frame  ; Sets X=0
 
 LA691:
         ldy     #0
@@ -1251,7 +1255,8 @@ LA6A8:  lda     s_from,y
 s_from: .byte   " FROM $", 0
         .byte   " TO $", 0
 
-LA6C1:  jsr     LA61C
+check_for_error:
+        jsr     open_secondary_channel
         jsr     IECIN ; first character, ASCII error code
         tay
 LA6C8:  jsr     IECIN
@@ -1300,25 +1305,25 @@ LA707:  pha
         pla
         jmp     IECOUT
 
-LA71B:
+open_file:
         ldy     #0
         sty     ST
         lda     FA
         jsr     $ED0C ; LISTEN
         lda     SA
-        ora     #$F0
+        ora     #$F0  ; $F0 means OPEN
         jsr     $EDB9 ; SECLST
         lda     ST
-        bpl     LA734
+        bpl     @1
         pla
         pla
         jmp     $F707 ; DEVICE NOT PRESENT ERROR
 
-LA734:  jsr     _load_FNADR_indy
+@1:     jsr     _load_FNADR_indy
         jsr     $EDDD ; KERNAL IECOUT
         iny
         cpy     $B7
-        bne     LA734
+        bne     @1
         jmp     $F654 ; UNLISTEN
 
 LA742:  jsr     $F82E ; cassette sense
@@ -1356,7 +1361,8 @@ LA773:  lda     ($B2),y
         bne     LA773
         rts
 
-LA77E:  jsr     LA7B1
+print_message:
+        jsr     LA7B1
         bmi     LA796
         rts
 
@@ -1386,8 +1392,8 @@ print_loading:
         ldy     #$59 ; "VERIFYING"
         .byte   $2C
 LA7B1:  ldy     #$51 ; "SAVING"
-LA7B3:  bit     $9D
-        bpl     LA7C4
+LA7B3:  bit     $9D  ; Display messages?
+        bpl     LA7C4 ; return if no
 print_kernal_string:
         lda     $F0BD,y ; KERNAL strings
         php
@@ -1417,7 +1423,7 @@ LA7C4:  clc
         bcc     :+
         lda     #0
         jmp     _disable_fc3rom
-:       jsr     LA77E
+:       jsr     print_message  ; print mesaage on screen (unless disabled)
         jsr     turn_screen_off
         jsr     LA999
         lda     SA
@@ -1693,11 +1699,11 @@ turn_screen_off:
         lda     $D011
         and     #$EF
         sta     $D011 ; turn screen off
-LA9F6:  dex
-        bne     LA9F6 ; delay (XXX waiting for $D012 == 0 would be cleaner)
-        dey
-        bne     LA9F6
+wait_for_next_frame:
+        ldx     $D012 ; Wait until next frame starts
+        bne     wait_for_next_frame
         sei
+        ; Note: Calling routines may assume that X=0 after call.
         rts
 
 ; XXX junk
