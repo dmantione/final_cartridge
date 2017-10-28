@@ -1694,7 +1694,3 @@ wait_for_next_frame:
         sei
         ; Note: Calling routines may assume that X=0 after call.
         rts
-
-; XXX junk
-;        sei
-;        rts
