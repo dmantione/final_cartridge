@@ -71,9 +71,9 @@ receive_4_bytes:
         ; PAL
 @pal:   bit     $DD00  ; Wait until clock in low
         bvs     @pal
-        ldy     #3
+        ldx     #3
         nop
-        ldx     $01
+        bit     $01    ; Consume 3 cycles
 @1:     lda     $DD00
         lsr     a
         lsr     a
@@ -90,19 +90,19 @@ receive_4_bytes:
         nop
         nop
         ora     $DD00
-        sta     $C1,y
-        dey
+        sta     a:$00C1,x ; absolute adressing for timing
+        dex
         bpl     @1
 .assert >* = >@pal, error, "Page boundary!"
         rts
 
         .byte 0,1,2,3,4,5,6,7
 @ntsc:  ; NTSC
-        bit     $DD00
+        bit     $DD00  ; Wait until clock in low
         bvs     @ntsc
-        ldy     #3
+        ldx     #3
         nop
-        ldx     $01
+        bit     $01    ; Consume 3 cycles
 @2:     lda     $DD00
         lsr     a
         lsr     a
@@ -120,8 +120,8 @@ receive_4_bytes:
         nop
         nop
         ora     $DD00
-        sta     $C1,y
-        dey
+        sta     a:$00C1,x ; absolute adressing for timing
+        dex
         bpl     @2
 .assert >* = >@ntsc, error, "Page boundary!"
         rts
@@ -438,15 +438,7 @@ L9AF0:  jsr     UNTALK
         sta     ($93),y
         iny
 @6:
-;     tya
-;        pha
-        sty     $A6
-        jsr     receive_4_bytes ; in $C1..C4
-        ldy     $A6
-;        pla
-;        tay
-;        ldx     #3
-@7:
+        jsr     receive_4_bytes ; in $C1..C4  (A,X modified, Y untouched)
         cpy     $A5
         bcs     @8
         lda     $C4             ; copy byte ...
@@ -462,20 +454,18 @@ L9AF0:  jsr     UNTALK
 @10:    iny
 ;        cpy     #$FE           ; Never happens because block size is constant
 ;        bcs     @b
-@11:
         cpy     $A5
         bcs     @12
         lda     $C2             ; copy byte ...
         sta     ($93),y         ; ...to target memory
-@12:     iny
+@12:    iny
 ;        cpy     #$FE           ; Never happens because block size is constant
 ;        bcs     @b
-@13:
         cpy     $A5
         bcs     @14
         lda     $C1             ; copy byte ...
         sta     ($93),y         ; ...to target memory
-@14:     iny
+@14:    iny
 ;        cpy     #$FE           ; Never happens because block size is constant
 ;        bcs     @b
         bne     @6              ; always taken
