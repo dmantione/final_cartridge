@@ -890,23 +890,25 @@ sector_order := track_links + 21
 
 ram_code := $0680
 
+buffer_to_use_times2 = drive_code_save + 1
+
 drive_code_save:
-        lda     L0612
+        lda     #0    ; This is replaced at runtime by the buffer number * 2
         tax
-        lsr     a
-        adc     #3
+        lsr     a     ; Divide by 2 to get actual buffer number
+        adc     #3    ; Add 3 to get high byte of memory location of buffer
         sta     $95
         sta     $31
         txa
         adc     #6
         sta     $32
 LA510:
-        jsr     receive_byte
-        beq     :+
+        jsr     receive_byte  ; Receive number of bytes that C64 has to send
+        beq     :+            ; 0 means 256
         sta     $81
         tax
         inx
-        stx     L0611
+        stx     end_position
         lda     #0
         sta     $80
         beq     LA534
@@ -929,11 +931,12 @@ LA534:  ldy     #0
 LA542:  jsr     receive_byte
         sta     ($30),y
         iny
-        cpy     L0611
+end_position = * + 1
+        cpy     #0    ; #0 is modified to position where receive should end
         bne     LA542
         jsr     ram_code
         inc     $B6
-        ldx     L0612
+        ldx     buffer_to_use_times2
         lda     $81
         sta     $07,x
         lda     $80
@@ -1100,46 +1103,41 @@ L05AF:
         dex
         bne     @1
         inx
-        stx     $82      ; X=1
+        stx     $82      ; X=1, channel number
         stx     $83
-        jsr     $DF95    ; Get active buffer into A
+        jsr     $DF95    ; Get active buffer into A (preserves X,Y)
         inx
         stx     $1800    ; X=2
 @2:     inx
         bne     @2
-        sta     L0612 + 1
+        sta     buffer_to_use
         asl     a
-        sta     L0612
+        sta     buffer_to_use_times2
         tax
         lda     #$40
         sta     $02F9
-LA5DB:  lda     $06,x
-        beq     LA5FA
+@next:  lda     $06,x
+        beq     @done
         sta     $0A
         lda     #$E0
         sta     $02
-LA5E5:  lda     $02
-        bmi     LA5E5
+@wait:  lda     $02
+        bmi     @wait
         cmp     #2       ; Smaller than 2 means no error
-        bcc     LA5DB    ; Next sector if no error
-        cmp     #$72
-        bne     LA5F4
+        bcc     @next    ; Next sector if no error
+        cmp     #$72     ; Disk full?
+        bne     @error
         jmp     $C1C8    ; set error message
 
-LA5F4:  ldx     L0612 + 1
-        jmp     $E60A
-
-LA5FA:
+@error: ldx     #0    ; #0 is replaced by buffer nummer
+        jmp     $E60A ; Error handling - A: error code, X: buffer number
+@done:
         jsr     $DBA5 ; write directory entry
         jsr     $EEF4 ; write BAM
         jmp     $D227 ; close channel
 
-L0608:
-L0608_end:
+buffer_to_use = @error + 1
 
-L0611:
-        .byte   0
-L0612:
 
 
 ; ----------------------------------------------------------------
