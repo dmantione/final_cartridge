@@ -396,10 +396,10 @@ L9AF0:  jsr     UNTALK
         bvc     @1
         lda     #0    ; Clear $DD00 to simply receive algorithm
         sta     $DD00
-        jsr     receive_4_bytes
-        lda     #$FE
+        lda     #$FE  ; Default is 254 bytes of block will be written to RAM
         sta     $A5
-        lda     $C3
+        jsr     receive_4_bytes
+        lda     $C3   ; Contains block number (determines memory location to write to)
         clc
         adc     $A3
         tax
@@ -416,7 +416,7 @@ L9AF0:  jsr     UNTALK
         dex
 @3:     stx     $94
         ror     $C3
-        ldx     $C2
+        ldx     $C2  ; Contains number of bytes in block to use (0 if all)
         beq     @4
         dex
         stx     $A5
@@ -433,7 +433,7 @@ L9AF0:  jsr     UNTALK
         jsr     receive_4_bytes ; in $C1..$C4
         ldy     #2
         ldx     #2
-        bne     @9
+        bne     @9              ; always taken
 @5:     lda     $C1
         sta     ($93),y
         iny
@@ -452,33 +452,33 @@ L9AF0:  jsr     UNTALK
         lda     $C4             ; copy byte ...
         sta     ($93),y         ; ...to target memory
 @8:     iny
-        cpy     #$FE
-        bcs     @b
+        cpy     #$FE            ; End of block?
+        bcs     @b              ; If yes? Back to next block
 @9:
         cpy     $A5
         bcs     @10
         lda     $C3             ; copy byte ...
         sta     ($93),y         ; ...to target memory
 @10:    iny
-        cpy     #$FE
-        bcs     @b
+;        cpy     #$FE           ; Never happens because block size is constant
+;        bcs     @b
 @11:
         cpy     $A5
         bcs     @12
         lda     $C2             ; copy byte ...
         sta     ($93),y         ; ...to target memory
 @12:     iny
-        cpy     #$FE
-        bcs     @b
+;        cpy     #$FE           ; Never happens because block size is constant
+;        bcs     @b
 @13:
         cpy     $A5
         bcs     @14
         lda     $C1             ; copy byte ...
         sta     ($93),y         ; ...to target memory
 @14:     iny
-        cpy     #$FE
-        bcs     @b
-        bcc     @6
+;        cpy     #$FE           ; Never happens because block size is constant
+;        bcs     @b
+        bne     @6              ; always taken
 @b:     jmp     @back
 
 ; ----------------------------------------------------------------
@@ -785,7 +785,7 @@ L9BFE:
 .assert >* = >@transmit_tuple, error, "Page boundary!"
         ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
         ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
-        ldy     #12
+        ldy     #11
 @18:
         dey
         bne     @18
