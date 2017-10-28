@@ -90,7 +90,7 @@ receive_4_bytes:
         nop
         nop
         ora     $DD00
-        sta     a:$00C1,x ; absolute adressing for timing
+        sta     a:$00C1,x ; 16 bit adress for timing
         dex
         bpl     @1
 .assert >* = >@pal, error, "Page boundary!"
@@ -120,7 +120,7 @@ receive_4_bytes:
         nop
         nop
         ora     $DD00
-        sta     a:$00C1,x ; absolute adressing for timing
+        sta     a:$00C1,x ; 16 bit adress for timing
         dex
         bpl     @2
 .assert >* = >@ntsc, error, "Page boundary!"
@@ -400,7 +400,7 @@ L9AF0:  jsr     UNTALK
         sta     $A5
         jsr     receive_4_bytes
         lda     $C3   ; Contains block number (determines memory location to write to)
-        clc
+;        clc          ; Carry already cleared by receive_4_bytes
         adc     $A3
         tax
         asl     $C3
@@ -432,7 +432,6 @@ L9AF0:  jsr     UNTALK
         bne     @5
         jsr     receive_4_bytes ; in $C1..$C4
         ldy     #2
-        ldx     #2
         bne     @9              ; always taken
 @5:     lda     $C1
         sta     ($93),y
@@ -775,7 +774,7 @@ L9BFE:
 .assert >* = >@transmit_tuple, error, "Page boundary!"
         ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
         ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
-        ldy     #11
+        ldy     #10
 @18:
         dey
         bne     @18
