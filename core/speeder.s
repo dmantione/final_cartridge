@@ -913,8 +913,8 @@ LA510:
         sta     $80
         beq     LA534
 
-:       lda     $02FC
-        ora     $02FA
+:       lda     $02FC         ; Nr. of free blocks (high)
+        ora     $02FA         ; Nr. or free blocks (low)
         bne     :+
         lda     #$72
         jmp     $F969 ; DISK FULL
@@ -1063,6 +1063,8 @@ LA5A62:  lda     drive_code_save_timing_selfmod4,x
         dex
         bpl     LA5A62
 
+;        ldx     #$02
+;        stx     $1800
         lda     #$EA
         sta     drive_code_save_timing_selfmod2
 ;        lda     #$EA
@@ -1119,7 +1121,7 @@ L05AF:
 @next:  lda     $06,x
         beq     @done
         sta     $0A
-        lda     #$E0
+        lda     #$E0     ; $E0 = read sector header and execute buffer
         sta     $02
 @wait:  lda     $02
         bmi     @wait
@@ -1152,11 +1154,9 @@ LA612:  pha
         jmp     SECOND
 
 open_secondary_channel:
-        lda     #$6F ; $60 + $0F means open secondary channel 15
-        pha
         lda     FA
         jsr     TALK
-        pla
+        lda     #$6F ; $60 + $0F means open secondary channel 15
         jmp     TKSA
 
 LA628:  jsr     LA632
@@ -1197,7 +1197,7 @@ fastsave_initialize:
         lda     #<L059C
         jsr     IECOUT
         lda     #>L059C
-        bne     LA671
+        bne     LA671  ; Always taken
 
 @ntsc:  ;NTSC
         lda     #<L05AF
@@ -1206,9 +1206,9 @@ fastsave_initialize:
 LA671:  jsr     IECOUT
         jsr     UNLSTN
         sei
-        lda     $D015
+        lda     $D015  ; Save sprite enable reg
         sta     $93
-        lda     #0
+        lda     #0     ; Hide sprites
         sta     $D015
         lda     $DD00
         and     #$07
@@ -1687,8 +1687,14 @@ turn_screen_off:
         and     #$EF
         sta     $D011 ; turn screen off
 wait_for_next_frame:
-        ldx     $D012 ; Wait until next frame starts
+        dex
+        bne     wait_for_next_frame ; delay (XXX waiting for $D012 == 0 would be cleaner)
+        dey
         bne     wait_for_next_frame
         sei
-        ; Note: Calling routines may assume that X=0 after call.
         rts
+;        ldx     $D012 ; Wait until next frame starts
+;        bne     wait_for_next_frame
+;        sei
+        ; Note: Calling routines may assume that X=0 after call.
+;        rts
