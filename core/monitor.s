@@ -866,10 +866,11 @@ LAFC2:  asl     tmp8
         dex
         bne     LAFBE
 .ifdef CPU_65C02
+        ; add numeric suffix to RMB/SMB/BBR/BBS
         lda     tmp_opcode
-        and     #$0f
-        cmp     #$0f
-        bne :+
+        and     #$07
+        cmp     #$07
+        bne     :+
         lda     tmp_opcode
         lsr
         lsr
