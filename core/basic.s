@@ -33,6 +33,7 @@
 
 .include "kernal.i"
 .include "persistent.i"
+.include "fc3ioreg.i"
 
 ; from monitor
 .import monitor
@@ -174,6 +175,8 @@ new_mainloop:
         ldx     #$FF
         stx     $3A
         bcc     L822B
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta    fcio_reg
         jsr     new_tokenize
         jmp     _new_execute
 
@@ -191,9 +194,7 @@ L8234:  bit     $02A9
         adc     auto_line_number_increment + 1
         sta     auto_current_line_number + 1
         jsr     L84ED
-L824D:  nop
-        nop
-        nop ; used to be "jsr new_tokenize" in 1988-05
+L824D:
         jmp     WA49F
 
 ; this is 99% identical with the code in BASIC ROM at $A57C
@@ -253,7 +254,7 @@ new_tokenize:
         cmp     #$80
         bne     @char_nomatch
         ldy     $23
-        cpy     #$A9   ; $22/$23 pointing to original token table?
+        cpy     #>basic_keywords  ; $22/$23 pointing to original token table?
         bcs     :+
         lda     $0B
         adc     #$CC   ; Final Cartridge III tokens start at $CC
@@ -266,7 +267,7 @@ new_tokenize:
         inx
         iny
         sta     $0200 - 5,y
-        lda     $0200 - 5,y
+        ora     #$00
         beq     @done
         sec
         sbc     #':'      ; Is it a ":" ?
@@ -309,7 +310,7 @@ new_tokenize:
         bne     @cmpchar
         ; End of token table
         lda     $23     ; $22/$23 pointing to original token table?
-        cmp     #$A9
+        cmp     #>(basic_keywords - 1)
         bcs     @get_next_char
         lda     #>(basic_keywords - 1)
         sta     $23
@@ -1234,6 +1235,12 @@ L89CB:  sta     bar_flag
 ; ----------------------------------------------------------------
 DESKTOP:
         bne     L89BC
+        ; Skip the ARE YOU SURE question if there is no program in memory.
+        ldy     #0
+        lda     ($2B),y  ; $2B = start of BASIC program ($0801)
+        iny
+        ora     ($2B),y
+        beq     L89EC
         ldx     #a_are_you_sure - messages
         jsr     print_msg
 L89D8:  lda     $DC00
@@ -1243,9 +1250,7 @@ L89D8:  lda     $DC00
         jsr     GETIN
         beq     L89D8
         cmp     #$59
-        beq     L89EC
-        rts
-
+        bne     L89FA
 L89EC:  jmp     go_desktop
 
 print_msg:
@@ -2436,6 +2441,8 @@ pack_data:
 
 ; ----------------------------------------------------------------
 
+
+.ifdef INTERNAL_KEYWORDS
 .segment "basic_keywords"
 
 ; This is a redundant copy of the BASIC keywords in ROM.
@@ -2520,3 +2527,6 @@ basic_keywords:
         .byte   "G", 'O' + $80
         .byte   0
 
+.else
+basic_keywords = $A09E
+.endif

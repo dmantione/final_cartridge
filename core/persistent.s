@@ -440,7 +440,7 @@ _print_banner_load_and_run: ; $DF74
 
 .global _new_tokenize
 _new_tokenize: ; $DF8D
-        jsr     _enable_fcbank0
+        jsr     _enable_fcbank0_8k
         jsr     new_tokenize
         jmp     _disable_fc3rom
 
@@ -469,6 +469,15 @@ _new_clall: ; $DFCF
 _new_clrch: ; $DFD5
         jsr     _enable_fcbank0
         jmp     new_clrch
+
+; Same as _enable_fcbank0, but in 8k cartridge mode
+.global _enable_fcbank0_8k
+_enable_fcbank0_8k: ; $DE05
+        pha
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta     fcio_reg
+        pla
+        rts
 
 
 ;$DFE0

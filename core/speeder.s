@@ -11,7 +11,7 @@
 
 L0110           := $0110
 
-.segment "speeder_a"
+.segment "speeder_a1"
 
 new_load:
 	jmp new_load2
@@ -63,6 +63,8 @@ iec_tab:
         .byte   $07,$87,$27,$A7,$47,$C7,$67,$E7
         .byte   $17,$97,$37,$B7,$57,$D7,$77,$F7
 .assert >* = >iec_tab, error, "Page boundary!"
+
+.segment "speeder_a2"
 
 receive_4_bytes:
         ; Note $DD00 is set to 0 before this routine is called
