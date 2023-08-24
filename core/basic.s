@@ -175,8 +175,6 @@ new_mainloop:
         ldx     #$FF
         stx     $3A
         bcc     L822B
-        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
-        sta    fcio_reg
         jsr     new_tokenize
         jmp     _new_execute
 
@@ -308,6 +306,8 @@ new_tokenize:
         bpl     @tokenptr_nexttoken
         lda     ($22),y
         bne     @cmpchar
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta     fcio_reg
         ; End of token table
         lda     $23     ; $22/$23 pointing to original token table?
         cmp     #>(basic_keywords - 1)
@@ -1593,10 +1593,13 @@ do_detokenize:
         stx     $22
         ldx     #>new_basic_keywords
         bne     L8C31
-        
-L8C2B:  ldx     #<basic_keywords
+ L8C2B:  
+        ldx     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        stx     fcio_reg
+        ldx     #<basic_keywords
         stx     $22
         ldx     #>basic_keywords
+        ; Need 8K cartridge mode to make token table in BASIC ROM visible
 L8C31:  stx     $23
         tax
         sty     $49
@@ -1608,11 +1611,18 @@ L8C3B:  dex
 L8C3E:  inc     $22
         bne     L8C44
         inc     $23
-L8C44:  lda     ($22),y
+L8C44:
+        lda     ($22),y
         bpl     L8C3E
-        bmi     L8C3B
-L8C4A:  iny
-L8C4B:  lda     ($22),y
+        bmi     L8C3B ; Always
+L8C4A:  ; Enough tokens skipped, write next token to display
+        iny
+L8C4B:
+        ; Need 8K cartridge mode to make token table in BASIC ROM visible
+        ; (again because _basic_bsout sets 16K mode)
+        ldx     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        stx     fcio_reg
+        lda     ($22),y
         bmi     L8C62
         jsr     _basic_bsout
         jmp     L8C4A
