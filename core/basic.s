@@ -1504,20 +1504,20 @@ DIR:    jsr     UNLSTN
 L8B95:  jsr     print_dir
         jsr     set_io_vectors
         jsr     CLRCH
-        jsr     set_io_vectors_with_hidden_rom
-        rts
+        jmp     set_io_vectors_with_hidden_rom
 
 ; ----------------------------------------------------------------
 ; common code for DLOAD/DVERIDY/DSAVE/DOS
 ; ----------------------------------------------------------------
 
 set_filename_or_colon_asterisk:
-        lda     #<(_a_colon_asterisk_end - _a_colon_asterisk); ":*" (XXX "<" required to make ca65 happy)
+;        lda     #<(_a_colon_asterisk_end - _a_colon_asterisk); ":*" (XXX "<" required to make ca65 happy)
+        lda     #1  ; * is string of length 1
         .byte   $2C
 set_filename_or_empty:
         lda     #0 ; empty filename
-        jsr     set_filename
-        rts ; XXX omit jsr and rts
+;        jsr     set_filename
+;        rts ; XXX omit jsr and rts
 
 set_filename:
         jsr     set_colon_asterisk
@@ -1525,12 +1525,16 @@ set_filename:
         ldy     #1
         jsr     SETLFS
         jsr     $E206 ; RTS if end of line
-        jsr     _get_filename
-        rts ; XXX jsr/rts -> jmp
+        jmp     _get_filename
 
 set_colon_asterisk:
-        ldx     #<_a_colon_asterisk
-        ldy     #>_a_colon_asterisk
+;        ldx     #<_a_colon_asterisk
+;        ldy     #>_a_colon_asterisk
+        ; Make DLOAD, DAPPEND etc. use * rather than :*. It should be identical, but avoids a bug in the
+        ; code that loads a backup than doesn't like it when :* is used as the file name to load the
+        ; backup. There is a * in the KERNAL at $E479.
+        ldx     #<$E479
+        ldy     #>$E479
         jsr     SETNAM
 set_drive:
         lda     #0
