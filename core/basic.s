@@ -1925,25 +1925,27 @@ print_string_and_int:
         ldy     #s_bytes - s_basic ; print "BYTES"
 print_mem_string:
         lda     s_basic,y
-        beq     L8E86
+        php
+        and     #$7F
         jsr     _basic_bsout
         iny
-        bne     print_mem_string
-L8E86:  rts
+        plp
+        bpl     print_mem_string
+        rts
 
 s_basic:
-        .byte   CR, "BASIC", 0
+        .byte   CR, "BASI",'C'+$80
 s_program:
-        .byte   "PROGRAM", 0
+        .byte   "PROGRA", 'M'+$80
 s_variables:
-        .byte   "VARIABLES", 0
+        .byte   "VARIABLE", 'S'+$80
 s_arrays:
-        .byte   "ARRAYS", 0
+        .byte   "ARRAY", 'S'+$80
 s_strings:
-        .byte   "STRINGS", 0
+        .byte   "STRING", 'S'+$80
 s_free:
-        .byte   "FREE", 0
-s_bytes: .byte   "BYTES", CR, 0
+        .byte   "FRE", 'E'+$80
+s_bytes: .byte   "BYTES", CR+$80
 
 ; ----------------------------------------------------------------
 ; "TRACE" Command - enable/disable printing each BASIC line executed
