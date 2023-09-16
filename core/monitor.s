@@ -629,7 +629,7 @@ cmd_comma:
 cmd_a:
         jsr     get_hex_word
         jsr     get_mnemonic
-        jsr     LB05C
+        jsr     get_operand
         ldx     #0
         stx     tmp6
 LAE61:  ldx     reg_s
@@ -1006,31 +1006,42 @@ sadd_a_to_zp1:
 
 
 
-LB05C:  ldx     #2
-LB05E:  jsr     BASIN
+.proc get_operand
+        lda     #0
+        sta     zp3
+        ; Buffer is from $0210 to $0227. $0210/$0211 contain mnemonic, start at $0212.
+        ; We count up til 0, so compute correct start
+        ldx     #$100 + 2 - $17
+@1:     jsr     BASIN
         cmp     #CR
-        beq     LB089
+        beq     @done
         cmp     #':'
-        beq     LB089
+        beq     @done
         cmp     #' '
-        beq     LB05E
+        beq     @1
         jsr     is_hex_character
-        bcs     LB081
+        bcs     @nohex
         jsr     get_hex_byte3
         ldy     zp1
         sty     zp1 + 1
         sta     zp1
         lda     #'0'
-        sta     tmp16,x
+        sta     tmp16 - ($100 - $17),x
         inx
-LB081:  sta     tmp16,x
+@nohex: ldy     #0
+        cmp     #'$'
+        bne     :+
+        iny
+:       sty     zp3
+        sta     tmp16 - ($100 - $17),x
         inx
-        cpx     #$17
-        bcc     LB05E
-LB089:  stx     tmp10
+        bne     @1
+@done:  stx     tmp10
         rts
+.endproc
 
-LB08D:  ldx     #0
+
+LB08D:  ldx     #$100 - $17
         stx     tmp4
         lda     tmp6 ; opcode
         jsr     decode_mnemo_2
@@ -1070,9 +1081,8 @@ decode_rel:
         jsr     LB12D
 LB0E3:  lda     tmp10
         cmp     tmp4
-        beq     LB0EE
-        jmp     LB13B
-LB0EE:  rts
+        bne     LB13B
+        rts
 
 LB0EF:  ldy     num_asm_bytes
         beq     LB123
@@ -1108,7 +1118,7 @@ LB12A:  jmp     input_loop
 LB12D:  jsr     LB130
 LB130:  stx     tmp3
         ldx     tmp4
-        cmp     tmp16,x
+        cmp     tmp16 - ($100 - $17),x
         beq     LB146
 LB13B:  inc     tmp6
         beq     LB143
@@ -1417,19 +1427,9 @@ LB306:  pla
 ; ----------------------------------------------------------------
 cmd_b:  jsr     basin_cmp_cr
         beq     @1 ; without arguments, set $70
-        cmp     #' '
-        beq     cmd_b ; skip spaces
-        cmp     #'0'
-        bcc     syn_err3
-        cmp     #':'
-        bcc     @2 ; Always
-        cmp     #'A'
-        bcc     syn_err3
-        cmp     #'G'
+        jsr     is_hex_character
         bcs     syn_err3
-        ; C=0
-        adc     #201  ; $100 + 10 - #'A'
-@2:     and     #$0f
+        jsr     hex_digit_to_nybble
         ora     #$40  ; make $40 - $4f
        .byte   $2C
 @1:     lda     #$70 ; by default, hide cartridge
@@ -1808,20 +1808,13 @@ hex_digit_to_nybble:
         adc     #'A' - '9'
 LB530:  rts
 
-.ifdef CART_FC3
-; ??? unused?
-        clc
-        rts
-.endif
-
 ; get character and check for legal ASCII hex digit
-; XXX this also allows ":;<=>?" (0x39-0x3F)!!!
 get_hex_digit:
         jsr     basin_if_more
 validate_hex_digit:
         cmp     #'0'
         bcc     syn_err5
-        cmp     #'@' ; XXX should be: '9' + 1
+        cmp     #':'
         bcc     LB546 ; ok
         cmp     #'A'
         bcc     syn_err5
@@ -1961,14 +1954,17 @@ basin_if_more_cmp_space:
 syn_err6:
         jmp     syntax_error
 
-; XXX this detects :;<=>?@ as hex characters, see also get_hex_digit
 is_hex_character:
         cmp     #'0'
-        bcc     :+
+        bcc     @no
+        cmp     #':'
+        bcc     @rts
+        cmp     #'A'
+        bcc     @no
         cmp     #'F' + 1
         rts
-:       sec
-        rts
+@no:    sec
+@rts:   rts
 
 swap_zp1_and_zp2:
         lda     zp2 + 1
