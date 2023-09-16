@@ -1863,13 +1863,12 @@ inc_zp1:
 :       rts
 
 dump_8_hex_bytes:
-        ldx     #8
         ldy     #0
 :       jsr     print_space
         jsr     load_byte
         jsr     print_hex_byte2
         iny
-        dex
+        cpy     #8
         bne     :-
         rts
 
