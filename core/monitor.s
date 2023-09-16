@@ -1357,17 +1357,6 @@ LB2CB:  lda     #'W' ; send M-W to drive
         pla
         rts
 
-.ifdef CART_FC3
-; ??? unreferenced?
-        lda     (zp1),y
-        rts
-
-; ??? unreferenced?
-        pla
-        sta     (zp1),y
-        rts
-.endif
-
 ; loads a byte at (zp1),y from RAM with the correct ROM config
 load_byte:
         sei
