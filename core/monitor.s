@@ -628,7 +628,7 @@ cmd_comma:
 ; ----------------------------------------------------------------
 cmd_a:
         jsr     get_hex_word
-        jsr     LB030
+        jsr     get_mnemonic
         jsr     LB05C
         ldx     #0
         stx     tmp6
@@ -976,28 +976,35 @@ sadd_a_to_zp1:
         sty     zp1 + 1
         rts
 
-LB030:  ldx     #0
+.proc get_mnemonic
+        ldx     #0
         stx     tmp17
-LB035:  jsr     basin_if_more
+
+        ; Get 3 characters
+:       jsr     basin_if_more
         cmp     #' '
-        beq     LB030
+        beq     get_mnemonic
         sta     BUF,x
         inx
         cpx     #3
-        bne     LB035
-LB044:  dex
-        bmi     LB05B
-        lda     BUF,x
+        bne     :-
+
+        ; Convert the characters into a 16 bit number
+@1:     lda     BUF-1,x
         sec
         sbc     #$3F
         ldy     #5
-LB04F:  lsr     a
+:       lsr     a
         ror     tmp17
         ror     tmp16
         dey
-        bne     LB04F
-        beq     LB044
-LB05B:  rts
+        bne     :-
+        dex
+        bne     @1
+        rts
+.endproc
+
+
 
 LB05C:  ldx     #2
 LB05E:  jsr     BASIN
@@ -1131,19 +1138,22 @@ cmd_dollar:
 ; "#" - convert decimal to hex
 ; ----------------------------------------------------------------
 cmd_hash:
+        ; zp1 = intermediate
         ldy     #0
         sty     zp1
         sty     zp1 + 1
         jsr     basin_skip_spaces_if_more
-LB16F:  and     #$0F
+@1:     and     #$0F
+        ; Add digit to zp1
         clc
         adc     zp1
         sta     zp1
-        bcc     LB17A
+        bcc     :+
         inc     zp1 + 1
-LB17A:  jsr     BASIN
-        cmp     #$30
-        bcc     LB19B
+:       jsr     BASIN
+        cmp     #'0'    ; Anything less than '0' is interpreted as end of number
+        bcc     @print
+        ; Multiply zp1 by 10
         pha
         lda     zp1
         ldy     zp1 + 1
@@ -1159,8 +1169,8 @@ LB17A:  jsr     BASIN
         rol     a
         sta     zp1 + 1
         pla
-        bcc     LB16F
-LB19B:  jsr     print_up_dot
+        bcc     @1       ; Next digit
+@print: jsr     print_up_dot
         jsr     print_hash
         lda     zp1
         pha
@@ -1406,17 +1416,23 @@ LB306:  pla
 ;       without arguments, this turns off cartridge visibility
 ; ----------------------------------------------------------------
 cmd_b:  jsr     basin_cmp_cr
-        beq     LB326 ; without arguments, set $70
+        beq     @1 ; without arguments, set $70
         cmp     #' '
         beq     cmd_b ; skip spaces
         cmp     #'0'
         bcc     syn_err3
-        cmp     #'4'
+        cmp     #':'
+        bcc     @2 ; Always
+        cmp     #'A'
+        bcc     syn_err3
+        cmp     #'G'
         bcs     syn_err3
-        and     #$03 ; XXX no effect
-        ora     #$40 ; make $40 - $43
-        .byte   $2C
-LB326:  lda     #$70 ; by default, hide cartridge
+        ; C=0
+        adc     #201  ; $100 + 10 - #'A'
+@2:     and     #$0f
+        ora     #$40  ; make $40 - $4f
+       .byte   $2C
+@1:     lda     #$70 ; by default, hide cartridge
         sta     cartridge_bank
         jmp     print_cr_then_input_loop
 .endif
@@ -1602,21 +1618,56 @@ LB438:
 ;       F does a fast format
 ; ----------------------------------------------------------------
 cmd_at: 
-        jsr     listen_command_channel
         jsr     basin_cmp_cr
+        php
+        pha
+        cmp     #'#'
+        beq     @change_dev
+        jsr     listen_command_channel
+        pla
+        plp
         beq     print_drive_status
+        bne     @nodevnum
+
+@change_dev:
+        ; Accept device numbers 8..15
+        cmp     #'#'
+        bne     @nodevnum
+        jsr     basin_cmp_cr
+        cmp     #'8'
+        beq     @4
+        cmp     #'9'
+        beq     @4
+        cmp     #'1'
+        bne     @nodevnum
+        jsr     basin_cmp_cr
+        beq     @nodevnum
+        cmp     #'0'
+        bcc     @nodevnum
+        cmp     #'6'
+        bcs     @nodevnum
+
+@2:     ; carry is already clear
+        adc     #$0A
+@4:     and     #$0F
+        sta     FA
+        jsr     listen_command_channel ; Clears N
+        bpl     print_drive_status ; Always
+
+@nodevnum:
         cmp     #'$'
         beq     LB475
 .ifdef CART_FC3
         cmp     #'F'
-        bne     LB458
+        bne     @7
         jsr     jfast_format
         lda     #'F'
 .endif
-LB458:  jsr     IECOUT
+@7:     jsr     IECOUT
         jsr     basin_cmp_cr
-        bne     LB458
+        bne     @7
         jsr     UNLSTN
+@5:
         jmp     print_cr_then_input_loop
 
 ; just print drive status
@@ -3432,13 +3483,14 @@ init_drive:
         bcc     LBD3F
 LBD3C:  sta     FA ; otherwise set drive 8
 LBD3E:  rts
-
-LBD3F:  lda     #9
-        cmp     FA
-        bcs     LBD3E
+LBD3F:  lda     FA 
+        cmp     #16 ; allow device numbers until 15
+        bcc     LBD3E
         lda     #8
 LBD47:
         bne     LBD3C
+
+
         lda     zp3 ; XXX ???
 LBD4B:  ldy     ST
         bne     LBD7D
