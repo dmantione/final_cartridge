@@ -175,6 +175,7 @@ new_mainloop:
         ldx     #$FF
         stx     $3A
         bcc     L822B
+mainloop_call_tokenize:
         jsr     new_tokenize
         jmp     _new_execute
 
@@ -197,6 +198,19 @@ L824D:
 
 ; this is 99% identical with the code in BASIC ROM at $A57C
 new_tokenize:
+.ifdef JIFFY_TOKENIZER
+        pla
+        pha            ; This checks whether we were called from the mainloop
+        cmp     #<(mainloop_call_tokenize+2)
+        bne     @normal_tokenize
+        jsr     is_jiffy_special_char
+        bne     @normal_tokenize
+        ldx     $7a
+        ldy     #4
+        tya
+        bne     @load_skip_a ; Always
+@normal_tokenize:
+.endif
 ; **** this is the same code as BASIC ROM $A579-$A5AD (start) ****
         ldx     TXTPTR
         ldy     #4
@@ -279,6 +293,7 @@ new_tokenize:
         sbc     #$8f-':'  ; Is it a REM token ?
         bne     @loadchar
         ; REM token, no further tokenizaton until end of line
+@load_skip_a:
         sta     $08
 @loadskip:
         lda     $0200,x
@@ -398,6 +413,21 @@ L8369:  jsr     $E566 ; cursor home
         pla
         sta     PNTR
 L838C:  rts
+
+
+.ifdef JIFFY_TOKENIZER
+
+.proc is_jiffy_special_char
+        ldy   #jiffy_special_characters_size-1
+        jsr   CHRGOT
+:       cmp   jiffy_special_characters,y
+        beq   :+
+        dey
+        bpl   :-
+:       rts
+.endproc
+
+.endif
 
 ; ----------------------------------------------------------------
 ; "HELP" Command - list BASIC line of last error
@@ -748,8 +778,6 @@ auto_defaults:
         .word   10 ; default increment for AUTO
 auto_defaults_end:
 
-; ??? unused?
-        .byte   $FF
 
 ; ----------------------------------------------------------------
 
@@ -815,6 +843,11 @@ command_vectors:
         .word   UNPACK-1
         .word   MREAD-1
         .word   MWRITE-1
+
+.ifdef JIFFY_TOKENIZER
+jiffy_special_characters: .byte $40,$5f,$2a,$ac,$22,$12,$2f,$ad,$25,$5e,$ae,$27,$5c
+jiffy_special_characters_size = .sizeof(jiffy_special_characters)
+.endif
 
 ; ----------------------------------------------------------------
 ; "MREAD" Command - read 192 bytes from RAM into buffer
@@ -1532,9 +1565,10 @@ set_colon_asterisk:
 ;        ldy     #>_a_colon_asterisk
         ; Make DLOAD, DAPPEND etc. use * rather than :*. It should be identical, but avoids a bug in the
         ; code that loads a backup than doesn't like it when :* is used as the file name to load the
-        ; backup. There is a * in the KERNAL at $E479.
-        ldx     #<$E479
-        ldy     #>$E479
+        ; backup. There are multiple * in the KERNAL, no alternative KERNAL will dare to change one at
+        ; $FFE5 (hopefully).
+        ldx     #<$FFE5
+        ldy     #>$FFE5
         jsr     SETNAM
 set_drive:
         lda     #0

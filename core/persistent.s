@@ -492,11 +492,11 @@ _bar_irq:
         sta     fcio_reg
         ; Execution continues in bank 1!
 
-.global _a_colon_asterisk
-_a_colon_asterisk:
-        .byte   ':','*'
-.global _a_colon_asterisk_end
-_a_colon_asterisk_end:
+;.global _a_colon_asterisk
+;_a_colon_asterisk:
+;        .byte   ':','*'
+;.global _a_colon_asterisk_end
+;_a_colon_asterisk_end:
 
 ; ----------------------------------------------------------------
 ; I/O Area ROM End
