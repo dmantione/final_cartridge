@@ -1009,31 +1009,49 @@ sadd_a_to_zp1:
 .proc get_operand
         lda     #0
         sta     zp3
+        sta     zp1
         ; Buffer is from $0210 to $0227. $0210/$0211 contain mnemonic, start at $0212.
         ; We count up til 0, so compute correct start
         ldx     #$100 + 2 - $17
 @1:     jsr     BASIN
-        cmp     #CR
+@2:     cmp     #CR
         beq     @done
         cmp     #':'
         beq     @done
         cmp     #' '
         beq     @1
-        jsr     is_hex_character
-        bcs     @nohex
-        jsr     get_hex_byte3
+        lsr     zp3
+        bcs     @thex
+        jsr     is_dec_character
+        bcs     @nodgt
+        stx     tmp10
+        jsr     get_dec_word3 ; (returns next char in A)
+        ldx     tmp10
+        tay
+        lda     #'$'
+        sta     tmp16 - ($100 - $17),x
+        inx
+        lda     #'1'
+        sta     tmp16 - ($100 - $17),x
+;        inx
+;        sta     tmp16 - ($100 - $17),x
+        tya
+        inx
+        bne     @2
+@thex:  jsr     is_hex_character
+        bcs     @nodgt
+        jsr     get_hex_byte3 ; (doesn't BASIN next char)
         ldy     zp1
         sty     zp1 + 1
         sta     zp1
+        inc     zp3  ; Allow another hex byte to follow
         lda     #'0'
-        sta     tmp16 - ($100 - $17),x
+@stdig: sta     tmp16 - ($100 - $17),x
         inx
-@nohex: ldy     #0
-        cmp     #'$'
+@nodgt: cmp     #'$'
         bne     :+
-        iny
-:       sty     zp3
-        sta     tmp16 - ($100 - $17),x
+        inc     zp3
+:       sta     tmp16 - ($100 - $17),x
         inx
         bne     @1
 @done:  stx     tmp10
@@ -1049,36 +1067,35 @@ LB08D:  ldx     #$100 - $17
         stx     tmp8
         tax
         lda     __mnemos2_RUN__,x
-        jsr     LB130
+        jsr     verify_char
         lda     __mnemos1_RUN__,x
-        jmp     LB130
+        jmp     verify_char
 
 LB0AB:  ldx     #6
 LB0AD:  cpx     #3
         bne     LB0C5
-        ldy     num_asm_bytes
+        lda     num_asm_bytes
         beq     LB0C5
-LB0B6:  lda     prefix_suffix_bitfield
+        asl
+        tay
+        lda     prefix_suffix_bitfield
         cmp     #<(S_RELATIVE | 1) << 3 ; relative addressing mode
-        lda     #$30
         bcs     decode_rel
-        jsr     LB12D
-        dey
-        bne     LB0B6
+        jsr     verify_numconst
 LB0C5:  asl     prefix_suffix_bitfield
         bcc     LB0D8
         lda     __asmchars1_RUN__ - 1,x
-        jsr     LB130
+        jsr     verify_char
         lda     __asmchars2_RUN__ - 1,x
         beq     LB0D8
-        jsr     LB130
+        jsr     verify_char
 LB0D8:  dex
         bne     LB0AD
         beq     LB0E3
 
 decode_rel:
-        jsr     LB12D
-        jsr     LB12D
+        ldy     #4
+        jsr     verify_numconst
 LB0E3:  lda     tmp10
         cmp     tmp4
         bne     LB13B
@@ -1115,21 +1132,45 @@ LB123:  lda     tmp6
 
 LB12A:  jmp     input_loop
 
-LB12D:  jsr     LB130
-LB130:  stx     tmp3
+verify_char:
+        stx     tmp3
         ldx     tmp4
         cmp     tmp16 - ($100 - $17),x
         beq     LB146
 LB13B:  inc     tmp6
-        beq     LB143
-        jmp     LAE61
+        beq     bad_operand
+next_opcode:
+        jmp     LAE61  ; no match, try another opcode
 
-LB143:  jmp     input_loop
-
+verify_numconst:
+        stx     tmp3
+        ldx     tmp4
+        lda     tmp16 - ($100 - $17),x
+        dey
+        cmp     #'0'
+        beq     @num
+        cmp     #'1'
+        bne     @nonum
+        cpy     #1
+        bne     LB146
+        lda     zp1+1
+        beq     LB146
+@nonum:
+        inc     tmp6
+        beq     bad_operand
+        bne     next_opcode
+@num:   inx
+        cmp     tmp16 - ($100 - $17),x
+        bne     @nonum
+        dey
+        bne     @num
 LB146:  inx
         stx     tmp4
         ldx     tmp3
         rts
+
+bad_operand:
+        jmp     input_loop
 
 ; ----------------------------------------------------------------
 ; "$" - convert hex to decimal
@@ -1148,39 +1189,8 @@ cmd_dollar:
 ; "#" - convert decimal to hex
 ; ----------------------------------------------------------------
 cmd_hash:
-        ; zp1 = intermediate
-        ldy     #0
-        sty     zp1
-        sty     zp1 + 1
-        jsr     basin_skip_spaces_if_more
-@1:     and     #$0F
-        ; Add digit to zp1
-        clc
-        adc     zp1
-        sta     zp1
-        bcc     :+
-        inc     zp1 + 1
-:       jsr     BASIN
-        cmp     #'0'    ; Anything less than '0' is interpreted as end of number
-        bcc     @print
-        ; Multiply zp1 by 10
-        pha
-        lda     zp1
-        ldy     zp1 + 1
-        asl     a
-        rol     zp1 + 1
-        asl     a
-        rol     zp1 + 1
-        adc     zp1
-        sta     zp1
-        tya
-        adc     zp1 + 1
-        asl     zp1
-        rol     a
-        sta     zp1 + 1
-        pla
-        bcc     @1       ; Next digit
-@print: jsr     print_up_dot
+        jsr     get_dec_word
+        jsr     print_up_dot
         jsr     print_hash
         lda     zp1
         pha
@@ -1194,6 +1204,43 @@ cmd_hash:
         jsr     LB48E
         jsr     print_dollar_hex_16
         jmp     input_loop
+
+get_dec_word:
+        jsr     basin_skip_spaces_if_more
+get_dec_word3:
+        ; zp1 = intermediate
+        ldy     #0
+        sty     zp1
+        sty     zp1 + 1
+@1:     and     #$0F
+        ; Add digit to zp1
+        clc
+        adc     zp1
+        sta     zp1
+        bcc     :+
+        inc     zp1 + 1
+:       jsr     BASIN
+        cmp     #'0'
+        bcc     rts_01
+        cmp     #':'
+        bcs     rts_01
+        ; Multiply zp1 by 10
+        tax
+        lda     zp1
+        ldy     zp1 + 1
+        asl     a
+        rol     zp1 + 1
+        asl     a
+        rol     zp1 + 1
+        adc     zp1
+        sta     zp1
+        tya
+        adc     zp1 + 1
+        asl     zp1
+        rol     a
+        sta     zp1 + 1
+        txa
+        bcc     @1       ; Next digit (alwaysa)
 
 ; ----------------------------------------------------------------
 ; "X" - exit monitor
@@ -1230,14 +1277,14 @@ LB1D9:  jsr     load_byte
         cpx     tmp10
         bne     LB1F1
         cpy     tmp9
-        beq     LB1FB
+        beq     rts_01
 LB1F1:  iny
         bne     LB1D9
         inc     zp1 + 1
         inc     zp2 + 1
         inx
         bne     LB1D9
-LB1FB:  rts
+rts_01: rts
 
 LB1FC:  clc
         ldx     tmp10
@@ -1941,6 +1988,15 @@ basin_if_more_cmp_space:
 
 syn_err6:
         jmp     syntax_error
+
+is_dec_character:
+        cmp     #'0'
+        bcc     @no
+        cmp     #':'
+        bcc     @rts
+        rts
+@no:    sec
+@rts:   rts
 
 is_hex_character:
         cmp     #'0'
