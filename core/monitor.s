@@ -3458,18 +3458,18 @@ print_hex_byte:
 byte_to_hex_ascii:
         pha
         and     #$0F
-        jsr     LBCC8
+        jsr     @digit_to_ascii
         tay
         pla
         lsr     a
         lsr     a
         lsr     a
         lsr     a
-LBCC8:  clc
-        adc     #$F6
-        bcc     LBCCF
-        adc     #$06
-LBCCF:  adc     #$3A
+@digit_to_ascii:
+        sed
+        cmp #10
+        adc #$30
+        cld
         rts
 
 directory:
