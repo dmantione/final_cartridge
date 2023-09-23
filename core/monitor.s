@@ -3557,16 +3557,3 @@ LBD6E:  dex
         bne     LBD2D
 LBD7D:  jmp     LF646 ; CLOSE
 
-        lda     #0
-        sta     ST
-        lda     #8
-        cmp     FA
-        bcc     LBD8D
-LBD8A:  sta     FA
-LBD8C:  rts
-
-LBD8D:  lda     #9
-        cmp     FA
-        bcs     LBD8C
-        lda     #8
-        bne     LBD8A ; always
