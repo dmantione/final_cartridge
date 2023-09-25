@@ -467,7 +467,7 @@ list_line:
         sty     $0F
         lda     #' '
 ; **** the following code is very similar to BASIC ROM $A6F1
-        and     #$7F ; XXX no effect
+;        and     #$7F ; XXX no effect
 L83D2:  jsr     _basic_bsout
         cmp     #'"'
         bne     :+
@@ -649,7 +649,7 @@ L8512:  jsr     _CHRGOT
 L8528:  rts
 
 ; ??? unreferenced?
-        jmp     disable_rom_jmp_overflow_error
+;        jmp     disable_rom_jmp_overflow_error
 
 L852C:  jmp     WAF08 ; SYNTAX ERROR
 
@@ -1575,14 +1575,16 @@ set_drive:
         sta     ST
         lda     #8
         cmp     FA
-        bcc     L8BD1 ; device number 9 or above
-L8BCE:  sta     FA
-L8BD0:  rts
-L8BD1:  lda     FA
+        bcc     @hidev ; device number 9 or above
+@store: sta     FA
+@rts:   rts
+@hidev: lda     FA
         cmp     #16
-        bcc     L8BD0 ; RTS
+        bcc     @rts
         lda     #8 ; set drive 8
-        bne     L8BCE
+        bne     @store ; always
+
+
 L8BDB:  jsr     _lda_TXTPTR_indy
         beq     L8BE2
         cmp     #'"'
@@ -2210,11 +2212,15 @@ PACK:   bne     L900B
         bcs     L9035
         ldx     #$FE
         txs
+.ifdef use_ill
+        lax     #0
+.else
         lda     #0
-        tay
-L9050:  sta     $FE00,y
-        sta     $FF00,y
-        iny
+        tax
+.endif
+L9050:  sta     $FE00,x
+        sta     $FF00,x
+        inx
         bne     L9050
         sty     $AE
         sty     $AC

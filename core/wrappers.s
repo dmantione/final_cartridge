@@ -32,10 +32,10 @@ WA49F:  lda     #>($A49F - 1) ; used to be $A4A2 in 1988-05
         bne     disable_rom_jmp ; always
 
 ; ??? unused?
-        lda     #>($A7AE - 1)
-        pha
-        lda     #<($A7AE - 1) ; interpreter loop
-        bne     disable_rom_jmp ; always
+;        lda     #>($A7AE - 1)
+;        pha
+;        lda     #<($A7AE - 1) ; interpreter loop
+;        bne     disable_rom_jmp ; always
 
 .global disable_rom_jmp_error
 disable_rom_jmp_error:
@@ -96,9 +96,9 @@ WE159:  ldx     #>($E159 - 1)
 L98B3:  bne     jsr_with_rom_disabled
 
 ; ??? unused?
-        ldx     #>($A579 - 1)
-        ldy     #<($A579 - 1) ; tokenize
-L98B9:  bne     jsr_with_rom_disabled
+;        ldx     #>($A579 - 1)
+;        ldy     #<($A579 - 1) ; tokenize
+;L98B9:  bne     jsr_with_rom_disabled
 
 .global WA560
 WA560:  ldx     #>($A560 - 1)

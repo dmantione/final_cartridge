@@ -51,6 +51,7 @@ _basic_warm_start := $800A
 
 ; from vectors
 .import jfast_format
+.import print_dir
 
 ; from printer
 .import set_io_vectors
@@ -270,11 +271,12 @@ cmd_r:
         bne     syntax_error
 dump_registers:
         ldx     #0
-:       lda     s_regs,x ; "PC  IRQ  BK AC XR YR SP NV#BDIZC"
-        beq     dump_registers2
+        beq     @2
+@1:     inx
         jsr     BSOUT
-        inx
-        bne     :-
+@2:     lda     s_regs,x ; "PC  IRQ  BK AC XR YR SP NV#BDIZC"
+        bne     @1
+
 dump_registers2:
         ldx     #';'
         jsr     print_dot_x
@@ -297,12 +299,11 @@ dump_registers2:
         bne     LABEB ; negative bank means drive ("DR")
 :       and     #$0F
         jsr     print_hex_byte2 ; bank
-LABEB:  ldy     #0
+LABEB:  ldy     #$100 - 4
 :       jsr     print_space
-        lda     registers,y
+        lda     registers - ($100 - 4),y
         jsr     print_hex_byte2 ; registers...
         iny
-        cpy     #4
         bne     :-
         jsr     print_space
         lda     reg_p
@@ -451,11 +452,11 @@ dump_sprite_line:
         jsr     print_hex_16
         jsr     print_space
         ldy     #0
-LACFD:  jsr     load_byte
+:       jsr     load_byte
         jsr     print_bin
         iny
         cpy     #3
-        bne     LACFD
+        bne     :-
         jsr     print_8_spaces
         tya ; 3
         jmp     add_a_to_zp1
@@ -510,7 +511,7 @@ cmd_leftbracket:
         jsr     get_hex_word
         jsr     copy_zp2_to_zp1
         jsr     basin_skip_spaces_if_more
-        jsr     LB4DB
+        jsr     get_bin_byte_char_in_a
         ldy     #0
         jsr     store_byte
         jsr     print_up
@@ -526,7 +527,7 @@ cmd_rightbracket:
         jsr     get_hex_word
         jsr     copy_zp2_to_zp1
         jsr     basin_skip_spaces_if_more
-        jsr     LB4DB
+        jsr     get_bin_byte_char_in_a
         ldy     #0
         beq     LAD9F
 LAD9C:  jsr     get_bin_byte
@@ -1785,22 +1786,25 @@ basin_cmp_cr:
         cmp     #CR
         rts
 
-LB4DB:  pha
-        ldx     #8
-        bne     LB4E6
 
-get_bin_byte:
+get_bin_byte_char_in_a:
+        pha
         ldx     #8
-LB4E2:  pha
+        bne     gbb_c
+.proc get_bin_byte
+        ldx     #8
+_1:     pha
         jsr     basin_if_more
-LB4E6:  cmp     #'*'
-        beq     LB4EB
+_c:     cmp     #'*'
+        beq     :+
         clc
-LB4EB:  pla
+:       pla
         rol     a
         dex
-        bne     LB4E2
+        bne     _1
         rts
+.endproc
+gbb_c = get_bin_byte::_c
 
 ; get a 16 bit ASCII hex number from the user, return it in zp2
 get_hex_word:
@@ -2096,18 +2100,20 @@ fill_kbd_buffer_singlequote:
 print_7_csr_right:
         lda     #CSR_RIGHT
         ldx     #7
-        bne     LB6AC ; always
+        bne     p8s_l
 
 ; print 8 spaces - this is used to clear some leftover characters
 ; on the screen when re-dumping a line with proper spacing after the
 ; user may have entered it with condensed spacing
-print_8_spaces:
+.proc print_8_spaces
         lda     #' '
         ldx     #8
-LB6AC:  jsr     BSOUT
+_l:     jsr     BSOUT
         dex
-        bne     LB6AC
+        bne     _l
         rts
+.endproc
+p8s_l = print_8_spaces::_l
 
 ; ----------------------------------------------------------------
 ; IRQ logic to handle F keys and scrolling

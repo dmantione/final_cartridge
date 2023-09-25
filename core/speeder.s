@@ -320,10 +320,25 @@ L9AD0:  sec
 
 L9AF0:  jsr     UNTALK
         jsr     LA691
-        lda     #19
-        sta     $93
+.ifdef use_ill
+        lax     $D011
+        and     #$10 ; save screen enable bit
+        sta     $95
+        lda     #$EF
+        sax     $D011
+.else
+        lda     $D011
+        tax
+        and     #$10 ; save screen enable bit
+        sta     $95
+        txa
+        and     #$EF
+        sta     $D011
+.endif
 .import __drive_code_load_LOAD__
 .import __drive_code_load_RUN__
+        lda     #19
+        sta     $93
         lda     #<__drive_code_load_LOAD__
         ldy     #>__drive_code_load_LOAD__
         ldx     #>__drive_code_load_RUN__ ; $0400
@@ -334,13 +349,6 @@ L9AF0:  jsr     UNTALK
         jsr     IECOUT
         jsr     UNLSTN
         sei
-        lda     $D011
-        tax
-        and     #$10 ; save screen enable bit
-        sta     $95
-        txa
-        and     #$EF
-        sta     $D011
         lda     $DD00
         and     #$07
         ora     $95 ; save VIC bank (XXX #$03 would have been enough)
@@ -360,6 +368,14 @@ L9AF0:  jsr     UNTALK
         bmi     @recv ; Then receive data
         cli
         php
+.ifdef use_ill
+        lda     $95
+        ldx     #$07
+        sax     $DD00 ; restore VIC bank
+        and     #$10
+        ora     $D011 ; restore screen enable bit
+        sta     $D011
+.else
         lda     $95
         and     #$07
         sta     $DD00 ; restore VIC bank
@@ -367,6 +383,7 @@ L9AF0:  jsr     UNTALK
         and     #$10
         ora     $D011 ; restore screen enable bit
         sta     $D011
+.endif
         lda     $A4
         sta     $C1
         lda     SA
@@ -885,6 +902,10 @@ sector_links:
 track_links := sector_links + 21
 sector_order := track_links + 21
 
+crc_correction_l:
+        .word $25fb
+        .align 32
+
 ; ----------------------------------------------------------------
 ; drive code $0500
 ; ----------------------------------------------------------------
@@ -1142,7 +1163,9 @@ L05AF:
 
 buffer_to_use = @error + 1
 
-
+crc_correction_s:
+        .word $9148
+        .align 32
 
 ; ----------------------------------------------------------------
 ; C64 IEC code
