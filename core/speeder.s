@@ -681,12 +681,17 @@ L9BFE:
         ;
         ; Convert to nibbles:
         ldy     $C1
+.ifdef use_ill
+        lax     ($30),y
+.else
         lda     ($30),y
+        tax
+.endif
         lsr     a
         lsr     a
         lsr     a
         sta     $5C
-        lda     ($30),y
+        txa
         and     #$07
         sta     $5D
         iny
@@ -694,7 +699,13 @@ L9BFE:
         iny              ; End of register buffer
         sty     $31      ; Y=1
         ldy     #$BA     ; Continue from auxiliary buffer at $01BA
-@16:    lda     ($30),y
+@16:
+.ifdef use_ill
+        lax     ($30),y
+.else
+        lda     ($30),y
+        tax
+.endif
         asl     a
         rol     $5D
         asl     a
@@ -703,10 +714,15 @@ L9BFE:
         lsr     a
         lsr     a
         sta     $5A
-        lda     ($30),y
+        txa
         lsr     a
         iny
+.ifdef use_ill
+        lax     ($30),y
+.else
         lda     ($30),y
+        tax
+.endif
         rol     a
         rol     a
         rol     a
@@ -714,25 +730,35 @@ L9BFE:
         rol     a
         and     #$1F
         sta     $5B
-        lda     ($30),y
+        txa
         and     #$0F
         sta     $58
         iny
+.ifdef use_ill
+        lax     ($30),y
+.else
         lda     ($30),y
+        tax
+.endif
         asl     a
         rol     $58
         lsr     a
         lsr     a
         lsr     a
         sta     $59
-        lda     ($30),y
+        txa
         asl     a
         asl     a
         asl     a
         and     #$18
         sta     $56
         iny
+.ifdef use_ill
+        lax     ($30),y
+.else
         lda     ($30),y
+        tax
+.endif
         rol     a
         rol     a
         rol     a
@@ -740,7 +766,7 @@ L9BFE:
         and     #$07
         ora     $56
         sta     $56
-        lda     ($30),y
+        txa
         and     #$1F
         sta     $57
         iny
@@ -903,7 +929,11 @@ track_links := sector_links + 21
 sector_order := track_links + 21
 
 crc_correction_l:
-        .word $25fb
+.ifdef use_ill
+        .word $74c3
+.else
+        .word $65f7
+.endif
         .align 32
 
 ; ----------------------------------------------------------------
