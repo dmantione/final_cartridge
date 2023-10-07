@@ -1939,7 +1939,6 @@ LB5AD:  jsr     BSOUT
         jmp     add_a_to_zp1
 
 read_ascii:
-        ldx     #$20
         ldy     #0
         jsr     copy_zp2_to_zp1
         jsr     basin_if_more
@@ -1955,7 +1954,7 @@ LB5C8:  sty     tmp9
         bcs     :+
         jsr     store_byte
 :       iny
-        dex
+        cpy     #$20
         bne     LB5C8
         rts
 
