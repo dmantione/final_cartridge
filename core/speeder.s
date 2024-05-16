@@ -5,6 +5,7 @@
 
 .include "kernal.i"
 .include "persistent.i"
+.include "fc3ioreg.i"
 
 .global new_load
 .global new_save
@@ -56,8 +57,8 @@ send_byte:
         nop
         nop
         sta     $DD00
-        rts
 .assert >* = >send_byte, error, "Page boundary!"
+        rts
 
 iec_tab:
         .byte   $07,$87,$27,$A7,$47,$C7,$67,$E7
@@ -98,7 +99,6 @@ receive_4_bytes:
 .assert >* = >@pal, error, "Page boundary!"
         rts
 
-        .byte 0,1,2,3,4,5,6,7
 @ntsc:  ; NTSC
         bit     $DD00  ; Wait until clock in low
         bvs     @ntsc
@@ -174,6 +174,15 @@ new_load2:
         tay
         lda     $B7
         beq     L99C9
+        ;
+        ; We need to use 8K cartridge mode, because the routines that load bytes
+        ; from memory use dec $01. In 16K mode, this hides ROML but not ROMH,
+        ; in other words, you would not be able to save data from $A000..$BFFF,
+        ; or store a filename there. This is a bug in the original FC3 and is
+        ; hereby fixed.
+        ;
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta     fcio_reg
         jsr     _load_FNADR_indy
         cmp     #$24
         beq     L99C9
@@ -255,10 +264,23 @@ new_save2:
         beq     L9A6A
         lda     #$61
         sta     SA
+        ;
+        ; We need to use 8K cartridge mode, because the routines that load bytes
+        ; from memory use dec $01. In 16K mode, this hides ROML but not ROMH,
+        ; in other words, you would not be able to save data from $A000..$BFFF,
+        ; or store a filename there. This is a bug in the original FC3 and is
+        ; hereby fixed.
+        ;
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta     fcio_reg
         jsr     open_file
+        ; Back to 16K mode
+        lda     #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
+        sta     fcio_reg
         jsr     print_message ; print message (unless disabled)
         jsr     fastsave_initialize ; Sets X=0
         bne     L9A67 ; in case drive returns error code
+;        ldx     #0
         ldy     #0
         stx     ST
         stx     $A4
@@ -1447,6 +1469,20 @@ print_kernal_string:
 LA7C4:  clc
         rts
 
+turn_screen_off:
+        ldy     #0
+        sty     $C0
+        lda     $D011
+        and     #$EF
+        sta     $D011 ; turn screen off
+wait_for_next_frame:
+        dex
+        bne     wait_for_next_frame ; delay (XXX waiting for $D012 == 0 would be cleaner)
+        dey
+        bne     wait_for_next_frame
+        sei
+        rts
+
 ; ----------------------------------------------------------------
 ; tape related
 
@@ -1735,21 +1771,3 @@ LA9E4:  dex
 LA9E7:  sta     $01
         rts
 
-turn_screen_off:
-        ldy     #0
-        sty     $C0
-        lda     $D011
-        and     #$EF
-        sta     $D011 ; turn screen off
-wait_for_next_frame:
-        dex
-        bne     wait_for_next_frame ; delay (XXX waiting for $D012 == 0 would be cleaner)
-        dey
-        bne     wait_for_next_frame
-        sei
-        rts
-;        ldx     $D012 ; Wait until next frame starts
-;        bne     wait_for_next_frame
-;        sei
-        ; Note: Calling routines may assume that X=0 after call.
-;        rts
