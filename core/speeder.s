@@ -14,11 +14,6 @@ L0110           := $0110
 
 .segment "speeder_a1"
 
-new_load:
-	jmp new_load2
-new_save:
-	jmp new_save2
-
 send_byte:
         pha
 @1:     bit     $DD00  ; Wait until DATA IN high
@@ -161,7 +156,7 @@ L99D6:  pla
         pha
         jmp     _disable_fc3rom_set_01
 
-new_load2:
+new_load:
         sty     $93
         tya
         ldy     FA
@@ -215,7 +210,7 @@ L9A35:  jsr     print_loading
         lda     $AF
         cmp     #4
         bcc     L99D6
-        jmp     L9AF0
+        jmp     new_load_continue
 
 ; ----------------------------------------------------------------
 
@@ -252,7 +247,7 @@ L9A6A:  jmp     $F5ED ; default SAVE vector
 
 L9A6D:  jmp     $A7C6 ; interpreter loop
 
-new_save2:
+new_save:
         lda     FA
         cmp     #7
         beq     L9A6D ; tape turbo
@@ -278,9 +273,9 @@ new_save2:
         lda     #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
         sta     fcio_reg
         jsr     print_message ; print message (unless disabled)
-        jsr     fastsave_initialize ; Sets X=0
+        jsr     fastsave_initialize
         bne     L9A67 ; in case drive returns error code
-;        ldx     #0
+        ldx     #0
         ldy     #0
         stx     ST
         stx     $A4
@@ -340,7 +335,8 @@ L9AD0:  sec
 
 
 
-L9AF0:  jsr     UNTALK
+new_load_continue:
+        jsr     UNTALK
         jsr     LA691
 .ifdef use_ill
         lax     $D011
@@ -375,21 +371,29 @@ L9AF0:  jsr     UNTALK
         and     #$07
         ora     $95 ; save VIC bank (XXX #$03 would have been enough)
         sta     $95
+        ; Backup $c1/$c2
         lda     $C1
-        sta     $A4
+        pha
         lda     $C2
-        sta     SA
+        pha
+        ; $A3/$A4 := $AE/$AF - $0002
         sec
         lda     $AE
         sbc     #2
-        sta     ST
+        sta     $A3
         lda     $AF
         sbc     #0
-        sta     $A3
+        sta     $A4
+
 @back:  bit     $DD00 ; DATA IN high?
         bmi     @recv ; Then receive data
         cli
-        php
+        ; Restore $C1/$C2
+        pla
+        sta     $C2
+        pla
+        sta     $C1
+        php     ; Note that pla instructions above don't modify V
 .ifdef use_ill
         lda     $95
         ldx     #$07
@@ -406,14 +410,11 @@ L9AF0:  jsr     UNTALK
         ora     $D011 ; restore screen enable bit
         sta     $D011
 .endif
-        lda     $A4
-        sta     $C1
-        lda     SA
-        sta     $C2
+
         lda     #0
         sta     $A3
+        sta     $A4
         sta     $94
-        sta     ST
         lda     #$60
         sta     SA
         lda     #$E0
@@ -441,28 +442,33 @@ L9AF0:  jsr     UNTALK
         sta     $A5
         jsr     receive_4_bytes
         lda     $C3   ; Contains block number (determines memory location to write to)
+
+        ; Compute memory address to write to.
+        ;    Addr:= base + blockno * 254
+        ; -> Addr:= base + blockno shl 8 - 2 * blockno
 ;        clc          ; Carry already cleared by receive_4_bytes
-        adc     $A3
-        tax
+        adc     $A4
         asl     $C3
         php
+        tax
         sec
-        lda     ST
+        lda     $A3
         sbc     $C3
         sta     $93
         bcs     @2
         dex
-@2:     plp
+@2:		plp
         bcc     @3
         dex
 @3:     stx     $94
-        ror     $C3
+        ror     $C3  ; Clears carry because right most bit is 0 (due to asl above).
+
         ldx     $C2  ; Contains number of bytes in block to use (0 if all)
         beq     @4
         dex
         stx     $A5
         txa
-        clc
+        ;clc         ; Carry flay already cleared by ror above.
         adc     $93
         sta     $AE
         lda     $94
@@ -474,6 +480,10 @@ L9AF0:  jsr     UNTALK
         jsr     receive_4_bytes ; in $C1..$C4
         ldy     #2
         bne     @9              ; always taken
+
+@b:     jmp     @back
+
+
 @5:     lda     $C1
         sta     ($93),y
         iny
@@ -509,7 +519,6 @@ L9AF0:  jsr     UNTALK
 ;        cpy     #$FE           ; Never happens because block size is constant
 ;        bcs     @b
         bne     @6              ; always taken
-@b:     jmp     @back
 
 ; ----------------------------------------------------------------
 
@@ -1293,7 +1302,7 @@ LA671:  jsr     IECOUT
         ora     #$10
         sta     $A5
         sta     $DD00
-        jmp     wait_for_next_frame  ; Sets X=0
+        jmp     wait_for_next_frame
 
 LA691:
         ldy     #0
@@ -1476,10 +1485,9 @@ turn_screen_off:
         and     #$EF
         sta     $D011 ; turn screen off
 wait_for_next_frame:
-        dex
-        bne     wait_for_next_frame ; delay (XXX waiting for $D012 == 0 would be cleaner)
-        dey
-        bne     wait_for_next_frame
+        ldx     $d012
+        cpx     #$32
+        bcs     wait_for_next_frame
         sei
         rts
 
