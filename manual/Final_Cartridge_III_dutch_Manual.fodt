@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:date>2023-09-27T23:07:20.619463400</dc:date><meta:editing-duration>P3DT7H15M54S</meta:editing-duration><meta:editing-cycles>117</meta:editing-cycles><meta:generator>LibreOffice/7.1.4.2$Linux_X86_64 LibreOffice_project/10$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject><meta:document-statistic meta:table-count="1" meta:image-count="19" meta:object-count="0" meta:page-count="68" meta:paragraph-count="1409" meta:word-count="16659" meta:character-count="103065" meta:non-whitespace-character-count="84757"/></office:meta>
+ <office:meta><dc:date>2023-09-28T01:34:43.181403355</dc:date><meta:editing-duration>P3DT7H17M55S</meta:editing-duration><meta:editing-cycles>119</meta:editing-cycles><meta:generator>LibreOffice/7.1.4.2$Linux_X86_64 LibreOffice_project/10$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject><meta:document-statistic meta:table-count="1" meta:image-count="19" meta:object-count="0" meta:page-count="68" meta:paragraph-count="1409" meta:word-count="16581" meta:character-count="102473" meta:non-whitespace-character-count="84243"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">14000</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">1251719</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">25259</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">18237</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">16420</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">11578</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">5729</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">23151</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">3997</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">1258494</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">14000</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">25257</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">32235</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">1251719</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">16418</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">1263295</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">130</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">200</config:config-item>
      <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
      <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
     </config:config-item-map-entry>
@@ -86,7 +86,7 @@
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">13828368</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">13906824</config:config-item>
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
    <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
@@ -724,108 +724,80 @@
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Contents_20_1">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="12.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Contents_20_2">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="12.4cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Contents_20_3">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="11.901cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Heading_20_1">
+  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Heading_20_1">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_2">
+  <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="bold" style:font-name-complex="Liberation Serif" style:font-size-complex="16.1000003814697pt" style:font-weight-complex="bold"/>
   </style:style>
-  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Heading_20_3">
+  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Heading_20_3">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal" style:font-name-complex="Liberation Serif" style:font-size-complex="14.1000003814697pt" style:font-weight-complex="bold"/>
   </style:style>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
+  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
    <style:paragraph-properties>
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
+  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Monitorinhoud1">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="12.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L2"/>
-  <style:style style:name="P77" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1" style:master-page-name="">
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L2"/>
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1" style:master-page-name="">
    <style:paragraph-properties fo:margin-left="1.3cm" fo:margin-right="0cm" fo:text-indent="-1.101cm" style:auto-text-indent="false" style:page-number="auto">
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P78" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1">
+  <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1">
    <style:paragraph-properties fo:margin-left="1.3cm" fo:margin-right="0cm" fo:text-indent="-1.101cm" style:auto-text-indent="false">
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P79" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P80" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L4">
+  <style:style style:name="P75" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
+  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L4">
    <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
-  <style:style style:name="P81" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L5"/>
-  <style:style style:name="P82" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6"/>
-  <style:style style:name="P83" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7"/>
-  <style:style style:name="P84" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8"/>
-  <style:style style:name="P85" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10"/>
-  <style:style style:name="P86" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11"/>
-  <style:style style:name="P87" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12"/>
-  <style:style style:name="P88" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L13"/>
-  <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
+  <style:style style:name="P77" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L5"/>
+  <style:style style:name="P78" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6"/>
+  <style:style style:name="P79" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7"/>
+  <style:style style:name="P80" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8"/>
+  <style:style style:name="P81" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10"/>
+  <style:style style:name="P82" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11"/>
+  <style:style style:name="P83" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12"/>
+  <style:style style:name="P84" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L13"/>
+  <style:style style:name="P85" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P90" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L4">
+  <style:style style:name="P86" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L4">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
    <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
-  <style:style style:name="P91" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L5">
+  <style:style style:name="P87" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L5">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P92" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6">
+  <style:style style:name="P88" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P93" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7">
+  <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P94" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8">
+  <style:style style:name="P90" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P95" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9">
+  <style:style style:name="P91" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P96" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10">
+  <style:style style:name="P92" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P97" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11">
+  <style:style style:name="P93" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P98" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12">
+  <style:style style:name="P94" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P99" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L13">
+  <style:style style:name="P95" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L13">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" style:contextual-spacing="false"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
@@ -1854,59 +1826,59 @@
    <text:h text:style-name="P59" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Voorwoord<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">De Final Cartridge III is een eigen ontwikkeling van Riska B.V. Home &amp; Personal Computers.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III die uit 64K machinecode bestaat biedt u naast de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> waarin al­les met <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">windows</text:span></text:span> werkt o.a. :</text:p>
-   <text:list xml:id="list1005372460" text:style-name="L1">
+   <text:list xml:id="list4201072824" text:style-name="L1">
     <text:list-item>
-     <text:p text:style-name="P77">Verschillende handige hulpmiddelen bij het programmeren (de zogenaamde <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic toolkit</text:span></text:span>).</text:p>
+     <text:p text:style-name="P73">Verschillende handige hulpmiddelen bij het programmeren (de zogenaamde <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic toolkit</text:span></text:span>).</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Zeer eenvoudige diskcommando&apos;s.</text:p>
+     <text:p text:style-name="P74">Zeer eenvoudige diskcommando&apos;s.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">24K extra geheugen in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
+     <text:p text:style-name="P74">24K extra geheugen in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een tape snellader/snelsaver die de tape-functies 10 maal versnelt</text:p>
+     <text:p text:style-name="P74">Een tape snellader/snelsaver die de tape-functies 10 maal versnelt</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een disk snellader/snelsaver die de disk-drive-functies 15 maal versnelt.</text:p>
+     <text:p text:style-name="P74">Een disk snellader/snelsaver die de disk-drive-functies 15 maal versnelt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een zeer uitgebreide machinetaalmonitor die u in staat stelt het gehele geheugen van de computer te bekijken.</text:p>
+     <text:p text:style-name="P74">Een zeer uitgebreide machinetaalmonitor die u in staat stelt het gehele geheugen van de computer te bekijken.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een diskmonitor.</text:p>
+     <text:p text:style-name="P74">Een diskmonitor.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een zeer uitgebreide printer-interface, die u zelfs in staat stelt op Centronics parallelle printers de Commodore graphics uit te printen, maar ook high-resolution screen dumps te maken.</text:p>
+     <text:p text:style-name="P74">Een zeer uitgebreide printer-interface, die u zelfs in staat stelt op Centronics parallelle printers de Commodore graphics uit te printen, maar ook high-resolution screen dumps te maken.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een ingebouwde game trainer.</text:p>
+     <text:p text:style-name="P74">Een ingebouwde game trainer.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">Een <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">reset</text:span></text:span>-mogelijkheid. Dit, gecombineerd met het commando <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, zorgt ervoor dat u nooit meer een programma hoeft kwijt te raken na een <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">reset</text:span></text:span> of <text:span text:style-name="Monospace">NEW</text:span>.</text:p>
+     <text:p text:style-name="P74">Een <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">reset</text:span></text:span>-mogelijkheid. Dit, gecombineerd met het commando <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, zorgt ervoor dat u nooit meer een programma hoeft kwijt te raken na een <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">reset</text:span></text:span> of <text:span text:style-name="Monospace">NEW</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">De mogelijkheid om elk willekeurig programma dat in het geheugen staat te onderbre­ken (<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">freezer</text:span></text:span>) om er daarna:</text:p>
+     <text:p text:style-name="P74">De mogelijkheid om elk willekeurig programma dat in het geheugen staat te onderbre­ken (<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">freezer</text:span></text:span>) om er daarna:</text:p>
     </text:list-item>
    </text:list>
-   <text:list xml:id="list3229927639" text:style-name="L2">
+   <text:list xml:id="list769141502" text:style-name="L2">
     <text:list-item>
      <text:list>
       <text:list-item>
-       <text:p text:style-name="P76">Weer mee verder te gaan (een soort pauze mogelijkheid)</text:p>
+       <text:p text:style-name="P72">Weer mee verder te gaan (een soort pauze mogelijkheid)</text:p>
       </text:list-item>
       <text:list-item>
-       <text:p text:style-name="P76">Een backup van te maken, die zelfs zonder de Final Cartridge III weer ingeladen kan worden.</text:p>
+       <text:p text:style-name="P72">Een backup van te maken, die zelfs zonder de Final Cartridge III weer ingeladen kan worden.</text:p>
       </text:list-item>
       <text:list-item>
-       <text:p text:style-name="P76">Een low- of high-resolution screendump van te maken die zelfs de sprites, die op het scherm aanwezig zijn, afdrukt.</text:p>
+       <text:p text:style-name="P72">Een low- of high-resolution screendump van te maken die zelfs de sprites, die op het scherm aanwezig zijn, afdrukt.</text:p>
       </text:list-item>
      </text:list>
     </text:list-item>
    </text:list>
-   <text:list xml:id="list230722427211226" text:continue-list="list1005372460" text:style-name="L1">
+   <text:list xml:id="list13445677334682" text:continue-list="list4201072824" text:style-name="L1">
     <text:list-item>
-     <text:p text:style-name="P78">Een ingebouwde tekstverwerker, de Notepad.</text:p>
+     <text:p text:style-name="P74">Een ingebouwde tekstverwerker, de Notepad.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Standard"/>
@@ -2020,18 +1992,18 @@
    <text:p text:style-name="Text_20_body">Desktop is het belangrijkste element van de Final Cartridge III, het is de spil waarom alles draait. Vanuit desktop kunt u naar <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>, naar de freezer, etc.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Het openen en sluiten van desktop<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
    <text:p text:style-name="P10">U kunt op 4 verschillende manieren in de desktop terecht komen:</text:p>
-   <text:list xml:id="list3127627512" text:style-name="L3">
+   <text:list xml:id="list1276794220" text:style-name="L3">
     <text:list-item>
-     <text:p text:style-name="P89">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
+     <text:p text:style-name="P85">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P89">U selecteert vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> het commando <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het system-menu.</text:p>
+     <text:p text:style-name="P85">U selecteert vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> het commando <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het system-menu.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P89">U typt in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> het commando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> in.</text:p>
+     <text:p text:style-name="P85">U typt in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> het commando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> in.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P79">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
+     <text:p text:style-name="P75">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om vanuit desktop zelf opnieuw te beginnen drukt u de toetsen <text:span text:style-name="Toets">C</text:span><text:span text:style-name="Toets">ON</text:span><text:span text:style-name="Toets">TR</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">L</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> tegelijk in, waarna desktop reset en opnieuw opstart.</text:p>
@@ -2088,24 +2060,24 @@
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Tools<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In dit hoofdstuk worden tools besproken. Tools zijn gereedschappen die de Final Cartridge III u biedt.</text:p>
    <text:p text:style-name="Text_20_body">De tools die in dit hoofdstuk worden besproken zijn:</text:p>
-   <text:list xml:id="list1965918639" text:style-name="L4">
+   <text:list xml:id="list4242055822" text:style-name="L4">
     <text:list-item>
-     <text:p text:style-name="P90"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
+     <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P90"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
+     <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P90"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
+     <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P90"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
+     <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P90"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
+     <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
+     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4754_2830447109"/>Calculator<text:bookmark-end text:name="__RefHeading___Toc4754_2830447109"/></text:h>
@@ -2452,55 +2424,55 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4768_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4768_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Vanuit de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand kunt u gewoon in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> gaan programmeren. U kunt deze stand op­vatten als de computer zonder cartridge.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III levert u in deze stand toch veel extra’s zoals:</text:p>
-   <text:list xml:id="list3969722510" text:style-name="L5">
+   <text:list xml:id="list1629256127" text:style-name="L5">
     <text:list-item>
-     <text:p text:style-name="P91">Het scrollen van <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic-</text:span></text:span>programma’s.</text:p>
+     <text:p text:style-name="P87">Het scrollen van <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic-</text:span></text:span>programma’s.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">Een printer-interface.</text:p>
+     <text:p text:style-name="P87">Een printer-interface.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">Het afdrukken van een scherm op de printer.</text:p>
+     <text:p text:style-name="P87">Het afdrukken van een scherm op de printer.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">De tape/disk snellader.</text:p>
+     <text:p text:style-name="P87">De tape/disk snellader.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">Het gebruik van Pull-Down-menu’s.</text:p>
+     <text:p text:style-name="P87">Het gebruik van Pull-Down-menu’s.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P81">Het gebruik van ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic-</text:span></text:span>commando’s.</text:p>
+     <text:p text:style-name="P77">Het gebruik van ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic-</text:span></text:span>commando’s.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4770_2830447109"/>Het starten en stoppen van de Basic-stand<text:bookmark-end text:name="__RefHeading___Toc4770_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand op de volgende 3 manieren komen:</text:p>
-   <text:list xml:id="list1105913296" text:style-name="L6">
+   <text:list xml:id="list188517324" text:style-name="L6">
     <text:list-item>
-     <text:p text:style-name="P92">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/ST</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">P</text:span> inge­drukt.</text:p>
+     <text:p text:style-name="P88">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/ST</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">P</text:span> inge­drukt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P92">U selecteert vanuit de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> in het menu <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>.</text:p>
+     <text:p text:style-name="P88">U selecteert vanuit de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> in het menu <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P82">U selecteert vanuit het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freezer</text:span></text:span>-menu het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
+     <text:p text:style-name="P78">U selecteert vanuit het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freezer</text:span></text:span>-menu het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om te stoppen met de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> stand en over te gaan naar een andere stand van de Final Cartrid­ge III zijn er de volgende mogelijkheden:</text:p>
-   <text:list xml:id="list370651431" text:style-name="L7">
+   <text:list xml:id="list2447103224" text:style-name="L7">
     <text:list-item>
-     <text:p text:style-name="P93">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> in het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">system</text:span></text:span>-menu, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> komt.</text:p>
+     <text:p text:style-name="P89">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> in het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">system</text:span></text:span>-menu, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P93">U typt <text:span text:style-name="Monospace">DESKTOP</text:span> in, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> komt.</text:p>
+     <text:p text:style-name="P89">U typt <text:span text:style-name="Monospace">DESKTOP</text:span> in, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P93">U drukt op de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freeze</text:span></text:span>-knop, waarna u in het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">freeze</text:span></text:span>-menu komt.</text:p>
+     <text:p text:style-name="P89">U drukt op de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freeze</text:span></text:span>-knop, waarna u in het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">freeze</text:span></text:span>-menu komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P93">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">final kill</text:span></text:span>, waarna de Final Cartridge III wordt uitgeschakeld en u in de standaard Commodore 64/128 komt.</text:p>
+     <text:p text:style-name="P89">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">final kill</text:span></text:span>, waarna de Final Cartridge III wordt uitgeschakeld en u in de standaard Commodore 64/128 komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P83">U typt <text:span text:style-name="Monospace">KILL</text:span> in, waarna de Final Cartridge III wordt uitgeschakeld en u in de stan­daard Commodore 64/128 komt.</text:p>
+     <text:p text:style-name="P79">U typt <text:span text:style-name="Monospace">KILL</text:span> in, waarna de Final Cartridge III wordt uitgeschakeld en u in de stan­daard Commodore 64/128 komt.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4772_2830447109"/>Extra mogelijkheden in Basic<text:bookmark-end text:name="__RefHeading___Toc4772_2830447109"/></text:h>
@@ -2537,30 +2509,30 @@
    <text:p text:style-name="P18">Let Op ! <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">final kill = kill</text:span></text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4966_2164442888"/>Extra Basic-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4966_2164442888"/></text:h>
    <text:p text:style-name="P18">Als u de Final Cartridge III in uw computer heeft zitten, heeft u ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-commando’s tot uw beschikking. Deze comman­do’s kunt u op twee manieren gebruiken:</text:p>
-   <text:list xml:id="list576300512" text:style-name="L8">
+   <text:list xml:id="list4152383462" text:style-name="L8">
     <text:list-item>
-     <text:p text:style-name="P94">u kunt ze direct intypen</text:p>
+     <text:p text:style-name="P90">u kunt ze direct intypen</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P84">u kunt ze vanuit een programma gebruiken</text:p>
+     <text:p text:style-name="P80">u kunt ze vanuit een programma gebruiken</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P18">Van elk commando geven we het volgende:</text:p>
-   <text:list xml:id="list491796889" text:style-name="L9">
+   <text:list xml:id="list2798400966" text:style-name="L9">
     <text:list-item>
-     <text:p text:style-name="P95">de naam van het commando;</text:p>
+     <text:p text:style-name="P91">de naam van het commando;</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P95">de syntax van het commando<text:line-break/>De eerste regel toont het volledige commando.<text:line-break/>De tweede regel toont het commando afgekort. De kleine letters geven aan dat u deze gewoon intypt, de grote letters moeten worden ingetypt als u <text:span text:style-name="Toets">SHIFT</text:span> inge­drukt houdt.<text:line-break/>[ ]<text:tab/>rechte haken geven aan dat dit deel van het commando optioneel is. Typ de<text:line-break/><text:tab/>haken niet in.<text:line-break/>&lt; &gt;<text:tab/>gebogen haken geven aan dat u op deze plaats zelf informatie moet intypen.<text:line-break/><text:tab/>Typ de haken niet in.<text:line-break/>/<text:tab/>een schuine streep betekent dat u tussen verschillende moge­lijkheden kunt<text:line-break/><text:tab/>kiezen. Typ de schuine streep niet in.</text:p>
+     <text:p text:style-name="P91">de syntax van het commando<text:line-break/>De eerste regel toont het volledige commando.<text:line-break/>De tweede regel toont het commando afgekort. De kleine letters geven aan dat u deze gewoon intypt, de grote letters moeten worden ingetypt als u <text:span text:style-name="Toets">SHIFT</text:span> inge­drukt houdt.<text:line-break/>[ ]<text:tab/>rechte haken geven aan dat dit deel van het commando optioneel is. Typ de<text:line-break/><text:tab/>haken niet in.<text:line-break/>&lt; &gt;<text:tab/>gebogen haken geven aan dat u op deze plaats zelf informatie moet intypen.<text:line-break/><text:tab/>Typ de haken niet in.<text:line-break/>/<text:tab/>een schuine streep betekent dat u tussen verschillende moge­lijkheden kunt<text:line-break/><text:tab/>kiezen. Typ de schuine streep niet in.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P74">de betekenis van het commando</text:p>
+     <text:p text:style-name="P71">de betekenis van het commando</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P74">een voorbeeld van het commando</text:p>
+     <text:p text:style-name="P71">een voorbeeld van het commando</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P73">opmerkingen over het commando</text:p>
+     <text:p text:style-name="P70">opmerkingen over het commando</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="P52"><text:soft-page-break/></text:p>
@@ -3150,38 +3122,38 @@
    <text:p text:style-name="Text_20_body">Nadat u de freeze-button ingedrukt heeft, kunt u met behulp van de Final Cartridge III een aan­tal interessante commando’s gaan uitvoe­ren, zoals het maken van een back up. Zie ook het hoofdstuk <text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">Opmerkingen</text:span></text:span></text:a> !</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4776_2830447109"/>Het starten en stoppen van de freezer<text:bookmark-end text:name="__RefHeading___Toc4776_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 4 manieren opstarten:</text:p>
-   <text:list xml:id="list1187430391" text:style-name="L10">
+   <text:list xml:id="list4097727444" text:style-name="L10">
     <text:list-item>
-     <text:p text:style-name="P96">U kiest vanuit de desktop in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
+     <text:p text:style-name="P92">U kiest vanuit de desktop in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P96">U kiest vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
+     <text:p text:style-name="P92">U kiest vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P96">U drukt terwijl u in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> bent op de freeze-knop.</text:p>
+     <text:p text:style-name="P92">U drukt terwijl u in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> bent op de freeze-knop.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P85">U drukt terwijl de Final Cartridge III uit staat op de freeze-knop.</text:p>
+     <text:p text:style-name="P81">U drukt terwijl de Final Cartridge III uit staat op de freeze-knop.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 2 wijze verlaten:</text:p>
-   <text:list xml:id="list1505092779" text:style-name="L11">
+   <text:list xml:id="list3209464780" text:style-name="L11">
     <text:list-item>
-     <text:p text:style-name="P97">U kiest één van de exit-commando’s</text:p>
+     <text:p text:style-name="P93">U kiest één van de exit-commando’s</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P86">U kiest één van de reset-commando’s</text:p>
+     <text:p text:style-name="P82">U kiest één van de reset-commando’s</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="P63" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4778_2830447109"/>Het gebruik van de freezer<text:bookmark-end text:name="__RefHeading___Toc4778_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Nadat u de freezer heeft opgestart verschijnt de menu-bar. In tegens­telling tot alle andere pull-down menu’s gebruiken we bij het kiezen in deze menu’s geen pointer.</text:p>
    <text:p text:style-name="Text_20_body">Deze pull-down-menu’s kunt u op twee manieren doorbladeren:</text:p>
-   <text:list xml:id="list1613398828" text:style-name="L12">
+   <text:list xml:id="list326142386" text:style-name="L12">
     <text:list-item>
-     <text:p text:style-name="P98">Door gebruik te maken van een joystick bladert u links en rechts door de verschillende menu’s. Door naar voor of achter te gaan bladert u door één bepaald menu. Het door u gewenste commando selecteert u door op de vuurknop te drukken.</text:p>
+     <text:p text:style-name="P94">Door gebruik te maken van een joystick bladert u links en rechts door de verschillende menu’s. Door naar voor of achter te gaan bladert u door één bepaald menu. Het door u gewenste commando selecteert u door op de vuurknop te drukken.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P87">Door gebruik te maken van de cursor. Met cursor rechts en cursor links (dit alleen m.b.v. de rechter shift-knop !!) bladert u door de verschillende menu’s. M.b.v. cursor down en cursor up (dit alleen m.b.v. de rechter shift-knop !!), bladert u door één be­paald menu. Het door u gewenste commando selecteert u door op <text:span text:style-name="Toets"><text:s/>f</text:span><text:span text:style-name="Toets"> </text:span><text:span text:style-name="Toets">7</text:span><text:span text:style-name="Toets"> </text:span><text:s/>te drukken.</text:p>
+     <text:p text:style-name="P83">Door gebruik te maken van de cursor. Met cursor rechts en cursor links (dit alleen m.b.v. de rechter shift-knop !!) bladert u door de verschillende menu’s. M.b.v. cursor down en cursor up (dit alleen m.b.v. de rechter shift-knop !!), bladert u door één be­paald menu. Het door u gewenste commando selecteert u door op <text:span text:style-name="Toets"><text:s/>f</text:span><text:span text:style-name="Toets"> </text:span><text:span text:style-name="Toets">7</text:span><text:span text:style-name="Toets"> </text:span><text:s/>te drukken.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="P63" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4780_2830447109"/>Freezer-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4780_2830447109"/></text:h>
@@ -3387,18 +3359,18 @@
    <text:p text:style-name="Text_20_body">Met de spritemonitor kunt u sprites bekijken en veranderen. U kunt dus zelf gemakkelijk sprites ontwerpen voor gebruik in uw eigen programma’s, of de sprites uit een bestaand programma halen en die gebruiken.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4784_2830447109"/>Het starten en stoppen van de monitor<text:bookmark-end text:name="__RefHeading___Toc4784_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt de monitor van de Final Cartridge III op 4 verschillende manieren starten, namelijk:</text:p>
-   <text:list xml:id="list612260971" text:style-name="L13">
+   <text:list xml:id="list3807753390" text:style-name="L13">
     <text:list-item>
-     <text:p text:style-name="P99">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand typt u het commando <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> in.</text:p>
+     <text:p text:style-name="P95">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand typt u het commando <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> in.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P99">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand drukt u op funktietoets F2 (<text:span text:style-name="Toets">SHIFT</text:span> + <text:span text:style-name="Toets"><text:s/>f</text:span><text:span text:style-name="Toets"> </text:span><text:span text:style-name="Toets">1</text:span><text:span text:style-name="Toets"> </text:span>)</text:p>
+     <text:p text:style-name="P95">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand drukt u op funktietoets F2 (<text:span text:style-name="Toets">SHIFT</text:span> + <text:span text:style-name="Toets"><text:s/>f</text:span><text:span text:style-name="Toets"> </text:span><text:span text:style-name="Toets">1</text:span><text:span text:style-name="Toets"> </text:span>)</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P99">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand kiest u in het system Pull-Down-menu M<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">onitor</text:span></text:span></text:p>
+     <text:p text:style-name="P95">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand kiest u in het system Pull-Down-menu M<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">onitor</text:span></text:span></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P88">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freezer</text:span></text:span>-stand kiest u <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">Monitor</text:span></text:span></text:p>
+     <text:p text:style-name="P84">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">freezer</text:span></text:span>-stand kiest u <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">Monitor</text:span></text:span></text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">De monitor meldt zich dan door het weergeven van de registers, waarbij de getoonde waarden kunnen afwijken. (De betekenis van de symbolen kunt u terugvinden bij het R(egister) com­mando)</text:p>
@@ -3571,8 +3543,8 @@
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10853_2164442888"/>C<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Compare Memory<text:tab/><text:tab/>Blokken geheugen vergelijken<text:bookmark-end text:name="__RefHeading___Toc10853_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">C xxxx </text:span><text:span text:style-name="Monospace">yyyy zzzz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/><text:tab/>= het beginadres van het eerste blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/><text:tab/>= het eindadres van het eerste blok<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zzzz</text:span><text:tab/><text:tab/>= het beginadres van het tweede blok</text:p>
-   <text:p text:style-name="Text_20_body">Dit commando<text:tab/>stelt u in staat een blok geheugen met een ander te vergelijken en houdt u op<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>de hoogte van mogelijke ver­schillen. De nummers die op het scherm worden<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>afgebeeld, zijn de geheugenlocaties die niet gelijk zijn. Dus als u twee de-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>zelfde blokken met elkaar vergelijkt, wordt er niets op het scherm afgebeeld.</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">C xxxx </text:span><text:span text:style-name="Monospace">yyyy zzzz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/><text:tab/>= het beginadres van het eerste blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/><text:tab/>= het eindadres van het eerste blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zzzz</text:span><text:tab/><text:tab/>= het beginadres van het tweede blok</text:p>
+   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Dit commando<text:tab/>stelt u in staat een blok geheugen met een ander te vergelijken en houdt u op<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>de hoogte van mogelijke ver­schillen. De nummers die op het scherm worden<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>afgebeeld, zijn de geheugenlocaties die niet gelijk zijn. Dus als u twee de-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>zelfde blokken met elkaar vergelijkt, wordt er niets op het scherm afgebeeld.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">C 1000 1FFF 4000<text:tab/></text:span>Hiermee vergelijkt u het blok van 1000 t/m 1FFF<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>met het<text:tab/> geheugenblok 4000 t/m 4FFF.</text:p>
    <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/>U hoeft niet het eindadres van het tweede blok te geven; de computer<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>berekent dit voor u.</text:p>
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
@@ -3587,8 +3559,8 @@
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10849_2164442888"/>EC<text:tab/><text:tab/><text:tab/><text:tab/>Edit <text:span text:style-name="T19">c</text:span>haracter<text:tab/><text:tab/>Karakters veranderen<text:bookmark-end text:name="__RefHeading___Toc10849_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">EC xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres</text:p>
-   <text:p text:style-name="Text_20_body">Dit commando<text:tab/>stelt u in staat karakters te tonen en hierna te verande­ren. Na het intypen van<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dit commando, wordt de inhoud van het geheugen in character-representatie<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>weergegeven. U heeft nu de mogelijkheid om het karakter te veranderen<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>door in de juiste regel een sterretje te typen als een bit 1 wilt maken, of een<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>punt “.” te typen als u een bit 0 wilt maken.</text:p>
-   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="Text_20_body">Dit commando<text:tab/>stelt u in staat karakters te tonen en hierna te verande­ren. Na het intypen van<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dit commando, wordt de inhoud van het geheugen in character-representatie<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>weergegeven. U heeft nu de mogelijkheid om het karakter te veranderen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>door in de juiste regel een sterretje te typen als een bit 1 wilt maken, of een<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>punt “.” te typen als u een bit 0 wilt maken.</text:p>
+   <text:p text:style-name="Standard"><text:soft-page-break/></text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">EC 2000 2008<text:tab/><text:tab/></text:span>Dit toont het geheugen van 2000 t/m 2008 in <text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>character-representatie.</text:p>
    <text:p text:style-name="P6">Scherm:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">.EC 2000 2008<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2000 ..****..<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2001 .**..**.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2002 .**.***.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2003 .**.***.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2004 .**..... <text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2005 .**.....<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2006 ..****..<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2007 ........</text:span></text:p>
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
@@ -3601,8 +3573,8 @@
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10958_2164442888"/>F<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Fill memory<text:tab/><text:tab/><text:tab/>Een deel van het geheugen vullen<text:bookmark-end text:name="__RefHeading___Toc10958_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">F xxxx yyyy zz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zz</text:span><text:tab/><text:tab/>= het getal waarmee het geheugen gevuld moet worden </text:p>
-   <text:p text:style-name="Standard">Dit commando<text:tab/>stelt u in staat snel een bepaald gedeelte van het geheugen met een getal te<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>vullen.</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">F xxxx yyyy zz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zz</text:span><text:tab/><text:tab/>= het getal waarmee het geheugen gevuld moet worden </text:p>
+   <text:p text:style-name="Standard">Dit commando<text:tab/>stelt u in staat snel een bepaald gedeelte van het geheugen met een getal te<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>vullen.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">F 3000 4000 00</text:span><text:tab/>Hiermee vult u het geheugen van 3000 t/m 4000 met<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>het getal 00.</text:p>
    <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/>Dit commando is makkelijk om een gedeelte van het geheugen te wissen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>waarin u gaat programmeren, zodat u uw programma gemakkelijk kunt<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>terugvinden.</text:p>
@@ -3620,9 +3592,9 @@
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 1000 8000 A9 00<text:tab/><text:tab/></text:span>Hiermee zoekt u in het gedeelte van 1000 t/m<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>8000 naar A9 00<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 2000 F000 “FINAL”</text:span><text:tab/>Hiermee zoekt u in het gedeelte van 2000 t/m<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>F000 naar de tekst FINAL</text:p>
    <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/>Met dit commando kunt u bijvoorbeeld een bepaald gedeelte van een prog-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ramma opzoeken, omdat het programma intern wordt opgeslagen als getal-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>len. Zoekt u bijvoorbeeld naar de instruktie LDA #$00, dan geeft u als getal-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>len A9 00.</text:p>
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
-   <text:p text:style-name="Standard"><text:soft-page-break/></text:p>
+   <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10839_2164442888"/>I<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Interrogate<text:tab/><text:tab/><text:tab/>Karakters tonen of invoeren<text:bookmark-end text:name="__RefHeading___Toc10839_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>I <text:span text:style-name="Monospace">xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span> = het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span> = het eindadres</text:p>
+   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">I xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span> = het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span> = het eindadres</text:p>
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/>stelt u in staat teksten te tonen of te veranderen. Na het intypen van dit com-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mando wordt de inhoud van het geheugen in tekst representatie weergeven<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>en. Het is nu moge­lijk om de teksten te veranderen door ze te verbeteren.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">I 2000 203F</text:span></text:p>
    <text:p text:style-name="P6">Scherm:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">. I 2000 203F<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span></text:p>
@@ -3638,7 +3610,7 @@
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10835_2164442888"/>M<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Memory display<text:tab/><text:tab/>Kijken naar het geheugen<text:bookmark-end text:name="__RefHeading___Toc10835_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">M xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres</text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Dit commando<text:tab/>toont u de inhoud van een geheugendeel, zowel in hexadecimaal als, waar<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mogelijk, een character (een letter, nummer, of grafisch symbool). De<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>inhoud van deze locaties worden op het scherm getoond. Het eerste nummer<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>op de regel (een vier-cijferig nummer) is het geheugenadres. De acht twee-<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>cijferige nummers zijn de ínhoud van die geheugenlocatie en de zeven opvol-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>gende. Aan het einde van elke regel staan 8 characters. De 8 twee-cijferige<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>nummers zijn de ASCII-codes van deze characters.</text:p>
+   <text:p text:style-name="Text_20_body">Dit commando<text:tab/>toont u de inhoud van een geheugendeel, zowel in hexadecimaal als, waar<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mogelijk, een character (een letter, nummer, of grafisch symbool). De<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>inhoud van deze locaties worden op het scherm getoond. Het eerste nummer<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>op de regel (een vier-cijferig nummer) is het geheugenadres. De acht twee-<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>cijferige nummers zijn de ínhoud van die geheugenlocatie en de zeven opvol-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>gende. Aan het einde van elke regel staan 8 characters. De 8 twee-cijferige<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>nummers zijn de ASCII-codes van deze characters.</text:p>
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>U kunt de inhoud van het geheugen veranderen, door de getallen gewoon te<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>verbeteren.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">M 2000 2010</text:span></text:p>
    <text:p text:style-name="P6">Scherm:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">.M<text:tab/>2000 201F<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2000 48 41 </text:span><text:span text:style-name="Monospace">4C 4C 4F 20 44 49 HALLO D</text:span><text:span text:style-name="Monospace">I</text:span><text:span text:style-name="Monospace"><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2008 54 20 </text:span><text:span text:style-name="Monospace">49 53 20 45 45 4E T IS EEN</text:span><text:span text:style-name="Monospace"><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2010 20 54 </text:span><text:span text:style-name="Monospace">45 53 54 20 56 2F <text:s/>TEST V/</text:span><text:span text:style-name="Monospace"><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2018 44 20 </text:span><text:span text:style-name="Monospace">45 43 20 49 49 49 D FC III</text:span></text:p>
@@ -3678,7 +3650,7 @@
       <text:p text:style-name="P51"><text:span text:style-name="Monospace"><text:span text:style-name="T12">$E000-$FFFF</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489573632">
+    <table:table-row table:style-name="TableLine94000192555152">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="P50"><text:span text:style-name="Monospace"><text:span text:style-name="T12">dr</text:span></text:span></text:p>
      </table:table-cell>
@@ -3701,7 +3673,7 @@
       <text:p text:style-name="P51"><text:span text:style-name="Monospace"><text:span text:style-name="T12">57344-65535</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489640688">
+    <table:table-row table:style-name="TableLine94000192621344">
      <table:table-cell table:style-name="Tabel1.A1" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O0</text:span></text:span></text:p>
      </table:table-cell>
@@ -3724,7 +3696,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489642224">
+    <table:table-row table:style-name="TableLine94000192622880">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O1</text:span></text:span></text:p>
      </table:table-cell>
@@ -3747,7 +3719,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489643488">
+    <table:table-row table:style-name="TableLine94000192624144">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O2</text:span></text:span></text:p>
      </table:table-cell>
@@ -3770,7 +3742,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">KERNAL</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489641456">
+    <table:table-row table:style-name="TableLine94000192622112">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O3</text:span></text:span></text:p>
      </table:table-cell>
@@ -3793,7 +3765,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">KERNAL</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489645760">
+    <table:table-row table:style-name="TableLine94000192626416">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O4</text:span></text:span></text:p>
      </table:table-cell>
@@ -3816,7 +3788,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94279489647216">
+    <table:table-row table:style-name="TableLine94000192627872">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O5</text:span></text:span></text:p>
      </table:table-cell>
@@ -3839,8 +3811,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <text:soft-page-break/>
-    <table:table-row table:style-name="TableLine94279489648672">
+    <table:table-row table:style-name="TableLine94000192629328">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O6</text:span></text:span></text:p>
      </table:table-cell>
@@ -3887,7 +3858,7 @@
      </table:table-cell>
     </table:table-row>
    </table:table>
-   <text:p text:style-name="Text_20_body">Verklaringen:<text:line-break/>RAM<text:line-break/>CHAR-ROM<text:tab/><text:tab/><text:tab/>Het karakter-ROM<text:line-break/>I/O-REG<text:tab/><text:tab/><text:tab/><text:tab/>Input-/Output-register en Timer (CIA#1 en CIA#2)<text:line-break/>KERNAL<text:tab/><text:tab/><text:tab/><text:tab/>Het Operating System (kernal)</text:p>
+   <text:p text:style-name="Text_20_body">Verklaringen:<text:line-break/><text:soft-page-break/>RAM<text:line-break/>CHAR-ROM<text:tab/><text:tab/><text:tab/>Het karakter-ROM<text:line-break/>I/O-REG<text:tab/><text:tab/><text:tab/><text:tab/>Input-/Output-register en Timer (CIA#1 en CIA#2)<text:line-break/>KERNAL<text:tab/><text:tab/><text:tab/><text:tab/>Het Operating System (kernal)</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10831_2164442888"/><text:bookmark text:name="OD (MONITOR)"/>OD<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Diskmonitor<text:bookmark-end text:name="__RefHeading___Toc10831_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">O</text:span><text:span text:style-name="Monospace">D</text:span></text:p>
@@ -3904,7 +3875,7 @@
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/><text:tab/>stelt u in staat alle registers te bekijken. Van het statusregister wordt zelfs<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>nog bit voor bit weergegeven: Een sterretje “*” geeft aan dat het bit 1 is,<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>een punt geeft aan dat het bit 0 is. Tevens heeft u de mogelijkheid de<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>waarden te verbeteren.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">R</text:span></text:p>
    <text:p text:style-name="P6">Scherm:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">.R<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>. PC <text:s/>IRQ <text:s/>BK AC XR YR SP NV#BDIZC<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.C000 EA31 07 06 56 EA FC *.**.*.*</text:span></text:p>
-   <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/><text:tab/>De registers die worden weergegeven zijn:<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>PC<text:tab/><text:tab/>= Program Counter<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>IRQ<text:tab/>= Interrupt ReQuest<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>BK<text:tab/><text:tab/>= De banken die u ingeschakeld heeft<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>AC<text:tab/><text:tab/>= Accumulator<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>XR<text:tab/><text:tab/>= X Register<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>YR<text:tab/><text:tab/>= Y Register<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>SP<text:tab/><text:tab/>= Stack Pointer<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>N<text:tab/><text:tab/>= De Negative Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>V<text:tab/><text:tab/>= De Overflow Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>#<text:tab/><text:tab/>= (Wordt niet gebruikt)<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>B<text:tab/><text:tab/>= De Break Commando Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>D<text:tab/><text:tab/>= De Decimal Mode Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>I<text:tab/><text:tab/>= De Interrupt Disable Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Z<text:tab/><text:tab/>= De Zero Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C<text:tab/><text:tab/>= De Carry Flag van het statusregister</text:p>
+   <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/><text:tab/>De registers die worden weergegeven zijn:<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>PC<text:tab/><text:tab/>= Program Counter<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>IRQ<text:tab/>= Interrupt ReQuest<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>BK<text:tab/><text:tab/>= De banken die u ingeschakeld heeft<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>AC<text:tab/><text:tab/>= Accumulator<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>XR<text:tab/><text:tab/>= X Register<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>YR<text:tab/><text:tab/>= Y Register<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>SP<text:tab/><text:tab/>= Stack Pointer<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>N<text:tab/><text:tab/>= De Negative Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>V<text:tab/><text:tab/>= De Overflow Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>#<text:tab/><text:tab/>= (Wordt niet gebruikt)<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>B<text:tab/><text:tab/>= De Break Commando Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>D<text:tab/><text:tab/>= De Decimal Mode Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>I<text:tab/><text:tab/>= De Interrupt Disable Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Z<text:tab/><text:tab/>= De Zero Flag van het statusregister<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C<text:tab/><text:tab/>= De Carry Flag van het statusregister</text:p>
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Het verbeteren van de getoonde waarden is bijvoorbeeld erg handig als u<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>een interruptroutine schrijft. Normaal gesproken moet u dan een klein<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>programmaatje schrijven dat de interrupt vector omzet, maar nu hoeft u<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>alleen de juiste waarde over de IRQ-waarde heen te typen.</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10825_2164442888"/>S<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Save memory<text:tab/><text:tab/><text:tab/>Bewaren van machinetaalprogramma’s<text:bookmark-end text:name="__RefHeading___Toc10825_2164442888"/></text:p>
@@ -3917,8 +3888,8 @@
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10823_2164442888"/>T<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Transfer memory<text:tab/>Het verplaatsen van geheugendelen<text:bookmark-end text:name="__RefHeading___Toc10823_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">T xxxx yyyy zzzz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">x</text:span><text:span text:style-name="Monospace">xxx</text:span><text:tab/>= het beginadres van het blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres van het blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zzzz</text:span><text:tab/>= het beginadres vaar het moet komen</text:p>
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/><text:tab/>kopieert een geheugendeel van een plaats naar een andere.</text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Voorbeeld:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">T 2000 3000 9000<text:tab/></text:span>Hiermee verplaatst u het blok van 2000 t/m<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>3000 naar 9000</text:p>
-   <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/><text:tab/>De computer berekent zelf het eindadres.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Let op dat u de delen elkaar niet laat overlappen.</text:p>
+   <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">T 2000 3000 9000<text:tab/></text:span>Hiermee verplaatst u het blok van 2000 t/m<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>3000 naar 9000</text:p>
+   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Opmerkingen:<text:tab/><text:tab/><text:tab/>De computer berekent zelf het eindadres.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Let op dat u de delen elkaar niet laat overlappen.</text:p>
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10821_2164442888"/>X<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Exit<text:tab/><text:tab/><text:tab/><text:tab/>Het verlaten van de monitor<text:bookmark-end text:name="__RefHeading___Toc10821_2164442888"/></text:p>
@@ -3939,8 +3910,8 @@
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/>@[&lt;diskcommando&gt;]</text:p>
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/><text:tab/>stelt u in staat gemakkelijk de status van de disk-drive op te vragen. Ook<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>kunt u met dit commando diskcommando’s geven, of overgaan naar een<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>tweede disk-drive.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">@</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>leest het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">error</text:span></text:span>-kanaal uit<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">@$</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>toont de directory<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">@N:naam,id</text:span><text:tab/><text:tab/>formatteert een diskette</text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Opmerkingen:<text:tab/><text:tab/><text:tab/>Dit commando is vrijwel hetzelfde als het commando <text:a xlink:type="simple" xlink:href="#DOS (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">DOS&quot;</text:a> in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
-   <text:p text:style-name="Text_20_body"/>
+   <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/><text:tab/>Dit commando is vrijwel hetzelfde als het commando <text:a xlink:type="simple" xlink:href="#DOS (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">DOS&quot;</text:a> in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>.</text:p>
+   <text:p text:style-name="Text_20_body"><text:soft-page-break/></text:p>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:tab/><text:tab/>Het lezen van een blok van de disk in het geheugen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>van de computer<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">*R xx yy zz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xx</text:span><text:tab/>=<text:tab/>het track nummer van het blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yy</text:span><text:tab/>=<text:tab/>het sector nummer van het blok<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zz</text:span><text:tab/>= <text:tab/>de plaats waar u het blok in het geheugen van de computer wilt<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>hebben (zz komt overeen met zz00)</text:p>
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/><text:tab/>stelt u in staat een blok van de diskette te lezen en deze te veranderen.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Nadat het blok gelezen is, staat het in het geheugen van de computer. Nu<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>heeft u de mogelijkheid om dat blok op alle door de Final Cartridge III<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>geboden manieren te bekijken en te veranderen.</text:p>
@@ -3984,7 +3955,7 @@
    <text:p text:style-name="Text_20_body">Door enkel de resetknop in te drukken komt u in de huidige stand terecht.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4804_2830447109"/>Opmerkingen over Basic<text:bookmark-end text:name="__RefHeading___Toc4804_2830447109"/></text:h>
    <text:p text:style-name="P42">PACKER</text:p>
-   <text:p text:style-name="P42">Tegenwoordig zijn zeer veel programma’s als gepackt. Zo’n programma wordt dan alleen maar groter als u het een tweede keer packt.</text:p>
+   <text:p text:style-name="P42">Tegenwoordig zijn zeer veel programma’s al gepackt. Zo’n programma wordt dan alleen maar groter als u het een tweede keer packt.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4806_2830447109"/>Opmerkingen over muizen<text:bookmark-end text:name="__RefHeading___Toc4806_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Hoewel het mogelijk is om met een muis in de muisstand te werken, raden wij u aan een muis in joystickstand te gebruiken. Sommige muizen blokkeren namelijk het keyboard. Mede hier­door kunt u de freezer alleen vanuit joystickstand besturen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4808_2830447109"/>Opmerkingen over de disk-snellader<text:bookmark-end text:name="__RefHeading___Toc4808_2830447109"/></text:h>
