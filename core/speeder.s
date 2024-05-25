@@ -164,9 +164,9 @@ new_load:
         cpy     #7
         beq     L99B5 ; tape turbo
         cpy     #8
-        bcc     iec_load
+        bcc     L99C9
         cpy     #10
-        bcs     iec_load
+        bcs     L99C9
         tay
         lda     $B7
         beq     L99C9
