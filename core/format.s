@@ -8,7 +8,7 @@
 .import check_iec_error
 .import cmd_channel_listen
 .import listen_second
-.import m_w_and_m_e
+.import transfer_code_to_drive
 
 .global fast_format
 .global init_read_disk_name
@@ -21,12 +21,12 @@
 .import __fast_format_drive_RUN__
 
 fast_format:
-        lda     #5
+        lda     #8
         sta     $93 ; times $20 bytes
         lda     #<__fast_format_drive_LOAD__
         ldy     #>__fast_format_drive_LOAD__
         ldx     #>__fast_format_drive_RUN__
-        jsr     m_w_and_m_e
+        jsr     transfer_code_to_drive
         lda     #<fast_format_drive_code_entry
         jsr     IECOUT
         lda     #>fast_format_drive_code_entry

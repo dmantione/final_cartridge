@@ -12,6 +12,7 @@
 .global tape_write_byte
 .import tape_write_byte_from_ram
 .import check_iec_error
+.import transfer_code_to_drive
 
 L0110           := $0110
 
@@ -1334,45 +1335,6 @@ LA6A8:  lda     s_from,y
 
 s_from: .byte   " FROM $", 0
         .byte   " TO $", 0
-
-.global transfer_code_to_drive
-transfer_code_to_drive:
-        sta     $C3
-        sty     $C4
-        ldy     #0
-LA6DB:  lda     #'W'
-        jsr     LA707 ; send "M-W"
-        tya
-        jsr     IECOUT
-        txa
-        jsr     IECOUT
-        lda     #$20
-        jsr     IECOUT
-LA6ED:  lda     ($C3),y
-        jsr     IECOUT
-        iny
-        tya
-        and     #$1F
-        bne     LA6ED
-        jsr     UNLSTN
-        dec     $93
-        beq     @ready
-        tya
-        bne     LA6DB
-        inc     $C4
-        inx
-        bne     LA6DB   ; always taken
-@ready:
-        lda     #'E' ; send "M-E"
-LA707:  pha
-        lda     #$6F
-        jsr     LA612   ; LISTEN
-        lda     #'M'
-        jsr     IECOUT
-        lda     #'-'
-        jsr     IECOUT
-        pla
-        jmp     IECOUT
 
 open_file:
         ldy     #0

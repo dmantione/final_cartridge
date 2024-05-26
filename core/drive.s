@@ -63,32 +63,36 @@ talk_second:
         pla
         jmp     TKSA
 
-m_w_and_m_e:
+.global transfer_code_to_drive
+transfer_code_to_drive:
         sta     $C3
         sty     $C4
         ldy     #0
-L8154:  lda     #'W'
-        jsr     send_m_dash
+LA6DB:  lda     #'W'
+        jsr     send_m_dash ; send "M-W"
         tya
         jsr     IECOUT
         txa
         jsr     IECOUT
         lda     #' '
         jsr     IECOUT
-L8166:  lda     ($C3),y
+LA6ED:  lda     ($C3),y
         jsr     IECOUT
         iny
         tya
         and     #$1F
-        bne     L8166
+        bne     LA6ED
         jsr     UNLSTN
+        dec     $93
+        beq     @ready
         tya
-        bne     L8154
+        bne     LA6DB
         inc     $C4
         inx
-        cpx     $93
-        bcc     L8154
-        lda     #'E'
+        bne     LA6DB   ; always taken
+@ready:
+        lda     #'E' ; send "M-E"
+
 send_m_dash:
         pha
         jsr     listen_6F_or_error
