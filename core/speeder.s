@@ -225,7 +225,7 @@ load_ac_indy:
         ldy     #$0F
         sty     $01
         ldy     #0
-        jmp     LA9BB
+        jmp     tape_write_byte
 load_ac_indy_end:
 
 L9A50:  lda     #$0C
@@ -1404,9 +1404,9 @@ open_file:
 tape_wait_play:
          ; if already pressed, no need to display messages
         jsr     $F82E ; cassette sense
-        beq     rts_carry_clear
+        beq     rts_  ; $F82E clears carry
         ldy     #$1B  ; print PRESS PLAY ON TAPE
-LA749:  jsr     LA7B3 ; print
+print:  jsr     maybe_print_kernal_string
         ; Wait for key on tape, but allow run/stop to abort.
         ; Run/stop is column 7, row 7
         ; $DC00 = $7f, = row 7 selected. Therefore test bit 7 of $DC01:
@@ -1415,20 +1415,16 @@ LA749:  jsr     LA7B3 ; print
         jsr     $F82E ; cassette sense
         bne     :-
         ldy     #$6A  ; Offset to OK
-        jmp     LA7B3 ; print OK
+        jmp     maybe_print_kernal_string ; print OK
 
 tape_wait_record:
         jsr     $F82E ; cassette sense
-        beq     rts_carry_clear
+        beq     rts_  ; $F82E clears carry
         ldy     #$2E  ; print PRESS RECORD & PLAY ON TAPE
-        bne     LA749
-
-rts_carry_clear:
-        clc
-        rts
-
+        bne     print ; always
 rts_carry_set:
         sec
+rts_:
         rts
 
 print_found:
@@ -1437,15 +1433,15 @@ print_found:
         ldy     #$63 ; "FOUND"
         jsr     print_kernal_string
         ldy     #5
-LA773:  lda     ($B2),y
+:       lda     ($B2),y
         jsr     $E716 ; KERNAL: output character to screen
         iny
         cpy     #$15
-        bne     LA773
+        bne     :-
         rts
 
 print_message:
-        jsr     LA7B1
+        jsr     print_saving
         bmi     LA796
         rts
 
@@ -1471,11 +1467,14 @@ LA7A7:  rts
 print_loading:
         ldy     #$49 ; "LOADING"
         lda     $93
-        beq     LA7B3
+        beq     maybe_print_kernal_string
+print_verifying:
         ldy     #$59 ; "VERIFYING"
-        .byte   $2C
-LA7B1:  ldy     #$51 ; "SAVING"
-LA7B3:  bit     $9D  ; Display messages?
+        .byte   $2C  ; BIT $abcd
+print_saving:
+        ldy     #$51 ; "SAVING"
+maybe_print_kernal_string:
+        bit     $9D  ; Display messages?
         bpl     LA7C4 ; return if no
 print_kernal_string:
         lda     $F0BD,y ; KERNAL strings
@@ -1521,15 +1520,15 @@ new_save_tape:
         jmp     _disable_fc3rom
 :       jsr     print_message  ; print mesaage on screen (unless disabled)
         jsr     turn_screen_off
-        jsr     LA999
+        jsr     tape_write_header
         lda     SA
         clc
         adc     #1
         dex
-        jsr     LA9BB
+        jsr     tape_write_byte ; write SA+1 (file header)
         ldx     #8
 :       lda     $AC,y
-        jsr     LA9BB
+        jsr     tape_write_byte
         ldx     #6
         iny
         cpy     #5
@@ -1542,16 +1541,16 @@ LA808:  jsr     _load_FNADR_indy
         bcc     :+
         lda     #$20
         dex
-:       jsr     LA9BB
+:       jsr     tape_write_byte
         ldx     #3
         iny
         cpy     #$BB
         bne     LA808
         lda     #2
         sta     $AB
-        jsr     LA999
-        tya
-        jsr     LA9BB
+        jsr     tape_write_header
+        tya     ; Write a 0 (file data)
+        jsr     tape_write_byte
         sty     $D7
         ldx     #5
 LA82B:  jsr     L0110
@@ -1566,7 +1565,7 @@ LA82B:  jsr     L0110
         sbc     $AF
         bcc     LA82B
 LA841:  lda     $D7
-        jsr     LA9BB
+        jsr     tape_write_byte
         ldx     #7
         dey
         bne     LA841
@@ -1577,16 +1576,16 @@ tape_load_code:
         jsr     LA8C9
         lda     $AB
         cmp     #2
-        beq     :+
+        beq     @1
         cmp     #1
         bne     tape_load_code
         lda     SA
-        beq     LA86C ; "LOAD"[...]",n,0" -> skip load address
-:       lda     $033C
+        beq     @2 ; "LOAD"[...]",n,0" -> skip load address
+@1:     lda     $033C
         sta     $C3
         lda     $033D
         sta     $C4
-LA86C:  jsr     print_found
+@2:     jsr     print_found
         cli
         lda     $A1
         jsr     $E4E0 ; wait for CBM key
@@ -1594,15 +1593,15 @@ LA86C:  jsr     print_found
         lda     $01
         and     #$1F
         sta     $01
-        ldy     $B7
-        beq     LA88C
-LA880:  dey
+        ldy     $B7  ; File name specified for load?
+        beq     @nofn
+:       dey
         jsr     _load_FNADR_indy
         cmp     $0341,y
-        bne     tape_load_code
+        bne     tape_load_code ; file name not matched, restart
         tya
-        bne     LA880
-LA88C:  sty     ST
+        bne     :-
+@nofn:  sty     ST
         jsr     print_loading
         lda     $C3
         sta     $AC
@@ -1633,21 +1632,21 @@ LA8C2:  ldx     $AE
         ldy     $AF
         jmp     _disable_fc3rom
 
-LA8C9:  jsr     LA92B
+LA8C9:  jsr     tape_search_header ; sets Y=0
         lda     $BD
-        cmp     #0 ; XXX not needed
-        beq     LA8C9
+        beq     LA8C9              ; if it is file data, look for next header
         sta     $AB
-LA8D4:  jsr     tape_read_byte
+:       jsr     tape_read_byte
         lda     $BD
         sta     ($B2),y
         iny
         cpy     #$C0
-        bne     LA8D4
-        beq     LA913
+        bne     :-
+        beq     LA913 ; always
+
 LA8E2:  jmp     L0110
 
-LA8E5:  jsr     LA92B
+LA8E5:  jsr     tape_search_header
 LA8E8:  jsr     tape_read_byte
         cpy     $93
         bne     LA8E2
@@ -1683,45 +1682,62 @@ LA913:  sty     $C0
         clc
         rts
 
-LA92B:  jsr     tape_wait_play
-        bcc     LA939
+tape_search_header:
+        jsr     tape_wait_play
+        bcc     :+
+        ; Abort because run/stop pressed
         pla
         pla
         pla
         pla
         lda     #0
         jmp     _disable_fc3rom
-
-LA939:  jsr     turn_screen_off
+:       jsr     turn_screen_off
         sty     $D7
+        ; Enable tape motor
+        ; Done by irq in original firmware, but because we optimized the delay
+        ; it needs to be done manually.
+        lda     $01
+        and     #$1f
+        sta     $01
         lda     #$07
         sta     $DD06
+        ;
+        ; A turbo tape header starts with 256 times a byte with value 2 and then
+        ; a countdown form 9 to 1. Read a bits until we have a 2 and are possibly
+        ; synced, then check for the countdown.
+        ;
+        ; The loader has been coded so that besides the magical 2, $f2 is also
+        ; accepted and 2 and $f2 can be mixed in the header without limitation.
+        ; The reason is unknown but likely compatibility with other implementations
+        ; of turbotape.
+        ;
         ldx     #1
-LA945:  jsr     LA97E
+@nsync: jsr     tape_read_bit
         rol     $BD
         lda     $BD
         cmp     #2
-        beq     LA954
+        beq     @sync
         cmp     #$F2
-        bne     LA945
-LA954:  ldy     #9
-LA956:  jsr     tape_read_byte
+        bne     @nsync
+@sync:  ldy     #9
+:       jsr     tape_read_byte
         lda     $BD
         cmp     #2
-        beq     LA956
+        beq     :-
         cmp     #$F2
-        beq     LA956
-LA963:  cpy     $BD
-        bne     LA945
+        beq     :-
+:       cpy     $BD
+        bne     @nsync
         jsr     tape_read_byte
         dey
-        bne     LA963
+        bne     :-
         rts
 
 tape_read_byte:
         lda     #8
         sta     $A3
-:       jsr     LA97E
+:       jsr     tape_read_bit
         rol     $BD
         nop
         nop
@@ -1729,14 +1745,15 @@ tape_read_byte:
         bne     :-
         rts
 
-LA97E:  lda     #$10
-LA980:  bit     $DC0D
-        beq     LA980
-        lda     $DD0D
-        stx     $DD07
+tape_read_bit:
+        lda     #$10
+:       bit     $DC0D
+        beq     :-
+        lda     $DD0D ; Timer b underflow determines 0 or 1
+        stx     $DD07 ; Set timer B
         pha
         lda     #$19
-        sta     $DD0F
+        sta     $DD0F ; Start timer B
         pla
         lsr     a
         lsr     a
@@ -1744,27 +1761,30 @@ LA980:  bit     $DC0D
 
         lda     #4
         sta     $AB
-LA999:  ldy     #0
-LA99B:  lda     #2
-        jsr     LA9BB
+
+tape_write_header:
+        ldy     #0
+:       lda     #2
+        jsr     tape_write_byte
         ldx     #7
         dey
         cpy     #9
-        bne     LA99B
+        bne     :-
         ldx     #5
         dec     $AB
-        bne     LA99B
-LA9AD:  tya
-        jsr     LA9BB
+        bne     tape_write_byte
+:       tya
+        jsr     tape_write_byte
         ldx     #7
         dey
-        bne     LA9AD
+        bne     :-
         dex
         dex
         sty     $D7
         rts
 
-LA9BB:  sta     $BD
+tape_write_byte:
+        sta     $BD
         eor     $D7
         sta     $D7
         lda     #8
