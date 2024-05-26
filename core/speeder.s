@@ -123,17 +123,6 @@ receive_4_bytes:
 .assert >* = >@ntsc, error, "Page boundary!"
         rts
 
-; *** tape
-L99B5:  tax
-        beq     @1     ; LOAD? Then do not install stack code.
-        ldx     #$16
-:       lda     L9A50,x
-        sta     L0110,x
-        dex
-        bpl     :-
-@1:     jmp     tape_load_code
-; *** tape
-
 iec_load:
         jmp     $F530 ; IEC LOAD - used in the error case
 
@@ -147,23 +136,30 @@ L99C9:  pla
         pha
         jmp     _disable_fc3rom_set_01
 
-L99D6:  pla
-        pla
-        pla
-        tay
-        lda     #$F4
-        pha
-        lda     #$F2
-        pha
-        jmp     _disable_fc3rom_set_01
 
 new_load:
         sty     $93
         tya
         ldy     FA
         cpy     #7
-        beq     L99B5 ; tape turbo
-        cpy     #8
+        bne     @1
+        ; A custom kernal may not support tape. A kernal without tape will remove the
+        ; tape sense check routine, do a PEEK in it for the right value:
+        ldy     #$01
+        cpy     $f831
+        bne     L99C9 ; KERNAL does not support tape
+        cpy     $f835
+        bne     L99C9 ; KERNAL does not support tape
+        ; tape turbo
+        tax
+        beq     @2     ; LOAD? Then do not install stack code.
+        ldx     #$16
+:       lda     L9A50,x
+        sta     L0110,x
+        dex
+        bpl     :-
+@2:     jmp     tape_load_code
+@1:     cpy     #8
         bcc     L99C9
         cpy     #10
         bcs     L99C9
@@ -210,8 +206,19 @@ new_load:
 L9A35:  jsr     print_loading
         lda     $AF
         cmp     #4
-        bcc     L99D6
+        bcc     @low
         jmp     new_load_continue
+        ; Low load below $0400, for compatibility with autostart programs,
+        ; abort fast loading and continue with slow kernal load
+@low:   pla
+        pla
+        pla
+        tay
+        lda     #$F4
+        pha
+        lda     #$F2
+        pha
+        jmp     _disable_fc3rom_set_01
 
 ; ----------------------------------------------------------------
 
@@ -251,6 +258,13 @@ new_save:
         lda     FA
         cmp     #7
         bne     @1
+        ; A custom kernal may not support tape. A kernal without tape will remove the
+        ; tape sense check routine, do a PEEK in it for the right value:
+        ldy     #$01
+        cpy     $f831
+        bne     original_save ; KERNAL does not support tape
+        cpy     $f835
+        bne     original_save ; KERNAL does not support tape
         jmp     new_save_tape ; tape turbo
 @1:     cmp     #8 ; if <8 then not a drive
         bcc     original_save
