@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:date>2023-09-28T01:34:43.181403355</dc:date><meta:editing-duration>P3DT7H17M55S</meta:editing-duration><meta:editing-cycles>119</meta:editing-cycles><meta:generator>LibreOffice/7.1.4.2$Linux_X86_64 LibreOffice_project/10$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject><meta:document-statistic meta:table-count="1" meta:image-count="19" meta:object-count="0" meta:page-count="68" meta:paragraph-count="1409" meta:word-count="16581" meta:character-count="102473" meta:non-whitespace-character-count="84243"/></office:meta>
+ <office:meta><dc:date>2024-05-25T21:18:54.843060531</dc:date><meta:editing-duration>P3DT7H19M18S</meta:editing-duration><meta:editing-cycles>121</meta:editing-cycles><meta:generator>LibreOffice/7.1.4.2$Linux_X86_64 LibreOffice_project/10$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject><meta:document-statistic meta:table-count="1" meta:image-count="19" meta:object-count="0" meta:page-count="68" meta:paragraph-count="1409" meta:word-count="16580" meta:character-count="102472" meta:non-whitespace-character-count="84243"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">1251719</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">702331</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">16420</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">11578</config:config-item>
+   <config:config-item config:name="ViewAreaWidth" config:type="long">16194</config:config-item>
+   <config:config-item config:name="ViewAreaHeight" config:type="long">9262</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">3997</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">1258494</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">7223</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">710299</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">1251719</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">16418</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">1263295</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">702331</config:config-item>
+     <config:config-item config:name="VisibleRight" config:type="long">16193</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">711592</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">200</config:config-item>
+     <config:config-item config:name="ZoomFactor" config:type="short">250</config:config-item>
      <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
      <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
     </config:config-item-map-entry>
@@ -86,7 +86,7 @@
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">13906824</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">14034388</config:config-item>
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
    <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
@@ -151,7 +151,7 @@
  <office:styles>
   <style:default-style style:family="graphic">
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.3cm" draw:shadow-offset-y="0.3cm" draw:start-line-spacing-horizontal="0.283cm" draw:start-line-spacing-vertical="0.283cm" draw:end-line-spacing-horizontal="0.283cm" draw:end-line-spacing-vertical="0.283cm" style:flow-with-text="false"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:font-independent-line-spacing="false">
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="nl" fo:country="NL" style:letter-kerning="true" style:font-name-asian="Liberation Serif" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Liberation Serif" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
@@ -856,6 +856,9 @@
   </style:style>
   <style:style style:name="T19" style:family="text">
    <style:text-properties officeooo:rsid="00d30110"/>
+  </style:style>
+  <style:style style:name="T20" style:family="text">
+   <style:text-properties officeooo:rsid="00d625d4"/>
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
@@ -1826,7 +1829,7 @@
    <text:h text:style-name="P59" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Voorwoord<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">De Final Cartridge III is een eigen ontwikkeling van Riska B.V. Home &amp; Personal Computers.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III die uit 64K machinecode bestaat biedt u naast de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> waarin al­les met <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">windows</text:span></text:span> werkt o.a. :</text:p>
-   <text:list xml:id="list4201072824" text:style-name="L1">
+   <text:list xml:id="list169045948" text:style-name="L1">
     <text:list-item>
      <text:p text:style-name="P73">Verschillende handige hulpmiddelen bij het programmeren (de zogenaamde <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic toolkit</text:span></text:span>).</text:p>
     </text:list-item>
@@ -1861,7 +1864,7 @@
      <text:p text:style-name="P74">De mogelijkheid om elk willekeurig programma dat in het geheugen staat te onderbre­ken (<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">freezer</text:span></text:span>) om er daarna:</text:p>
     </text:list-item>
    </text:list>
-   <text:list xml:id="list769141502" text:style-name="L2">
+   <text:list xml:id="list711324543" text:style-name="L2">
     <text:list-item>
      <text:list>
       <text:list-item>
@@ -1876,7 +1879,7 @@
      </text:list>
     </text:list-item>
    </text:list>
-   <text:list xml:id="list13445677334682" text:continue-list="list4201072824" text:style-name="L1">
+   <text:list xml:id="list211855631240604" text:continue-list="list169045948" text:style-name="L1">
     <text:list-item>
      <text:p text:style-name="P74">Een ingebouwde tekstverwerker, de Notepad.</text:p>
     </text:list-item>
@@ -1992,7 +1995,7 @@
    <text:p text:style-name="Text_20_body">Desktop is het belangrijkste element van de Final Cartridge III, het is de spil waarom alles draait. Vanuit desktop kunt u naar <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>, naar de freezer, etc.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Het openen en sluiten van desktop<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
    <text:p text:style-name="P10">U kunt op 4 verschillende manieren in de desktop terecht komen:</text:p>
-   <text:list xml:id="list1276794220" text:style-name="L3">
+   <text:list xml:id="list3294438801" text:style-name="L3">
     <text:list-item>
      <text:p text:style-name="P85">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
     </text:list-item>
@@ -2060,7 +2063,7 @@
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Tools<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In dit hoofdstuk worden tools besproken. Tools zijn gereedschappen die de Final Cartridge III u biedt.</text:p>
    <text:p text:style-name="Text_20_body">De tools die in dit hoofdstuk worden besproken zijn:</text:p>
-   <text:list xml:id="list4242055822" text:style-name="L4">
+   <text:list xml:id="list3340486025" text:style-name="L4">
     <text:list-item>
      <text:p text:style-name="P86"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
@@ -2424,7 +2427,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4768_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4768_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Vanuit de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand kunt u gewoon in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> gaan programmeren. U kunt deze stand op­vatten als de computer zonder cartridge.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III levert u in deze stand toch veel extra’s zoals:</text:p>
-   <text:list xml:id="list1629256127" text:style-name="L5">
+   <text:list xml:id="list2959868109" text:style-name="L5">
     <text:list-item>
      <text:p text:style-name="P87">Het scrollen van <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic-</text:span></text:span>programma’s.</text:p>
     </text:list-item>
@@ -2446,7 +2449,7 @@
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4770_2830447109"/>Het starten en stoppen van de Basic-stand<text:bookmark-end text:name="__RefHeading___Toc4770_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand op de volgende 3 manieren komen:</text:p>
-   <text:list xml:id="list188517324" text:style-name="L6">
+   <text:list xml:id="list1775520154" text:style-name="L6">
     <text:list-item>
      <text:p text:style-name="P88">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/ST</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">P</text:span> inge­drukt.</text:p>
     </text:list-item>
@@ -2458,7 +2461,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om te stoppen met de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> stand en over te gaan naar een andere stand van de Final Cartrid­ge III zijn er de volgende mogelijkheden:</text:p>
-   <text:list xml:id="list2447103224" text:style-name="L7">
+   <text:list xml:id="list2157735751" text:style-name="L7">
     <text:list-item>
      <text:p text:style-name="P89">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> in het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">system</text:span></text:span>-menu, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">desktop</text:span></text:span> komt.</text:p>
     </text:list-item>
@@ -2483,14 +2486,14 @@
    <text:p text:style-name="P18">Om het naar beneden scrollen iets makkelijker te maken, hebben we het mogelijk gemaakt om door één toetsaanslag de cursor in de linker benedenhoek te plaatsen, waarna u zelf ver­der kunt scrollen.</text:p>
    <text:p text:style-name="P18">U plaatst de cursor in de linker benedenhoek door gelijktijdig de toetsen <text:span text:style-name="Toets">C</text:span><text:span text:style-name="Toets">ON</text:span><text:span text:style-name="Toets">TR</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">L</text:span> en <text:span text:style-name="Toets">CLR/HOME</text:span> in te drukken.</text:p>
    <text:p text:style-name="P18">Door het gelijktijdig indrukken van de toetsen <text:span text:style-name="Toets">C</text:span><text:span text:style-name="Toets">ON</text:span><text:span text:style-name="Toets">TR</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">L</text:span> en <text:span text:style-name="Toets">DEL</text:span> verwijdert u alles wat er achter de cursor op de regel staat.</text:p>
-   <text:p text:style-name="P18">Door het indrukken van de Commodore-toets <text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span> wordt de uitvoer naar het scherm bevro­ren. De computer wacht met verder gaan totdat u de toets loslaat. Dit is handig bij het bekij­ken van listings, daar deze normaal mét <text:span text:style-name="Toets">C</text:span><text:span text:style-name="Toets">ON</text:span><text:span text:style-name="Toets">TR</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">L</text:span> alleen de snelheid vertraagd wordt.</text:p>
+   <text:p text:style-name="P18">Door het indrukken van de Commodore-toets <text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span> wordt de uitvoer naar het scherm bevro­ren. De computer wacht met verder gaan totdat u de toets loslaat. Dit is handig bij het bekij­ken van listings, daar deze normaal m<text:span text:style-name="T20">e</text:span>t <text:span text:style-name="Toets">CONTROL</text:span> alleen de snelheid vertraagd wordt.</text:p>
    <text:h text:style-name="P64" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4956_2164442888"/>Printer-interface<text:bookmark-end text:name="__RefHeading___Toc4956_2164442888"/></text:h>
    <text:p text:style-name="P18">Met behulp van de Final Cartridge III is het ook mogelijk om niet-Commodore printers te gebruiken. In de Final Cartridge III zit namelijk een Centronics-interface ingebouwd waar­mee u met behulp van een speciale kabel ook met Centronics-printers kunt werken.</text:p>
    <text:p text:style-name="P18">De Centronics-interface kunt u ook vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> gebruiken met behulp van het uitgebreide <text:a xlink:type="simple" xlink:href="#OPEN (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OPEN</text:span></text:a>-commando.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4958_2164442888"/>Low-resolution screendump<text:bookmark-end text:name="__RefHeading___Toc4958_2164442888"/></text:h>
    <text:p text:style-name="P18">Het is ook mogelijk om direct vanuit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span> een low-resolution screendump te maken. Hiermee bedoelen we dat u direct een scherm met tekst op de printer kunt afdrukken. U maakt een low-resolution screendump door gelijktijdig de toetsen <text:span text:style-name="Toets">C</text:span><text:span text:style-name="Toets">ON</text:span><text:span text:style-name="Toets">TR</text:span><text:span text:style-name="Toets">O</text:span><text:span text:style-name="Toets">L</text:span> en <text:span text:style-name="Toets">RETURN</text:span> in te drukken.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4960_2164442888"/>Tape snellader/snelsaver<text:bookmark-end text:name="__RefHeading___Toc4960_2164442888"/></text:h>
-   <text:p text:style-name="P18">De Final Cartridge III is voorzien van een tape snellader/snelsaver die het mogelijk maakt programma’s 10 maal sneller met cassette te laden en te saven. De snellader/snelsaver is volledig uitwisselbaar met de meest gangbare snel laders, terwijl u ook nog met de stan­ daard lader/saver kunt werken.</text:p>
+   <text:p text:style-name="P18">De Final Cartridge III is voorzien van een tape snellader/snelsaver die het mogelijk maakt programma’s 10 maal sneller met cassette te laden en te saven. De snellader/snelsaver is volledig uitwisselbaar met de meest gangbare snelladers, terwijl u ook nog met de stan­ daard lader/saver kunt werken.</text:p>
    <text:p text:style-name="P18">De TAPE-commando’s zijn:</text:p>
    <text:p text:style-name="P32">LOAD “naam”<text:tab/>laden met de standaard snelheid</text:p>
    <text:p text:style-name="P32">SAVE “naam”<text:tab/>saven met de standaard snelheid</text:p>
@@ -2509,7 +2512,7 @@
    <text:p text:style-name="P18">Let Op ! <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T16">final kill = kill</text:span></text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4966_2164442888"/>Extra Basic-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4966_2164442888"/></text:h>
    <text:p text:style-name="P18">Als u de Final Cartridge III in uw computer heeft zitten, heeft u ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-commando’s tot uw beschikking. Deze comman­do’s kunt u op twee manieren gebruiken:</text:p>
-   <text:list xml:id="list4152383462" text:style-name="L8">
+   <text:list xml:id="list865622041" text:style-name="L8">
     <text:list-item>
      <text:p text:style-name="P90">u kunt ze direct intypen</text:p>
     </text:list-item>
@@ -2518,7 +2521,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="P18">Van elk commando geven we het volgende:</text:p>
-   <text:list xml:id="list2798400966" text:style-name="L9">
+   <text:list xml:id="list4140223710" text:style-name="L9">
     <text:list-item>
      <text:p text:style-name="P91">de naam van het commando;</text:p>
     </text:list-item>
@@ -3122,7 +3125,7 @@
    <text:p text:style-name="Text_20_body">Nadat u de freeze-button ingedrukt heeft, kunt u met behulp van de Final Cartridge III een aan­tal interessante commando’s gaan uitvoe­ren, zoals het maken van een back up. Zie ook het hoofdstuk <text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">Opmerkingen</text:span></text:span></text:a> !</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4776_2830447109"/>Het starten en stoppen van de freezer<text:bookmark-end text:name="__RefHeading___Toc4776_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 4 manieren opstarten:</text:p>
-   <text:list xml:id="list4097727444" text:style-name="L10">
+   <text:list xml:id="list1954065411" text:style-name="L10">
     <text:list-item>
      <text:p text:style-name="P92">U kiest vanuit de desktop in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
     </text:list-item>
@@ -3137,7 +3140,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 2 wijze verlaten:</text:p>
-   <text:list xml:id="list3209464780" text:style-name="L11">
+   <text:list xml:id="list2626442106" text:style-name="L11">
     <text:list-item>
      <text:p text:style-name="P93">U kiest één van de exit-commando’s</text:p>
     </text:list-item>
@@ -3148,7 +3151,7 @@
    <text:h text:style-name="P63" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4778_2830447109"/>Het gebruik van de freezer<text:bookmark-end text:name="__RefHeading___Toc4778_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Nadat u de freezer heeft opgestart verschijnt de menu-bar. In tegens­telling tot alle andere pull-down menu’s gebruiken we bij het kiezen in deze menu’s geen pointer.</text:p>
    <text:p text:style-name="Text_20_body">Deze pull-down-menu’s kunt u op twee manieren doorbladeren:</text:p>
-   <text:list xml:id="list326142386" text:style-name="L12">
+   <text:list xml:id="list4202590090" text:style-name="L12">
     <text:list-item>
      <text:p text:style-name="P94">Door gebruik te maken van een joystick bladert u links en rechts door de verschillende menu’s. Door naar voor of achter te gaan bladert u door één bepaald menu. Het door u gewenste commando selecteert u door op de vuurknop te drukken.</text:p>
     </text:list-item>
@@ -3359,7 +3362,7 @@
    <text:p text:style-name="Text_20_body">Met de spritemonitor kunt u sprites bekijken en veranderen. U kunt dus zelf gemakkelijk sprites ontwerpen voor gebruik in uw eigen programma’s, of de sprites uit een bestaand programma halen en die gebruiken.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4784_2830447109"/>Het starten en stoppen van de monitor<text:bookmark-end text:name="__RefHeading___Toc4784_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt de monitor van de Final Cartridge III op 4 verschillende manieren starten, namelijk:</text:p>
-   <text:list xml:id="list3807753390" text:style-name="L13">
+   <text:list xml:id="list1966411030" text:style-name="L13">
     <text:list-item>
      <text:p text:style-name="P95">In de <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T17">basic</text:span></text:span>-stand typt u het commando <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> in.</text:p>
     </text:list-item>
@@ -3650,7 +3653,7 @@
       <text:p text:style-name="P51"><text:span text:style-name="Monospace"><text:span text:style-name="T12">$E000-$FFFF</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192555152">
+    <table:table-row table:style-name="TableLine94065788044992">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="P50"><text:span text:style-name="Monospace"><text:span text:style-name="T12">dr</text:span></text:span></text:p>
      </table:table-cell>
@@ -3673,7 +3676,7 @@
       <text:p text:style-name="P51"><text:span text:style-name="Monospace"><text:span text:style-name="T12">57344-65535</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192621344">
+    <table:table-row table:style-name="TableLine94065788108864">
      <table:table-cell table:style-name="Tabel1.A1" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O0</text:span></text:span></text:p>
      </table:table-cell>
@@ -3696,7 +3699,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192622880">
+    <table:table-row table:style-name="TableLine94065788110400">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O1</text:span></text:span></text:p>
      </table:table-cell>
@@ -3719,7 +3722,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192624144">
+    <table:table-row table:style-name="TableLine94065788111664">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O2</text:span></text:span></text:p>
      </table:table-cell>
@@ -3742,7 +3745,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">KERNAL</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192622112">
+    <table:table-row table:style-name="TableLine94065788109632">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O3</text:span></text:span></text:p>
      </table:table-cell>
@@ -3765,7 +3768,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">KERNAL</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192626416">
+    <table:table-row table:style-name="TableLine94065788113936">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O4</text:span></text:span></text:p>
      </table:table-cell>
@@ -3788,7 +3791,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192627872">
+    <table:table-row table:style-name="TableLine94065788115392">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O5</text:span></text:span></text:p>
      </table:table-cell>
@@ -3811,7 +3814,7 @@
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">RAM</text:span></text:span></text:p>
      </table:table-cell>
     </table:table-row>
-    <table:table-row table:style-name="TableLine94000192629328">
+    <table:table-row table:style-name="TableLine94065788116848">
      <table:table-cell table:style-name="Tabel1.A2" office:value-type="string">
       <text:p text:style-name="Table_20_Contents"><text:span text:style-name="Monospace"><text:span text:style-name="T11">O6</text:span></text:span></text:p>
      </table:table-cell>
