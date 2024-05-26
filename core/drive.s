@@ -39,6 +39,7 @@ L8124:  jsr     IECIN
         cmp     #CR ; skip message
         bne     L8124
         jsr     UNTALK
+        ldx     #0
         cpy     #'0'
         rts
 

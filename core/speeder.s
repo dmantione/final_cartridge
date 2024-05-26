@@ -11,6 +11,7 @@
 .global new_save
 .global tape_write_byte
 .import tape_write_byte_from_ram
+.import check_iec_error
 
 L0110           := $0110
 
@@ -311,7 +312,7 @@ new_save:
 
 @done:  cli
         clc
-        .byte $2a ; BIT $18, 2 byte nop
+        .byte $24 ; BIT $18, 2 byte nop
 @rts_carry_set:
         sec
         rts
@@ -1251,12 +1252,6 @@ LA612:  pha
         pla
         jmp     SECOND
 
-open_secondary_channel:
-        lda     FA
-        jsr     TALK
-        lda     #$6F ; $60 + $0F means open secondary channel 15
-        jmp     TKSA
-
 LA628:  jsr     LA632
         jsr     $E716 ; KERNAL: output character to screen
         tya
@@ -1279,7 +1274,7 @@ LA645:  adc     #$3A
 rts_01: rts
 
 fastsave_initialize:
-        jsr     check_for_error
+        jsr     check_iec_error
         bne     rts_01
         lda     #12
         sta     $93
@@ -1339,18 +1334,6 @@ LA6A8:  lda     s_from,y
 
 s_from: .byte   " FROM $", 0
         .byte   " TO $", 0
-
-check_for_error:
-        jsr     open_secondary_channel
-        jsr     IECIN ; first character, ASCII error code
-        tay
-LA6C8:  jsr     IECIN
-        cmp     #CR
-        bne     LA6C8 ; read until CR
-        jsr     UNTALK
-        ldx     #0 ; KERNAL displays ?BREAK ERROR in case of error.
-        cpy     #'0' ; = no error
-        rts
 
 .global transfer_code_to_drive
 transfer_code_to_drive:
@@ -1508,10 +1491,16 @@ turn_screen_off:
         and     #$EF
         sta     $D011 ; turn screen off
 wait_for_next_frame:
-        ldx     $d012
-        cpx     #$32
-        bcs     wait_for_next_frame
-        ldx     #0 ; Set X=0 and zero flag, important.
+        ; It would be tempting to optimize this wait loop, but it creates too
+        ; much problems. The delay loop is necessary to ensure the VIC-II
+        ; has stopped generating bad lines, to give the floppy drive enough
+        ; time to executing the drive code and start receiving bytes, and
+        ; to give the C64s irq handler enough time to start the tape motor
+        ; when a tape button is pressed.
+:       dex
+        bne :-
+        dey
+        bne :-
         sei
         rts
 
@@ -1708,12 +1697,6 @@ tape_search_header:
         jmp     _disable_fc3rom
 :       jsr     turn_screen_off
         sty     $D7
-        ; Enable tape motor
-        ; Done by irq in original firmware, but because we optimized the delay
-        ; it needs to be done manually.
-        lda     $01
-        and     #$1f
-        sta     $01
         lda     #$07
         sta     $DD06
         ;
