@@ -139,7 +139,7 @@ _new_load: ; $DE20
         jsr     new_load
         ; common for load/save
 pull_to_cpuport_fcromoff:
-        tax
+;        tax
         pla
         sta     $01
         txa
@@ -216,6 +216,11 @@ _kbd_handler:
 
 @2:     jmp     kernal_check_modifier_keys ; default kdb vector
 
+
+;
+; Support routines for fastloader
+;
+
 .global _load_ac_indy
 _load_ac_indy: ; $DE63
         sta     $01
@@ -230,6 +235,17 @@ _load_FNADR_indy: ; $DE6C
         lda     (FNADR),y
         inc     $01
         rts
+
+.global tape_write_byte_from_ram
+.import tape_write_byte
+tape_write_byte_from_ram:
+        lda     #$0C
+        sta     $01
+        lda     ($AC),y
+        ldy     #$0F
+        sty     $01
+        ldy     #0
+        jmp     tape_write_byte
 
 ;
 ; BASIC execute statement. Vector $308/$309 points here (ROM original at $A7E4)
@@ -308,13 +324,6 @@ _get_filename: ; $DEDB
 jmp_enable_fcbank0:
         jmp     _enable_fcbank0
 
-.global _int_to_ascii
-_int_to_ascii: ; $DEE4
-        jsr     _disable_fc3rom
-        jsr     $BC49 ; FLOAT UNSIGNED VALUE IN FAC+1,2
-        jsr     $BDDD ; convert FAC to ASCII
-        jmp     _enable_fcbank0
-
 
 
 .segment "romio2"
@@ -330,6 +339,14 @@ _int_to_ascii: ; $DEE4
 ;
 
 .byte	"REU REU REU REU REU REU REU U2CI"
+
+
+.global _int_to_ascii
+_int_to_ascii: ; $DEE4
+        jsr     _disable_fc3rom
+        jsr     $BC49 ; FLOAT UNSIGNED VALUE IN FAC+1,2
+        jsr     $BDDD ; convert FAC to ASCII
+        jmp     _enable_fcbank0
 
 .global _evaluate_modifier
 _evaluate_modifier: ; $DEA9

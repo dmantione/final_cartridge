@@ -9,6 +9,8 @@
 
 .global new_load
 .global new_save
+.global tape_write_byte
+.import tape_write_byte_from_ram
 
 L0110           := $0110
 
@@ -224,17 +226,6 @@ L9A35:  jsr     print_loading
 
 .segment "tape_stack_code"
 
-; will be placed at $0100
-load_ac_indy:
-        lda     #$0C
-        sta     $01
-        lda     ($AC),y
-        ldy     #$0F
-        sty     $01
-        ldy     #0
-        jmp     tape_write_byte
-load_ac_indy_end:
-
 L9A50:  lda     #$0C
         sta     $01
         lda     ($C3),y
@@ -249,7 +240,10 @@ L9A50:  lda     #$0C
 
 .segment "speeder_b"
 
-L9A67:  jmp     $F636 ; LDA #0 : SEC : RTS
+;rts_ldx0_carry_set:
+;        ldx     #0  ; Transfered to A in IO1
+;        sec
+;        rts
 
 original_save:
         jmp     $F5ED ; execute original SAVE routine
@@ -289,8 +283,8 @@ new_save:
         sta     fcio_reg
         jsr     print_message ; print message (unless disabled)
         jsr     fastsave_initialize
-        bne     L9A67 ; in case drive returns error code
-        ldx     #0
+        bne     @rts_carry_set
+;        ldx     #0 ; Already done via fastsave_initialize/wait_for_next_frame
         ldy     #0
         stx     ST
         stx     $A4
@@ -313,10 +307,13 @@ new_save:
         lda     $A4
         bmi     @done
         jsr     L9AD0
-        jmp     @3
+        bne     @3     ; always because send_byte returns with Z=0
 
 @done:  cli
         clc
+        .byte $2a ; BIT $18, 2 byte nop
+@rts_carry_set:
+        sec
         rts
 
 send_byte_and_increment:
@@ -437,7 +434,7 @@ new_load_continue:
         jsr     UNLSTN
         plp
         bvs     @done ; used to be "bcs" in 1988-05
-        lda     #$1D
+        ldx     #$1D  ; kernal error code, transfered to A in IO1
         sec
         rts
 
@@ -1351,6 +1348,7 @@ LA6C8:  jsr     IECIN
         cmp     #CR
         bne     LA6C8 ; read until CR
         jsr     UNTALK
+        ldx     #0 ; KERNAL displays ?BREAK ERROR in case of error.
         cpy     #'0' ; = no error
         rts
 
@@ -1429,13 +1427,15 @@ print:  jsr     maybe_print_kernal_string
         jsr     $F82E ; cassette sense
         bne     :-
         ldy     #$6A  ; Offset to OK
-        jmp     maybe_print_kernal_string ; print OK
+        bne     maybe_print_kernal_string ; (always) print OK
 
 tape_wait_record:
         jsr     $F82E ; cassette sense
         beq     rts_  ; $F82E clears carry
         ldy     #$2E  ; print PRESS RECORD & PLAY ON TAPE
         bne     print ; always
+;rts_lda0_carry_set:
+;        lda     #$00
 rts_carry_set:
         sec
 rts_:
@@ -1511,6 +1511,7 @@ wait_for_next_frame:
         ldx     $d012
         cpx     #$32
         bcs     wait_for_next_frame
+        ldx     #0 ; Set X=0 and zero flag, important.
         sei
         rts
 
@@ -1520,11 +1521,6 @@ wait_for_next_frame:
 .segment "tape"
 
 new_save_tape:
-        ldx     #load_ac_indy_end - load_ac_indy - 1
-:       lda     load_ac_indy,x
-        sta     L0110,x
-        dex
-        bpl     :-
         ldx     #5
         stx     $AB
         jsr     $FB8E ; copy I/O start address to buffer address
@@ -1534,6 +1530,8 @@ new_save_tape:
         jmp     _disable_fc3rom
 :       jsr     print_message  ; print mesaage on screen (unless disabled)
         jsr     turn_screen_off
+
+        ; Start writing file metadata in turbotape format
         jsr     tape_write_header
         lda     SA
         clc
@@ -1550,7 +1548,7 @@ new_save_tape:
         bne     :-
         ldy     #0
         ldx     #2
-LA808:  jsr     _load_FNADR_indy
+@1:     jsr     _load_FNADR_indy
         cpy     $B7
         bcc     :+
         lda     #$20
@@ -1559,15 +1557,17 @@ LA808:  jsr     _load_FNADR_indy
         ldx     #3
         iny
         cpy     #$BB
-        bne     LA808
+        bne     @1
         lda     #2
         sta     $AB
+
+        ; Start writing file data in turbotape format
         jsr     tape_write_header
         tya     ; Write a 0 (file data)
         jsr     tape_write_byte
         sty     $D7
         ldx     #5
-LA82B:  jsr     L0110
+LA82B:  jsr     tape_write_byte_from_ram
         ldx     #3 ; used to be "#2" in 1988-05
         inc     $AC
         bne     :+
