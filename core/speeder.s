@@ -10,7 +10,6 @@
 .global new_load
 .global new_save
 .global tape_write_byte
-.import tape_write_byte_from_ram
 .import check_iec_error
 .import transfer_code_to_drive
 

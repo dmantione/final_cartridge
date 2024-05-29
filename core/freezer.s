@@ -47,10 +47,10 @@ freezer:
         lda     $02A1 ; RS-232 interrupt enabled
         pha
         ldx     #10
-LBFC7:  lda     $02,x ; copy $02 - $0C onto stack
+:       lda     $02,x ; copy $02 - $0C onto stack
         pha
         dex
-        bpl     LBFC7
+        bpl     :-
         lda     $DD0E ; CIA 2 Timer A Control
         pha
         lda     $DD0F ; CIA 2 Timer B Control

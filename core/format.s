@@ -59,12 +59,12 @@ unlisten_e2:
 
 send_drive_cmd:
         jsr     cmd_channel_listen
-L972D:  lda     drive_cmds,y
-        beq     L9738
+:       lda     drive_cmds,y
+        beq     @done
         jsr     IECOUT
         iny
-        bne     L972D
-L9738:  jmp     UNLSTN
+        bne     :-
+@done:  jmp     UNLSTN
 
 drive_cmds:
 drive_cmd_u1:

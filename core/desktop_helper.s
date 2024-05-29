@@ -103,7 +103,7 @@ perform_operation_for_desktop:
         beq     read_disk_name
         cpx     #5
         beq     reset_load_and_run
-        jmp     L969A ; second half of operations (XXX why?)
+        jmp    pofd_part2
 
 ; reads zero terminated disk name to $0200
 read_disk_name:
@@ -116,38 +116,43 @@ read_disk_name:
         lda     #$62
         jsr     talk_second
         ldx     #0
-L958D:  jsr     IECIN
+:       jsr     IECIN
         cmp     #$A0 ; terminator
-        beq     L959C
+        beq     :+
         sta     $0200,x
         inx
-        cpx     #$10 ; max 16 characters
-        bne     L958D
-L959C:  jsr     UNTALK
+        cpx     #16 ; max 16 characters
+        bne     :-
+:       jsr     UNTALK
         jsr     unlisten_e2
         jmp     zero_terminate
 
 read_cmd_channel:
-        jsr     cmd_channel_listen
-        bmi     jmp_bank_from_stack
-        jsr     UNLSTN
+        ; This code looks unnecessary to me: You can always make the
+        ; command channel talk the status, no reason to make it listen\
+        ; first.
+;        jsr     cmd_channel_listen
+;        bmi     jmp_bank_from_stack
+;        jsr     UNLSTN
         jsr     command_channel_talk
         lda     ST
         bmi     jmp_bank_from_stack
         ldx     #0
-L95B6:  jsr     IECIN
+:       jsr     IECIN
         cmp     #$0D ; CR
-        beq     L95C3
+        beq     :+
         sta     $0200,x ; read command channel
         inx
-        bne     L95B6
-L95C3:  jsr     UNTALK
+        bne     :-
+:       jsr     UNTALK
 zero_terminate:
         lda     #0
         sta     $0200,x ; zero terminate
 jmp_bank_from_stack:
         pla
         jmp     _jmp_bank
+
+
 
 send_drive_command_at_0200:
         jsr     cmd_channel_listen
@@ -237,18 +242,17 @@ L9659:  sta     $C2
 L9676:  dex
         beq     L964F
         bpl     L9651
-        jmp     terminate_directory_name ; XXX redundant
-
+;        jmp     terminate_directory_name ; XXX redundant
 terminate_directory_name:
         lda     #0
 store_directory_byte:
-        sty     $AE
+;        sty     $AE
         ldy     #0
         sta     ($AC),y
         inc     $AC
-        bne     L968C
+        bne     :+
         inc     $AD
-L968C:  ldy     $AE
+:;       ldy     $AE
         rts
 
 disk_operation_fallback:
@@ -259,7 +263,8 @@ disk_operation_fallback:
         lda     #$43
         jmp     _jmp_bank ; bank 3
 
-L969A:  cpx     #11
+pofd_part2:
+        cpx     #11
         beq     set_printer_output
         cpx     #12
         beq     print_character

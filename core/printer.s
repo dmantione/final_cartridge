@@ -659,6 +659,7 @@ LA494:  dey
         bpl     LA487
         lda     #$37
         sta     $01
+rts_:
         rts
 
 LA49C:  jsr     LA4CC
@@ -701,7 +702,7 @@ LA4D4:  lda     #$4E
 
 LA4E6:  lda     $DD0C
         cmp     #$C1
-        bcc     LA4F0
-        jsr     LA26C
-LA4F0:  rts
+        bcc     rts_
+        jmp     LA26C
+;LA4F0:  rts
 ; ----------------------------------------------------------------

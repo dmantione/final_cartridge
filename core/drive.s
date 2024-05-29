@@ -35,9 +35,9 @@ check_iec_error:
         jsr     command_channel_talk
         jsr     IECIN
         tay
-L8124:  jsr     IECIN
+:       jsr     IECIN
         cmp     #CR ; skip message
-        bne     L8124
+        bne     :-
         jsr     UNTALK
         ldx     #0
         cpy     #'0'
@@ -68,7 +68,7 @@ transfer_code_to_drive:
         sta     $C3
         sty     $C4
         ldy     #0
-LA6DB:  lda     #'W'
+@1:     lda     #'W'
         jsr     send_m_dash ; send "M-W"
         tya
         jsr     IECOUT
@@ -76,22 +76,21 @@ LA6DB:  lda     #'W'
         jsr     IECOUT
         lda     #' '
         jsr     IECOUT
-LA6ED:  lda     ($C3),y
+:       lda     ($C3),y
         jsr     IECOUT
         iny
         tya
-        and     #$1F
-        bne     LA6ED
+        and     #$1F  ; 32 bytes sent?
+        bne     :-    ; if not, next byte
         jsr     UNLSTN
-        dec     $93
-        beq     @ready
+        dec     $93     ; decrease number of 32byte chunks to send
+        beq     @ready  ; if zero we are ready
         tya
-        bne     LA6DB
+        bne     @1
         inc     $C4
         inx
-        bne     LA6DB   ; always taken
-@ready:
-        lda     #'E' ; send "M-E"
+        bne     @1   ; always taken
+@ready: lda     #'E' ; send "M-E"
 
 send_m_dash:
         pha

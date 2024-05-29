@@ -40,10 +40,10 @@ init_load_and_basic_vectors:
         jsr     init_load_save_vectors
 init_basic_vectors:
         ldx     #basic_vectors_end - basic_vectors - 1
-L8031:  lda     basic_vectors,x ; overwrite BASIC vectors
+:       lda     basic_vectors,x ; overwrite BASIC vectors
         sta     $0302,x
         dex
-        bpl     L8031
+        bpl     :-
         rts
 
 init_vectors_jmp_bank_2:
@@ -65,11 +65,11 @@ entry:
         pha
         lda     #0 ; clear pages 0, 2, 3
         tay
-L805A:  sta     $02,y
+:       sta     $02,y
         sta     $0200,y
         sta     $0300,y
         iny
-        bne     L805A
+        bne     :-
         ldx     #<$A000
         ldy     #>$A000
         jsr     $FE2D ; set memtop
