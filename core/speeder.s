@@ -351,6 +351,23 @@ L9AD0:  sec
 new_load_continue:
         jsr     UNTALK
         jsr     LA691
+.import __drive_code_load_LOAD__
+.import __drive_code_load_RUN__
+        lda     #19
+        sta     $93
+        lda     #<__drive_code_load_LOAD__
+        ldy     #>__drive_code_load_LOAD__
+        ldx     #>__drive_code_load_RUN__ ; $0400
+        jsr     transfer_code_to_drive
+        lda     #<drivecode_load_initialize
+        jsr     IECOUT
+        lda     #>drivecode_load_initialize
+        jsr     IECOUT
+        jsr     UNLSTN
+        sei
+        ; The screen can only be disabled after drive code has been uploaded
+        ; because KERNAL code overwrites $95 in which we backup the screen
+        ; enable status.
 .ifdef use_ill
         lax     $D011
         and     #$10 ; save screen enable bit
@@ -366,20 +383,6 @@ new_load_continue:
         and     #$EF
         sta     $D011
 .endif
-.import __drive_code_load_LOAD__
-.import __drive_code_load_RUN__
-        lda     #19
-        sta     $93
-        lda     #<__drive_code_load_LOAD__
-        ldy     #>__drive_code_load_LOAD__
-        ldx     #>__drive_code_load_RUN__ ; $0400
-        jsr     transfer_code_to_drive
-        lda     #<drivecode_load_initialize
-        jsr     IECOUT
-        lda     #>drivecode_load_initialize
-        jsr     IECOUT
-        jsr     UNLSTN
-        sei
         lda     $DD00
         and     #$07
         ora     $95 ; save VIC bank (XXX #$03 would have been enough)
