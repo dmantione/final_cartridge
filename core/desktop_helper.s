@@ -255,13 +255,13 @@ store_directory_byte:
 :;       ldy     $AE
         rts
 
-disk_operation_fallback:
-        lda     #<($FF92 - 1)
-        pha
-        lda     #>($FF92 - 1) ; ???
-        pha
-        lda     #$43
-        jmp     _jmp_bank ; bank 3
+;disk_operation_fallback:
+;        lda     #<($FF92 - 1)
+;        pha
+;        lda     #>($FF92 - 1) ; ???
+;        pha
+;        lda     #$43
+;        jmp     _jmp_bank ; bank 3
 
 pofd_part2:
         cpx     #11
@@ -270,8 +270,8 @@ pofd_part2:
         beq     print_character
         cpx     #13
         beq     reset_printer_output
-        jsr     disk_operation_fallback
-        jmp     jmp_bank_from_stack
+;        jsr     disk_operation_fallback
+;        jmp     jmp_bank_from_stack
 
 reset_printer_output:
         lda     #$0D ; CR
