@@ -1380,8 +1380,55 @@ LB2B3:  rts
 ; memory load/store
 ; ----------------------------------------------------------------
 
+vdc_set_addreg:
+        ldy     #0
+        stx     $d600
+:       dey
+        beq     @error
+        bit     $d600
+        bpl     :-
+        sta     $d601
+        clc
+        .byte   $24 ; Skip next instruction
+@error: sec
+        rts
+
+
+; stores a byte in A into VDC register X
+vdc_reg_store:
+        jsr     vdc_set_addreg
+        sta     $d601
+        rts
+
+; loads a byte in A from VDC register X
+vdc_reg_load:
+        jsr     vdc_set_addreg
+        lda     $d601
+        rts
+
+; loads a byte at (zp1),y from VDC RAM
+load_byte_vdc:
+        stx     tmp1
+        sty     tmp2
+        tya
+        clc
+        adc     zp1
+        php
+        ldx     #$13
+        jsr     vdc_reg_store
+        plp
+        adc     zp1+1
+        ldx     #$12
+        jsr     vdc_reg_store
+        ldx     #$1f
+        jsr     vdc_reg_load
+        ldx     tmp1
+        ldy     tmp2
+        rts
+
 ; loads a byte at (zp1),y from drive RAM
-LB2B4:  lda     #'R' ; send M-R to drive
+load_byte_drive:
+        lda     #'R' ; send M-R to drive
         jsr     send_m_dash2
         jsr     iec_send_zp1_plus_y
         jsr     UNLSTN
@@ -1392,24 +1439,17 @@ LB2B4:  lda     #'R' ; send M-R to drive
         pla
         rts
 
-; stores a byte at (zp1),y in drive RAM
-LB2CB:  lda     #'W' ; send M-W to drive
-        jsr     send_m_dash2
-        jsr     iec_send_zp1_plus_y
-        lda     #1 ; count
-        jsr     IECOUT
-        pla
-        pha
-        jsr     IECOUT
-        jsr     UNLSTN
-        pla
-        rts
+
+
 
 ; loads a byte at (zp1),y from RAM with the correct ROM config
 load_byte:
         sei
         lda     bank
-        bmi     LB2B4 ; drive
+        cmp     #$80
+        beq     load_byte_drive ; drive
+        cmp     #$81
+        beq     load_byte_vdc
 .ifdef MACHINE_TED
         stx tmp1
         sty tmp2
@@ -1434,6 +1474,41 @@ load_byte:
         jmp     load_byte_ram ; "lda (zp1),y" with ROM and cartridge config
 .endif
 
+; stores a byte at (zp1),y in VDC RAM
+store_byte_vdc:
+        stx     tmp1
+        sty     tmp2
+        tya
+        clc
+        adc     zp1
+        php
+        ldx     #$13
+        jsr     vdc_reg_store
+        plp
+        adc     zp1+1
+        ldx     #$12
+        jsr     vdc_reg_store
+        pla
+        ldx     #$1f
+        jsr     vdc_reg_store
+        ldx     tmp1
+        ldy     tmp2
+        rts
+
+; stores a byte at (zp1),y in drive RAM
+store_byte_drive:
+        lda     #'W' ; send M-W to drive
+        jsr     send_m_dash2
+        jsr     iec_send_zp1_plus_y
+        lda     #1 ; count
+        jsr     IECOUT
+        pla
+        pha
+        jsr     IECOUT
+        jsr     UNLSTN
+        pla
+        rts
+
 ; stores a byte at (zp1),y in RAM with the correct ROM config
 store_byte:
 .ifdef MACHINE_TED
@@ -1443,7 +1518,10 @@ store_byte:
         sei
         pha
         lda     bank
-        bmi     LB2CB ; drive
+        cmp     #$80
+        beq     store_byte_drive ; drive
+        cmp     #$81
+        beq     store_byte_vdc ; drive
         cmp     #$35
         bcs     LB306 ; I/O on
         lda     #$33 ; ROM at $A000, $D000 and $E000
@@ -1484,7 +1562,7 @@ syn_err3:
 ; ----------------------------------------------------------------
 cmd_o:
         jsr     basin_cmp_cr
-        beq     LB33F ; without arguments: bank 7
+        beq     @dflt ; without arguments: bank 7
         cmp     #' '
         beq     cmd_o
 .ifdef MACHINE_TED
@@ -1492,12 +1570,14 @@ cmd_o:
         bmi     :+ ; shifted arg skips 'D' test
 .endif
         cmp     #'D'
-        beq     LB34A ; disk
+        beq     @disk ; disk
+        cmp     #'V'
+        beq     @vdc ; disk
 .ifdef MACHINE_TED
 :       jsr     hex_digit_to_nybble
 .endif
         .byte   $2C
-LB33F:  lda     #DEFAULT_BANK
+@dflt:  lda     #DEFAULT_BANK
 .ifdef MACHINE_C64
         cmp     #$38
         bcs     syn_err3
@@ -1505,7 +1585,9 @@ LB33F:  lda     #DEFAULT_BANK
         bcc     syn_err3
 .endif
         .byte   $2C
-LB34A:  lda     #$80 ; drive
+@disk:  lda     #$80 ; drive
+        .byte   $2C
+@vdc:   lda     #$81
         sta     bank
         jmp     print_cr_then_input_loop
 
@@ -1668,8 +1750,8 @@ cmd_at:
 
 @change_dev:
         ; Accept device numbers 8..15
-        cmp     #'#'
-        bne     @nodevnum
+;        cmp     #'#'
+;        bne     @nodevnum
         jsr     basin_cmp_cr
         cmp     #'8'
         beq     @4
