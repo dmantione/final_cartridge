@@ -1381,16 +1381,16 @@ LB2B3:  rts
 ; ----------------------------------------------------------------
 
 vdc_set_addreg:
-        ldy     #0
+        ldy     #63 ; VDC should have time for processing at least once per
+                    ; scanline, this is multiple scanlines in cycles, so
+                    ; should be enough.
         stx     $d600
 :       dey
         beq     @error
         bit     $d600
         bpl     :-
-        sta     $d601
-        clc
         .byte   $24 ; Skip next instruction
-@error: sec
+@error: tya         ; Return 0 if time-out
         rts
 
 
@@ -1413,12 +1413,13 @@ load_byte_vdc:
         tya
         clc
         adc     zp1
-        php
+;        php
         ldx     #$13
         jsr     vdc_reg_store
-        plp
+;        plp
+        lda     #0
         adc     zp1+1
-        ldx     #$12
+        dex
         jsr     vdc_reg_store
         ldx     #$1f
         jsr     vdc_reg_load
@@ -1481,12 +1482,13 @@ store_byte_vdc:
         tya
         clc
         adc     zp1
-        php
+;        php
         ldx     #$13
         jsr     vdc_reg_store
-        plp
+;        plp
+        lda     #0
         adc     zp1+1
-        ldx     #$12
+        dex
         jsr     vdc_reg_store
         pla
         ldx     #$1f
@@ -1522,11 +1524,19 @@ store_byte:
         beq     store_byte_drive ; drive
         cmp     #$81
         beq     store_byte_vdc ; drive
+        ; This is tricky code: At this time we are in 16K cartridge mode and
+        ; executing from ROMH ($A000..). Writing the current bank to $01 may
+        ; hide cartridge ROM.
+        ;
+        ; Therefore, if IO is enabled, we skip writing to $01, taking
+        ; advantage of the C64's feature that writes to ROM go to RAM below
+        ; ROM. If IO is disabled, we write $33, again taking advantage that
+        ; writes to to RAM below ROM.
         cmp     #$35
-        bcs     LB306 ; I/O on
-        lda     #$33 ; ROM at $A000, $D000 and $E000
-        sta     R6510 ; ??? why?
-LB306:  pla
+        bcs     :+ ; I/O on
+        lda     #$33 ; ROM at $8000, $A000, $D000 and $E000
+        sta     R6510
+:       pla
         sta     (zp1),y ; store
         pha
         lda     #DEFAULT_BANK
@@ -1572,7 +1582,7 @@ cmd_o:
         cmp     #'D'
         beq     @disk ; disk
         cmp     #'V'
-        beq     @vdc ; disk
+        beq     @vdc ; vdc
 .ifdef MACHINE_TED
 :       jsr     hex_digit_to_nybble
 .endif
@@ -3361,50 +3371,56 @@ LBB6B:  adc     #'9' + 1
         rts
 
 read_write_block:
+        ;
+        ; The B-R and B-W commands have serious bugs. Details can be found in the bood
+        ;  "Die Floppy 1571" by Karsten Schramm, chapter 14 "Fehler im DOS 3.0"
+        ; ( the 1541 has these bugs too).
+        ;
+        ; The U1/U2 commands are used instead.
+        ;
         pha
-        ldx     #0
-LBB71:  lda     s_u1,x
-        sta     BUF,x
+        ; Copy s_u1 to temp buffer
+        ldx     #256-s_u1_len
+:       lda     s_u1+s_u1_len-256,x
+        sta     BUF+s_u1_len-256,x
         inx
-        cpx     #s_u1_end - s_u1
-        bne     LBB71
+        bne     :-
         pla
-        sta     BUF + 1
+        sta     BUF + 1  ; U1 or U2
         lda     zp2 ; track
         jsr     to_dec
-        stx     BUF + s_u1_end - s_u1 + 0
-        sta     BUF + s_u1_end - s_u1 + 1
+        stx     BUF + s_u1_len + 0
+        sta     BUF + s_u1_len + 1
         lda     #' '
-        sta     BUF + s_u1_end - s_u1 + 2
+        sta     BUF + s_u1_len + 2
         lda     zp2 + 1 ; sector
         jsr     to_dec
-        stx     BUF + s_u1_end - s_u1 + 3
-        sta     BUF + s_u1_end - s_u1 + 4
+        stx     BUF + s_u1_len + 3
+        sta     BUF + s_u1_len + 4
         jsr     listen_command_channel
-        ldx     #0
-LBBA0:  lda     BUF,x
+        ldx     #256-(s_u1_len+5)
+:       lda     BUF+s_u1_len+5-256,x
         jsr     IECOUT
         inx
-        cpx     #s_u1_end - s_u1 + 5
-        bne     LBBA0
+        bne     :-
         jmp     UNLSTN
 
 send_bp:
         jsr     listen_command_channel
-        ldx     #0
-LBBB3:  lda     s_bp,x
+        ldx     #256-s_bp_len
+:       lda     s_bp+s_bp_len-256,x
         jsr     IECOUT
         inx
-        cpx     #s_bp_end - s_bp
-        bne     LBBB3
+        bne     :-
         jmp     UNLSTN
 
 s_u1:
         .byte   "U1:2 0 "
-s_u1_end:
+s_u1_len =  * - s_u1
+
 s_bp:
         .byte   "B-P 2 0"
-s_bp_end:
+s_bp_len = * - s_bp
 
 s_hash:
         .byte   "#"
