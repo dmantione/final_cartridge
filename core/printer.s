@@ -31,15 +31,18 @@ LA00D:  pha
         cmp     #$FE
         beq     LA035 ; RS-232
         pla
-        jsr     LA021
+        jsr     centronics_send_byte
         lda     #$10
 LA01B:  bit     $DD0D
         beq     LA01B
         rts
 
-LA021:  sta     $DD01
+centronics_send_byte:
+        ; Write byte to user port PB0..PB7
+        sta     $DD01
         lda     $DD0D
         lda     $DD00
+        ; Toggle the STROBE line to tell the printer there is new data.
         and     #$FB
         sta     $DD00
         ora     #$04
@@ -117,37 +120,41 @@ LA09F:  lda     $DD0C
         sta     $DD03
         rts
 
-LA0C7:  lda     $DC0C
+centronics_or_rs232:
+        lda     $DC0C
         cmp     #$FE
-        bne     LA0E5 ; not RS-232
-        lda     #$7F
+        bne     @no_rs232 ; not RS-232
+        ; Print via RS-232 has been forced
+        lda     #$7F      ; Setup DDR for RS232 communication
         sta     $DD03
-        sta     $DD0D
-        lda     #$3F
+        sta     $DD0D     ; Set interrupt mask
+        lda     #$3F      ; Setup DDR for RS232 communication
         sta     $DD02
-        lda     #$04
+        lda     #$04      ; Set TXD line high.
         ora     $DD00
         sta     $DD00
-LA0E3:  clc
+@clc_rts:
+        clc
         rts
 
-LA0E5:  dec     $DD03
-        bit     $DD0C
-        bvs     LA0E3
-        lda     #$11
-        jsr     LA021
-        lda     #$FF
+@no_rs232:
+        dec     $DD03
+        bit     $DD0C     ; ?? Serial shift register CIA2
+        bvs     @clc_rts
+        lda     #$11      ; XON = resume transmission??
+        jsr     centronics_send_byte
+        lda     #$FF      ; Initialize timer B
         sta     $DC07
-        lda     #$19
+        lda     #$19      ; Start timer B
         sta     $DC0F
         lda     $DC0D
-LA0FF:  lda     $DD0D
-        and     #$10
-        bne     LA0E3
+:       lda     $DD0D
+        and     #$10      ; Test for FLAG
+        bne     @clc_rts  ; FLAG set, then centronics printer detected
         lda     $DC0D
-        and     #$02
-        beq     LA0FF
-        sec
+        and     #$02     ; Timer underflow?
+        beq     :-       ; No, then loop.
+        sec              ; Timeout, no centronics printer
         rts
 ; ----------------------------------------------------------------
 
@@ -218,15 +225,15 @@ LA173:  jsr     $F31F ; set file par from table
 LA183:  jsr     LA09F
         lda     $DC0C
         cmp     #$FF
-        beq     LA19B ; "no centronics check"
+        beq     @rts ; "no centronics check"
         sei
-        jsr     LA0C7
-        bcs     LA19B
+        jsr     centronics_or_rs232
+        bcs     @rts  ; Return if neither Centronics nor RS232
         lda     #4
         sta     $9A
         jsr     LA1FC
         clc
-LA19B:  rts
+@rts :  rts
 
 new_bsout:
         jsr     new_bsout2
@@ -285,6 +292,9 @@ LA1F5:  stx     $9A
         sta     $99
         rts
 
+        ; $DD0C is used as some memory location for printing mode depending
+        ; on secondary address. SA 7 and 8 are not documented in the FC3 manual,
+        ; 2 and 3 are missing here.
 LA1FC:  lda     SA
         cmp     #$FF
         beq     LA219
@@ -313,38 +323,39 @@ LA225:  lda     #$D0
         rts
 
 ; PETSCII/ASCII conversion
-LA22B:  lda     $95
+petscii_to_ascii:
+        lda     $95
         cmp     #$C0
-        bcc     LA245
+        bcc     @1
         cmp     #$E0
-        bcc     LA23D
+        bcc     @2
         cmp     #$FF
-        bne     LA241
+        bne     @3
         lda     #$7E
-        bne     LA245
-LA23D:  and     #$7F
-        bcc     LA25B
-LA241:  and     #$BF
-        bcc     LA255
-LA245:  cmp     #$40
-        bcc     LA263
+        bne     @1
+@2:     and     #$7F
+        bcc     @5
+@3:     and     #$BF
+        bcc     @4
+@1:     cmp     #$40
+        bcc     @6
         cmp     #$60
-        bcc     LA25F
+        bcc     @7
         cmp     #$80
-        bcc     LA25B
+        bcc     @6
         cmp     #$A0
-        bcc     LA257
-LA255:  and     #$7F
-LA257:  ora     #$40
-        bne     LA269
-LA25B:  and     #$DF
-        bcc     LA269
-LA25F:  and     #$BF
-        bcc     LA269
-LA263:  cmp     #$20
-        bcs     LA269
+        bcc     @8
+@4:     and     #$7F
+@8:     ora     #$40
+        bne     @exit
+@5:     and     #$DF
+        bcc     @exit
+@7:     and     #$BF
+        bcc     @exit
+@6:     cmp     #$20
+        bcs     @exit
         ora     #$80
-LA269:  sta     $95
+@exit:  sta     $95
         rts
 
 LA26C:  lda     $DD0C
@@ -527,7 +538,7 @@ LA39A:  lda     $95
         beq     LA3BF
         cmp     #$0D
         beq     LA3BF
-        jsr     LA22B
+        jsr     petscii_to_ascii
         tya
         pha
         ldy     $033C
