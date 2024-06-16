@@ -9,7 +9,7 @@
 
 .global set_io_vectors_with_hidden_rom
 .global set_io_vectors
-.global something_with_printer
+.global cent_rs232_or_cbm
 .global new_ckout
 .global new_bsout
 .global new_clall
@@ -17,24 +17,34 @@
 
 .segment "printer"
 
+;
+; The Centronics interface uses user port signals PB0..PB7 to transmit data.
+; PA2 is used as the Centronics STROBE signal and FLAG as the BUSY signal.
+;
+; To send a byte to a Centronics printer, the data must be presented at the data
+; lines, and then STROBE must be toggled. The printer responds by raising BUSY,
+; when BUSY becomes low again, the printer is ready to receive the next byte.
+;
+
+;$DD0C:
+; bit 7:   Current printing mode (0=CBM bus, 1=centronics)
+
 set_io_vectors_with_hidden_rom:
         jmp     set_io_vectors_with_hidden_rom2
 
 set_io_vectors:
         jmp     set_io_vectors2
 
-something_with_printer:
-        jmp     LA183
-
-LA00D:  pha
+printer_send_byte:
+        pha
         lda     $DC0C
         cmp     #$FE
-        beq     LA035 ; RS-232
+        beq     rs232_send_byte ; RS-232
         pla
         jsr     centronics_send_byte
         lda     #$10
-LA01B:  bit     $DD0D
-        beq     LA01B
+:       bit     $DD0D ; Wait for flag
+        beq     :-
         rts
 
 centronics_send_byte:
@@ -49,8 +59,9 @@ centronics_send_byte:
         sta     $DD00
         rts
 
-; IEC transfer, send
-LA035:  pla
+; RS232 transfer, send
+rs232_send_byte:
+        pla
         sta     $A5
         txa
         pha
@@ -103,20 +114,21 @@ LA096:  lda     $DD0D
         tax
         rts
 
-LA09F:  lda     $DD0C
-        and     #$7F
+cia2_reset:
+        lda     $DD0C
+        and     #$7F    ; Indicate printing via cbm serial by defaut
         sta     $DD0C
-        lda     #$3F
+        lda     #$3F    ; Reset DDR A
         sta     $DD02
         lda     $DD00
-        ora     #$04
+        ora     #$04    ; PA2 high
         sta     $DD00
         lda     #$10
         sta     $DD0E
-        lda     #$FF
+        lda     #$FF    ; Reset timer
         sta     $DD04
         sta     $DD05
-        lda     #$00
+        lda     #$00    ; Reset DDR B
         sta     $DD03
         rts
 
@@ -136,11 +148,15 @@ centronics_or_rs232:
 @clc_rts:
         clc
         rts
-
 @no_rs232:
         dec     $DD03
         bit     $DD0C     ; ?? Serial shift register CIA2
         bvs     @clc_rts
+        ;
+        ; Centronics check. The presence of a Centronics printer is detected
+        ; by sending an ASCII XON byte, and then checking if the printer
+        ; will raise BUSY.
+        ;
         lda     #$11      ; XON = resume transmission??
         jsr     centronics_send_byte
         lda     #$FF      ; Initialize timer B
@@ -203,35 +219,43 @@ set_io_vectors2:
 new_ckout:
         txa
         pha
-        jsr     $F30F ; find LA
-        beq     LA173
-LA168:  pla
+        jsr     $F30F  ; find file number in file open table
+        beq     @found ; found, then jump
+@noprn: pla
         tax
         jmp     $F250 ; KERNAL CKOUT
 
-LA16D:  pla
+@cbm:   pla
         lda     #4
         jmp     $F279 ; set output to IEC bus
 
-LA173:  jsr     $F31F ; set file par from table
+@found: jsr     $F31F ; set file par from table ($B8/$B9/$BA LA/SA/FA)
         lda     FA
         cmp     #4 ; printer
-        bne     LA168
-        jsr     LA183
-        bcs     LA16D
+        bne     @noprn
+        jsr     cent_rs232_or_cbm
+        bcs     @cbm
         pla
         rts
 
-LA183:  jsr     LA09F
-        lda     $DC0C
+cent_rs232_or_cbm:
+        ; Check whether we will print via centronics/rs232 or cbm serial
+        ;
+        ; Returns:
+        ;  C=0    Centonics or RS232
+        ;  C=1    CBM
+        ;
+        ; RS232 will be used if $DC0C contains $FE, Centronics otherwise.
+        jsr     cia2_reset ; Setup for CBM serial by default
+        lda     $DC0C  ; Centronics check van be disabled with a POKE $DC0C,$ff
         cmp     #$FF
-        beq     @rts ; "no centronics check"
+        beq     @rts   ; "no centronics check"
         sei
         jsr     centronics_or_rs232
         bcs     @rts  ; Return if neither Centronics nor RS232
         lda     #4
         sta     $9A
-        jsr     LA1FC
+        jsr     setup_dd0c
         clc
 @rts :  rts
 
@@ -244,18 +268,19 @@ new_bsout2:
         lda     $9A
         cmp     #4
         beq     LA1AD
-LA1A9:  pla
+kernal_bsout:
+        pla
         jmp     $F1CA ; KERNAL BSOUT
 
-LA1AD:  bit     $DD0C
-        bpl     LA1A9
+LA1AD:  bit     $DD0C         ; Printing via Centronics or RS232?
+        bpl     kernal_bsout  ; Jump to KERNAL if not.
         pla
         sta     $95
         sei
         jsr     LA4E6
         bcs     LA1C0
         lda     $95
-        jsr     LA00D
+        jsr     printer_send_byte
 LA1C0:  lda     $95
         cli
         clc
@@ -275,50 +300,51 @@ new_clall2:
 new_clrch2:
         lda     #4
         ldx     #3
-        cmp     $9A
-        bne     LA1E7
-        bit     $DD0C
-        bpl     LA1E7
-        jsr     LA09F
-        beq     LA1EE
-LA1E7:  cpx     $9A
-        bcs     LA1EE
+        cmp     $9A         ; Check if current output device is printer
+        bne     @cbm
+        bit     $DD0C       ; Are we printing to Centronics/RS232 or CBM serial?
+        bpl     @cbm
+        jsr     cia2_reset  ; Return CIA2 to normal state
+        beq     @1          ; Always
+@cbm:   cpx     $9A         ; Current output device
+        bcs     @1
         jsr     $EDFE ; UNLISTEN
-LA1EE:  cpx     $99
-        bcs     LA1F5
+@1:     cpx     $99         ; Current input device
+        bcs     @2
         jsr     $EDEF ; UNTALK
-LA1F5:  stx     $9A
-        lda     #0
+@2:     stx     $9A      ; Set current output device to screen
+        lda     #0       ; Set current input device to keyboard
         sta     $99
         rts
 
         ; $DD0C is used as some memory location for printing mode depending
         ; on secondary address. SA 7 and 8 are not documented in the FC3 manual,
-        ; 2 and 3 are missing here.
-LA1FC:  lda     SA
+        ; SA 2 and 3 are documented, but missing here.
+setup_dd0c:
+        lda     SA
         cmp     #$FF
-        beq     LA219
+        beq     @std
         and     #$0F
-        beq     LA219
+        beq     @std
         cmp     #7
-        beq     LA21C
-        cmp     #9
-        beq     LA21F
-        cmp     #10
-        beq     LA222
+        beq     @u7
+        cmp     #9		; CBM charset
+        beq     @cbm
+        cmp     #10     ; CBM charset reversed
+        beq     @cbmr
         cmp     #8
-        beq     LA225
+        beq     @u8
         lda     #$C0
         .byte   $2C
-LA219:  lda     #$C1
+@std:   lda     #$C1
         .byte   $2C
-LA21C:  lda     #$C2
+@u7:    lda     #$C2
         .byte   $2C
-LA21F:  lda     #$C4
+@cbm:   lda     #$C4
         .byte   $2C
-LA222:  lda     #$C8
+@cbmr:  lda     #$C8
         .byte   $2C
-LA225:  lda     #$D0
+@u8:    lda     #$D0
         sta     $DD0C
         rts
 
@@ -473,15 +499,15 @@ LA327:  clc
         adc     $A4
         sta     $95
         lda     #$1B
-        jsr     LA00D
-        lda     #$44
-        jsr     LA00D
+        jsr     printer_send_byte
+        lda     #'D'
+        jsr     printer_send_byte
         lda     $95
-        jsr     LA00D
+        jsr     printer_send_byte
         lda     #0
-        jsr     LA00D
+        jsr     printer_send_byte
         lda     #9
-        jsr     LA00D
+        jsr     printer_send_byte
         lda     $DD0C
         and     #$F3
 LA34A:  sta     $DD0C
@@ -582,7 +608,7 @@ LA3E1:  lda     $FB
         inx
         bne     LA3E1
 LA3F4:  txa
-        jsr     LA00D
+        jsr     printer_send_byte
         ldx     #$30
 LA3FA:  lda     $FB
         sec
@@ -596,18 +622,18 @@ LA3FA:  lda     $FB
         inx
         bne     LA3FA
 LA40D:  txa
-        jsr     LA00D
+        jsr     printer_send_byte
         lda     $FB
         ora     #$30
-        jsr     LA00D
+        jsr     printer_send_byte
         pla
         tax
         jmp     LA427
 
 LA41D:  lda     $FB
-        jsr     LA00D
+        jsr     printer_send_byte
         lda     $FC
-        jsr     LA00D
+        jsr     printer_send_byte
 LA427:  ldy     #0
 LA429:  lda     $033D,y
         jsr     LA37F
@@ -651,7 +677,7 @@ LA469:  asl     a
         pla
         tax
 LA471:  lda     $A5
-        jsr     LA00D
+        jsr     printer_send_byte
         lsr     $A4
         bcc     LA445
         rts
@@ -680,11 +706,11 @@ LA49C:  jsr     LA4CC
         lda     $DC0C
         bne     LA4B0
 LA4AB:  lda     #$4B
-LA4AD:  jmp     LA00D
+LA4AD:  jmp     printer_send_byte
 
-LA4B0:  cmp     #$30
+LA4B0:  cmp     #'0'
         bcc     LA4AB
-        cmp     #$5B
+        cmp     #'['
         bcs     LA4AB
         cmp     #$37
         bcc     LA4C2
@@ -692,8 +718,8 @@ LA4B0:  cmp     #$30
         bcc     LA4AB
         bcs     LA4AD
 LA4C2:  pha
-        lda     #$2A
-        jsr     LA00D
+        lda     #'*'
+        jsr     printer_send_byte
         pla
         and     #$0F
         .byte   $2C
@@ -701,15 +727,15 @@ LA4CC:  lda     #$1B
         .byte   $2C
         ; ??? unreferenced?
         lda     #$0D
-        jmp     LA00D
+        jmp     printer_send_byte
 
-LA4D4:  lda     #$4E
-        jsr     LA00D
+LA4D4:  lda     #'N'
+        jsr     printer_send_byte
         jsr     LA4CC
-        lda     #$47
-        jsr     LA00D
-        lda     #$30
-        jmp     LA00D
+        lda     #'G'
+        jsr     printer_send_byte
+        lda     #'0'
+        jmp     printer_send_byte
 
 LA4E6:  lda     $DD0C
         cmp     #$C1

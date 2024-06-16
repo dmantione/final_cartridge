@@ -51,7 +51,7 @@
 ; from printer
 .import set_io_vectors
 .import set_io_vectors_with_hidden_rom
-.import something_with_printer
+.import cent_rs232_or_cbm
 
 ; from wrappers
 .import WA3BF
@@ -1348,7 +1348,7 @@ DOS:    cmp     #'"'
         jsr     UNLSTN
         jsr     command_channel_talk
         jsr     print_line_from_drive
-        rts
+@rts:   rts
 
 @2:     ; carry is already clear
         adc     #$0A
@@ -1378,6 +1378,7 @@ DOS:    cmp     #'"'
         bcc     @2
 @1:
         jsr     listen_6F_or_error
+rts_ := @rts
 
 send_drive_command:
         ldy     #0
@@ -1393,24 +1394,23 @@ L8A84:  jmp     L8BE3
 change_disk_name:
         iny
         lda     (TXTPTR),y
-        cmp     #$3A
+        cmp     #':'
         bne     L8A84
         jsr     UNLSTN
         jsr     init_read_disk_name
-        beq     L8A97
-        rts
+        bne     rts_
 
 L8A97:  lda     #$62
         jsr     listen_second
         ldy     #2
-L8A9E:  jsr     L8BDB
+:       jsr     L8BDB
         beq     L8AB2
-        cmp     #$2C
+        cmp     #','
         beq     L8AB2
         jsr     IECOUT
         iny
         cpy     #$12
-        bne     L8A9E
+        bne     :-
         jsr     L8BDB
 L8AB2:  pha
         tya
@@ -1461,12 +1461,12 @@ get_secaddr_and_send_listen:
 :       lda     #$FF
 send_printer_listen:
         sta     SA
-        jsr     something_with_printer
-        bcc     L8B35
+        jsr     cent_rs232_or_cbm
+        bcc     set_dev_4 ; No listen required for either rs232 or centronics
         lda     SA
-        bpl     L8B13
+        bpl     :+
         lda     #$00
-L8B13:  and     #$0F
+:       and     #$0F
         ora     #$60
         sta     SA
 L8B19:  jsr     UNLSTN
@@ -1481,8 +1481,9 @@ L8B19:  jsr     UNLSTN
 L8B2E:  jsr     SECOND
 L8B31:  lda     ST
         cmp     #$80
-L8B35:  lda     #4
-        sta     $9A
+set_dev_4:
+        lda     #4
+        sta     $9A   ; Current output device
         rts
 
 L8B3A:  jmp     WAF08 ; SYNTAX ERROR

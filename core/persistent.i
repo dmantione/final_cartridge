@@ -49,3 +49,4 @@
 .import _a_colon_asterisk
 .import _a_colon_asterisk_end
 .import _bar_irq
+.import tape_write_byte_from_ram
