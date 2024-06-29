@@ -27,7 +27,15 @@
 ;
 
 ;$DD0C:
-; bit 7:   Current printing mode (0=CBM bus, 1=centronics)
+; bit 7:   Current printing mode (0=CBM bus, 1=centronics/rs232)
+; bit 5:   MPS-803 temporary charset 0=graphic, 1=business
+; bit 4:   temporary charset switch active
+; bit 3:   1 = cbm reversed mode
+; bit 2:   1 = cbm mode
+; bit 1:   1 = business mode (global)
+; bit 0:   1 = graphics mode (global)
+; if bit7 set:
+;    $c0 = send characters untranslated to printer
 
 set_io_vectors_with_hidden_rom:
         jmp     set_io_vectors_with_hidden_rom2
@@ -149,7 +157,10 @@ centronics_or_rs232:
         clc
         rts
 @no_rs232:
-        dec     $DD03
+        dec     $DD03      ; DDR contains 0 (input), set it to output ($ff)
+        ; This check is super weird. When this is called the CIA has been reset by cia2_reset.
+        ; which doesn't test bit 6. Bit 6 is set by a previous call to the printer interface.
+        ; This means that 
         bit     $DD0C     ; ?? Serial shift register CIA2
         bvs     @clc_rts
         ;
@@ -267,21 +278,20 @@ new_bsout2:
         pha
         lda     $9A
         cmp     #4
-        beq     LA1AD
-kernal_bsout:
+        beq     @dev4
+@kernal_bsout:
         pla
         jmp     $F1CA ; KERNAL BSOUT
-
-LA1AD:  bit     $DD0C         ; Printing via Centronics or RS232?
-        bpl     kernal_bsout  ; Jump to KERNAL if not.
+@dev4:  bit     $DD0C         ; Printing via Centronics or RS232?
+        bpl     @kernal_bsout  ; Jump to KERNAL if not.
         pla
         sta     $95
         sei
-        jsr     LA4E6
-        bcs     LA1C0
+        jsr     maybe_printer_bsout_petscii
+        bcs     @skip
         lda     $95
         jsr     printer_send_byte
-LA1C0:  lda     $95
+@skip:  lda     $95
         cli
         clc
         rts
@@ -323,11 +333,11 @@ new_clrch2:
 setup_dd0c:
         lda     SA
         cmp     #$FF
-        beq     @std
+        beq     @gra
         and     #$0F
-        beq     @std
+        beq     @gra
         cmp     #7
-        beq     @u7
+        beq     @bus
         cmp     #9		; CBM charset
         beq     @cbm
         cmp     #10     ; CBM charset reversed
@@ -336,9 +346,9 @@ setup_dd0c:
         beq     @u8
         lda     #$C0
         .byte   $2C
-@std:   lda     #$C1
+@gra:   lda     #$C1    ; MPS-803 graphics mode (default)
         .byte   $2C
-@u7:    lda     #$C2
+@bus:   lda     #$C2    ; MPS-803 business mode
         .byte   $2C
 @cbm:   lda     #$C4
         .byte   $2C
@@ -384,20 +394,23 @@ petscii_to_ascii:
 @exit:  sta     $95
         rts
 
-LA26C:  lda     $DD0C
+maybe_printer_bsout_petscii:
+        lda     $DD0C
+        cmp     #$C1   ; $C0 = no PETSCII conversion
+        bcc     @rts
+        lda     $DD0C
         lsr     a
         bcs     LA2D1
         lsr     a
         bcs     LA2D2
         lsr     a
-        bcc     LA27B
-LA278:  jmp     LA39A
-
-LA27B:  lsr     a
-        bcs     LA278
+        bcc     @2
+@1:     jmp     LA39A
+@2:     lsr     a
+        bcs     @1
         lsr     a
         bcs     LA282
-        rts
+@rts:   rts
 
 LA282:  lda     $95
         cmp     #$0A ; LF
@@ -415,9 +428,9 @@ LA298:  sec
 
 LA29A:  lda     $D018
         and     #$02 ; lowercase font enabled?
-        beq     LA2A4
+        beq     :+
         jsr     to_lower
-LA2A4:  clc
+:       clc
         rts
 
 LA2A6:  cmp     #$80
@@ -441,7 +454,8 @@ LA2C0:  jsr     to_lower
 LA2C3:  clc
         rts
 
-LA2C5:  pha
+dd0c_clear_bit45:
+        pha
         lda     $DD0C
         and     #$CF
         sta     $DD0C
@@ -451,40 +465,42 @@ LA2C5:  pha
 
 LA2D1:  lsr     a
 LA2D2:  lsr     a
-        bcc     LA2E0
+        bcc     :+
         lsr     a
         lda     $95
         and     #$0F
         sta     $95
         bcc     LA319
         bcs     LA327
-LA2E0:  lda     $95
-        cmp     #$91
-        beq     LA309
-        cmp     #$20
-        bcs     LA2A6
-        cmp     #$0A
-        beq     LA2C5
-        cmp     #$0C
-        beq     LA2C5
-        cmp     #$0D
-        beq     LA2C5
-        cmp     #$11
-        beq     LA30C
-        cmp     #$10
-        bne     LA317
+:       lda     $95
+        cmp     #$91  ; MPS-803 temporary switch to graphics mode
+        beq     @1
+        cmp     #$20  ; ASCII control char<$20
+        bcs     LA2A6 ; If not then jump
+        cmp     #$0A  ; Line feed
+        beq     dd0c_clear_bit45
+        cmp     #$0C  ; MPS-803 line-feed, ends quote mode,
+                      ; reverse & temporary charset switch
+        beq     dd0c_clear_bit45
+        cmp     #$0D  ; MPS-803 carriage return, ends quote mode,
+        beq     dd0c_clear_bit45
+        cmp     #$11  ; MPS-803 temporary switch to business mode
+        beq     @2
+        cmp     #$10  ; Set print start position
+        bne     @sec_rts
         lda     $DC0C
         cmp     #$FE
-        beq     LA317 ; RS-232
-        lda     #$04
-        bne     LA311
-LA309:  lda     #$10
+        beq     @sec_rts ; RS-232
+        lda     #$04  ; CBM mode?
+        bne     @3 ; always
+@1:     lda     #$10
         .byte   $2C
-LA30C:  lda     #$30
-        jsr     LA2C5
-LA311:  ora     $DD0C
+@2:     lda     #$30
+        jsr     dd0c_clear_bit45
+@3:     ora     $DD0C
         sta     $DD0C
-LA317:  sec
+@sec_rts:
+        sec
         rts
 
 LA319:  asl     a
@@ -494,13 +510,13 @@ LA319:  asl     a
         sta     $A4
         lda     #$08
         ora     $DD0C
-        bne     LA34A
+        bne     LA34A ;always
 LA327:  clc
         adc     $A4
         sta     $95
         lda     #$1B
         jsr     printer_send_byte
-        lda     #'D'
+        lda     #'D' ; Set horizontal tabs
         jsr     printer_send_byte
         lda     $95
         jsr     printer_send_byte
@@ -537,10 +553,10 @@ LA373:  sta     $95
         rts
 
 LA376:  ldy     #3
-LA378:  asl     a
+:       asl     a
         rol     $FC
         dey
-        bne     LA378
+        bne     :-
         rts
 
 LA37F:  sta     $A4
@@ -554,15 +570,15 @@ LA37F:  sta     $A4
         lda     $A4
         jsr     LA376
         sta     $FB
-        jsr     LA441
+        jsr     print_char_from_charrom
         pla
         tay
         rts
 
 LA39A:  lda     $95
-        cmp     #10
+        cmp     #10   ; LF? print buffer contents
         beq     LA3BF
-        cmp     #$0D
+        cmp     #13   ; CR? print buffer contents
         beq     LA3BF
         jsr     petscii_to_ascii
         tya
@@ -571,9 +587,9 @@ LA39A:  lda     $95
         lda     $95
         sta     $033D,y
         inc     $033C
-        cpy     #$1D
+        cpy     #$1D  ; buffer full?
         bne     LA3BB
-        jsr     LA3BF
+        jsr     LA3BF ; print buffer_contents
 LA3BB:  pla
         tay
         sec
@@ -582,7 +598,7 @@ LA3BB:  pla
 LA3BF:  pha
         lda     $033C
         beq     LA43C
-        jsr     LA49C
+        jsr     printer_send_graphics_cmd
         tya
         pha
         lda     #0
@@ -649,97 +665,121 @@ LA43C:  pla
         clc
         rts
 
-LA441:  lda     #$80
+print_char_from_charrom:
+        lda     #$80
         sta     $A4
-LA445:  lda     #0
+@2:     lda     #0
         sta     $A5
         ldy     #7
-        jsr     LA483
+        jsr     get_char_column
         lda     $DD0C
         lsr     a
         lsr     a
         lsr     a
         lda     $A5
-        bcs     LA45A
-        eor     #$FF
-LA45A:  sta     $A5
+        bcs     :+
+        eor     #$FF    ; Reversed CBM charset
+:       sta     $A5
         lda     $DC0C
         cmp     #$FE
-        bne     LA471 ; not RS-232
+        bne     @1 ; not RS-232
         txa
+        ; Reverse the bits in $A5.
         pha
         ldx     #8
         lda     $A5
-LA469:  asl     a
+:       asl     a
         ror     $A5
         dex
-        bne     LA469
+        bne     :-
         pla
         tax
-LA471:  lda     $A5
+@1:     lda     $A5
         jsr     printer_send_byte
         lsr     $A4
-        bcc     LA445
+        bcc     @2
         rts
 
 pow2:  .byte   $80,$40,$20,$10,$08,$04,$02,$01
 
-LA483:  lda     #$33
+;
+; Characters are stored in charrom one row at a time, but for printing we need
+; them one column at a time. This routine retrieves column y of the characer
+; pointed to by ($fb) and stores the result in $a5.
+;
+;
+get_char_column:
+        lda     #$33
         sta     $01
-LA487:  lda     ($FB),y
+@1:     lda     ($FB),y
         and     $A4
-        beq     LA494
+        beq     :+
         lda     $A5
         ora     pow2,y
         sta     $A5
-LA494:  dey
-        bpl     LA487
+:       dey
+        bpl     @1
         lda     #$37
         sta     $01
-rts_:
         rts
 
-LA49C:  jsr     LA4CC
+;
+; This routine sends the command to print graphics to the printer.
+;
+; If RS232 is selected, the original FC3 would switch the printer language to
+; that of the Apple Image Writer printers. This is not documented in the manual
+; at all, so no FC3 owner could have known that RS232 support only works with
+; Apple Image Writer printers.
+;
+; This doesn't make any sense: There exist far more RS232 printers that use the
+; Epson command set than the 3 models of Image Writer printers. This was so in
+; 1986 when the FC3 was released, but it is still true today, as one can still
+; buy brand new dot matrix printers with RS232 interface and Epson command set
+; in 2024.
+;
+; Therefore the imagewriter support has been placed between ifdefs. Removing it
+; actually improves compatibility.
+;
+printer_send_graphics_cmd:
+        jsr     printer_send_esc
         lda     $DC0C
+        beq     esc_k
+.ifdef imagewriter
         cmp     #$FE
-        beq     LA4D4 ; RS-232
-        lda     $DC0C
-        bne     LA4B0
-LA4AB:  lda     #$4B
-LA4AD:  jmp     printer_send_byte
+        beq     apple_send_graphics_cmd ; RS-232
+.endif
 
-LA4B0:  cmp     #'0'
-        bcc     LA4AB
+        cmp     #'0'
+        bcc     esc_k
         cmp     #'['
-        bcs     LA4AB
-        cmp     #$37
-        bcc     LA4C2
-        cmp     #$4B
-        bcc     LA4AB
-        bcs     LA4AD
-LA4C2:  pha
-        lda     #'*'
+        bcs     esc_k
+        cmp     #$37 ; Graphics printing mode?
+        bcc     esc_star
+        cmp     #'K'
+        bcc     esc_k
+        bcs     sendb ; always
+esc_star:
+        pha
+        lda     #'*' ; Print graphics command
         jsr     printer_send_byte
         pla
-        and     #$0F
+        and     #$0F ; Printing density
         .byte   $2C
-LA4CC:  lda     #$1B
+printer_send_esc:
+         lda     #$1B
         .byte   $2C
-        ; ??? unreferenced?
-        lda     #$0D
-        jmp     printer_send_byte
+esc_k:  lda     #'K'
+sendb:  jmp     printer_send_byte
 
-LA4D4:  lda     #'N'
+.ifdef imagewriter
+apple_send_graphics_cmd:
+        lda     #'N'  ; Sets printing density to 80 dpi on Image Writer.
         jsr     printer_send_byte
-        jsr     LA4CC
-        lda     #'G'
+        jsr     printer_send_esc
+        lda     #'G' ;  Enters graphics mode on Image Writer.
         jsr     printer_send_byte
         lda     #'0'
         jmp     printer_send_byte
+.endif
 
-LA4E6:  lda     $DD0C
-        cmp     #$C1
-        bcc     rts_
-        jmp     LA26C
-;LA4F0:  rts
 ; ----------------------------------------------------------------
