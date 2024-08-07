@@ -73,51 +73,70 @@ rs232_send_byte:
         sta     $A5
         txa
         pha
-LA03A:  lda     $DD01
+
+        ; Wait for RS-232 "Clear To Send" (CTS)
+:       lda     $DD01
         asl     a
         asl     a
-        bcc     LA03A
+        bcc     :-
+
+        ; Stop CIA2 timer A
         lda     #$10
         sta     $DD0E
+        ; Setup timer A
         lda     #$64
         sta     $DD04
         lda     #$00
         sta     $DD05
+        ; Clear FLAG
         lda     $DD0D
+
+        ; Avoid bad lines
         bit     $D011
-        bmi     LA065
-LA058:  lda     $D012
+        bmi     @1
+:       lda     $D012
         and     #$0F
         cmp     #$02
-        beq     LA065
+        beq     :-
         cmp     #$0A
-        bne     LA058
-LA065:  lda     #$11
+        bne     :-
+
+@1:     ; Start CIA2 timer A in restart mode
+        lda     #$11
         sta     $DD0E
         ldx     #10
-        clc
-        bcc     LA077
-LA06F:  lda     $DD0D
+        clc     ; First bit to transmit is a 0
+        bcc     @2 ; always
+
+@3:     ; Wait for timer A underflow
+        lda     $DD0D
         lsr     a
-        bcc     LA06F
-        lsr     $A5
-LA077:  lda     $DD00
+        bcc     @3
+        lsr     $A5 ; Get next bit
+@2:     ; Transmit the bit in carry
+        lda     $DD00
         and     #$FB
-        bcc     LA080
+        bcc     @4
         ora     #$04
-LA080:  sta     $DD00
+@4:     sta     $DD00
         dex
-        bne     LA06F
-LA086:  lda     $DD0D
+        bne     @3
+
+        ; Wait for timer A underflow
+:       lda     $DD0D
         lsr     a
-        bcc     LA086
+        bcc     :-
+
+        ; Transmit an 1
         lda     $DD00
         and     #$FB
         ora     #$04
         sta     $DD00
-LA096:  lda     $DD0D
+
+        ; Wait for timer A underflow
+:       lda     $DD0D
         lsr     a
-        bcc     LA096
+        bcc     :-
         pla
         tax
         rts
@@ -429,7 +448,7 @@ LA298:  sec
 LA29A:  lda     $D018
         and     #$02 ; lowercase font enabled?
         beq     :+
-        jsr     to_lower
+        jsr     swap_case
 :       clc
         rts
 
@@ -450,7 +469,7 @@ LA2B0:  lda     $DD0C
 
 LA2BC:  and     #$10
         beq     LA2C3
-LA2C0:  jsr     to_lower
+LA2C0:  jsr     swap_case
 LA2C3:  clc
         rts
 
@@ -530,27 +549,27 @@ LA34A:  sta     $DD0C
         sec
         rts
 
-to_lower:
+swap_case:
         lda     $95
-        cmp     #$41
-        bcc     LA373
-        cmp     #$5B
-        bcs     LA35D
+        cmp     #'A'
+        bcc     @exit
+        cmp     #'Z'+1
+        bcs     @nocap
         ora     #$20
-        bne     LA373
-LA35D:  cmp     #$61
-        bcc     LA373
-        cmp     #$7B
-        bcs     LA369
+        bne     @exit
+@nocap: cmp     #'a'
+        bcc     @exit
+        cmp     #'z'+1
+        bcs     @nolow
         and     #$DF
-        bcc     LA373
-LA369:  cmp     #$C1
-        bcc     LA373
+        bcc     @upd
+@nolow: cmp     #$C1   ; Petscii has duplicate characters from $C1..$DA
+        bcc     @exit
         cmp     #$DB
-        bcs     LA373
+        bcs     @exit
         and     #$7F
-LA373:  sta     $95
-        rts
+@upd:   sta     $95
+@exit:  rts
 
 LA376:  ldy     #3
 :       asl     a
@@ -577,9 +596,9 @@ LA37F:  sta     $A4
 
 LA39A:  lda     $95
         cmp     #10   ; LF? print buffer contents
-        beq     LA3BF
+        beq     print_buf_as_graphics
         cmp     #13   ; CR? print buffer contents
-        beq     LA3BF
+        beq     print_buf_as_graphics
         jsr     petscii_to_ascii
         tya
         pha
@@ -589,13 +608,14 @@ LA39A:  lda     $95
         inc     $033C
         cpy     #$1D  ; buffer full?
         bne     LA3BB
-        jsr     LA3BF ; print buffer_contents
+        jsr     print_buf_as_graphics
 LA3BB:  pla
         tay
         sec
         rts
 
-LA3BF:  pha
+print_buf_as_graphics:
+        pha
         lda     $033C
         beq     LA43C
         jsr     printer_send_graphics_cmd
