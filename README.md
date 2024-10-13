@@ -1,8 +1,6 @@
-# Final Cartridge
+# Final Cartridge III 101%
 
-This project is the reverse-engineered and documented Commodore 64 cc65/ca65/cl65 assembly source code of the first bank of the "*Final Cartridge III*".
-
-When assembled, the resulting binary is identical with the 1988-12 version of bank 0 of the original cartridge ROM.
+This project is an 21th century improved firmware for the Final Cartridge III, an utility cartridge for the Commodore 64.  It is based on reverse engineering work by Michael Steil and development work is being done by me, Daniël Mantione. For more information about the Final Cartridge III 101% and information about the redesigned cartridge hardware, please visit the [Final Cartridge 101% web page](https://www.freepascal.org/~daniel/fc3/).
 
 ## What is contained?
 
@@ -68,4 +66,4 @@ Please be aware of the [The Final Replay](http://www.oxyron.de/html/freplay.html
 
 ## Copyright
 
-The original code is (c) Uwe Stahl and Riska B.V. Home & Personal Computers. The assembly version, the comments, the partitioning into separate files and the linker configuration was done by Michael Steil <mist64@mac.com>; this work is in the public domain.
+The original code is (c) Uwe Stahl and Riska B.V. Home & Personal Computers. The assembly version, the comments, the partitioning into separate files and the linker configuration was done by Michael Steil <mist64@mac.com>; this work is in the public domain. The improvements of the Final Cartridge III 101% were developed by Daniël Mantione <daniel.mantione@freepascal.org>, and are in the public domain as well.
