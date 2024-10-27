@@ -23,6 +23,7 @@
 
 ; from desktop_helper
 .import perform_operation_for_desktop
+.import monitor
 
 .segment "vectors"
 
@@ -30,19 +31,20 @@
 
 .global jentry
 jentry:
-        jmp     entry ; $804C
+        jmp     entry                         ; $8009
 
 ; this vector is called from other banks
-        jmp     perform_operation_for_desktop ; $995E
+        jmp     perform_operation_for_desktop ; $800c
 
 .global jfast_format
 jfast_format: ; monitor calls this
-        jmp     fast_format ;$96E4
+        jmp     fast_format                   ; $800f
 
 ; these vectors are called from other banks
-        jmp     init_read_disk_name ;$96FB
-        jmp     init_write_bam ; $971A
-        jmp     init_vectors_goto_psettings ; $803B
-        jmp     go_basic ; $80CE
-        jmp     print_screen ; $9473
-        jmp     init_load_and_basic_vectors ; $A004
+        jmp     init_read_disk_name           ; $8012
+        jmp     init_write_bam                ; $8015
+        jmp     init_vectors_goto_psettings   ; $8018
+        jmp     go_basic                      ; $801b
+        jmp     print_screen                  ; $801e
+        jmp     init_load_and_basic_vectors   ; $8021
+        jmp     monitor                       ; $8024
