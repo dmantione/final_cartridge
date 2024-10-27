@@ -3,6 +3,7 @@
 ; ----------------------------------------------------------------
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 .include "persistent.i"
 
 ; from basic

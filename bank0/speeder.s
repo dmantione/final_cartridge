@@ -4,8 +4,8 @@
 ; This speeds up LOAD and SAVE on both disk and tape
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 .include "persistent.i"
-.include "fc3ioreg.i"
 
 .global new_load
 .global new_save

@@ -32,8 +32,8 @@
 ; "PACK" Command    - compress a program
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 .include "persistent.i"
-.include "fc3ioreg.i"
 
 ; from monitor
 .import monitor

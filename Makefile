@@ -4,12 +4,11 @@ MACHINE ?= c64
 AS=ca65
 LD=ld65
 
-ASFLAGS=--include-dir core -g
+ASFLAGS=-g
 
 ifeq ($(PROJECT), cartridge)
 	ASFLAGS+=-D CART_FC3=1
 endif
->>>>>>> master
 
 ifeq ($(MACHINE), c64)
 	ASFLAGS+=-D MACHINE_C64=1
@@ -28,7 +27,7 @@ else
 	endif
 endif
 
-SOURCES_B0=bank0/header.s bank0/vectors.s bank0/init.s bank0/basic.s bank0/drive.s bank0/desktop_helper.s bank0/speeder.s bank0/monitor.s bank0/wrappers.s bank0/editor.s bank0/printer.s bank0/format.s bank0/freezer.s bank0/persistent.s bank0/junk.s
+SOURCES_B0=bank0/header.s bank0/vectors.s bank0/init.s bank0/basic.s bank0/drive.s bank0/desktop_helper.s bank0/speeder.s bank0/monitor.s bank0/wrappers.s bank0/editor.s bank0/printer.s bank0/format.s bank0/freezer.s bank0/persistent.s
 SOURCES_B3=bank3/freezer_entry.s bank3/freezer_reset.s bank3/freezer_game.s bank3/freezer_backup.s bank3/screenshot.s bank3/persistent.s bank3/mysterycode.s bank3/desktop_helper2.s bank3/freezer_menu.s
 
 DEPS=core/kernal.i bank0/persistent.i
