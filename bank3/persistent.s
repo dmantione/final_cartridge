@@ -17,6 +17,8 @@
 .import freezer_exec_menu
 .import freezer_update_spritepointers
 .import show_view_menu
+.import draw_menu
+.import highlight_selected_menu
 ;.import freezer_exec_bank
 
 .segment "romio1l"
@@ -123,10 +125,10 @@ _show_view_menu:
 ; Go to ultimax mode, execute $fbe4 and return to 16K mode
 ;
 
-.global ultimax_fbe4
-ultimax_fbe4:
+.global ultimax_draw_menu
+ultimax_draw_menu:
       jsr  ultimax_bank3_rts
-      jsr  $FBE4
+      jsr  draw_menu
       jmp  bank3_16kmode
 
 ;
@@ -136,7 +138,7 @@ ultimax_fbe4:
 .global ultimax_highlight_selected_menu
 ultimax_highlight_selected_menu:
       jsr  ultimax_bank3_rts
-      jsr  $FB98
+      jsr  highlight_selected_menu
       jmp  bank3_16kmode
 
 

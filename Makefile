@@ -76,10 +76,9 @@ speeder.prg: bank0/speeder.o projects/speeder/speeder_support.o projects/speeder
 bank3/freezer_backup.o: bank3/freezer_backup.s bank3/disk_backload/backup_loader.prg bank3/tape_backload/backup_loader.prg $(DEPS)
 	$(AS) $(ASFLAGS) $< -o $@
 
-fc3full.bin: bank0.bin bank3.bin
-	cp bin/Final_Cartridge_3_1988-12.bin fc3full.bin
-	dd if=bank0.bin of=fc3full.bin bs=16384 count=1 conv=notrunc
-	dd if=bank3.bin of=fc3full.bin bs=16384 seek=3 count=1 conv=notrunc
+fc3full.bin: bank0.bin bank1.bin bank2.bin bank3.bin
+	cat $^ > $@
 
 fc3full.crt: fc3full.bin
 	cartconv -i fc3full.bin -o fc3full.crt -t fc3
+	ucon64 --nbak --poke=001A:01 fc3full.crt

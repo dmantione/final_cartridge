@@ -16,6 +16,8 @@
 .import not_last_sector
 .import next_dir_entry
 
+.ifdef a0 
+
 .segment "mysterycode"
 
       .byte $b0,$90,$da
@@ -117,6 +119,14 @@ W918C:
       .byte $15, $03, $a0, $00, $84, $ac, $84, $ae
       .byte $a9, $0c, $85, $ad, $a9, $c0, $85
 
+.endif
+
+;
+; junk0, ramcode, mysterybytes2 and ramcode2 are necessary for the Notepad. The
+; memory from $A400..$AFFF is copied to $13E0 on entry to the Notepad. This is
+; rather rough copy, since the last part of the printersettings segment is 
+; copied as well.
+;
 .segment "junk0"
 
 
@@ -1667,52 +1677,3 @@ WEFD8:
 
       jmp  $1B21
 
-.segment "mysterybytes3"
-
-      .byte $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $00, $00, $00, $00, $00, $00, $00, $00 
-      .byte $33, $33, $33, $33, $33, $33, $33, $33 
-      .byte $33, $33, $33, $33, $33, $33, $33, $33 
-      .byte $00
-
-.segment "mysterybytes4"
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00, $00, $00, $FF, $FF, $FF, $FF 
-      .byte $00, $00
-
-.segment "mysterybytes5"
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $F7, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00, $00, $00, $FF 
-      .byte $FF, $FF, $FF, $00, $00
-      

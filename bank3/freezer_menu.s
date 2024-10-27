@@ -140,7 +140,7 @@ freezer_backup_lb:
       MonoSpriteLine %111011111110111010101111   ; ▉▉▉░▉▉▉▉▉▉▉░▉▉▉░▉░▉░▉▉▉▉
       MonoSpriteLine %111011111110111010101111   ; ▉▉▉░▉▉▉▉▉▉▉░▉▉▉░▉░▉░▉▉▉▉
       MonoSpriteLine %111000111110111010110001   ; ▉▉▉░░░▉▉▉▉▉░▉▉▉░▉░▉▉░░░▉
-      .byte $EF
+      .byte $FF
 freezer_backup_rb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
@@ -163,7 +163,7 @@ freezer_backup_rb:
       MonoSpriteLine %101101111111111111111111   ; ▉░▉▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %101011111111111111111111   ; ▉░▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %100111111111111111111111   ; ▉░░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
-      .byte $AF
+      .byte $FF
 freezer_backup_lo:
       MonoSpriteLine %111011111110111010111110   ; ▉▉▉░▉▉▉▉▉▉▉░▉▉▉░▉░▉▉▉▉▉░
       MonoSpriteLine %111011111110111010111110   ; ▉▉▉░▉▉▉▉▉▉▉░▉▉▉░▉░▉▉▉▉▉░
@@ -186,7 +186,7 @@ freezer_backup_lo:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_backup_ro:
       MonoSpriteLine %101011111111111111111111   ; ▉░▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %101101111111111111111111   ; ▉░▉▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
@@ -209,7 +209,7 @@ freezer_backup_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_game_lb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111100001000011000011010   ; ▉▉▉▉░░░░▉░░░░▉▉░░░░▉▉░▉░
@@ -232,7 +232,7 @@ freezer_game_lb:
       MonoSpriteLine %111111010111010111010111   ; ▉▉▉▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉
       MonoSpriteLine %111111010111010111010111   ; ▉▉▉▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉
       MonoSpriteLine %111111010111011010111000   ; ▉▉▉▉▉▉░▉░▉▉▉░▉▉░▉░▉▉▉░░░
-      .byte $FD
+      .byte $FF
 freezer_game_rb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %000010000111101111111111   ; ░░░░▉░░░░▉▉▉▉░▉▉▉▉▉▉▉▉▉▉
@@ -255,7 +255,7 @@ freezer_game_rb:
       MonoSpriteLine %110111110110110110111011   ; ▉▉░▉▉▉▉▉░▉▉░▉▉░▉▉░▉▉▉░▉▉
       MonoSpriteLine %110111110101111010111011   ; ▉▉░▉▉▉▉▉░▉░▉▉▉▉░▉░▉▉▉░▉▉
       MonoSpriteLine %110110110101111010111011   ; ▉▉░▉▉░▉▉░▉░▉▉▉▉░▉░▉▉▉░▉▉
-      .byte $55
+      .byte $FF
 freezer_game_lo:
       MonoSpriteLine %111111010111011101111111   ; ▉▉▉▉▉▉░▉░▉▉▉░▉▉▉░▉▉▉▉▉▉▉
       MonoSpriteLine %111111000111011101111111   ; ▉▉▉▉▉▉░░░▉▉▉░▉▉▉░▉▉▉▉▉▉▉
@@ -301,7 +301,7 @@ freezer_game_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_colors_lb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111000011110011110001101   ; ▉▉▉░░░░▉▉▉▉░░▉▉▉▉░░░▉▉░▉
@@ -324,7 +324,7 @@ freezer_colors_lb:
       MonoSpriteLine %111011101011101011101011   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉
       MonoSpriteLine %111011101011101011101011   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉
       MonoSpriteLine %111000011011101011101011   ; ▉▉▉░░░░▉▉░▉▉▉░▉░▉▉▉░▉░▉▉
-      .byte $EE
+      .byte $FF
 freezer_colors_rb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %110110001101111010000111   ; ▉▉░▉▉░░░▉▉░▉▉▉▉░▉░░░░▉▉▉
@@ -347,7 +347,7 @@ freezer_colors_rb:
       MonoSpriteLine %101011110111011111111111   ; ▉░▉░▉▉▉▉░▉▉▉░▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %101011110111011111111111   ; ▉░▉░▉▉▉▉░▉▉▉░▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %101000110111011111111111   ; ▉░▉░░░▉▉░▉▉▉░▉▉▉▉▉▉▉▉▉▉▉
-      .byte $AF
+      .byte $FF
 freezer_colors_lo:
       MonoSpriteLine %111011101011101000011011   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░░░░▉▉░▉▉
       MonoSpriteLine %111011101011101011011011   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░▉▉░▉▉░▉▉
@@ -393,7 +393,7 @@ freezer_colors_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_print_lb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111100001000010000010000   ; ▉▉▉▉░░░░▉░░░░▉░░░░░▉░░░░
@@ -485,7 +485,7 @@ freezer_print_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_reset_lb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111011101010111011111111   ; ▉▉▉░▉▉▉░▉░▉░▉▉▉░▉▉▉▉▉▉▉▉
@@ -508,7 +508,7 @@ freezer_reset_lb:
       MonoSpriteLine %111011101011101001110010   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░░▉▉▉░░▉░
       MonoSpriteLine %111011111011101010101010   ; ▉▉▉░▉▉▉▉▉░▉▉▉░▉░▉░▉░▉░▉░
       MonoSpriteLine %111011111000011011011010   ; ▉▉▉░▉▉▉▉▉░░░░▉▉░▉▉░▉▉░▉░
-      .byte $EF
+      .byte $FF
 freezer_reset_rb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
@@ -531,7 +531,7 @@ freezer_reset_rb:
       MonoSpriteLine %111111100111111111111111   ; ▉▉▉▉▉▉▉░░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111111010111111111111111   ; ▉▉▉▉▉▉░▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %000110110111111111111111   ; ░░░▉▉░▉▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
-      .byte $E8
+      .byte $FF
 freezer_reset_lo:
       MonoSpriteLine %111011111011101011111010   ; ▉▉▉░▉▉▉▉▉░▉▉▉░▉░▉▉▉▉▉░▉░
       MonoSpriteLine %111011101011101011111010   ; ▉▉▉░▉▉▉░▉░▉▉▉░▉░▉▉▉▉▉░▉░
@@ -554,7 +554,7 @@ freezer_reset_lo:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $FF                         
+      .byte $FF
 freezer_reset_ro:
       MonoSpriteLine %111010000011111111111111   ; ▉▉▉░▉░░░░░▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111011110111111111111111   ; ▉▉▉░▉▉▉▉░▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
@@ -577,7 +577,7 @@ freezer_reset_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00
+      .byte $FF
 freezer_exit_lb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111000011011101011110111   ; ▉▉▉░░░░▉▉░▉▉▉░▉░▉▉▉▉░▉▉▉
@@ -600,7 +600,7 @@ freezer_exit_lb:
       MonoSpriteLine %111011101011110111110110   ; ▉▉▉░▉▉▉░▉░▉▉▉▉░▉▉▉▉▉░▉▉░
       MonoSpriteLine %111011101011110111110101   ; ▉▉▉░▉▉▉░▉░▉▉▉▉░▉▉▉▉▉░▉░▉
       MonoSpriteLine %111011101000111000110011   ; ▉▉▉░▉▉▉░▉░░░▉▉▉░░░▉▉░░▉▉
-      .byte $EE
+      .byte $FF
 freezer_exit_rb:
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
       MonoSpriteLine %111111111111111111111111   ; ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
@@ -623,7 +623,7 @@ freezer_exit_rb:
       MonoSpriteLine %111101110111010111011111   ; ▉▉▉▉░▉▉▉░▉▉▉░▉░▉▉▉░▉▉▉▉▉
       MonoSpriteLine %111101110111010111011111   ; ▉▉▉▉░▉▉▉░▉▉▉░▉░▉▉▉░▉▉▉▉▉
       MonoSpriteLine %111101110111010111011111   ; ▉▉▉▉░▉▉▉░▉▉▉░▉░▉▉▉░▉▉▉▉▉
-      .byte $F7
+      .byte $FF
 freezer_exit_lo:
       MonoSpriteLine %111011101011111111010101   ; ▉▉▉░▉▉▉░▉░▉▉▉▉▉▉▉▉░▉░▉░▉
       MonoSpriteLine %111011101011111111010110   ; ▉▉▉░▉▉▉░▉░▉▉▉▉▉▉▉▉░▉░▉▉░
@@ -669,12 +669,7 @@ freezer_exit_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
-      .byte $00  
-freezer_action2:
-      lda  $02
-      bmi  :+
-      jmp  freezer_action3
-:     jmp  freezer_loop
+      .byte $FF
 
 
 .segment "view_graphics"
@@ -809,7 +804,6 @@ freezer_action2:
 
 .segment "freezer_menu"
 
-; $F900
 .global freezer_exec_menu
 freezer_exec_menu:
       sei
@@ -910,8 +904,6 @@ keyaction:
 jmp_left:
       jmp  left
 
-jmp_freezer_action:
-      jmp  freezer_action1
 
 updown:
       cpx  #$EF                         ; Right shift prsseed?
@@ -926,8 +918,15 @@ leftright:
 jmp_up:
       jmp  up
 
+jmp_freezer_action:
+      lda  $02
+      bmi  freezer_loop
+      ldy  $03                         ; Currently open menu
+      cpy  #$02
+      beq  WFA49
+      jmp  freezer_action
 
-;F9D2
+
 ;
 ; In/out
 ; y = Current menu
@@ -1020,29 +1019,7 @@ WFA49:
       sta  $02
       jmp  WF951
 
-      ;
-      ; User has selected an option in the freezer menu with fire button or F7.
-      ;
-      ; Looks like some code had to be patched into binary code that did
-      ; already exist here.
-freezer_action1:
-      jmp  freezer_action2
-      nop
-freezer_action3:
-      ldy  $03                         ; Currently open menu
-      cpy  #$02
-      beq  WFA49
-      lda  menu_action_offset,y
-      ; An overcomplicated way to compute A:=A+$02 :
-      tay
-      ldx  $02
-:     iny
-      dex
-      bpl  :-
-      tya
-      jmp  freezer_complete_action
 
-;$FA6E
 left:
       dec  $03
       beq  WFA10
@@ -1142,9 +1119,9 @@ freezer_irq_handler:
       bmi  WFB67
       beq  WFB44
 :     lda  $D012                        ; Reading/Writing IRQ balance value
-      cmp  selected_item_rasterlines,x  
+      cmp  selected_item_rasterlines,x
       bcc  :-
-      ldy  selected_item_wait_iters,x   
+      ldy  selected_item_wait_iters,x
 :     dey
       bne  :-
 WFB44:
@@ -1189,7 +1166,6 @@ WFB67:
 ;
 ; Make set the first line of the colour RAM to light_green
 ;
-; $FB8C
 colram_topline_green_16k = colram_topline_green & $BFFF
 colram_topline_green:
       ldx  #40-1
@@ -1200,7 +1176,7 @@ colram_topline_green:
       inx
       rts
 
-; $FB98
+.global highlight_selected_menu
 highlight_selected_menu:
       jsr  colram_topline_green
       ldy  $03
@@ -1220,9 +1196,11 @@ highlight_selected_menu:
       bne  :-
       rts
 
-;$FBB7
-freezer_complete_action:
-      sei
+freezer_action:
+      ; If no item is select in an open menu (default), we ignore action.
+      lda  menu_action_offset,y
+      sec
+      adc $02
       pha
       ldy  #$A0
       ldx  #$00
@@ -1237,6 +1215,7 @@ freezer_complete_action:
       cmp  $04
       beq  :-
       pla
+      sei
       cmp  #$0D
       bne  :+
       ; Disable all sprites
@@ -1250,7 +1229,8 @@ freezer_complete_action:
 ;
 ; Draw the menu during raster interrupt
 ;
-WFBE4:
+.global draw_menu
+draw_menu:
       ; Screen RAM and charset at $F800
       ldx  #$EE
       stx  $D018                        ; VIC memory control register
@@ -1357,7 +1337,7 @@ WBCBC:
       lda  $DD00
       and  #$FC
       sta  $DD00
-      jsr  ultimax_fbe4
+      jsr  ultimax_draw_menu
 ;WBCD2
 show_frozen_screen:
       ; Restore VIC-II bank
@@ -1389,8 +1369,8 @@ show_frozen_screen:
 ;
 
 view_irq_handler2:
-      sei                               ; Unnecessary, interrupts are already
-                                        ; disabled by the CPU.
+;      sei                               ; Unnecessary, interrupts are already
+;                                        ; disabled by the CPU.
       lda  $D012
       cmp  #$01                         ; Raster line 1?
       beq  rline1                       ; Then jump
@@ -1439,11 +1419,14 @@ rline1:
 WBD55:
       tya                               ; Up/down status
       beq  WFD5D                        ; No change
-      bmi  view_up                      ; Up
-      jmp  view_down                    ; Down
+      bpl  view_down                    ; Down
+      jmp  view_up                      ; up
 
 WFD5D:
       jmp  WBE0A
+
+jmp_exit_infinite_loop:
+      jmp  exit_infinite_loop
 
 view_left:
       dec  $03                          ; Decrease selected menu
@@ -1479,7 +1462,7 @@ WBD98:
       ldx  $03
       beq  WFDAF
       cpx  #$06
-      beq  WFDBD
+      beq  jmp_exit_infinite_loop
 WFDA2:
       cpx  #$02
       bne  :+
@@ -1499,8 +1482,6 @@ WFDB7:
       pha
       jmp  WBE65
 
-WFDBD:
-      jmp  exit_infinite_loop
 
 WFDC0:
       lda  $03
@@ -1515,7 +1496,10 @@ view_down:
       inc  $02                          ; Increase current y position
       lda  $02
       cmp  #$F8                         ; Don't go beyond line 248
-      bcs  WFE1F
+      bcs  :+
+      bne  WBE0A
+:     lda  #$F8
+      sta  $02
       bne  WBE0A
 view_up:
       ; Disable all sprites:
@@ -1526,7 +1510,6 @@ view_up:
       lda  $02
       cmp  #$3E                         ; Top reached? (line 62)
       beq  exit_infinite_loop           ; Then exit
-      bcs  WBE0A
       jmp  WBE0A
 
 WFDEC:
@@ -1556,9 +1539,6 @@ WBE0F:
       lda  #$00
       sta  $D418                        ; Select volume and filter mode
       jmp  $EA7E                        ; Pull registers from stack and RTI
-
-WFE1F:
-      jmp  WBF39
 
 ; BE22
 WBE22:
@@ -1718,28 +1698,6 @@ restore_sprites:
       lda  viciireg_backup + $16
       sta  $D026                        ; Multicolor animation 1 register
       rts
-
-;$BF21
-      ;
-      ; Dead code???
-      ;
-      jsr  show_frozen_screen
-      ldx  #23
-:     lda  $DBE8,x                      ; Color RAM
-      sta  $D800,x                      ; Color RAM
-      dex
-      bpl  :-
-      ldx  #15
-:     lda  colram_backup,x
-      sta  $D818,x                      ; Color RAM
-      dex
-      bpl  :-
-WBF39:
-      lda  #$F8
-      sta  $02
-      jmp  WBE0A
-
-      jmp  $2000
 
 
 .segment "freezer"
