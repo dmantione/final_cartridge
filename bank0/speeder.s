@@ -1471,11 +1471,6 @@ wait_for_next_frame:
 .segment "tape"
 
 new_save_tape:
-        ldx     #load_ac_indy_end - load_ac_indy - 1
-:       lda     load_ac_indy,x
-        sta     L0110,x
-        dex
-        bpl     :-
         ldx     #5
         stx     $AB
         jsr     $FB8E ; copy I/O start address to buffer address

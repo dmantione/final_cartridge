@@ -384,14 +384,7 @@ _print_ax_int: ; $DF06
 _search_for_line: ; $DF0F
         jsr     _disable_fc3rom
         jsr    basic_search_line
-<<<<<<< HEAD:core/persistent.s
         jmp    enable_fcbank0_and_exit
-=======
-        php
-        jsr     _enable_fcbank0
-        plp
-        rts
->>>>>>> master:bank0/persistent.s
 
 .global _CHRGET
 _CHRGET: ; $DF1B

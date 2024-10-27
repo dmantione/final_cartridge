@@ -730,7 +730,7 @@ LAF06:  lda     bank
         ldx     reg_x
         ldy     reg_y
         lda     bank
-        jmp     goto_user
+        jmp     disable_rom_rti
 LAF2B:  lda     #'E' ; send M-E to drive
         jsr     send_m_dash2
         lda     zp2
