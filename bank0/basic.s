@@ -31,7 +31,7 @@
 ; "UNPACK" Command  - decompress a program
 ; "PACK" Command    - compress a program
 
-.include "kernal.i"
+.include "../core/kernal.i"
 .include "persistent.i"
 .include "fc3ioreg.i"
 
@@ -135,9 +135,10 @@ L81D8:  pla
 L81DF:  clc
         jmp     _disable_fc3rom
 
-L81E3:  lda     #$16
+set_bsout_to_screen:
+        lda     #<PRT  ; Kernel print to screen routine
         sta     $0326
-        lda     #$E7
+        lda     #>PRT
         sta     $0327
         rts
 
@@ -161,7 +162,7 @@ auto_line_number_increment := $0336
 new_mainloop:
         jsr     set_irq_and_kbd_handlers
         jsr     cond_init_load_save_vectors
-        jsr     L81E3
+        jsr     set_bsout_to_screen
         jsr     WA560
         stx     TXTPTR
         sty     TXTPTR + 1

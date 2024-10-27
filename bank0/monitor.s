@@ -37,7 +37,7 @@
 ; * "OD" switches all memory dumps/input to the drive's memory.
 ; * "B" command to introspect cartridge ROM
 
-.include "kernal.i"
+.include "../core/kernal.i"
 
 .ifdef CART_FC3
 .include "persistent.i"
@@ -730,7 +730,7 @@ LAF06:  lda     bank
         ldx     reg_x
         ldy     reg_y
         lda     bank
-        jmp     disable_rom_rti
+        jmp     goto_user
 LAF2B:  lda     #'E' ; send M-E to drive
         jsr     send_m_dash2
         lda     zp2
@@ -773,7 +773,7 @@ decode_mnemo_2:
 .if .defined(CPU_6502)
         tay
         lsr     a
-        bcc     @1 ; skip if copodes $x0, $x2, $x4, $x6, $x8, $xA, $xC, $xE
+        bcc     @1 ; skip if opcodes $x0, $x2, $x4, $x6, $x8, $xA, $xC, $xE
         ; continue for opcodes $x1, $x3, $x5, $x7, $x9, $xB, $xD, $xF
         lsr     a
         bcs     @3 ; branch for opcodes $x3, $x7, $xC, $xF
@@ -2904,8 +2904,11 @@ P_HASH     = 1 << 5
 S_X        = 1 << 4
 S_PAREN    = 1 << 3
 S_Y        = 1 << 2
+; use otherwise illegal combinations for the special cases
 S_RELATIVE = S_X | S_PAREN | S_Y
+.ifdef CPU_65C02
 S_ZPREL    = S_X | S_Y
+.endif
 
 .macro addmode_detail symbol, bytes, flags
 		symbol = * - addmode_detail_table

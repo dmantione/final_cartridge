@@ -10,7 +10,7 @@
 ; jumps to a different bank.
 
 .include "persistent.i"
-.include "fc3ioreg.i"
+.include "../core/fc3ioreg.i"
 
 .segment "freezer"
 
@@ -63,7 +63,7 @@ freezer:
 
         ; Note: Bank3 is active. Note that the IOROM at $DE00..$DFFF is also affected by bank
         ; switching. The IOROM of Bank3 is different than that of bank 0 (code persistent.s) 
-        ldx     #fcio_bank_3 ; NMI line stays active
+        ldx     #fcio_bank_3 | fcio_c64_16kcrtmode ; NMI line stays active
         jmp     $DFE0
 
         ; The code at $DFE0 of bank 3 (also at offset $DFE0 in FC3 ROM image) that follows is:

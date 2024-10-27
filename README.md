@@ -4,7 +4,9 @@ This project is an 21th century improved firmware for the Final Cartridge III, a
 
 ## What is contained?
 
-Bank 0 contains the BASIC and editor extensions, the floppy and tape speeder, fast format, the centronics printer driver, and the monitor. This project does not contain Desktop, the freezer or the BASIC menu bar.
+Bank 0 contains the BASIC and editor extensions, the floppy and tape speeder, fast format, the centronics printer driver, and the monitor.
+
+Bank 3 contains the freezer.
 
 ## Building
 

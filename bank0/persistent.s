@@ -7,8 +7,8 @@
 ; It mostly contains wrappers around BASIC, KERNAL or cartridge
 ; functions that switch the ROM config in addition.
 
-.include "kernal.i"
-.include "fc3ioreg.i"
+.include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 
 ; from printer
 .import new_clrch
@@ -132,6 +132,11 @@ enable_all_roms:
 
 .global _new_load
 _new_load: ; $DE20
+        ; The least significant bit of $0330 indicates wether to use PAL or NTSC timing.
+        ; This double tay simply handles that the vector may point to either $DE20 or
+        ; $DE21. Deeper into the load code, in receive_4_bytes, the bit is tested and
+        ; appropriate timing for PAL and NTSC is chosen.
+        tay
         tay
         lda     $01
         pha
@@ -379,7 +384,14 @@ _print_ax_int: ; $DF06
 _search_for_line: ; $DF0F
         jsr     _disable_fc3rom
         jsr    basic_search_line
+<<<<<<< HEAD:core/persistent.s
         jmp    enable_fcbank0_and_exit
+=======
+        php
+        jsr     _enable_fcbank0
+        plp
+        rts
+>>>>>>> master:bank0/persistent.s
 
 .global _CHRGET
 _CHRGET: ; $DF1B

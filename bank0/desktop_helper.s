@@ -5,7 +5,7 @@
 ; this library code using cross-bank calls. It also calls this to
 ; start a program in BASIC mode.
 
-.include "kernal.i"
+.include "../core/kernal.i"
 .include "persistent.i"
 
 ; from basic
@@ -255,13 +255,14 @@ store_directory_byte:
 :;       ldy     $AE
         rts
 
-;disk_operation_fallback:
-;        lda     #<($FF92 - 1)
-;        pha
-;        lda     #>($FF92 - 1) ; ???
-;        pha
-;        lda     #$43
-;        jmp     _jmp_bank ; bank 3
+disk_operation_fallback:
+        ; Write reordered directory back to disk
+        lda     #>($9200 - 1)
+        pha
+        lda     #<($9200 - 1)
+        pha
+        lda     #fcio_nmi_line | fcio_bank_3
+        jmp     _jmp_bank ; bank 3
 
 pofd_part2:
         cpx     #11
@@ -270,8 +271,8 @@ pofd_part2:
         beq     print_character
         cpx     #13
         beq     reset_printer_output
-;        jsr     disk_operation_fallback
-;        jmp     jmp_bank_from_stack
+        jsr     disk_operation_fallback
+        jmp     jmp_bank_from_stack
 
 reset_printer_output:
         lda     #$0D ; CR

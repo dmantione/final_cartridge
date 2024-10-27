@@ -3,7 +3,7 @@
 ; ----------------------------------------------------------------
 ; This speeds up LOAD and SAVE on both disk and tape
 
-.include "kernal.i"
+.include "../core/kernal.i"
 .include "persistent.i"
 .include "fc3ioreg.i"
 
@@ -400,7 +400,6 @@ new_load_continue:
         lda     $AF
         sbc     #0
         sta     $A4
-
 @back:  bit     $DD00 ; DATA IN high?
         bmi     @recv ; Then receive data
         cli
@@ -623,7 +622,6 @@ L9BFE:
         inc     $C3
         bne     @7
         beq     @error         ; If $C3 hits 0 (255 iterations), then there must be a cycle in the sector chain
-
         ;
         ; When we arrive here we either need to continue on a different track, or
         ; we hit the final sector of the file (A=0). Either way the sector_order array
@@ -899,7 +897,6 @@ wait_for_header:
         cmp     $24      ; Header block ID as expected?
         bne     @try_again
         rts
-
 
 drivecode_load_initialize:
         lda     $02AC    ; 1571 stores number of tracks on current disk here (either $24 or $71)
@@ -1474,6 +1471,11 @@ wait_for_next_frame:
 .segment "tape"
 
 new_save_tape:
+        ldx     #load_ac_indy_end - load_ac_indy - 1
+:       lda     load_ac_indy,x
+        sta     L0110,x
+        dex
+        bpl     :-
         ldx     #5
         stx     $AB
         jsr     $FB8E ; copy I/O start address to buffer address
