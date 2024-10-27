@@ -21,7 +21,7 @@
 .import highlight_selected_menu
 ;.import freezer_exec_bank
 
-.segment "romio1l"
+.segment "romio1"
 ;
 ;
 ; ROMIO1 area ($DE00)
@@ -86,8 +86,6 @@ _load_ae_rom_hidden: ; $de20
         cli
         rts
 
-.segment "romio1h"
-
 .global _freezer_upd_sprptr_16k
 _freezer_upd_sprptr_16k:
       lda  #fcio_bank_3|fcio_c64_16kcrtmode
@@ -143,6 +141,7 @@ ultimax_highlight_selected_menu:
 
 
 .segment "romio2l"
+      .byte "REU REU REU REU REU REU REU U2CI"
 
 .global autofire_ldy_dc01
 autofire_ldy_dc01:
