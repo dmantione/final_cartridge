@@ -132,11 +132,6 @@ enable_all_roms:
 
 .global _new_load
 _new_load: ; $DE20
-        ; The least significant bit of $0330 indicates wether to use PAL or NTSC timing.
-        ; This double tay simply handles that the vector may point to either $DE20 or
-        ; $DE21. Deeper into the load code, in receive_4_bytes, the bit is tested and
-        ; appropriate timing for PAL and NTSC is chosen.
-        tay
         tay
         lda     $01
         pha
