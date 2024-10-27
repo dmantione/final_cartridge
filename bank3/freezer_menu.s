@@ -810,6 +810,7 @@ freezer_action2:
 .segment "freezer_menu"
 
 ; $F900
+.global freezer_exec_menu
 freezer_exec_menu:
       sei
       ldx  #$00                         ; Initialize DDR to make sure we can read keyboard
@@ -1277,6 +1278,7 @@ WFBE4:
 .segment "freezer_menu_16k"
 
 ; $BC40
+.global freezer_update_spritepointers
 freezer_update_spritepointers:
       ldy  $03
       ldx  freezer_spritepointers_base,y
@@ -1293,6 +1295,7 @@ freezer_spritepointers_base:
       .byte $C5, $C9, $CD, $D1, $D5, $D9
 
 ; $BC5B
+.global show_view_menu
 show_view_menu:
       sei
       lda  $0314
