@@ -79,33 +79,17 @@ freezer_init:
       lda  #>$E000
       ldy  #__FREEZERZP_SIZE__          ; Find some memory for zero page backup
       jsr  freezer_find_memory
-      lda  $02
-      clc
-      adc  #__FREEZERZP_SIZE__
-      tax
-      lda  $03
-      adc  #$00
-      ldy  #<__freezer_restore_1_SIZE__
-      jsr  freezer_find_memory
-      ;
-      ; THis is a bit of a weird method... location of first memory region
-      ; was not save, so the same block of memory again.
-      ;
-      ldx  #<$E000
-      lda  #>$E000
-      ldy  #__FREEZERZP_SIZE__
-      jsr  freezer_find_memory
-      ldy  #$00
       ; Backup the zeropage area that the freezer will use into the found memory
+      ldy  #$00
 :     lda  __FREEZERZP_START__,y                      ; Lo Byte #1 (rounding)
       sta  ($02),y
       iny
       cpy  #<__FREEZERZP_SIZE__
       bne  :-
 
-      lda  $02                          ; Low byte of found memory
+      lda  $02
       sta  freezer_mem_a                ; keep it for later
-      lda  $03                          ; High byte of found memory
+      lda  $03
       sta  freezer_mem_a+1              ; keep it for later
       lda  $04                          ; value of the found memory
       sta  freezer_mem_a_val            ; keep it for later
@@ -231,19 +215,20 @@ freezer_init:
       pla
       sta  ciareg_backup + $1e
 
-      lda  $04                          ; Value in found memory area
+      lda  freezer_mem_a_val            ; Value in found memory area
       pha                               ; Save for later
-      lda  $02                          ; Lo byte of found memory area
+      lda  freezer_mem_a                ; Lo byte of found memory area
       pha                               ; Save for later
       clc
-      adc  #$67
+      adc  #__FREEZERZP_SIZE__
       tax
-      lda  $03                          ; Lo byte of found memory area
+      lda freezer_mem_a+1               ; Lo byte of found memory area
       pha                               ; Save for later
       adc  #$00
       ; A/X now points to end of found memory area
       ldy  #<__freezer_restore_1_SIZE__
       jsr  freezer_find_memory          ; Find another memory area of $5c bytes
+
       lda  $02
       sta  freezer_mem_b                ; Store high byte of area
       lda  $03                          ;
@@ -255,50 +240,42 @@ freezer_init:
       ; do live patching.
       ldy  #<__freezer_restore_1_SIZE__ - 1
 :     lda  freezer_restore_mem_cia_vic,y
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       dey
       bpl  :-
 
       ; Do some live patching of the freezer restore routine
       pla
       ldy  #<(r1 + 2 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r2 + 2 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       pla
       dey
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r1 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       pla
       ldy  #<(r3 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
-      pla
-      sta  tmpptr_a
-      pla
-      sta  tmpptr_a+1
+      sta  (freezer_mem_b),y
 
-      lda  $04
-      tay
       ldx  #$FF
 :     inx
       pla
-      sta  $04,x
-      cpx  #8
+      sta  $02,x
+      cpx  #10
       bne  :-
       ; C=1 because X=8
 
-      tya
-      tax
       pla
       ldy  #<(r4 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       pla
       ldy  #<(r5 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
-      txa
+      sta  (freezer_mem_b),y
+      lda  freezer_mem_b_val
       ldy  #<(r6 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
 
       ; The freezer restore routine will RTS to the
       ; current stack pointer - #$12
@@ -314,7 +291,7 @@ freezer_init:
       tsx
       txa
       ldy  #<(r7 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
 
       ; Push a small routine on the stack that will overwrite
       ; the restore routine with the original value.
@@ -325,19 +302,19 @@ freezer_init:
       bpl  :-
 
       ; push the location of the restore routine
-      lda  $03
+      lda  freezer_mem_b+1
       pha
-      lda  $02
+      lda  freezer_mem_b
       pha
       lda  #$9D                         ; Opcode for sta absolute,x
       pha
 
       lda  $D01A                        ; IRQ mask register
       ldy  #<(r8 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       lda  $D015                        ; Sprites Abilitator
       ldy  #<(r9 + 1 -__freezer_restore_1_LOAD__)
-      sta  ($02),y
+      sta  (freezer_mem_b),y
 
       ; Disable VIC-II interrupts and ack pending ones
       ldx  #$00
@@ -369,26 +346,26 @@ freezer_init:
       pha
       ldy  #<(r11 + 1 -__freezer_restore_1_LOAD__)
       pla
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r10 + 1 -__freezer_restore_1_LOAD__)
       pla
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r12 + 1 -__freezer_restore_1_LOAD__)
       lda  ciareg_backup + $0e
       ora  #$10
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r13 + 1 -__freezer_restore_1_LOAD__)
       lda  ciareg_backup + $0f
       ora  #$10
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r14 + 1 -__freezer_restore_1_LOAD__)
       lda  ciareg_backup + $1e
       ora  #$10
-      sta  ($02),y
+      sta  (freezer_mem_b),y
       ldy  #<(r15 + 1 -__freezer_restore_1_LOAD__)
       lda  ciareg_backup + $1f
       ora  #$10
-      sta  ($02),y
+      sta  (freezer_mem_b),y
 
       ; No idea... restore code has been patched with the backed up values
       ; ciareg_backup + $0e/$0f/$1e/$1f can in principle be reused for other
@@ -402,20 +379,17 @@ freezer_init:
       bpl  :-
 
       sec
-      lda  $02
+      lda  freezer_mem_b
       sbc  #$01
       tay
-      lda  $03
+      lda  freezer_mem_b+1
       sbc  #$00
       pha
       tya
       pha
       tsx
       stx  tmpvar2
-      lda  tmpptr_a
-      sta  $02
-      lda  tmpptr_a+1
-      sta  $03
+
       ldx  #.sizeof(spritexy_backup) - 1
 :     lda  $D004,x                      ; Position X sprite 2
       sta  spritexy_backup,x
@@ -703,7 +677,7 @@ r6:   lda  #$FF                         ; Value to overwrite restore routine wit
       ; It is live patched.
       ;
 freezer_restore_l1:
-      sta  $0100,x                       ; Live patched by address of memory area
+      sta  $0100,x                      ; Live patched by address of memory area A
 freezer_restore_fill_area:
       dex
       bpl  freezer_restore_l1

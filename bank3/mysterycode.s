@@ -1654,8 +1654,7 @@ WEF7C:
       beq  WEF7C
 :     sta  $0DC0
       ldy  #$FF
-WEFD8:
-      iny
+@2:   iny
       lda  $104E,y
       cmp  #$61
       bcc  :+
@@ -1664,7 +1663,7 @@ WEFD8:
       eor  #$20
 :     sta  $105F,y
       tax
-      bne  WEFD8
+      bne  @2
       sty  $1070
       rts
 
