@@ -94,16 +94,6 @@ freezer_init:
       lda  $04                          ; value of the found memory
       sta  freezer_mem_a_val            ; keep it for later
 
-      ; Save the NMI vector on the stack
-      lda  $0318                        ; Vector: Not maskerable Interrupt (NMI)
-      pha
-      lda  $0319                        ; Vector: Not maskerable Interrupt (NMI)
-      pha
-      lda  #<temp_nmi_handler
-      sta  $0318                        ; Vector: Not maskerable Interrupt (NMI)
-      lda  #>temp_nmi_handler
-      sta  $0319                        ; Vector: Not maskerable Interrupt (NMI)
-
       ; Backup the contents of the CIA registers and initalize them with correct
       ; values for the freezer.
       ldx  #$1F
@@ -201,12 +191,6 @@ freezer_init:
       sta  ciareg_backup + $D,x
 @7:   dex
       bmi  @nextcia_2
-
-      ; Restore the NMI vector
-      pla
-      sta  $0319
-      pla
-      sta  $0318                        ; Vector: Not maskerable Interrupt (NMI)
 
       ; Value of $dd0e/$dd0f was pushed on stack by NMI handler and set to 0
       ; before the CIA registers could be backed up, so correct this:
@@ -795,5 +779,3 @@ loadram:
       lda  ($02),y
       dec  $01                          ; re-enable ROM
       rts
-temp_nmi_handler:
-      rti
