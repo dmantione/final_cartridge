@@ -249,7 +249,7 @@ freezer_init:
       sta  $02,x
       cpx  #10
       bne  :-
-      ; C=1 because X=8
+      ; C=1 because X=10
 
       pla
       ldy  #<(r4 + 1 -__freezer_restore_1_LOAD__)
@@ -265,10 +265,10 @@ freezer_init:
       ; current stack pointer - #$12
       ; C is still 1
       tsx
-      lda  #$01
+      lda  #>$0100
       pha
       txa
-      sbc  #$12
+      sbc  #$12 ; C still 1
       pha
 
       ; Patch loading the original value of the stack pointer
@@ -371,8 +371,6 @@ freezer_init:
       pha
       tya
       pha
-      tsx
-      stx  tmpvar2
 
       ldx  #.sizeof(spritexy_backup) - 1
 :     lda  $D004,x                      ; Position X sprite 2
@@ -457,8 +455,6 @@ freezer_init:
       sta  $D818,x
       dex
       bpl  :-
-      tsx
-      stx  tmpvar2
       tya
       tax
 
@@ -708,6 +704,7 @@ freezer_find_memory:
       sta  $01
       jsr  $0005                        ; load a byte from RAM at ($02),y
       sta  $04                          ; save the byte
+@no_overflow:
       ldy  #$00                         ; begin at the start of tye pointer
 @nextbyte:
       iny
@@ -723,14 +720,9 @@ freezer_find_memory:
       sta  $02
       bcc  @no_overflow
       inc  $03                          ; carry to high byte
-      lda  $03                          ; end of memory reached?
-      beq  restart_at_0201              ; then restart at $0201
+      beq  restart_at_0201              ; end of memory reached? then restart at $0201
       cmp  #$D0                         ; I/O area reached?
-      beq  @io_area_reached
-@no_overflow:
-      ldy  #$00
-      beq  @nextbyte
-@io_area_reached:
+      bne  @nextbyte
       ; This code is mysterious, because by storing $33 into $01, the code above
       ; made I/O invisible and thus reading $d018 makes no sense. It looks like 
       ; the code checks wether screen ram is <$d000 or >=$e000. If yes, the screen
