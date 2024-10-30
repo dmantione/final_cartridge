@@ -127,14 +127,9 @@ W918C:
 ; rather rough copy, since the last part of the printersettings segment is 
 ; copied as well.
 ;
-.segment "junk0"
-
-
-
-      .byte $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FF 
-      .byte $FF, $FF, $FF, $FF, $FF, $FF, $1C 
 
 .segment "ramcode"
+      .byte $1c
 
       ; Installed to zeropage at $0060
 
