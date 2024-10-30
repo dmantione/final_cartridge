@@ -10,7 +10,8 @@
 ;  to this file and a jump is made to the routine that executes the command.
 ;*****************************************************************************
 
-      .setcpu "6502x"
+.linecont +
+.setcpu "6502x"
 
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
@@ -481,103 +482,38 @@ freezer_init:
       and  #$07
       ora  #$10
       sta  $DD00                        ; Data port A #2: serial bus, RS-232, VIC memory
-      dex
-      beq  freezer_backup_disk_near
-      dex
-      beq  freezer_jmp_backup_tape
-      dex
-      beq  freezer_backup_disk_near
-      dex
-      beq  freezer_jmp_backup_tape
-      dex
-      beq  freezer_jmp_sprite_I
-      dex
-      beq  freezer_jmp_sprite_II
-      dex
-      beq  freezer_jmp_joyswap
-      dex
-      beq  freezer_jmp_autofire
-      dex  ; color menu handled inside menu; no further action
-      dex  ; color menu handled inside menu; no further action
-      dex  ; color menu handled inside menu; no further action
-      dex
-      beq  freezer_settings
-      dex
-      dex
-      beq  freezer_pset
-      dex
-      beq  freezer_final_kill
-      dex
-      beq  freezer_jmp_zero_fill
-      dex
-      beq  freezer_cbm64
-      dex
-      beq  freezer_run
-      dex
-      beq  freezer_monitor
-      dex
-      beq  freezer_goto_desktop
-      bne  freezer_run
-freezer_monitor:
-      jmp  freezer_goto_monitor
 
-freezer_goto_desktop:
-      jmp  write_mg87_and_reset
-
-freezer_jmp_zero_fill:
-      jmp  freezer_zero_fill
-
-freezer_cbm64:
-      lda  #>(START-1)
+      lda  freezer_actions_h-1,x
       pha
-      lda  #<(START-1)
+      lda  freezer_actions_l-1,x
       pha
-      jmp  _enable_fcbank0
+      rts
+
+.define freezer_actions freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_tape-1,freezer_backup_disk-1, \
+                        freezer_sprite_I-1,freezer_sprite_II-1,freezer_joyswap-1,freezer_autofire-1, \
+                        0,0,0, \
+                        freezer_goto_settings-1, 0, _freezer_pset-1, \
+                        freezer_final_kill-1, freezer_zero_fill-1, freezer_cbm64-1, \
+                        _freezer_run-1, freezer_goto_monitor-1, write_mg87_and_reset-1
+
+freezer_actions_l: .lobytes freezer_actions
+freezer_actions_h: .hibytes freezer_actions
+
 
 freezer_final_kill:
+      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
+      ldx  #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
+      .byte $2c ; skip next instruction
+freezer_cbm64:
+      ; ROM bank 0, C64 in 16K mode, NMI line released
+      ldx  #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
       ; Jump to RESET vector in KERNAL
       lda  #>(START-1)
       pha
       lda  #<(START-1)
       pha
-      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
-      lda  #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
+      txa
       jmp  _jmp_bank
-
-freezer_pset:
-      jsr  call_pset_in_bank0
-      jmp  freezer_run
-
-call_pset_in_bank0:
-      lda  #>pset
-      pha
-      lda  #<pset
-      pha
-      jmp  _enable_fcbank0
-
-freezer_jmp_joyswap:
-      jmp  freezer_joyswap
-
-freezer_settings:
-      jmp  freezer_goto_settings
-
-freezer_jmp_backup_tape:
-      jmp  freezer_backup_tape
-
-freezer_jmp_autofire:
-      jmp  freezer_autofire
-
-freezer_jmp_sprite_I:
-      jmp freezer_sprite_I
-
-freezer_run:
-      ldy  #$35
-      jmp  _disable_fc3rom_set_01
-
-freezer_jmp_sprite_II:
-      jmp  freezer_sprite_II
-
-freezer_backup_disk_near:
 
 .segment "freezer_restore_0"
 ;
@@ -598,8 +534,6 @@ freezer_backup_disk_near:
       rts
 .endproc
 freezer_restore_0300_size = .sizeof(freezer_restore_0300)
-
-.assert freezer_backup_disk = freezer_backup_disk_near, error, "backup_disk must follow freezer_entry_1"
 
 .segment "freezer_restore_1"
       ;

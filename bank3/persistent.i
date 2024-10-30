@@ -12,3 +12,5 @@
 .import ultimax_highlight_selected_menu
 .import _freezer_upd_sprptr_16k
 .import _show_view_menu
+.import _freezer_run
+.import _freezer_pset

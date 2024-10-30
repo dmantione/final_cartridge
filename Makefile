@@ -4,7 +4,7 @@ MACHINE ?= c64
 AS=ca65
 LD=ld65
 
-ASFLAGS=-g
+ASFLAGS=-g -Djump_tabl
 
 ifeq ($(PROJECT), cartridge)
 	ASFLAGS+=-D CART_FC3=1

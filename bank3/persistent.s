@@ -19,6 +19,7 @@
 .import show_view_menu
 .import draw_menu
 .import highlight_selected_menu
+.import pset
 ;.import freezer_exec_bank
 
 .segment "romio1"
@@ -65,10 +66,21 @@ _disable_fc3rom: ; $DE0F
         lda     #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line
         bne     a_to_fcio_pla			; always taken
 
-        ; padding
-        .byte $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
-        .byte $FF,$FF,$FF,$FF
+.global _freezer_pset
+_freezer_pset:
+      jsr  call_pset_in_bank0
+      ; fall through to freezer_run
+.global _freezer_run
+_freezer_run:
+      ldy #$35
+      bne _disable_fc3rom_set_01 ; always taken
 
+call_pset_in_bank0:
+      lda  #>pset
+      pha
+      lda  #<pset
+      pha
+      bne  _enable_fcbank0 ; always taken
 ;
 ; Do an "lda($AE),y" with ROMs disabled and interrupts off
 ;
