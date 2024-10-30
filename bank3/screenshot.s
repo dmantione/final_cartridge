@@ -1842,17 +1842,13 @@ stuff37a_to_lhnibble_of_3e:
       ror
       tay
       jsr  load_3e_rom_hidden ; preserves C
-      bcs  WE3E2
+      bcs  @1
       and  #$F0
       sta  $3C
       txa
       ora  $3C
-WE3DF:
-      sta  ($3E),y
-      rts
-
-WE3E2:
-      and  #$0F
+      bcc  @1
+@1:   and  #$0F
       sta  $3C
       txa
       asl
@@ -1860,7 +1856,9 @@ WE3E2:
       asl
       asl
       ora  $3C
-      jmp  WE3DF
+@2:   sta  ($3E),y
+      rts
+
 
 
 .segment "ramload"
