@@ -110,13 +110,11 @@ freezer_init:
       lda  #$FF                         ; Initialize DDRs with $ff
       sta  $DCF0,x
       bne  @dec_loop
-@1:
-      cmp  #$0E                         ; Is it a timer control register?
+@1:   cmp  #$0E                         ; Is it a timer control register?
       bcc  @2                           ; Then jump to further register tests
       lda  #$10                         ; Initialize control register with $10
       sta  $DCF0,x
-@2:
-      cmp  #$08                         ; Is it a timer value ?
+@2:   cmp  #$08                         ; Is it a timer value ?
       bcs  @dec_loop                    ; No, then go on
       cmp  #$04                         ; Is it a timer value ?
       bcc  @dec_loop                    ; No, then go on
@@ -134,12 +132,14 @@ freezer_init:
       lda  $DCFD,x
 
       ; The interrupt mask inside the ICR of the CIA cannot be read, because reading the
-      ; register has a different meaning. Both CIA's won't be restored on return, but cleared
+      ; register has a different meaning. Won't be restored on return, but cleared...
       lda  #0
       sta  ciareg_backup + $0d
       sta  ciareg_backup + $1d
 
-      ; Handle CIA timers...
+      ; ... except for the timer underflow bits.
+      ; We will now let both timers underflow and check if the underflow bit in the ICR gets
+      ; set. If yes, timer underflow interrupts were enabled.
       ldx  #$01                         ; Start with timer B
 @nexttimer:
       ; Start the timer in one shot mode on both CIAs
@@ -152,8 +152,7 @@ freezer_init:
       asl                               ; Timer number *2
       bne  @3                           ; Jump if timer A
       lda  #$01
-@3:
-      sta  tmpvar2                      ; 1 for timer A, 2 for timer B
+@3:   sta  tmpvar2                      ; 1 for timer A, 2 for timer B
       ldx  #0
       .byte $2c                         ; bit $xxxx, skip next instruction
 @nextcia_1:
@@ -164,8 +163,8 @@ freezer_init:
       beq  @4
       tya
       bpl  @5                           ; Interrupt occured? No, then @5
-      ora  $7D,x                        ; OR ISR into $7D/8D
-      sta  $7D,x
+      ora  ciareg_backup + $0d,x        ; OR ISR
+      sta  ciareg_backup + $0d,x        ; Store ISR
 @5:   dex
       bmi  @nextcia_1
       pla                               ; Restore cia number
@@ -174,11 +173,12 @@ freezer_init:
       bpl  @nexttimer
 
       ; Delay loop
-      ldy  #0
-@6:   inx
-      bne  @6
-      iny
-      bne  @6
+      ; I see no need for this delay loop?
+;      ldy  #0
+;@6:   inx
+;      bne  @6
+;      iny
+;      bne  @6
 
       ; X=0
       .byte $2c                         ; bit $xxxx, skip next instruction
@@ -356,12 +356,12 @@ freezer_init:
       ; ciareg_backup + $0e/$0f/$1e/$1f can in principle be reused for other
       ; purposes, but I cannot find any code that does this, so why clear
       ; them then?
-      ldx  #$01
-      lda  #$00
-:     sta  ciareg_backup + $0e,x
-      sta  ciareg_backup + $1e,x
-      dex
-      bpl  :-
+;      ldx  #$01
+;      lda  #$00
+;:     sta  ciareg_backup + $0e,x
+;      sta  ciareg_backup + $1e,x
+;      dex
+;      bpl  :-
 
       sec
       lda  freezer_mem_b
