@@ -1470,7 +1470,7 @@ freezer_screenshot_prepare:
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
 
-      ; Backup $C000 to $0C00
+      ; Backup $0000..$0FFF to $0C00
       ldy  #$00
       sty  $AC
       sty  $AE
@@ -1479,14 +1479,7 @@ freezer_screenshot_prepare:
       lda  #>$0C00
       sta  $AF
       ldx  #$10
-:     lda  ($AC),y
-      sta  ($AE),y
-      iny
-      bne  :-
-      inc  $AD
-      inc  $AF
-      dex
-      bne  :-
+      jsr  copy_ac_to_ae
 
       ; Copy the screenshot code to $5000
       lda  #<__screenshotcode_LOAD__
@@ -1496,14 +1489,7 @@ freezer_screenshot_prepare:
       lda  #>__screenshotcode_RUN__
       sta  $AF
       ldx  #$0A
-:     lda  ($AC),y
-      sta  ($AE),y
-      iny
-      bne  :-
-      inc  $AD
-      inc  $AF
-      dex
-      bne  :-
+      jsr copy_ac_to_ae
 
       ; Copy the screen RAM to $4000
       lda  $0B18                        ; Backup of $D018
@@ -1519,6 +1505,15 @@ freezer_screenshot_prepare:
       sty  $AC
       sty  $AE
       ldx  #$04
+      jsr  copy_ac_to_ae
+
+      lda  #>$8017 ; init_vectors_goto_psettings
+      pha
+      lda  #<$8017
+      pha
+      jmp  _enable_fcbank0
+
+copy_ac_to_ae:
 :     lda  ($AC),y
       sta  ($AE),y
       iny
@@ -1527,12 +1522,7 @@ freezer_screenshot_prepare:
       inc  $AF
       dex
       bne  :-
-
-      lda  #>$8017 ; init_vectors_goto_psettings
-      pha
-      lda  #<$8017
-      pha
-      jmp  _enable_fcbank0
+      rts
 
 WA1BA:
       lda  $AC
@@ -1653,7 +1643,8 @@ WA234:
       pha
       lda  #$37
       sta  $01
-      inc  $D020                        ; Border color
+      ; Change border colour so user knows something happens.
+      inc  $D020
       pla
       sta  $01
 :     rts
