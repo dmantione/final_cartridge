@@ -1470,7 +1470,7 @@ freezer_screenshot_prepare:
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
 
-      ; Backup the zero page to $0C00
+      ; Backup $C000 to $0C00
       ldy  #$00
       sty  $AC
       sty  $AE
@@ -1489,6 +1489,8 @@ freezer_screenshot_prepare:
       bne  :-
 
       ; Copy the screenshot code to $5000
+      lda  #<__screenshotcode_LOAD__
+      sta  $AC
       lda  #>__screenshotcode_LOAD__
       sta  $AD
       lda  #>__screenshotcode_RUN__

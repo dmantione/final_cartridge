@@ -179,8 +179,9 @@ freezer_init:
 ;      bne  @6
 ;      iny
 ;      bne  @6
-
-      ; X=0
+;     commenting delay loop influences X
+      ; X=$FF
+      inx
       .byte $2c                         ; bit $xxxx, skip next instruction
 @nextcia_2:
       ldx  #$10
