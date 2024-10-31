@@ -17,7 +17,10 @@
 .import __screenshotcode_RUN__, __screenshotcode_LOAD__
 .import __copycode_LOAD__,__copycode_RUN__,__copycode_SIZE__
 .import __ramload_LOAD__,__ramload_RUN__,__ramload_SIZE__
-
+.import __freezer_restore_1_LOAD__,__freezer_restore_1_SIZE__
+.import __freezer_restore_2_RUN__,__freezer_restore_2_SIZE__
+.importzp freezer_mem_a,freezer_mem_a_val,freezer_mem_b,freezer_mem_b_val
+.importzp __FREEZERZP_START__,__FREEZERZP_SIZE__
 
 .segment "screenshotcode"
 ; $9500
@@ -284,17 +287,6 @@ routine21:
 :     lda  #$00
       rts
 
-print_digit_at_17:
-      ldy  #$11
-      .byte $2c
-print_digit_at_18:
-      ldy #$12
-      eor  #$30
-      pha
-      clc
-      jsr  PLOT
-      pla
-      jmp  BSOUT
 
 routine1:
       lda  #$00
@@ -591,11 +583,11 @@ W988B:
       cmp  #$FD
       bcc  W986E
 W98E5:
-      jsr  routine28
+      jsr  print_cr
       bit  $36
       bpl  :+
       lda  #'r'
-      jsr  routine27
+      jsr  print_esc_char
       lda  #$00
       jsr  BSOUT
 :     jmp  W5835
@@ -667,7 +659,7 @@ W994D:
       sta  $03
       lda  $07
       sta  $06
-      jsr  $54D4
+      jsr  routine36
 @1:   jsr  routine13
       jsr  routine30
       bne  :+
@@ -1116,24 +1108,24 @@ routine20:
 
 W9C69:
       lda  #'3'
-      jsr  routine27
+      jsr  print_esc_char
       lda  #$17
       jsr  BSOUT
       lda  #'A'
-      jsr  routine27
+      jsr  print_esc_char
+print_bs:
       lda  #$08
+jmp_bsout:
       jmp  BSOUT
 
 W9C7D:
       bit  $36
       bmi  W9C8F
-      lda  #$08
-W9C83:
-      jmp  BSOUT
+      bpl  print_bs
 
-routine28:
+print_cr:
       lda  #$0D
-      bne  W9C83
+      bne  jmp_bsout
 W9C8A:
       pla 
       pla
@@ -1141,7 +1133,7 @@ W9C8A:
 
 W9C8F:
       lda  #'C'
-      jsr  routine27
+      jsr  print_esc_char
       bit  $35
       bpl  :+
       jsr  routine26
@@ -1179,24 +1171,24 @@ out_2c0:
       lda  #'0'
       jmp  BSOUT
 
-routine27:
+print_esc_char:
       pha
       lda  #$1B
       jsr  BSOUT
       pla
-      bne  W9C83
+      bne  jmp_bsout
 routine32:
       bit  $36
       bpl  :+
       pha
       lda  #'r'
-      jsr  routine27
+      jsr  print_esc_char
       pla
       jsr  BSOUT
 :     lda  $DC01
       cmp  #$7F
       beq  W5833
-      jsr  routine28
+      jsr  print_cr
       bit  $3C
       bmi  W5855
       lda  $30
@@ -1215,12 +1207,12 @@ routine32:
       .byte $2C                         ; Skip next instruction
 W5817:
       adc  #$56
-      jsr  routine27
+      jsr  print_esc_char
       jmp  W5829
 
 W581F:
       lda  #'*'
-      jsr  routine27
+      jsr  print_esc_char
       lda  $30
       jsr  BSOUT
 W5829:
@@ -1233,13 +1225,13 @@ W5833:
       pla
       pla
 W5835:
-      jsr  routine28
+      jsr  print_cr
       bit  $3C
       bmi  W5848
       bit  $36 
       bpl  W584D
       lda  #'r'
-      jsr  routine27
+      jsr  print_esc_char
       lda  #$00
       .byte $2C                         ; Skip next instruction
 W5848:
@@ -1281,9 +1273,25 @@ end_of_text:
 
 .segment "printersettings"
 
-; AE000
-.global freezer_screenshot_prepare
-freezer_screenshot_prepare:
+; $E000
+      ;
+      ; Got to the printer settings menu
+      ;
+.global freezer_goto_settings
+freezer_goto_settings:
+      ; Restore the memory used by the freezer
+      ldy  #__FREEZERZP_SIZE__ - 1
+      lda  freezer_mem_a_val
+:     sta  (freezer_mem_a),y
+      dey
+      bpl :-
+      ldy  #<__freezer_restore_1_SIZE__ - 1
+      lda  freezer_mem_b_val
+:     sta  (freezer_mem_b),y
+      dey
+      bpl  :-
+
+      ; Install the copycode into the zero page
       ldx  #<__copycode_SIZE__ - 1
 :     lda  __copycode_LOAD__,x
       sta  <__copycode_RUN__,x                        ; DATA current line number
@@ -1481,16 +1489,6 @@ freezer_screenshot_prepare:
       ldx  #$10
       jsr  copy_ac_to_ae
 
-      ; Copy the screenshot code to $5000
-      lda  #<__screenshotcode_LOAD__
-      sta  $AC
-      lda  #>__screenshotcode_LOAD__
-      sta  $AD
-      lda  #>__screenshotcode_RUN__
-      sta  $AF
-      ldx  #$0A
-      jsr copy_ac_to_ae
-
       ; Copy the screen RAM to $4000
       lda  $0B18                        ; Backup of $D018
       and  #$F0
@@ -1501,11 +1499,19 @@ freezer_screenshot_prepare:
       sta  $AD
       lda  #>$4000
       sta  $AF
-      ldy  #<$4000
-      sty  $AC
-      sty  $AE
       ldx  #$04
       jsr  copy_ac_to_ae
+
+      ; Copy the screenshot code to $5000
+      lda  #<__screenshotcode_LOAD__
+      sta  $AC
+      lda  #>__screenshotcode_LOAD__
+      sta  $AD
+      lda  #>__screenshotcode_RUN__
+      sta  $AF
+      ldx  #$0A
+      jsr copy_ac_to_ae
+
 
       lda  #>$8017 ; init_vectors_goto_psettings
       pha
