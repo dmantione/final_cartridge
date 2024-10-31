@@ -490,7 +490,7 @@ routine38:
       rts
 
 W981C:
-      jsr  routine10
+      jsr  c3w_to_c1w
       jsr  routine11
 LL3:  jsr  routine12
 :     jsr  routine13
@@ -510,13 +510,13 @@ LL3:  jsr  routine12
       jsr  routine24
       bne  LL3
 W534E:
-      jsr  W584D
+      jsr  close_all
       lda  #$01
       ldy  #$0A
       jsr  routine22
       lda  #$0D
       jsr  BSOUT
-      jmp  W584D
+      jmp  close_all
 
 routine5:
       jsr  routine20
@@ -545,7 +545,7 @@ W988B:
       jsr  routine36
       lda  $07
       sta  $06
-      jsr  routine10
+      jsr  c3w_to_c1w
 @4:   jsr  routine13
       jsr  routine37
       bne  :+
@@ -573,7 +573,7 @@ W988B:
       lda  $10
       cmp  #$07
       bne  W987F
-@2:   jsr  routine35
+@2:   jsr  c1w_to_c3w
       bit  $3C
       bpl  @3
       jsr  routine21
@@ -601,8 +601,7 @@ routine24:
 W9900:
       sty  $09
       jsr  routine11
-W9905:
-      jsr  routine10
+@1:   jsr  c3w_to_c1w
       jsr  routine12
       sty  $02
       ldy  $09
@@ -619,10 +618,10 @@ W9905:
       cmp  #$7F
       beq  :+
       jsr  routine30
-      bne  W9905
+      bne  @1
       jsr  routine17
       sty  $09
-      bne  W9905
+      bne  @1
 :     jmp  W534E
 
 routine6:
@@ -651,7 +650,7 @@ W994D:
 @4:
       lda  $10
       jsr  routine32
-      jsr  routine10
+      jsr  c3w_to_c1w
       jsr  routine12
       sty  $02
 @2:   ldy  $09
@@ -1061,14 +1060,14 @@ W9BEB:
       rts
 
 
-routine35:
+c1w_to_c3w:
       lda  $C1
       sta  $C3
       lda  $C2
       sta  $C4
       rts
 
-routine10:
+c3w_to_c1w:
       lda  $C3
       sta  $C1
       lda  $C4
@@ -1095,7 +1094,7 @@ routine16:
 
 routine20:
       jsr  routine34
-      bcs  W9C8A
+      bcs  except_close_all
       bit  $3C
       bmi  W9C7D
       bvc  W9C69
@@ -1121,15 +1120,16 @@ jmp_bsout:
 W9C7D:
       bit  $36
       bmi  W9C8F
-      bpl  print_bs
+      bpl  print_bs ; always taken
 
 print_cr:
       lda  #$0D
       bne  jmp_bsout
-W9C8A:
+except_close_all:
+      ; pull return address and return from parent routine
       pla 
       pla
-      jmp  W584D
+      jmp  close_all
 
 W9C8F:
       lda  #'C'
@@ -1229,7 +1229,7 @@ W5835:
       bit  $3C
       bmi  W5848
       bit  $36 
-      bpl  W584D
+      bpl  close_all
       lda  #'r'
       jsr  print_esc_char
       lda  #$00
@@ -1237,7 +1237,7 @@ W5835:
 W5848:
       lda  #$0F
       jsr  BSOUT
-W584D:
+close_all:
       jsr  CLALL
       lda  #$01
       jsr  CLOSE
