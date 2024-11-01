@@ -1738,7 +1738,7 @@ freezer_nmi_handler:
       sta  $DD0E                        ; Control register A of CIA #2
       sta  $DD0F                        ; Control register B of CIA #2
       lda  #$7C                         ; Stored into $DD0D
-      ldx  #fcio_bank_3|fcio_c64_16kcrtmode ; Stored info $FFFF
+      ldx  #fcio_bank_3|fcio_c64_16kcrtmode ; Stored info $DFFF
       jmp  t_freezer_init
 
 .segment "freezer_vectors"

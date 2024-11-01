@@ -110,8 +110,6 @@ print_invert := $0207
       asl
       sta  $26                          ; Bitmap modee flag $00=off $80=on
 
-      jsr swap_0c00_c000
-
       ; Settings from settings screen
       ldx  printer_type
       beq  @1
@@ -199,8 +197,6 @@ print_invert := $0207
       lda  #>$DE21
       sta  $0315
 
-      jsr swap_0c00_c000
-
       ;
       ; Copy to $7000 back to zero page
       ;
@@ -214,31 +210,6 @@ print_invert := $0207
       cli
       rts
 
-;
-; Swap memory from $0C00..$1BFF with $C000..$CFFF
-;
-swap_0c00_c000:
-      ldy  #$00
-      sty  $AC
-      sty  $AE
-      lda  #$0C
-      sta  $AD
-      lda  #$C0
-      sta  $AF
-      ldx  #$10
-:     lda  ($AC),y
-      pha
-      lda  ($AE),y
-      sta  ($AC),y
-      pla
-      sta  ($AE),y
-      iny
-      bne  :-
-      inc  $AD
-      inc  $AF
-      dex
-      bne  :-
-      rts
 
 routine2:
       ldx  print_vertical_size

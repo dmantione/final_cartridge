@@ -70,12 +70,15 @@ freezer_init:
       sta  $05,x
       dex
       bpl  :-
+
+      ; ???
       ldx  $02A0
       inx
       cpx  $02A2
       bne  :+
       inx
 :     stx  $02A1
+
       ldx  #<$E000
       lda  #>$E000
       ldy  #__FREEZERZP_SIZE__          ; Find some memory for zero page backup
@@ -111,8 +114,11 @@ freezer_init:
       sta  $DCF0,x
       bne  @dec_loop
 @1:   cmp  #$0E                         ; Is it a timer control register?
-      bcc  @2                           ; Then jump to further register tests
-      lda  #$10                         ; Initialize control register with $10
+      bcc  @2                           ; No, then jump to further register tests
+      ; Pokeing #$10 into the timer control register forces load of the timer
+      ; value with the contents of the timer latch, which allows us to readi the
+      ; current value in the latch.
+      lda  #$10
       sta  $DCF0,x
 @2:   cmp  #$08                         ; Is it a timer value ?
       bcs  @dec_loop                    ; No, then go on
@@ -126,10 +132,8 @@ freezer_init:
       bpl  @nextreg
 
       ; Clear interrupt flags of both CIAs by reading from their ICR
-      ldx  #$00
-      lda  $DCFD,x
-      ldx  #$10
-      lda  $DCFD,x
+      lda  $DCFD
+      lda  $DD0D
 
       ; The interrupt mask inside the ICR of the CIA cannot be read, because reading the
       ; register has a different meaning. Won't be restored on return, but cleared...
@@ -143,9 +147,9 @@ freezer_init:
       ldx  #$01                         ; Start with timer B
 @nexttimer:
       ; Start the timer in one shot mode on both CIAs
-      lda  #$19
-      sta  $DC0E,x                      ; Control register A of CIA #1
-      sta  $DD0E,x                      ; Control register A of CIA #2
+      lda  #$19                         ; Force load, one show, start timer
+      sta  $DC0E,x                      ; Control register A/B of CIA #1
+      sta  $DD0E,x                      ; Control register A/B of CIA #2
 
       txa
       pha                               ; Push timer number
@@ -153,10 +157,11 @@ freezer_init:
       bne  @3                           ; Jump if timer A
       lda  #$01
 @3:   sta  tmpvar2                      ; 1 for timer A, 2 for timer B
+
       ldx  #0
       .byte $2c                         ; bit $xxxx, skip next instruction
 @nextcia_1:
-      ldx #$10
+      ldx  #$10
 @4:   lda  $DCFD,x                      ; load ICR
       tay
       and  tmpvar2                      ; Wait for timer underflow
@@ -469,8 +474,10 @@ freezer_init:
       dey
       bpl  :-
 
+      ; ???
       ldy  #$00
       sty  $02A1
+
       sty  $D01A                        ; IRQ mask register
       sty  spritexy_backup              ; ???
       sty  $A3
