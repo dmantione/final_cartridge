@@ -14,7 +14,7 @@
 .include "../core/fc3ioreg.i"
 .include "persistent.i"
 
-.import __screenshotcode_RUN__, __screenshotcode_LOAD__
+.import __screenshotcode_RUN__, __screenshotcode_LOAD__,__screenshotcode_SIZE__
 .import __copycode_LOAD__,__copycode_RUN__,__copycode_SIZE__
 .import __ramload_LOAD__,__ramload_RUN__,__ramload_SIZE__
 .import __freezer_restore_1_LOAD__,__freezer_restore_1_SIZE__
@@ -1535,7 +1535,7 @@ freezer_goto_settings:
       sta  $AD
       lda  #>__screenshotcode_RUN__
       sta  $AF
-      ldx  #$0A
+      ldx  #(>__screenshotcode_SIZE__) + 1
       jsr copy_ac_to_ae
 
 
