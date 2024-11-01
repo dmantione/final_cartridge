@@ -99,29 +99,7 @@ print_invert := $0207
       asl
       sta  $26                          ; Bitmap modee flag $00=off $80=on
 
-      ;
-      ; Swap memory from $0C00..$1BFF with $C000..$CFFF
-      ;
-      ldy  #$00
-      sty  $AC
-      sty  $AE
-      lda  #$0C
-      sta  $AD
-      lda  #$C0
-      sta  $AF
-      ldx  #$10
-:     lda  ($AC),y
-      pha
-      lda  ($AE),y
-      sta  ($AC),y
-      pla
-      sta  ($AE),y
-      iny
-      bne  :-
-      inc  $AD
-      inc  $AF
-      dex
-      bne  :-
+      jsr swap_0c00_c000
 
       ; Settings from settings screen
       ldx  printer_type
@@ -186,11 +164,16 @@ print_invert := $0207
       bmi  :+
       jsr  routine1
 :     bit  $35                          ; Sideways printing?
-      bmi  @3                           ; Then jump
+      bmi  @sw                          ; Then jump
       jsr  routine2
       jsr  routine3
       jsr  routine4
       jsr  routine5
+      jmp  @map_in_bank_2
+@sw:  jsr  routine4
+      jsr  routine3
+      jsr  routine2
+      jsr  routine6
 
 @map_in_bank_2:
       ;
@@ -205,9 +188,25 @@ print_invert := $0207
       lda  #>$DE21
       sta  $0315
 
+      jsr swap_0c00_c000
+
       ;
-      ; Swap memory from $0C00..$1BFF with $C000..$CFFF
+      ; Copy to $7000 back to zero page
       ;
+      ldx  #$02
+:     lda  $7000,x
+      sta  $00,x
+      inx
+      bne  :-
+      inx
+      stx  $D01A                        ; IRQ mask register
+      cli
+      rts
+
+;
+; Swap memory from $0C00..$1BFF with $C000..$CFFF
+;
+swap_0c00_c000:
       ldy  #$00
       sty  $AC
       sty  $AE
@@ -228,25 +227,7 @@ print_invert := $0207
       inc  $AF
       dex
       bne  :-
-
-      ;
-      ; Copy to $7000 back to zero page
-      ;
-      ldx  #$02
-:     lda  $7000,x
-      sta  $00,x
-      inx
-      bne  :-
-      inx
-      stx  $D01A                        ; IRQ mask register
-      cli
       rts
-
-@3:   jsr  routine4
-      jsr  routine3
-      jsr  routine2
-      jsr  routine6
-      jmp  @map_in_bank_2
 
 routine2:
       ldx  $32
