@@ -15,9 +15,7 @@
 .segment "freezer"
 
 ;
-; The freeze NMI handler exists identical in bank 0 and bank 3
-; at the same memory location. Execution starts in bank 0, then
-; continues in bank 3.
+; The freeze NMI handler starts execution in bank 0, then continues in bank 3.
 ;
 freezer:
         sei
@@ -35,45 +33,12 @@ freezer:
         ; Activate Ultimax mode and bank 3, NMI line stays active
         lda     #fcio_bank_3|fcio_c64_ultimaxmode
         sta     fcio_reg ; NMI = 1, GAME = 1, EXROM = 0
+        ; Code execution now continues in bank 3!
 
-        ; From now on, we are in bank 3
-
-        lda     $DC0B ; CIA 1 TOD hours
-        lda     $DD0B ; CIA 2 TOD hours (???)
-        txa
-        pha ; save X
-        tya
-        pha ; save Y
-        lda     $02A1 ; RS-232 interrupt enabled
-        pha
-        ldx     #10
-:       lda     $02,x ; copy $02 - $0C onto stack
-        pha
-        dex
-        bpl     :-
-        lda     $DD0E ; CIA 2 Timer A Control
-        pha
-        lda     $DD0F ; CIA 2 Timer B Control
-        pha
-        lda     #0
-        sta     $DD0E ; disable CIA 2 Timer A
-        sta     $DD0F ; disable CIA 2 Timer B
-        lda     #$7C
-        sta     $DD0D ; disable some NMIs? (???)
-
-        ; Note: Bank3 is active. Note that the IOROM at $DE00..$DFFF is also affected by bank
-        ; switching. The IOROM of Bank3 is different than that of bank 0 (code persistent.s) 
-        ldx     #fcio_bank_3 | fcio_c64_16kcrtmode ; NMI line stays active
-        jmp     $DFE0
-
-        ; The code at $DFE0 of bank 3 (also at offset $DFE0 in FC3 ROM image) that follows is:
-        ;
-        ; 9FE0 8E FF DF STX $DFFF  (fcio_reg)
-        ; 9FE3 8D 0D DD STA $DD0D
-        ; 9FE6 4C 00 80 JMP $8000
-
-.segment "freezer_vectors"
-
+.assert *= $FFF8 , error, "CPU vectors not at correct memory location!"
+        ; This is to make space in bank 3 for a bne freezer_nmi_handler
+        nop
+        nop
 ; catch IRQ, NMI, RESET
         .word freezer ; NMI
         .word freezer ; RESET

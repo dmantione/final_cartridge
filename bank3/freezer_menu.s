@@ -1702,23 +1702,10 @@ restore_sprites:
 
 .segment "freezer"
 freezer_nmi_handler:
-      sei
-      pha
-      lda  $00
-      pha
-      lda  #$2F
-      sta  $00                          ; default value of processor port DDR
-      lda  $01                          ; save cpu port
-      ora  #$20                         ; cassette motor off - but don't store
-      pha
-      lda  #$37                         ; init cpu port
-      sta  $01                          ; 6510 I/O register
-
-      ; Activate Ultimax mode and bank 3, NMI line stays active
-      lda  #fcio_bank_3|fcio_c64_ultimaxmode
-      sta  fcio_reg ; NMI = 1, GAME = 1, EXROM = 0
-      lda  $DC0B                        ; Day time clock #1: Hour+[indicator AM/PM]
-      lda  $DD0B                        ; Day time clock #2: Hour+[indicator AM/PM]
+      ; Reading from CIA registers $B latches the TOD registers, which means
+      ; we read and restore the exact time at the moment of freezing.
+      lda  $DC0B
+      lda  $DD0B
       txa
       pha
       tya
@@ -1737,9 +1724,14 @@ freezer_nmi_handler:
       lda  #$00
       sta  $DD0E                        ; Control register A of CIA #2
       sta  $DD0F                        ; Control register B of CIA #2
-      lda  #$7C                         ; Stored into $DD0D
       ldx  #fcio_bank_3|fcio_c64_16kcrtmode ; Stored info $DFFF
       jmp  t_freezer_init
 
 .segment "freezer_vectors"
+;     We arrive here from the NMI handler in bank 0.
+;     Jump to freezer_nmi_handler.
+;     CA65 does't each this
+;      bne freezer_nmi_handler
+;     Workaround:
+      bne * - ($FFF8 - $FFC0)
       .addr freezer_nmi_handler, freezer_nmi_handler, freezer_irq_handler 

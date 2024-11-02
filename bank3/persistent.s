@@ -263,8 +263,6 @@ freezer_set_c64and_fc3_rts:
 .global t_freezer_init
 t_freezer_init:
       stx  fcio_reg
-      ; X=$7F
-      sta  $DD0D                        ; Remove all NMI sources except timer underflow??
       jmp  freezer_init                 ; Continue freezer init in 16K crt mode
 
 bank1_jump:
