@@ -29,49 +29,54 @@
 
 kbd_handler:
         lda     $CC
-        bne     L927C ; do not flash cursor
-        ldy     $CB
-        lda     ($F5),y
+        bne     pass_to_kernal ; if cursor is off, don't intervene
+        ldy     $CB      ; Matrix code of key
+        lda     ($F5),y  ; Convert to PETSCII
         cmp     #3
-        bne     L923A
-        jsr     L9460
-        beq     L927C
-L923A:  ldx     $028D
+        bne     :+
+        jsr     reset_input
+        beq     pass_to_kernal
+:       ldx     $028D ; Current shift keys
         cpx     #4 ; CTRL key down
-        beq     L9247
+        beq     ctrl_down
         cpx     #2 ; CBM key down?
-        bcc     L9282 ; SHIFT or nothing
-        bcs     L927C ; CBM
+        bcc     shift_down ; SHIFT or nothing
+        bcs     pass_to_kernal ; CBM
 
-L9247:  cmp     #$13 ; CTRL + HOME: put cursor at bottom left
+ctrl_down:
+        cmp     #$13 ; CTRL + HOME: put cursor at bottom left
         bne     L925D
         jsr     L93B4
         ldy     #0
         sty     PNTR
         ldy     #24
         jsr     $E56A ; set cursor line
-        jsr     L9460
-        jmp     L92C5
+        jsr     reset_input
+        jmp     done
 
 L925D:  cmp     #$14 ; CTRL + DEL: delete to end of line
         bne     L926A
         jsr     L93B4
         jsr     L9469
-        jmp     L92C5
+        jmp     done
 
 L926A:  cmp     #CR ; CTRL + CR: print screen
-        bne     L927C
+        bne     pass_to_kernal
         jsr     L93B4
         inc     $02A7
         inc     $CC
         jsr     print_screen
         jmp     L92CC
 
-L927C:  jmp     _evaluate_modifier
+pass_to_kernal:
+        jmp     _evaluate_modifier
 
-L927F:  jmp     _disable_fc3rom
+done:   lda     #$7F
+        sta     $DC00
+        jmp     _disable_fc3rom
 
-L9282:  cmp     #$11 ; DOWN
+shift_down:
+        cmp     #$11 ; DOWN
         beq     L92DD
         pha
         lda     #0
@@ -79,11 +84,12 @@ L9282:  cmp     #$11 ; DOWN
         pla
         sec
         sbc     #$85 ; KEY_F1
-        bcc     L927C
+        bcc     pass_to_kernal  ; Below F1
         cmp     #4
-        bcs     L927C
+        bcs     pass_to_kernal  ; Higher than F7
+        ; Function key
         cpy     $C5
-        beq     L927F
+        beq     done
         sty     $C5
         txa
         sta     $028E
@@ -105,24 +111,20 @@ L9282:  cmp     #$11 ; DOWN
 
 @fcp:   lda     fkey_strings,x
         sta     KEYD,y
-        beq     L92C3
+        beq     @d
         inx
         iny
         bne     @fcp
-
-L92C3:  sty     NDX
-L92C5:  lda     #$7F
-        sta     $DC00
-        bne     L927F ; always
+@d:     sty     NDX
 
 L92CC:  sei
         lsr     $02A7
         lsr     $CC
-        jmp     L92C5
+        jmp     done
 
 L92D5:  lsr     $02A7
         lsr     $CC
-        jmp     L927C
+        jmp     pass_to_kernal
 
 L92DD:  inc     $02A7
         inc     $CC
@@ -243,20 +245,20 @@ L93C1:  ldy     $ECF0,x ; low bytes of screen line addresses
         ldy     #0
         jsr     _lda_TXTPTR_indy
         cmp     #$3A
-        bcs     L9415
+        bcs     @x
         sbc     #$2F
         sec
         sbc     #$D0
-        bcs     L9415
+        bcs     @x
         ldy     #0
         sty     $14
         sty     $15
-L93E3:  sbc     #$2F
+@1:     sbc     #$2F
         sta     $07
         lda     $15
         sta     $22
         cmp     #25
-        bcs     L9415
+        bcs     @x
         lda     $14
         asl     a
         rol     $22
@@ -272,12 +274,12 @@ L93E3:  sbc     #$2F
         lda     $14
         adc     $07
         sta     $14
-        bcc     L940F
+        bcc     :+
         inc     $15
-L940F:  jsr     _CHRGET
-        bcc     L93E3
+:       jsr     _CHRGET
+        bcc     @1
         clc
-L9415:  rts
+@x:     rts
 
 L9416:  inc     $0292
         ldx     #25
@@ -315,14 +317,16 @@ L9448:  ldy     #1
         jsr     _lda_5f_indy
         jsr     print_dec
         jsr     list_line
-L9460:  lda     #0
+reset_input:
+        ; Reset quotation, reverse mode and insertions
+        lda     #0
         sta     $D4
         sta     $D8
         sta     $C7
         rts
 
 L9469:  jsr     store_d1_spaces
-        bcs     L9460
+        bcs     reset_input
 L946E:  lda     #3
         sta     $9A
         rts
