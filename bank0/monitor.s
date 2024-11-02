@@ -38,6 +38,7 @@
 ; * "B" command to introspect cartridge ROM
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 
 .ifdef CART_FC3
 .include "persistent.i"
@@ -78,10 +79,6 @@ DEFAULT_BANK := 0
 
 CINV   := $0314 ; IRQ vector
 CBINV  := $0316 ; BRK vector
-
-.ifdef CART_FC3
-FC3CFG := $DFFF ; Final Cartridge III banking config register
-.endif
 
 tmp3            := BUF + 3
 tmp4            := BUF + 4
@@ -171,7 +168,7 @@ ram_code:
 load_byte_ram:
 ; read from memory with a specific ROM and cartridge config
 .ifdef CART_FC3
-        sta     FC3CFG ; set cartridge config
+        sta     fcio_reg ; set cartridge config
         pla
 .endif
         sta     R6510 ; set ROM config
@@ -181,8 +178,8 @@ enable_all_roms:
         lda     #DEFAULT_BANK
         sta     R6510 ; restore ROM config
 .ifdef CART_FC3
-        lda     #$40
-        sta     FC3CFG ; resture cartridge config
+        lda     #fcio_nmi_line | fcio_c64_16kcrtmode | fcio_bank_0
+        sta     fcio_reg
 .endif
         pla
         rts

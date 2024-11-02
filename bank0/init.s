@@ -13,6 +13,7 @@
 .import set_io_vectors_with_hidden_rom
 
 ; from bank 2
+.import desktop_entry
 .import psettings
 
 .global entry
@@ -23,10 +24,6 @@
 .global go_basic
 .global cond_init_load_save_vectors
 .global init_load_save_vectors
-
-; Bank 2 (Desktop, Freezer/Print) Symbols
-desktop_entry   := $8000
-LBFFA           := $BFFA
 
 .segment "basic_init"
 

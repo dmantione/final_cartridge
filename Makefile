@@ -3,6 +3,7 @@ MACHINE ?= c64
 
 AS=ca65
 LD=ld65
+CPU=6502ill
 
 ASFLAGS=-g -Djump_tabl
 
