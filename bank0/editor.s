@@ -63,7 +63,7 @@ L925D:  cmp     #$14 ; CTRL + DEL: delete to end of line
 L926A:  cmp     #CR ; CTRL + CR: print screen
         bne     pass_to_kernal
         jsr     L93B4
-        inc     $02A7
+;        inc     $02A7
         inc     $CC
         jsr     print_screen
         jmp     L92CC
@@ -117,16 +117,18 @@ shift_down:
         bne     @fcp
 @d:     sty     NDX
 
-L92CC:  sei
-        lsr     $02A7
+L92CC:
+;       lsr     $02A7
         lsr     $CC
         jmp     done
 
-L92D5:  lsr     $02A7
+L92D5:
+;       lsr     $02A7
         lsr     $CC
         jmp     pass_to_kernal
 
-L92DD:  inc     $02A7
+L92DD:
+;        inc     $02A7
         inc     $CC
         txa
         and     #1
