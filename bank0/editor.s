@@ -90,23 +90,26 @@ L9282:  cmp     #$11 ; DOWN
         asl     a
         asl     a
         adc     ($F5),y
-        sbc     #$84
-        ldx     #0
+        sbc     #$83
         tay
-        beq     L92B7
-L92AB:  lda     fkey_strings,x
-        beq     L92B3
-        inx
-        bne     L92AB
-L92B3:  inx
+
+        ; Y = Number of function key string
+        ldx     #$FF
+@ns:    inx
         dey
-        bne     L92AB
-L92B7:  lda     fkey_strings,x
+        beq     @fcp
+@l:     lda     fkey_strings,x
+        beq     @ns
+        inx
+        bne     @l
+
+@fcp:   lda     fkey_strings,x
         sta     KEYD,y
         beq     L92C3
         inx
         iny
-        bne     L92B7
+        bne     @fcp
+
 L92C3:  sty     NDX
 L92C5:  lda     #$7F
         sta     $DC00
