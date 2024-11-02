@@ -37,12 +37,6 @@
 ; if bit7 set:
 ;    $c0 = send characters untranslated to printer
 
-set_io_vectors_with_hidden_rom:
-        jmp     set_io_vectors_with_hidden_rom2
-
-set_io_vectors:
-        jmp     set_io_vectors2
-
 printer_send_byte:
         pha
         lda     $DC0C
@@ -206,7 +200,7 @@ centronics_or_rs232:
 
 ; these routines turn the cartridge ROM on before,
 ; and turn it back off afterwards
-set_io_vectors_with_hidden_rom2:
+set_io_vectors_with_hidden_rom:
         lda     #<_new_ckout
         ldy     #>_new_ckout
         sta     $0320 ; CKOUT
@@ -226,7 +220,7 @@ set_io_vectors_with_hidden_rom2:
         rts
 
 ; these routines assume the cartridge ROM is mapped
-set_io_vectors2:
+set_io_vectors:
         lda     #<new_ckout
         ldy     #>new_ckout
         sta     $0320 ; CKOUT
