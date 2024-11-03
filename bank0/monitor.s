@@ -2254,12 +2254,7 @@ after_irq:
 .endif
         lda     NDX
         bne     LB700
-LB6FA:  pla ; XXX JMP $EA81
-        tay
-        pla
-        tax
-        pla
-        rti
+LB6FA:  jmp     LEA81
 
 LB700:  lda     KEYD
 fk_2:   cmp     #KEY_F7

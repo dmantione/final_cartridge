@@ -5,6 +5,7 @@ LE50C  := $E50C ; set cursor position
 LE716  := $E716 ; screen CHROUT
 LE96C  := $E96C ; insert line at top of screen
 LEA31  := $EA31 ; default contents of CINV vector
+LEA81  := $EA81 ; exit from interrupt
 LF0BD  := $F0BD ; string "I/O ERROR"
 LF333  := $F333 ; default contents of CLRCHN vector
 LF646  := $F646 ; IEC close
