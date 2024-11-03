@@ -207,14 +207,8 @@ _kbd_handler:
         lda     $02A7
         beq     @1
         jmp     kernel_keyboard_handler ; LDA #$7F : STA $DC00 : RTS
-
-@1:     lda     $A000
-        cmp     #$94 ; contents of $A000 in BASIC ROM
-        bne     @2 ; BASIC ROM not visible
-        jsr     _enable_fcbank0
+@1:     jsr     _enable_fcbank0
         jmp     kbd_handler
-
-@2:     jmp     kernal_check_modifier_keys ; default kdb vector
 
 
 ;
