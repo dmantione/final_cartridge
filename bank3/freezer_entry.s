@@ -71,14 +71,6 @@ freezer_init:
       dex
       bpl  :-
 
-      ; ???
-      ldx  $02A0
-      inx
-      cpx  $02A2
-      bne  :+
-      inx
-:     stx  $02A1
-
       ldx  #<$E000
       lda  #>$E000
       ldy  #__FREEZERZP_SIZE__          ; Find some memory for zero page backup
@@ -258,9 +250,6 @@ freezer_init:
       bne  :-
       ; C=1 because X=10
 
-      pla
-      ldy  #<(r4 + 1 -__freezer_restore_1_LOAD__)
-      sta  (freezer_mem_b),y
       pla
       ldy  #<(r5 + 1 -__freezer_restore_1_LOAD__)
       sta  (freezer_mem_b),y
@@ -474,10 +463,6 @@ freezer_init:
       dey
       bpl  :-
 
-      ; ???
-      ldy  #$00
-      sty  $02A1
-
       sty  $D01A                        ; IRQ mask register
       sty  spritexy_backup              ; ???
       sty  $A3
@@ -549,8 +534,6 @@ freezer_restore_0300_size = .sizeof(freezer_restore_0300)
       ; It is live patched.
       ;
 freezer_restore_mem_cia_vic:
-r4:   lda  #$FF
-      sta  $02A1
       sei
       ; Restore the CIA registers
       ldx  #$20

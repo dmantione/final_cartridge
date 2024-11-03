@@ -35,48 +35,44 @@ kbd_handler:
         cmp     #3
         bne     :+
         jsr     reset_input
-        beq     pass_to_kernal
+        beq     pass_to_kernal ; Always
 :       ldx     $028D ; Current shift keys
         cpx     #4 ; CTRL key down
         beq     ctrl_down
         cpx     #2 ; CBM key down?
-        bcc     shift_down ; SHIFT or nothing
+        bcc     shift_or_nothing
         bcs     pass_to_kernal ; CBM
 
 ctrl_down:
         cmp     #$13 ; CTRL + HOME: put cursor at bottom left
-        bne     L925D
-        jsr     L93B4
+        bne     :+
+        jsr     hide_cursor
         ldy     #0
         sty     PNTR
         ldy     #24
         jsr     $E56A ; set cursor line
-        jsr     reset_input
+        jsr     reset_input ; Set Z=1
+        beq     done
+
+:       cmp     #$14 ; CTRL + DEL: delete to end of line
+        bne     :+
+        jsr     hide_cursor
+        jsr     delete_rest_of_line
         jmp     done
 
-L925D:  cmp     #$14 ; CTRL + DEL: delete to end of line
-        bne     L926A
-        jsr     L93B4
-        jsr     L9469
-        jmp     done
-
-L926A:  cmp     #CR ; CTRL + CR: print screen
+:       cmp     #CR ; CTRL + CR: print screen
         bne     pass_to_kernal
-        jsr     L93B4
-;        inc     $02A7
+        jsr     hide_cursor
+        inc     $02A7
         inc     $CC
         jsr     print_screen
-        jmp     L92CC
+        jmp     cursor_on_done
 
 pass_to_kernal:
         jmp     _evaluate_modifier
 
-done:   lda     #$7F
-        sta     $DC00
-        jmp     _disable_fc3rom
-
-shift_down:
-        cmp     #$11 ; DOWN
+shift_or_nothing:
+        cmp     #$11 ; CRSR DOWN
         beq     L92DD
         pha
         lda     #0
@@ -117,48 +113,55 @@ shift_down:
         bne     @fcp
 @d:     sty     NDX
 
-L92CC:
-;       lsr     $02A7
-        lsr     $CC
-        jmp     done
+cursor_on_done:
+        lsr     $02a7
+        inc     $CC
+done:   lda     #$7F
+        sta     $DC00
+        jmp     _disable_fc3rom
 
-L92D5:
-;       lsr     $02A7
+cursor_on_pass_kernal:
+        lsr     $02a7
         lsr     $CC
+jmp_ptk:
         jmp     pass_to_kernal
 
+;
+; CRSR Up/Down -- scrolling
+;
 L92DD:
-;        inc     $02A7
-        inc     $CC
+        inc     $02A7
+        inc     $CC           ; Cursor off
         txa
         and     #1
-        bne     L9342
+        bne     crsr_up
         lda     TBLX
         cmp     #24
-        bne     L92D5
-        jsr     L93B4
+        bne     cursor_on_pass_kernal
+        ; Scroll down
+        jsr     hide_cursor
         bit     $02AB
         bmi     L9312
         ldx     #25
-L92F7:  dex
-        bmi     L92D5
+:       dex
+        bmi     cursor_on_pass_kernal
         lda     $D9,x
-        bpl     L92F7
-        jsr     L93C1
-        bcs     L92F7
+        bpl     :-
+        jsr     read_line_num
+        bcs     :-   ; no line numer on botton row
         inc     $14
-        bne     L9309
+        bne     :+
         inc     $15
-L9309:  jsr     _search_for_line
+:       jsr     _search_for_line
         bcs     L9322
-        beq     L92D5
+        beq     cursor_on_pass_kernal
         bcc     L9322
 L9312:  ldy     #0
         jsr     _lda_5f_indy
         tax
         iny
         jsr     _lda_5f_indy
-        beq     L92D5
+        beq     cursor_on_pass_kernal
         stx     $5F
         sta     $60
 L9322:  lda     #$8D
@@ -175,47 +178,50 @@ L9333:  cpy     #40
 L933A:  sty     PNTR
         lda     #24
         sta     TBLX
-        bne     L92CC
-L9342:  lda     TBLX
-        bne     L92D5
-        jsr     L93B4
+        bne     cursor_on_done ; Always
+
+crsr_up:
+        lda     TBLX
+        bne     cursor_on_pass_kernal
+        ; Scroll up
+        jsr     hide_cursor
         bit     $02AB
-        bvs     L9361
+        bvs     @3
         ldx     #$FF
-L9350:  inx
+:       inx
         cpx     #25
-        beq     L9372
+        beq     @2
         lda     $D9,x
-        bpl     L9350
-        jsr     L93C1
-        bcs     L9350
+        bpl     :-
+        jsr     read_line_num ; read line number on top of screen
+        bcs     :-
         jsr     _search_for_line
-L9361:  lda     $5F
+@3:     lda     $5F
         ldx     $60
         cmp     $2B
-        bne     L9375
+        bne     @1
         cpx     $2C
-        bne     L9375
+        bne     @1
         lda     #0
         sta     $02AB
-L9372:  jmp     L92D5
+@2:     jmp     cursor_on_pass_kernal
 
-L9375:  sta     TXTPTR
+@1:     sta     TXTPTR
         dex
         stx     TXTPTR + 1
         ldy     #$FF
-L937C:  iny
+@4:     iny
         jsr     _lda_TXTPTR_indy
-L9380:  tax
-        bne     L937C
+:       tax
+        bne     @4
         iny
         jsr     _lda_TXTPTR_indy
         cmp     $5F
-        bne     L9380
+        bne     @4
         iny
         jsr     _lda_TXTPTR_indy
         cmp     $60
-        bne     L9380
+        bne     :-
         dey
         tya
         clc
@@ -230,33 +236,38 @@ L9380:  tax
         jsr     $E566 ; cursor home
         lda     #$40
         sta     $02AB
-        jmp     L92CC
+        jmp     cursor_on_done
 
-L93B4:  lsr     $CF
-        bcc     L93C0
-        ldy     $CE
-        ldx     $0287
+hide_cursor:
+        lsr     $CF   ; Cursor visible?
+        bcc     :+
+        ldy     $CE   ; Character below cursor
+        ldx     $0287 ; Colour below cursor
         jsr     $EA18 ; put a character in the screen
-L93C0:  rts
+:       rts
 
-L93C1:  ldy     $ECF0,x ; low bytes of screen line addresses
+read_line_num:
+        ldy     $ECF0,x ; low bytes of screen line addresses
         sty     TXTPTR
         and     #3
         ora     $0288
         sta     TXTPTR + 1
         ldy     #0
         jsr     _lda_TXTPTR_indy
-        cmp     #$3A
+        ; Try to read a lin number
+        cmp     #':'
         bcs     @x
-        sbc     #$2F
+        sbc     #$2F ; Subtracts #$30 due to carry
         sec
-        sbc     #$D0
-        bcs     @x
+        sbc     #$D0 ; Test for values <#$30
+        bcs     @x   ; and blast off if that's the case
         ldy     #0
         sty     $14
         sty     $15
-@1:     sbc     #$2F
-        sta     $07
+@1:     sbc     #$2F ; Subtracts #$30 due to carry, undoes subtract $D0
+        sta     $07  ; Store digit
+
+        ; Multiply $14/$15 by 10
         lda     $15
         sta     $22
         cmp     #25
@@ -273,6 +284,7 @@ L93C1:  ldy     $ECF0,x ; low bytes of screen line addresses
         sta     $15
         asl     $14
         rol     $15
+
         lda     $14
         adc     $07
         sta     $14
@@ -285,24 +297,24 @@ L93C1:  ldy     $ECF0,x ; low bytes of screen line addresses
 
 L9416:  inc     $0292
         ldx     #25
-L941B:  dex
-        beq     L942D
+:       dex
+        beq     :+
         jsr     $E9F0 ; fetch a screen address
         lda     $ECEF,x
         sta     $AC
         lda     $D8,x
         jsr     $E9C8 ; shift screen line
-        bmi     L941B
-L942D:  jsr     $E9FF ; clear screen line X
+        bmi     :-
+:       jsr     $E9FF ; clear screen line X
         ldx     #$17
-L9432:  lda     $DA,x
+@1:     lda     $DA,x
         and     #$7F
         ldy     $D9,x
-        bpl     L943C
+        bpl     :+
         ora     #$80
-L943C:  sta     $DA,x
+:       sta     $DA,x
         dex
-        bpl     L9432
+        bpl     @1
         lda     $D9
         ora     #$80
         sta     $D9
@@ -311,7 +323,7 @@ L943C:  sta     $DA,x
 L9448:  ldy     #1
         sty     $0F
         jsr     _lda_5f_indy
-        beq     L9469
+        beq     delete_rest_of_line
         iny
         jsr     _lda_5f_indy
         tax
@@ -325,9 +337,11 @@ reset_input:
         sta     $D4
         sta     $D8
         sta     $C7
+        ; Z=1, code depends on it
         rts
 
-L9469:  jsr     store_d1_spaces
+delete_rest_of_line:
+        jsr     store_d1_spaces
         bcs     reset_input
 L946E:  lda     #3
         sta     $9A

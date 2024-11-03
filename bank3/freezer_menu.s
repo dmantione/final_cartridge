@@ -1710,8 +1710,6 @@ freezer_nmi_handler:
       pha
       tya
       pha
-      lda  $02A1
-      pha
       ldx  #10
 :     lda  $02,x
       pha
