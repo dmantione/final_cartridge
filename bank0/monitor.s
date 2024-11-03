@@ -2060,8 +2060,8 @@ LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
         jsr     basin_if_more_cmp_space
         bne     LB604 ; not space
         jsr     basin_if_more_cmp_space
-        bne     syn_err6 ; not space
         beq     LB60A ; always
+        jmp     syntax_error
 
 LB604:  jsr     get_hex_byte2
 LB607:  jsr     store_byte
@@ -2078,8 +2078,6 @@ basin_if_more_cmp_space:
 :       cmp     #' '
         rts
 
-syn_err6:
-        jmp     syntax_error
 
 is_dec_character:
         cmp     #'0'
