@@ -167,7 +167,7 @@ new_mainloop:
         stx     TXTPTR
         sty     TXTPTR + 1
         jsr     set_io_vectors_with_hidden_rom
-        jsr     L8C68
+        jsr     uninstall_kbd_handler
         jsr     CHRGET
         tax
         beq     L81FB
@@ -1635,13 +1635,13 @@ do_detokenize:
         stx     $22
         ldx     #>new_basic_keywords
         bne     L8C31
- L8C2B:  
+L8C2B:  
+        ; Need 8K cartridge mode to make token table in BASIC ROM visible
         ldx     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
         stx     fcio_reg
         ldx     #<basic_keywords
         stx     $22
         ldx     #>basic_keywords
-        ; Need 8K cartridge mode to make token table in BASIC ROM visible
 L8C31:  stx     $23
         tax
         sty     $49
@@ -1668,6 +1668,7 @@ L8C4B:
         bmi     L8C62
         jsr     _basic_bsout
         jmp     L8C4A
+
 L8C55:  cmp     #CR + $80
         beq     L8C5D
 L8C59:  cmp     #CR
@@ -1677,16 +1678,17 @@ L8C5F:  inc     $D8
 L8C61:  rts
 L8C62:  ldy     $49
         and     #$7F
-        bpl     L8C61
-L8C68:  jsr     L8C92
-        lda     #<$EB48 ; evaluate modifier keys
-        ldx     #>$EB48
-        bne     L8C78 ; always
+        bpl     L8C61 ; Always
 
 ; ----------------------------------------------------------------
 ; Keyboard handler and BAR support setup
 ; ----------------------------------------------------------------
 
+uninstall_kbd_handler:
+        jsr     L8C92
+        lda     #<$EB48 ; evaluate modifier keys
+        ldx     #>$EB48
+        bne     L8C78 ; always
 set_irq_and_kbd_handlers:
         jsr     set_irq_handler
         lda     #<_kbd_handler
