@@ -1933,9 +1933,9 @@ get_hex_byte3:
 hex_digit_to_nybble:
         cmp     #'9' + 1
         and     #$0F
-        bcc     LB530
+        bcc     :+
         adc     #'A' - '9'
-LB530:  rts
+:       rts
 
 ; get character and check for legal ASCII hex digit
 get_hex_digit:
