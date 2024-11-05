@@ -153,18 +153,18 @@ basic_vectors_end:
 ; the KERNAL defaults
 cond_init_load_save_vectors:
         ldy     #$1F
-L80EE:  lda     $0314,y
+:       lda     $0314,y
         cmp     $FD30,y
         bne     return ; rts
         dey
-        bpl     L80EE
+        bpl     :-
 
 init_load_save_vectors:
         jsr     set_io_vectors_with_hidden_rom
         ldy     #load_save_vectors_end - load_save_vectors - 1
-L80FE:  lda     load_save_vectors,y ; overwrite LOAD and SAVE vectors
+:       lda     load_save_vectors,y ; overwrite LOAD and SAVE vectors
         sta     $0330,y
         dey
-        bpl     L80FE
+        bpl     :-
 return:
         rts
