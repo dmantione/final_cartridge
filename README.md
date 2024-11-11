@@ -10,6 +10,15 @@ Bank 3 contains the freezer.
 
 ## Building
 
+You need the following tools in order to be able to build the firmware:
+
+* [CC65](https://cc65.github.io/)
+* [Ucon64](https://ucon64.sourceforge.io/)
+* [Petcat](https://vice-emu.sourceforge.io/)
+* [Cartconv](https://vice-emu.sourceforge.io/)
+
+All development is done on a Linux host system, therefore you are recommended to build on a Linux system. Building on other operating systems may work, but it not being tested.
+
 Create fc3.bin:
 
     make
