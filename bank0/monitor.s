@@ -3109,6 +3109,49 @@ function_table:
 .endif
 
 ; ----------------------------------------------------------------
+; "P" - set output to printer
+; ----------------------------------------------------------------
+cmd_p:
+        lda     bank
+        bmi     syn_err7 ; drive?
+        ldx     #$FF
+        lda     FA
+        cmp     #4
+        beq     LBC11 ; printer
+        jsr     basin_cmp_cr
+        beq     LBC16 ; no argument
+        cmp     #','
+        bne     syn_err7
+        jsr     get_hex_byte
+        tax
+LBC11:  jsr     basin_cmp_cr
+        bne     syn_err7
+LBC16:  sta     KEYD
+        inc     NDX
+        lda     #4
+        cmp     FA
+        beq     LBC39 ; printer
+        stx     SA
+        sta     FA ; set device 4
+        sta     LA
+        ldx     #0
+        stx     FNLEN
+        jsr     CLOSE
+        jsr     OPEN
+        ldx     LA
+        jsr     CKOUT
+        jmp     input_loop2
+
+LBC39:  lda     LA
+        jsr     CLOSE
+        jsr     CLRCH
+        lda     #8
+        sta     FA
+        lda     #0
+        sta     NDX
+        jmp     input_loop
+
+; ----------------------------------------------------------------
 
 syn_err7:
         jmp     syntax_error
@@ -3297,51 +3340,6 @@ iec_send_zp1_plus_y:
         adc     #0
         jmp     IECOUT
 
-syn_err8:
-        jmp     syntax_error
-
-; ----------------------------------------------------------------
-; "P" - set output to printer
-; ----------------------------------------------------------------
-cmd_p:
-        lda     bank
-        bmi     syn_err8 ; drive?
-        ldx     #$FF
-        lda     FA
-        cmp     #4
-        beq     LBC11 ; printer
-        jsr     basin_cmp_cr
-        beq     LBC16 ; no argument
-        cmp     #','
-        bne     syn_err8
-        jsr     get_hex_byte
-        tax
-LBC11:  jsr     basin_cmp_cr
-        bne     syn_err8
-LBC16:  sta     KEYD
-        inc     NDX
-        lda     #4
-        cmp     FA
-        beq     LBC39 ; printer
-        stx     SA
-        sta     FA ; set device 4
-        sta     LA
-        ldx     #0
-        stx     FNLEN
-        jsr     CLOSE
-        jsr     OPEN
-        ldx     LA
-        jsr     CKOUT
-        jmp     input_loop2
-
-LBC39:  lda     LA
-        jsr     CLOSE
-        jsr     CLRCH
-        lda     #8
-        sta     FA
-        lda     #0
-        sta     NDX
-        jmp     input_loop
 
 LBC4C:  stx     zp1
         sta     zp1 + 1
