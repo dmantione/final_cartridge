@@ -15,6 +15,8 @@
 .global new_clall
 .global new_clrch
 
+.import pow2
+
 .segment "printer"
 
 ;
@@ -713,8 +715,6 @@ print_char_from_charrom:
         lsr     $A4
         bcc     @2
         rts
-
-pow2:  .byte   $80,$40,$20,$10,$08,$04,$02,$01
 
 ;
 ; Characters are stored in charrom one row at a time, but for printing we need
