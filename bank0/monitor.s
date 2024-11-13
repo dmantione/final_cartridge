@@ -1259,6 +1259,11 @@ cmd_x:
 .ifdef MACHINE_TED
         jsr     $F39C; restore F keys
 .endif
+        lda     #<kernal_brk_handler
+        sta     CBINV
+        lda     #>kernal_brk_handler
+        sta     CBINV + 1 ; BRK vector
+
         ldx     reg_s
         txs
         jmp     _basic_warm_start

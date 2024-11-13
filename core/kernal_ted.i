@@ -9,6 +9,7 @@ LEA81  := $FCC3 ; exit from interrupt
 LF0BD  := $EB58 ; string "I/O ERROR"
 LF333  := $EF0C ; default contents of CLRCHN vector
 LF646  := $F215 ; IEC close
+kernal_brk_handler := $FE66
 
 ICLRCH := $0320 ; CLRCHN vector
 IBSOUT := $0324 ; CHROUT vector

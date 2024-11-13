@@ -10,6 +10,7 @@ kernal_check_modifier_keys := $EB48
 LF0BD  := $F0BD ; string "I/O ERROR"
 LF333  := $F333 ; default contents of CLRCHN vector
 LF646  := $F646 ; IEC close
+kernal_brk_handler := $FE66
 
 PRT             := $E716
 IOINIT_direct   := $FDA3
