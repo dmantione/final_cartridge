@@ -63,7 +63,6 @@ iec_tab:
         .byte   $17,$97,$37,$B7,$57,$D7,$77,$F7
 .assert >* = >iec_tab, error, "Page boundary!"
 
-.segment "speeder_a2"
 
 receive_4_bytes:
         ; Note $DD00 is set to 0 before this routine is called
@@ -125,6 +124,8 @@ receive_4_bytes:
         bpl     @2
 .assert >* = >@ntsc, error, "Page boundary!"
         rts
+
+.segment "speeder_a2"
 
 iec_load:
         jmp     $F530 ; IEC LOAD - used in the error case

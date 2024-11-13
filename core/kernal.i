@@ -52,6 +52,9 @@ IOBASE          := $FFF3
 CHRGET          := $0073
 CHRGOT          := $0079
 
+CINV   := $0314 ; IRQ vector
+CBINV  := $0316 ; BRK vector
+
 ; PETSCII
 CR              := $0D
 CSR_DOWN        := $11

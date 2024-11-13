@@ -10,17 +10,23 @@
 ;   either direction, a new BASIC line is LISTed
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
 .include "persistent.i"
 
 ; from basic
-.import list_line
-.import store_d1_spaces
-.import print_dec
+.import print_line_basic
+.import delete_rest_of_line
+;.import print_dec
+.import reset_input
 .import send_printer_listen
 
 ; from printer
 .import set_io_vectors
 .import set_io_vectors_with_hidden_rom
+
+; from monitor
+.import scrolldown_monitor
+.import scrollup_monitor
 
 .global kbd_handler
 .global print_screen
@@ -28,6 +34,11 @@
 .segment "screen_editor"
 
 kbd_handler:
+        ; Either the FC3 ROM bank 0 or BASIC ROM will be visible, other situations will not
+        ; occur. A will contain the value of $BE00, or the current FC3 bank if FC3 ROM is
+        ; visible.
+        eor     #fcio_nmi_line|fcio_c64_16kcrtmode|fcio_bank_0
+        php
         lda     $CC
         bne     pass_to_kernal ; if cursor is off, don't intervene
         ldy     $CB      ; Matrix code of key
@@ -38,12 +49,12 @@ kbd_handler:
         beq     pass_to_kernal ; Always
 :       ldx     $028D ; Current shift keys
         cpx     #4 ; CTRL key down
-        beq     ctrl_down
+        beq     ctrl_pressed
         cpx     #2 ; CBM key down?
         bcc     shift_or_nothing
         bcs     pass_to_kernal ; CBM
 
-ctrl_down:
+ctrl_pressed:
         cmp     #$13 ; CTRL + HOME: put cursor at bottom left
         bne     :+
         jsr     hide_cursor
@@ -69,7 +80,19 @@ ctrl_down:
         jmp     cursor_on_done
 
 pass_to_kernal:
+        plp
+        ; If FC3 ROM was not visible on entry, hide it, otherwise exit normally
+        beq     :+ 
         jmp     _evaluate_modifier
+:       jmp     kernal_check_modifier_keys
+
+done:   lda     #$7F
+        sta     $DC00
+        plp
+        ; If FC3 ROM was not visible on entry, hide it, otherwise exit normally
+        beq     :+
+        jmp     _disable_fc3rom
+:       rts
 
 shift_or_nothing:
         cmp     #$11 ; CRSR DOWN
@@ -83,7 +106,6 @@ shift_or_nothing:
         bcc     pass_to_kernal  ; Below F1
         cmp     #4
         bcs     pass_to_kernal  ; Higher than F7
-        ; Function key
         cpy     $C5
         beq     done
         sty     $C5
@@ -97,6 +119,10 @@ shift_or_nothing:
 
         ; Y = Number of function key string
         ldx     #$FF
+        lda     CBINV+1
+        cmp     #$02
+        bne     @ns
+        ldx     #fkey_strings_monitor-fkey_strings_basic-1
 @ns:    inx
         dey
         beq     @fcp
@@ -113,18 +139,18 @@ shift_or_nothing:
         bne     @fcp
 @d:     sty     NDX
 
+
 cursor_on_done:
         lsr     $02a7
         inc     $CC
-done:   lda     #$7F
-        sta     $DC00
-        jmp     _disable_fc3rom
+        jmp     done
 
 cursor_on_pass_kernal:
         lsr     $02a7
         lsr     $CC
 jmp_ptk:
         jmp     pass_to_kernal
+
 
 ;
 ; CRSR Up/Down -- scrolling
@@ -135,47 +161,32 @@ L92DD:
         txa
         and     #1
         bne     crsr_up
+
+;crsr_dn:
         lda     TBLX
         cmp     #24
         bne     cursor_on_pass_kernal
         ; Scroll down
         jsr     hide_cursor
-        bit     $02AB
-        bmi     L9312
+
         ldx     #25
-:       dex
-        bmi     cursor_on_pass_kernal
-        lda     $D9,x
-        bpl     :-
-        jsr     read_line_num
-        bcs     :-   ; no line numer on botton row
-        inc     $14
-        bne     :+
-        inc     $15
-:       jsr     _search_for_line
-        bcs     L9322
-        beq     cursor_on_pass_kernal
-        bcc     L9322
-L9312:  ldy     #0
-        jsr     _lda_5f_indy
-        tax
-        iny
-        jsr     _lda_5f_indy
-        beq     cursor_on_pass_kernal
-        stx     $5F
-        sta     $60
-L9322:  lda     #$8D
-        jsr     $E716 ; output character to the screen
-        jsr     L9448
+        ldy     CBINV+1
+        cpy     #$02
+        bne     @1
+        jsr     scrolldown_monitor
+        jmp     @2
+@1:     jsr     scrolldown_basic
+@2:     bcs     cursor_on_pass_kernal
         lda     #$80
         sta     $02AB
+        ; Cursor on leftmost position
         ldy     PNTR
-        beq     L933A
-L9333:  cpy     #40
-        beq     L933A
+        beq     :+
+:       cpy     #40
+        beq     :+
         dey
-        bne     L9333
-L933A:  sty     PNTR
+        bne     :-
+:       sty     PNTR
         lda     #24
         sta     TBLX
         bne     cursor_on_done ; Always
@@ -185,18 +196,79 @@ crsr_up:
         bne     cursor_on_pass_kernal
         ; Scroll up
         jsr     hide_cursor
+        ldx     #$FF
+        ldy     CBINV+1
+        cpy     #$02
+        bne     @1
+        jsr     scrollup_monitor
+        jmp     @2
+@1:     jsr     scrollup_basic
+@2:     bcs     cursor_on_pass_kernal
+        lda     #$40
+        sta     $02AB
+        jsr     $E566 ; cursor home
+        jmp     cursor_on_done
+
+hide_cursor:
+        lsr     $CF   ; Cursor visible?
+        bcc     :+
+        ldy     $CE   ; Character below cursor
+        ldx     $0287 ; Colour below cursor
+        jsr     $EA18 ; put a character in the screen
+:       rts
+
+
+scrolldown_basic:
+        bit     $02AB
+        bmi     @1
+        ; Find a line number
+:       dex
+        bmi     @xcs
+        lda     $D9,x ; high byte to pointer in screen ram
+        bpl     :-
+        jsr     read_line_num_basic
+        bcs     :-   ; no line numer on botton row
+
+        ; line in $14/$15, find next line
+        inc     $14
+        bne     :+
+        inc     $15
+:       jsr     _search_for_line
+        bcs     @2    ; line found
+        beq     @xcs  ; not found, no line after
+        bcc     @2    ; not found, but there is a line after
+@1:     ; Avoid scanning screen if key remains pressed, simply load next
+        ; line in linked list.
+        ldy     #0
+        jsr     _lda_5f_indy
+        tax
+        iny
+        jsr     _lda_5f_indy
+        beq     @xcs
+        stx     $5F
+        sta     $60
+@2:     ; We have the line to be shown in ($14), now do the scroll
+        lda     #$8D
+        jsr     $E716 ; shift+return, scrolls screen down
+        jsr     print_line_basic
+        clc
+        .byte $24 ; skip next instruction
+@xcs:   sec
+        rts
+
+scrollup_basic:
         bit     $02AB
         bvs     @3
-        ldx     #$FF
 :       inx
         cpx     #25
         beq     @2
         lda     $D9,x
         bpl     :-
-        jsr     read_line_num ; read line number on top of screen
+        jsr     read_line_num_basic
         bcs     :-
         jsr     _search_for_line
-@3:     lda     $5F
+@3:     ; End of program reached?
+        lda     $5F
         ldx     $60
         cmp     $2B
         bne     @1
@@ -204,8 +276,9 @@ crsr_up:
         bne     @1
         lda     #0
         sta     $02AB
-@2:     jmp     cursor_on_pass_kernal
-
+@2:     sec
+        rts
+        ; Scan linked list of lines until we have the previous line
 @1:     sta     TXTPTR
         dex
         stx     TXTPTR + 1
@@ -230,27 +303,20 @@ crsr_up:
         lda     TXTPTR + 1
         adc     #0
         sta     $60
-        jsr     L9416
+        jsr     scroll_screen_up
         jsr     $E566 ; cursor home
-        jsr     L9448
-        jsr     $E566 ; cursor home
-        lda     #$40
-        sta     $02AB
-        jmp     cursor_on_done
+        jsr     print_line_basic
+        clc
+        rts
 
-hide_cursor:
-        lsr     $CF   ; Cursor visible?
-        bcc     :+
-        ldy     $CE   ; Character below cursor
-        ldx     $0287 ; Colour below cursor
-        jsr     $EA18 ; put a character in the screen
-:       rts
-
-read_line_num:
+;
+; Attempt to read a BASIC line number
+;
+read_line_num_basic:
         ldy     $ECF0,x ; low bytes of screen line addresses
         sty     TXTPTR
-        and     #3
-        ora     $0288
+        and     #3      ; Screen ram is only 4 pages
+        ora     $0288   ; Base address of screen
         sta     TXTPTR + 1
         ldy     #0
         jsr     _lda_TXTPTR_indy
@@ -269,9 +335,9 @@ read_line_num:
 
         ; Multiply $14/$15 by 10
         lda     $15
-        sta     $22
-        cmp     #25
+        cmp     #6400 >> 8 ; Lines > 64000 do not exist
         bcs     @x
+        sta     $22
         lda     $14
         asl     a
         rol     $22
@@ -285,6 +351,7 @@ read_line_num:
         asl     $14
         rol     $15
 
+        ; Add current digit
         lda     $14
         adc     $07
         sta     $14
@@ -295,7 +362,10 @@ read_line_num:
         clc
 @x:     rts
 
-L9416:  inc     $0292
+
+.global scroll_screen_up
+scroll_screen_up:
+        inc     $0292
         ldx     #25
 :       dex
         beq     :+
@@ -320,29 +390,6 @@ L9416:  inc     $0292
         sta     $D9
         rts
 
-L9448:  ldy     #1
-        sty     $0F
-        jsr     _lda_5f_indy
-        beq     delete_rest_of_line
-        iny
-        jsr     _lda_5f_indy
-        tax
-        iny
-        jsr     _lda_5f_indy
-        jsr     print_dec
-        jsr     list_line
-reset_input:
-        ; Reset quotation, reverse mode and insertions
-        lda     #0
-        sta     $D4
-        sta     $D8
-        sta     $C7
-        ; Z=1, code depends on it
-        rts
-
-delete_rest_of_line:
-        jsr     store_d1_spaces
-        bcs     reset_input
 L946E:  lda     #3
         sta     $9A
         rts
@@ -357,36 +404,37 @@ print_screen:
         lda     $0288 ; video RAM address hi
         sta     $AD
         ldx     #25 ; lines
-L9488:  lda     #CR
+@2:     lda     #CR
         jsr     BSOUT
         ldy     #0
-L948F:  lda     ($AC),y
+@1:     lda     ($AC),y
         sta     $D7
         and     #$3F
         asl     $D7
         bit     $D7
-        bpl     L949D
+        bpl     :+
         ora     #$80
-L949D:  bvs     L94A1
+:       bvs     :+
         ora     #$40
-L94A1:  jsr     BSOUT
+:       jsr     BSOUT
         iny
         cpy     #40 ; columns
-        bne     L948F
+        bne     @1
         tya
         clc
         adc     $AC
         sta     $AC
-        bcc     L94B3
+        bcc     :+
         inc     $AD
-L94B3:  dex
-        bne     L9488
+:       dex
+        bne     @2
         lda     #CR
         jsr     BSOUT
         jsr     CLRCH
         jmp     set_io_vectors_with_hidden_rom
 
 fkey_strings:
+fkey_strings_basic:
         .byte   $8D, "LIST:", CR, 0
         .byte   $8D, "RUN:", CR, 0
         .byte   "DLOAD", CR, 0
@@ -395,4 +443,13 @@ fkey_strings:
         .byte   $8D, "OLD:", CR, 0
         .byte   "DSAVE", '"', 0
         .byte   "DOS", '"', 0
+fkey_strings_monitor:
+        .byte   $8D, 0
+        .byte   0
+        .byte   0
+        .byte   $8D, $93, "@$",CR, 0
+        .byte   $8D, "X", CR, 0
+        .byte   0
+        .byte   0
+        .byte   "@", 0
 

@@ -83,8 +83,8 @@
 .global new_mainloop
 .global new_tokenize
 .global new_execute
-.global list_line
-.global store_d1_spaces
+;.global list_line
+;.global clear_right_from_cursor
 .global print_dec
 .global pow10lo
 .global pow10hi
@@ -442,13 +442,11 @@ HELP:   ldx     $3A ; line number hi
         ldx     $02AC
         stx     $3A ; line number hi
 L839D:  ldx     $3A ; line number hi
-        stx     $15
         txa
         inx
         beq     L838C ; RTS
         ldx     $39 ; line number lo
-        stx     $14
-        jsr     _print_ax_int
+        jsr     print_dec
         jsr     _search_for_line
         lda     PNTR
         sta     $B0
@@ -468,8 +466,7 @@ list_line:
         sty     $0F
         lda     #' '
 ; **** the following code is very similar to BASIC ROM $A6F1
-;        and     #$7F ; XXX no effect
-L83D2:  jsr     _basic_bsout
+@l:     jsr     _basic_bsout
         cmp     #'"'
         bne     :+
         lda     $0F
@@ -483,27 +480,26 @@ L83D2:  jsr     _basic_bsout
         bcc     :+
         inx
 :       cmp     TXTPTR
-        bne     L83F9
+        bne     :+
         cpx     TXTPTR + 1 ; chrget hi
-        bne     L83F9
+        bne     :+
         lda     PNTR
         sta     $B0
         lda     TBLX
         sta     $B1
-L83F9:  jsr     _lda_5f_indy
-        beq     store_d1_spaces
+:       jsr     _lda_5f_indy
+        beq     clear_right_from_cursor
         jsr     do_detokenize
-        jmp     L83D2 ; loop
+        jmp     @l ; loop
 
-store_d1_spaces:
+clear_right_from_cursor:
         lda     #' '
         ldy     PNTR
-L8408:  sta     ($D1),y
+:       sta     ($D1),y
         cpy     $D5
-        bcs     L8411
         iny
-        bne     L8408
-L8411:  rts
+        bcc     :-
+        rts
 
 print_dec:
         stx     $C1
@@ -540,6 +536,37 @@ pow10lo:
         .byte   <1,<10,<100,<1000,<10000
 pow10hi:
         .byte   >1,>10,>100,>1000,>10000
+
+; Prints a the BASIC program line pointed to by ($14) with line number at cursor position
+; Used by the screen editor for scrolling
+.global print_line_basic
+print_line_basic:
+        ldy     #1  ; Disable quotation mode
+        sty     $0F
+        jsr     _lda_5f_indy  ; Get high byte of link
+        beq     delete_rest_of_line ; End of program? Then empty line
+        ; Print line number
+        iny
+        jsr     _lda_5f_indy
+        tax
+        iny
+        jsr     _lda_5f_indy
+        jsr     print_dec
+        ; Print line
+        jsr     list_line
+.global reset_input
+reset_input:
+        ; Reset quotation, reverse mode and insertions
+        lda     #0
+        sta     $D4
+        sta     $D8
+        sta     $C7
+        ; Z=1, code depends on it
+        rts
+.global delete_rest_of_line
+delete_rest_of_line:
+        jsr     clear_right_from_cursor
+        bcs     reset_input ; always
 
 ; ----------------------------------------------------------------
 
@@ -1588,20 +1615,20 @@ set_drive:
 
 
 L8BDB:  jsr     _lda_TXTPTR_indy
-        beq     L8BE2
+        beq     :+
         cmp     #'"'
-L8BE2:  rts
+:       rts
 
 L8BE3:  ldy     #0
-L8BE5:  jsr     L8BDB
+:       jsr     L8BDB
         beq     L8BF0
         jsr     IECOUT
         iny
-        bne     L8BE5
+        bne     :-
 L8BF0:  cmp     #'"'
-        bne     L8BF5
+        bne     :+
         iny
-L8BF5:  tya
+:       tya
         clc
         adc     TXTPTR
         sta     TXTPTR
@@ -1614,9 +1641,9 @@ L8BFF:  jmp     UNLSTN
 ; ----------------------------------------------------------------
 new_detokenize:
         tax
-L8C03:  lda     $028D
+:       lda     $028D
         and     #2
-        bne     L8C03 ; wait while CBM key is pressed
+        bne     :-   ; wait while CBM key is pressed
         txa
         jsr     do_detokenize
         jmp     _list_print_non_token_byte
@@ -1629,15 +1656,14 @@ do_detokenize:
         bit     $0F
         bmi     L8C55
         cmp     #$CC
-        bcc     L8C2B ; standard C64 token
+        bcc     :+ ; standard C64 token
         sbc     #$4C
         ldx     #<new_basic_keywords
         stx     $22
         ldx     #>new_basic_keywords
         bne     L8C31
-L8C2B:  
         ; Need 8K cartridge mode to make token table in BASIC ROM visible
-        ldx     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+:       ldx     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
         stx     fcio_reg
         ldx     #<basic_keywords
         stx     $22
@@ -1651,10 +1677,9 @@ L8C31:  stx     $23
 L8C3B:  dex
         bpl     L8C4A
 L8C3E:  inc     $22
-        bne     L8C44
+        bne     :+
         inc     $23
-L8C44:
-        lda     ($22),y
+:       lda     ($22),y
         bpl     L8C3E
         bmi     L8C3B ; Always
 L8C4A:  ; Enough tokens skipped, write next token to display
@@ -1684,11 +1709,13 @@ L8C62:  ldy     $49
 ; Keyboard handler and BAR support setup
 ; ----------------------------------------------------------------
 
+.global uninstall_kbd_handler
 uninstall_kbd_handler:
         jsr     L8C92
         lda     #<$EB48 ; evaluate modifier keys
         ldx     #>$EB48
         bne     L8C78 ; always
+.global set_irq_and_kbd_handlers
 set_irq_and_kbd_handlers:
         jsr     set_irq_handler
         lda     #<_kbd_handler
@@ -1713,49 +1740,50 @@ L8C96:  sei
         sta     $0314
         stx     $0315
         cli
-L8C9E:  rts
+_rts:   rts
 
 ; ----------------------------------------------------------------
 ; "DUMP" Command - show list of all BASIC variables
 ; ----------------------------------------------------------------
-DUMP:   bne     L8C9E
+DUMP:   bne     _rts
         lda     $2D
         ldy     $2E
-L8CA5:  sta     $5F
+@l:     sta     $5F
         sty     $60
         cpy     $30
-        bne     L8CAF
+        bne     :+
         cmp     $2F
-L8CAF:  bcs     L8D06
+:       bcs     _rts
         adc     #2
-        bcc     L8CB6
+        bcc     :+
         iny
-L8CB6:  sta     $22
+:       sta     $22
         sty     $23
         jsr     _check_for_stop
-        jsr     L8CE9
-        lda     #$3D ; '='
+        jsr     print_var_name
+        lda     #'='
         jsr     _basic_bsout
         txa
-        bpl     L8CCE
-        jsr     L8D12
-        jmp     L8CDA
+        bpl     :+
+        jsr     load_int_into_fac1
+        jmp     @1
 
-L8CCE:  tya
-        bmi     L8CD7
+:       tya
+        bmi     :+
         jsr     _int_to_fac1
-        jmp     L8CDA
-
-L8CD7:  jsr     L8D21
-L8CDA:  jsr     L83BA
+        jmp     @1
+:       jsr     print_string
+@1:     jsr     L83BA
         lda     $5F
         ldy     $60
         clc
         adc     #7
-        bcc     L8CA5
+        bcc     @l
         iny
-        bcs     L8CA5
-L8CE9:  ldy     #0
+        bcs     @l
+
+print_var_name:
+        ldy     #0
         jsr     _lda_5f_indy
         tax
         and     #$7F
@@ -1764,22 +1792,23 @@ L8CE9:  ldy     #0
         jsr     _lda_5f_indy
         tay
         and     #$7F
-        beq     L8D00
+        beq     :+
         jsr     _basic_bsout
-L8D00:  txa
+:       txa
         bmi     L8D07
         tya
         bmi     L8D0A
 L8D06:  rts
 
-L8D07:  lda     #$25
+L8D07:  lda     #'%'
         .byte   $2C
-L8D0A:  lda     #$24
+L8D0A:  lda     #'$'
         .byte   $2C
 L8D0D:  lda     #$22 ; '"'
         jmp     _basic_bsout
 
-L8D12:  ldy     #0
+load_int_into_fac1:
+        ldy     #0
         jsr     _lda_22_indy
         tax
         iny
@@ -1788,27 +1817,26 @@ L8D12:  ldy     #0
         txa
         jmp     _ay_to_fac1
 
-L8D21:  jsr     L8D0D
-        ldy     #2
+print_string:
+        jsr     L8D0D
+        ldy     #0
         jsr     _lda_22_indy
-        sta     $25
-        dey
-        jsr     _lda_22_indy
-        sta     $24
-        dey
-        jsr     _lda_22_indy
-        sta     $26
         beq     L8D0D
-        lda     $24
-        sta     $22
-        lda     $25
+        sta     $26
+        iny
+        jsr     _lda_22_indy
+        tax
+        iny
+        jsr     _lda_22_indy
+        stx     $22
         sta     $23
-L8D41:  jsr     _lda_22_indy
+        ldy     #0
+:       jsr     _lda_22_indy
         jsr     _basic_bsout
         iny
         cpy     $26
-        bne     L8D41
-        beq     L8D0D
+        bne     :-
+        beq     L8D0D ; Always
 
 ; ----------------------------------------------------------------
 ; "ARRAY" Command - show list of all BASIC arrays
@@ -1873,7 +1901,7 @@ L8DAF:  bcc     L8DC5
         ldx     $C2
         jmp     L8D54
 
-L8DC5:  jsr     L8CE9
+L8DC5:  jsr     print_var_name
         ldy     $C3
         lda     #'('
 L8DCC:  jsr     _basic_bsout
@@ -1896,24 +1924,24 @@ L8DCC:  jsr     _basic_bsout
         stx     $23
         ldy     #0
         jsr     _lda_5f_indy
-        bpl     L8E02
-        jsr     L8D12
+        bpl     :+
+        jsr     load_int_into_fac1
         lda     #2
         bne     L8E14
-L8E02:  iny
+:       iny
         jsr     _lda_5f_indy
         bmi     L8E0F
         jsr     _int_to_fac1
         lda     #5
         bne     L8E14
-L8E0F:  jsr     L8D21
+L8E0F:  jsr     print_string
         lda     #3
 L8E14:  clc
         adc     $C1
         sta     $C1
-        bcc     L8E1D
+        bcc     :+
         inc     $C2
-L8E1D:  jsr     L83BA
+:       jsr     L83BA
         jmp     L8D89
 
 L8E23:  rts
@@ -1993,18 +2021,18 @@ s_bytes: .byte   "BYTES", CR+$80
 TRACE:  tax
         lda     trace_flag
         cpx     #$CC
-        beq     L8EC6 ; OFF
+        beq     :+ ; OFF
         ora     #1
         .byte   $2C
-L8EC6:  and     #$FE
+:       and     #$FE
         sta     trace_flag
         jmp     WA8F8
-
-L8ECE:  jmp     L852C
 
 ; ----------------------------------------------------------------
 ; "REPLACE" Command - replace a string in a BASIC program
 ; ----------------------------------------------------------------
+L8ECE:  jmp     L852C
+
 REPLACE:
         ldy     #0
         eor     #$22

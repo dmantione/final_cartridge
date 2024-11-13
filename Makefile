@@ -8,7 +8,7 @@ CPU=6502ill
 ASFLAGS=-g -Djump_tabl
 
 ifeq ($(PROJECT), cartridge)
-	ASFLAGS+=-D CART_FC3=1
+	ASFLAGS+=-D CART_FC3=1 -DJIFFY_TOKENIZER
 endif
 
 ifeq ($(MACHINE), c64)

@@ -58,8 +58,14 @@ _basic_warm_start := $800A
 .import set_io_vectors
 .import set_io_vectors_with_hidden_rom
 
-.global monitor
+; from basic
+.import set_irq_and_kbd_handlers
+.import uninstall_kbd_handler
 
+; from editor
+.import scroll_screen_up
+
+.global monitor
 
 .ifdef MACHINE_C64
 zp1             := $C1
@@ -76,9 +82,6 @@ zp3             := $64
 CHARS_PER_LINE := 40
 DEFAULT_BANK := 0
 .endif
-
-CINV   := $0314 ; IRQ vector
-CBINV  := $0316 ; BRK vector
 
 tmp3            := BUF + 3
 tmp4            := BUF + 4
@@ -150,7 +153,7 @@ monitor:
         lda     #DEFAULT_BANK
         sta     bank
 .ifdef CART_FC3
-        lda     #$70
+        lda     #fcio_nmi_line|fcio_c64_crtrom_off
         sta     cartridge_bank ; by default, hide cartridge
 .endif
         ldx     #ram_code_end - ram_code - 1
@@ -210,8 +213,6 @@ brk_entry:
         jmp     brk_entry2
 ram_code_end:
 
-; XXX ram_code is here - why put it between ROM code, so we have to jump over it?
-
 .segment "monitor_b"
 
 brk_entry2:
@@ -230,7 +231,8 @@ brk_entry2:
         sta     reg_pc_hi
         tsx
         stx     reg_s
-        jsr     set_irq_vector
+;        jsr     set_irq_vector
+        jsr     set_irq_and_kbd_handlers
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
@@ -351,7 +353,7 @@ cmd_e:
         beq     cmd_mid2
         cmp     #'S'
         beq     cmd_mid2
-        jmp     syntax_error
+        bmi     syntax_error
 
 fill_kbd_buffer_with_csr_right:
         lda     #CSR_UP
@@ -455,8 +457,8 @@ dump_sprite_line:
         cpy     #3
         bne     :-
         jsr     print_8_spaces
-        tya ; 3
-        jmp     add_a_to_zp1
+        lda     #2
+        jmp     sadd_a_to_zp1
 
 dump_char_line:
         ldx     #'['
@@ -594,12 +596,12 @@ LAE12:  jsr     get_hex_byte2
 .endif
 LAE1B:  sta     bank
         ldx     #0
-LAE20:  jsr     basin_if_more
+:       jsr     basin_if_more
         jsr     get_hex_byte
         sta     registers,x ; registers
         inx
         cpx     #4
-        bne     LAE20
+        bne     :-
         jsr     basin_if_more
         jsr     get_bin_byte
         sta     reg_p
@@ -649,10 +651,10 @@ LAE7C:  pha
         jmp     print_cr_dot
 
 LAE88:  jsr     check_end
-        bcs     LAE90
+        bcs     :+
         jmp     syntax_error
 
-LAE90:  sty     tmp10
+:       sty     tmp10
         jsr     basin_if_more
         jsr     get_hex_word3
         lda     command_index
@@ -665,8 +667,8 @@ LAEA6:  jsr     LB245
         jmp     input_loop
 
 LAEAC:  jsr     basin_if_more
-        ldx     #0
-        stx     tmp11 ; XXX unused
+;        ldx     #0
+;        stx     tmp11 ; XXX unused
         jsr     basin_if_more
         cmp     #$22
         bne     LAECF
@@ -712,7 +714,7 @@ cmd_g:
 LAF03:  jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
         bmi     LAF2B ; drive
-        jsr     set_irq_vector
+        jsr     uninstall_kbd_handler
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
@@ -878,7 +880,7 @@ LAFC2:  asl     tmp8
         ora     #'0'
         jsr     BSOUT
 .endif
-:       jmp     print_space
+        jmp     print_space
 
 ; Go through the list of prefixes (3) and suffixes (3),
 ; and if the corresponding one of six bits is set in
@@ -955,7 +957,7 @@ print_zprel:
         rts
 .endif
 
-; adds signed A to 16 bit zp1
+; adds signed to 16 bit zp1 and increases by 1
 zp1_plus_a:
         sec
 zp1_plus_a_2:
@@ -1244,7 +1246,7 @@ get_dec_word3:
 ; "X" - exit monitor
 ; ----------------------------------------------------------------
 cmd_x:
-        jsr     set_irq_vector
+        jsr     uninstall_kbd_handler
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
@@ -1620,12 +1622,12 @@ restore_bsout_chrch: ; set_io_vectors in printer.s changes these; change them ba
 ; "L"/"S" - load/save file
 ; ----------------------------------------------------------------
 cmd_ls:
-        ldy     #>tmp16
-        sty     FNADR + 1
+        ldy     #2
+        sty     FNADR + 1  ; tmp vars in bank 2
         dey
         sty     SA  ; = 1
         dey
-        sty     FNLEN  ; = 1
+        sty     FNLEN  ; = 0
         lda     #8
         sta     FA
         lda     #<tmp16
@@ -1639,15 +1641,17 @@ LB38F:
 .ifdef CART_FC3
         jsr     restore_bsout_chrch
 .endif
-        jsr     set_irq_vector
+        ;jsr     set_irq_vector
+        jsr     uninstall_kbd_handler
         ldx     zp1
         ldy     zp1 + 1
-        jsr     LB42D
+        jsr     LB42D  ; perform load
         php
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
-        jsr     set_irq_vector
+;        jsr     set_irq_vector
+        jsr     set_irq_and_kbd_handlers
         plp
 LB3A4:  bcc     LB3B3
 LB3A6:  ldx     #0
@@ -1711,7 +1715,7 @@ LB40A:  bne     LB3F0
 .ifdef CART_FC3
         jsr     restore_bsout_chrch
 .endif
-        jsr     LB438
+        jsr     LB438  ; perform save
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
@@ -1838,9 +1842,6 @@ print_up_dot:
         jsr     print_up
         lda     #'.'
         .byte   $2C
-; XXX unused?
-        lda     #CSR_RIGHT
-        .byte   $2C
 print_hash:
         lda     #'#'
         .byte   $2C
@@ -1930,6 +1931,7 @@ get_hex_byte3:
         sec
         rts
 
+.global hex_digit_to_nybble
 hex_digit_to_nybble:
         cmp     #'9' + 1
         and     #$0F
@@ -1944,12 +1946,12 @@ validate_hex_digit:
         cmp     #'0'
         bcc     syn_err5
         cmp     #':'
-        bcc     LB546 ; ok
+        bcc     :+ ; ok
         cmp     #'A'
         bcc     syn_err5
         cmp     #'F' + 1
         bcs     syn_err5
-LB546:  rts
+:       rts
 syn_err5:
         jmp     syntax_error
 
@@ -2004,34 +2006,34 @@ dump_8_hex_bytes:
 dump_8_ascii_characters:
         ldx     #8
 dump_ascii_characters:
-        ldy     #0
-LB594:  jsr     load_byte
+        ldy     #$FF
+@1:     iny
+        jsr     load_byte
         cmp     #$20
-        bcs     LB59F
+        bcs     :+
         inc     RVS
         ora     #$40
-LB59F:  cmp     #$80
-        bcc     LB5AD
+:       cmp     #$80
+        bcc     :+
         cmp     #$A0
-        bcs     LB5AD
+        bcs     :+
         and     #$7F
         ora     #$60
         inc     RVS
-LB5AD:  jsr     BSOUT
+:       jsr     BSOUT
         lda     #0
         sta     RVS
         sta     QTSW
-        iny
         dex
-        bne     LB594
+        bne     @1
         tya ; number of bytes consumed
-        jmp     add_a_to_zp1
+        jmp     sadd_a_to_zp1
 
 read_ascii:
         ldy     #0
         jsr     copy_zp2_to_zp1
         jsr     basin_if_more
-LB5C8:  sty     tmp9
+@1:     sty     tmp9
         ldy     PNTR
         lda     (PNT),y
         php
@@ -2044,7 +2046,7 @@ LB5C8:  sty     tmp9
         jsr     store_byte
 :       iny
         cpy     #$20
-        bne     LB5C8
+        bne     @1
         rts
 
 read_8_bytes:
@@ -2182,11 +2184,6 @@ fill_kbd_buffer_singlequote:
         sta     NDX
         rts
 
-; print 7x cursor right
-print_7_csr_right:
-        lda     #CSR_RIGHT
-        ldx     #7
-        bne     p8s_l
 
 ; print 8 spaces - this is used to clear some leftover characters
 ; on the screen when re-dumping a line with proper spacing after the
@@ -2194,355 +2191,213 @@ print_7_csr_right:
 .proc print_8_spaces
         lda     #' '
         ldx     #8
-_l:     jsr     BSOUT
+:       jsr     BSOUT
         dex
-        bne     _l
+        bne     :-
         rts
 .endproc
-p8s_l = print_8_spaces::_l
 
 ; ----------------------------------------------------------------
-; IRQ logic to handle F keys and scrolling
+; scrolling support for screen editor
 ; ----------------------------------------------------------------
-set_irq_vector:
-        lda     CINV
-        cmp     #<irq_handler
-        bne     LB6C1
-        lda     CINV + 1
-        cmp     #>irq_handler
-        beq     LB6D3
-LB6C1:  lda     CINV
-        ldx     CINV + 1
-        sta     irq_lo
-        stx     irq_hi
-        lda     #<irq_handler
-        ldx     #>irq_handler
-        bne     LB6D9 ; always
-LB6D3:  lda     irq_lo
-        ldx     irq_hi
-LB6D9:  sei
-        sta     CINV
-        stx     CINV + 1
-        cli
-        rts
 
-irq_handler:
-        lda     #>after_irq
-        pha
-        lda     #<after_irq
-        pha
-        lda     #0 ; fill A/X/Y/P
-        pha
-        pha
-        pha
-        pha
-        jmp     LEA31 ; run normal IRQ handler, then return to this code
-
-after_irq:
-        lda     disable_f_keys
-        bne     LB6FA
-.ifdef MACHINE_TED
-        lda     KYNDX
-        beq     :+
-        ldy KEYIDX
-        lda PKYBUF,y
-        ; we leave it in there for the editor to discard,
-        ; otherwise we don't go through the kernal code
-        ; that repositions the hardware cursor
-        bne fk_2 ; always
-:
-.endif
-        lda     NDX
-        bne     LB700
-LB6FA:  jmp     LEA81
-
-LB700:  lda     KEYD
-fk_2:   cmp     #KEY_F7
-        bne     LB71C
-        lda     #'@'
-        sta     KEYD
-        lda     #'$'
-        sta     KEYD + 1
-        lda     #CR
-        sta     KEYD + 2 ; store "@$' + CR into keyboard buffer
-        lda     #3
-        sta     NDX
-        bne     LB6FA ; always
-
-LB71C:  cmp     #KEY_F5
-        bne     LB733
-        ldx     #24
-        cpx     TBLX
-        beq     LB72E ; already on last line
-        jsr     LB8D9
-        ldy     PNTR
-        jsr     LE50C ; KERNAL set cursor position
-LB72E:  lda     #CSR_DOWN
-        sta     KEYD
-LB733:  cmp     #KEY_F3
-        bne     LB74A
-        ldx     #0
-        cpx     TBLX
-        beq     LB745
-        jsr     LB8D9
-        ldy     PNTR
-        jsr     LE50C ; KERNAL set cursor position
-LB745:  lda     #CSR_UP
-        sta     KEYD
-LB74A:  cmp     #CSR_DOWN
-        beq     LB758
-        cmp     #CSR_UP
-        bne     LB6FA
-        lda     TBLX
-        beq     LB75E ; top of screen
-        bne     LB6FA
-LB758:  lda     TBLX
-        cmp     #24
-        bne     LB6FA
-LB75E:  jsr     LB838
-        bcc     LB6FA
-        jsr     LB897
-        php
-        jsr     LB8D4
-        plp
-        bcs     LB6FA
-        lda     TBLX
-        beq     LB7E1
-        lda     tmp12
-        cmp     #','
-        beq     LB790
-        cmp     #'['
-        beq     LB7A2
-        cmp     #']'
-        beq     LB7AE
-        cmp     #$27 ; "'"
-        beq     LB7BC
-        jsr     LB8C8
-        jsr     print_cr
-        jsr     dump_hex_line
-        jmp     LB7C7
-
-LB790:  jsr     decode_mnemo
+advance_next:
+        lda     #0 ; default
+        ldx     tmp12
+        cpx     #':'
+        bne     :+
+        lda     #7
+:       cpx     #$1D ; screen code for ]
+        bne     :+
+        lda     #2
+:       cpx     #$27 ; "'"
+        bne     :+
+        lda     #31
+:       cpx     #','
+        bne     :+
+        jsr     decode_mnemo
         lda     num_asm_bytes
-        jsr     sadd_a_to_zp1
-        jsr     print_cr
-        jsr     dump_assembly_line
-        jmp     LB7C7
+:       jsr     sadd_a_to_zp1
+        rts
 
-LB7A2:  jsr     inc_zp1
-        jsr     print_cr
-        jsr     dump_char_line
-        jmp     LB7C7
-
-LB7AE:  lda     #3
-        jsr     add_a_to_zp1
-        jsr     print_cr
-        jsr     dump_sprite_line
-        jmp     LB7C7
-
-LB7BC:  lda     #$20
-        jsr     add_a_to_zp1
-        jsr     print_cr
-        jsr     dump_ascii_line
-LB7C7:  lda     #CSR_UP
-        ldx     #CR
-        bne     LB7D1
-LB7CD:  lda     #CR
-        ldx     #CSR_HOME
-LB7D1:  ldy     #0
-        sty     NDX
-        sty     disable_f_keys
-        jsr     print_a_x
-        jsr     print_7_csr_right
-        jmp     LB6FA
-
-LB7E1:  jsr     scroll_down
-        lda     tmp12
-        cmp     #','
-        beq     LB800
-        cmp     #'['
-        beq     LB817
-        cmp     #']'
-        beq     LB822
-        cmp     #$27 ; "'"
-        beq     LB82D
-        jsr     LB8EC
-        jsr     dump_hex_line
-        jmp     LB7CD
-
-LB800:  jsr     swap_zp1_and_zp2
-        jsr     LB90E
-        inc     num_asm_bytes
-        lda     num_asm_bytes
-        eor     #$FF
-        jsr     sadd_a_to_zp1
-        jsr     dump_assembly_line
-        clc
-        bcc     LB7CD
-LB817:  lda     #1
-        jsr     LB8EE
-        jsr     dump_char_line
-        jmp     LB7CD
-
-LB822:  lda     #3
-        jsr     LB8EE
-        jsr     dump_sprite_line
-        jmp     LB7CD
-
-LB82D:  lda     #$20
-        jsr     LB8EE
-        jsr     dump_ascii_line
-        jmp     LB7CD
-
-LB838:  lda     PNT
-        ldx     PNT + 1
-        sta     zp2
-        stx     zp2 + 1
-        lda     #$19
+retreat_prev:
+        lda     #$FE ; -1, default
+        ldx     tmp12
+        cpx     #':'
+        bne     :+
+        lda     #$F7 ; -8
+:       cpx     #$1D ; screen code for ]
+        bne     :+
+        lda     #$FC ; -3
+:       cpx     #$27 ; "'"
+        bne     :+
+        lda     #$DF ; -32
+:       cpx     #','
+        bne     @2
+        ; Start decoding 16 bytes before current location, it will get in sync.
+        ; Then go length of last instruction backwards.
+        jsr     swap_zp1_and_zp2
+        lda     #16 
         sta     tmp13
-LB845:  ldy     #1
-        jsr     LB88B
-        cmp     #':'
-        beq     LB884
-        cmp     #','
-        beq     LB884
-        cmp     #'['
-        beq     LB884
-        cmp     #']'
-        beq     LB884
-        cmp     #$27 ; "'"
-        beq     LB884
-        dec     tmp13
-        beq     LB889
-        lda     KEYD
-        cmp     #CSR_DOWN
-        bne     LB877
-        sec
-        lda     zp2
-        sbc     #CHARS_PER_LINE
-        sta     zp2
-        bcs     LB845
-        dec     zp2 + 1
-        bne     LB845
-LB877:  clc
-        lda     zp2
-        adc     #CHARS_PER_LINE
-        sta     zp2
-        bcc     LB845
-        inc     zp2 + 1
-        bne     LB845
-LB884:  sec
-        sta     tmp12
-        rts
-
-LB889:  clc
-        rts
-
-LB88B:  lda     (zp2),y
-        iny
-        and     #$7F
-        cmp     #$20
-        bcs     LB896
-        ora     #$40
-LB896:  rts
-
-LB897:  cpy     #$16
-        bne     LB89D
-        sec
-        rts
-
-LB89D:  jsr     LB88B
-        cmp     #$20
-        beq     LB897
-        dey
-        jsr     LB8B1
-        sta     zp1 + 1
-        jsr     LB8B1
-        sta     zp1
-        clc
-        rts
-
-LB8B1:  jsr     LB88B
-        jsr     hex_digit_to_nybble
-        asl     a
-        asl     a
-        asl     a
-        asl     a
-        sta     tmp11
-        jsr     LB88B
-        jsr     hex_digit_to_nybble
-        ora     tmp11
-        rts
-
-LB8C8:  lda     #8
-add_a_to_zp1:
-        clc
-        adc     zp1
-        sta     zp1
-        bcc     LB8D3
-        inc     zp1 + 1
-LB8D3:  rts
-
-LB8D4:  lda     #$FF
-        sta     disable_f_keys
-LB8D9:
-.ifndef MACHINE_TED
-        lda     #$FF
-        sta     BLNSW
-        lda     BLNON
-        beq     LB8EB ; rts
-        lda     GDBLN
-        ldy     PNTR
-        sta     (PNT),y
-        lda     #0
-        sta     BLNON
-.endif
-LB8EB:  rts
-
-LB8EC:  lda     #8
-LB8EE:  sta     tmp14
-        sec
-        lda     zp1
-        sbc     tmp14
-        sta     zp1
-        bcs     LB8FD
-        dec     zp1 + 1
-LB8FD:  rts
-
-scroll_down:
-        ldx     #0
-        jsr     LE96C ; insert line at top of screen
-.ifdef MACHINE_C64
-        lda     #$94
-        sta     LDTB1
-        sta     LDTB1 + 1
-.endif
-.ifdef MACHINE_TED
-        lda BITABL
-        and #$BF ; clear bit 6
-        sta BITABL
-.endif
-        lda     #CSR_HOME
-        jmp     BSOUT
-
-LB90E:  lda     #16 ; number of bytes to scan backwards
-        sta     tmp13
-LB913:  sec
+@1:     sec
         lda     zp2
         sbc     tmp13
         sta     zp1
         lda     zp2 + 1
         sbc     #0
-        sta     zp1 + 1 ; look this many bytes back
+        sta     zp1 + 1
 :       jsr     decode_mnemo
+.if .defined(CPU_6502ILL)
+        cmp     #$24   ; 'KIL' mnemonic, unlikely a sign of synchronization
+        beq     @3
+.endif
         lda     num_asm_bytes
         jsr     sadd_a_to_zp1
-        jsr     check_end
+        jsr     check_end ; zp1 = zp2?
         beq     :+
         bcs     :-
-        dec     tmp13
-        bne     LB913
+@3:     dec     tmp13 ; no sync, try different start
+        bne     @1
+:       inc     num_asm_bytes
+        lda     num_asm_bytes
+;        adc     #$00
+        eor     #$FF
+@2:     jsr     sadd_a_to_zp1
+        rts
+
+
+dump_monitor_line:
+        ldx     tmp12
+        cpx     #':'
+        bne     :+
+        jsr     dump_hex_line
+:       cpx     #$1B ; screen code for [
+        bne     :+
+        jsr     dump_char_line
+:       cpx     #$1D ; screen code for ]
+        bne     :+
+        jsr     dump_sprite_line
+:       cpx     #$27 ; "'"
+        bne     :+
+        jsr     dump_ascii_line
+:       cpx     #','
+        bne     :+
+        jsr     dump_assembly_line
 :       rts
+
+.global scrolldown_monitor
+scrolldown_monitor:
+        bit     $02AB
+        bmi     @1
+        ; Find a line number
+:       dex
+        bmi     @xcs
+        lda     $D9,x ; high byte to pointer in screen ram
+        bpl     :-
+        jsr     read_mem_addr_monitor
+        bcs     :-   ; no line numer on botton row
+        jsr     advance_next
+
+@1:     ; We have the line to be shown in ($14), now do the scroll
+        lda     #$8D
+        jsr     $E716 ; shift+return, scrolls screen down
+        jsr     dump_monitor_line
+        clc
+        .byte $24 ; skip next instruction
+@xcs:   sec
+        rts
+
+.global scrollup_monitor
+scrollup_monitor:
+        bit     $02AB
+        bvs     @1
+:       inx
+        cpx     #25
+        beq     @xcs
+        lda     $D9,x
+        bpl     :-
+        jsr     read_mem_addr_monitor
+        bcs     :-
+@1:     jsr     retreat_prev
+        lda     zp1
+        pha
+        lda     zp1+1
+        pha
+        jsr     scroll_screen_up
+        jsr     $E566 ; cursor home
+        jsr     dump_monitor_line
+        pla
+        sta     zp1+1
+        pla
+        sta     zp1
+        clc
+        .byte $24 ; skip next instruction
+@xcs:   sec
+        rts
+
+;
+; Attempt to read a memory address inside the monitor
+;
+read_mem_addr_monitor:
+        ldy     $ECF0,x ; low bytes of screen line addresses
+        sty     TXTPTR
+        and     #3      ; Screen ram is only 4 pages
+        ora     $0288   ; Base address of screen
+        sta     TXTPTR + 1
+        ldy     #1
+        jsr     _lda_TXTPTR_indy
+        cmp     #':'
+        beq     @2
+        cmp     #','
+        beq     @2
+        cmp     #$1B ; screen code for [
+        beq     @2
+        cmp     #$1D ; screen code for ]
+        beq     @2
+        cmp     #$27 ; "'"
+        bne     @xcs
+@2:     sta     tmp12
+        iny
+@1:     cpy     #$16
+        beq     @xcs
+        jsr     get_digit
+        cmp     #$20
+        beq     @1
+        jsr     read_byte
+        sta     zp1+1
+        jsr     read_byte
+        sta     zp1
+        jsr     get_digit
+        cmp     #$20
+        bne     @1
+        clc
+        .byte $24 ; skip next instriction
+@xcs:   sec
+        rts
+
+get_digit:
+        jsr     _lda_TXTPTR_indy
+        and     #$7F
+        cmp     #$20
+        bcs     :+
+        ora     #$40
+:       rts
+
+read_byte:
+        jsr     get_digit
+        jsr     hex_digit_to_nybble
+        iny
+        asl     a
+        asl     a
+        asl     a
+        asl     a
+        sta     tmp11
+        jsr     get_digit
+        jsr     hex_digit_to_nybble
+        iny
+        ora     tmp11
+        rts
+
 
 ; ----------------------------------------------------------------
 ; assembler tables
@@ -3356,11 +3211,11 @@ close_2:
 to_dec:
         ldx     #'0'
         sec
-LBB64:  sbc     #10
-        bcc     LBB6B
+:       sbc     #10
+        bcc     :+
         inx
-        bcs     LBB64
-LBB6B:  adc     #'9' + 1
+        bcs     :-
+:       adc     #'9' + 1
         rts
 
 read_write_block:

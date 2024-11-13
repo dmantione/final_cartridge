@@ -39,7 +39,7 @@
 
 chrget                         = $0073
 basic_relink                   = $A533
-basic_search_line              = $A613
+basic_FNDLIN                   = $A613
 basic_set_TXTPTR_to_TXTTAB     = $A68E
 basic_list_print_non_token_byte =$A6F3
 basic_detokenize               = $A724
@@ -59,7 +59,6 @@ kernal_get_filename            = $E257
 kernal_basic_warmstart         = $E37B		; Kernal basic warm start entry
 kernel_print_startup_messages  = $E422
 kernel_keyboard_handler        = $EB42
-kernal_check_modifier_keys     = $EB48
 
 .segment        "romio1"
 ;
@@ -207,7 +206,8 @@ _kbd_handler:
         lda     $02A7
         beq     @1
         jmp     kernel_keyboard_handler ; LDA #$7F : STA $DC00 : RTS
-@1:     jsr     _enable_fcbank0
+@1:     lda     $9E00       ; current FC3 bank
+        jsr     _enable_fcbank0
         jmp     kbd_handler
 
 
@@ -372,7 +372,7 @@ _print_ax_int: ; $DF06
 .global _search_for_line
 _search_for_line: ; $DF0F
         jsr     _disable_fc3rom
-        jsr    basic_search_line
+        jsr    basic_FNDLIN
         jmp    enable_fcbank0_and_exit
 
 .global _CHRGET

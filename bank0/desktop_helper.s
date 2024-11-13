@@ -109,7 +109,7 @@ perform_operation_for_desktop:
 ; reads zero terminated disk name to $0200
 read_disk_name:
         jsr     cmd_channel_listen
-        bmi     zero_terminate ; XXX X is undefined here
+        bmi     zero_terminate
         jsr     UNLSTN
         ldx     #0
         jsr     init_read_disk_name
