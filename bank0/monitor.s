@@ -490,18 +490,16 @@ dump_ascii_line:
 dump_assembly_line:
         ldx     #','
 LAD4B:  jsr     print_dot_x
-        jsr     disassemble_line; XXX why not inline?
-        jsr     print_8_spaces
-        lda     num_asm_bytes
-        jmp     sadd_a_to_zp1
-
-disassemble_line:
         jsr     print_hex_16
         jsr     print_space
         jsr     decode_mnemo
         jsr     print_asm_bytes
         jsr     print_mnemo
-        jmp     print_operand
+        jsr     print_operand
+        jsr     print_8_spaces
+        lda     num_asm_bytes
+        jmp     sadd_a_to_zp1
+
 
 ; ----------------------------------------------------------------
 ; "[" - input character data
@@ -1913,8 +1911,8 @@ LB500:  sta     zp2 + 1
 
 ; get a 8 bit ASCII hex number from the user, return it in A
 get_hex_byte:
-        lda     #0
-        sta     tmp2 ; XXX not necessary
+;        lda     #0
+;        sta     tmp2 ; XXX not necessary
         jsr     basin_if_more
 get_hex_byte2:
         jsr     validate_hex_digit
@@ -3478,33 +3476,5 @@ LBD3F:  lda     FA
         cmp     #16 ; allow device numbers until 15
         bcc     LBD3E
         lda     #8
-LBD47:
-        bne     LBD3C
-
-
-        lda     zp3 ; XXX ???
-LBD4B:  ldy     ST
-        bne     LBD7D
-        cmp     #CR
-        beq     LBD57
-        cmp     #$8D
-        bne     LBD59
-LBD57:  lda     #$1F
-LBD59:  jsr     LE716 ; KERNAL: output character to screen
-        inc     INSRT
-        jsr     GETIN
-        cmp     #KEY_STOP
-        beq     LBD7D
-        cmp     #$20
-        bne     LBD6E
-LBD69:  jsr     GETIN
-        beq     LBD69
-LBD6E:  dex
-        bpl     LBD47 + 1 ; ??? XXX
-        jsr     IECIN
-        bne     LBD4B
-        lda     #CR
-        jsr     LE716 ; KERNAL: output character to screen
-        bne     LBD2D
-LBD7D:  jmp     LF646 ; CLOSE
+        bne     LBD3C ; always
 
