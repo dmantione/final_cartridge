@@ -106,8 +106,8 @@ shift_or_nothing:
         bcc     pass_to_kernal  ; Below F1
         cmp     #4
         bcs     pass_to_kernal  ; Higher than F7
-        cpy     $C5
-        beq     done
+        cpy     $C5 ; Key continously pressed?
+        php         ; Save result until we know it is not scrolling
         sty     $C5
         txa
         sta     $028E
@@ -121,8 +121,27 @@ shift_or_nothing:
         ldx     #$FF
         lda     CBINV+1
         cmp     #$02
-        bne     @ns
+        bne     @t
         ldx     #fkey_strings_monitor-fkey_strings_basic-1
+        ; F3 = 2, F5 = 3
+        tya
+        lsr     ; C = Distinction between F3/F5
+        eor     #$01 ; Z = F3 or F5
+        bne     @t
+        ;  Scroll with F3/F5
+        inc     $02A7
+        inc     $CC           ; Cursor off
+        bcs     :+
+        plp     ; Don't care whether key was continously pressed, ignore
+        lda     #0
+        sta     TBLX
+        jmp     scr_up
+:       plp     ; Don't care whether key was continously pressed, ignore
+        lda     #24
+        sta     TBLX
+        jmp     scr_dn
+@t:     plp     ; Key continously pressed?
+        beq     done
 @ns:    inx
         dey
         beq     @fcp
@@ -167,8 +186,9 @@ L92DD:
         cmp     #24
         bne     cursor_on_pass_kernal
         ; Scroll down
-        jsr     hide_cursor
 
+scr_dn:
+        jsr     hide_cursor
         ldx     #25
         ldy     CBINV+1
         cpy     #$02
@@ -195,6 +215,7 @@ crsr_up:
         lda     TBLX
         bne     cursor_on_pass_kernal
         ; Scroll up
+scr_up:
         jsr     hide_cursor
         ldx     #$FF
         ldy     CBINV+1
@@ -444,7 +465,7 @@ fkey_strings_basic:
         .byte   "DSAVE", '"', 0
         .byte   "DOS", '"', 0
 fkey_strings_monitor:
-        .byte   $8D, 0
+        .byte   $8D, "R", CR, 0
         .byte   0
         .byte   0
         .byte   $8D, $93, "@$",CR, 0
