@@ -65,6 +65,10 @@ _basic_warm_start := $800A
 ; from editor
 .import scroll_screen_up
 
+; from constants
+.import pow10lo
+.import pow10hi
+
 .global monitor
 
 .ifdef MACHINE_C64
@@ -744,18 +748,18 @@ LAF2B:  lda     #'E' ; send M-E to drive
 print_asm_bytes:
         pha
         ldy     #0
-LAF43:  cpy     num_asm_bytes
-        beq     LAF52
-        bcc     LAF52
+@3:     cpy     num_asm_bytes
+        beq     @2
+        bcc     @2
         jsr     print_space
         jsr     print_space
-        bcc     LAF58
-LAF52:  jsr     load_byte
+        bcc     @1
+@2:     jsr     load_byte
         jsr     print_hex_byte2
-LAF58:  jsr     print_space
+@1:     jsr     print_space
         iny
         cpy     #3
-        bne     LAF43
+        bne     @3
         pla
         rts
 
@@ -852,17 +856,17 @@ print_mnemo:
         lda     __mnemos2_RUN__,y
         sta     tmp8
         ldx     #3
-LAFBE:  lda     #0
+@1:     lda     #0
         ldy     #5
-LAFC2:  asl     tmp8
+:       asl     tmp8
         rol     tmp10
         rol     a
         dey
-        bne     LAFC2
+        bne     :-
         adc     #$3F
         jsr     BSOUT
         dex
-        bne     LAFBE
+        bne     @1
 .ifdef CPU_65C02
         ; add numeric suffix to RMB/SMB/BBR/BBS
         lda     tmp_opcode
@@ -3354,10 +3358,10 @@ LBC60:  sta     zp1 + 1
         sty     zp1
         inc     zp2 + 1
         tya
-        sbc     pow10lo2,x
+        sbc     pow10lo,x
         tay
         lda     zp1 + 1
-        sbc     pow10hi2,x
+        sbc     pow10hi,x
         bcs     LBC60
         lda     zp2 + 1
         cmp     zp2
@@ -3369,10 +3373,6 @@ LBC7D:  dex
         bpl     LBC58
         rts
 
-pow10lo2:
-        .byte <1, <10, <100, <1000, <10000
-pow10hi2:
-        .byte >1, >10, >100, >1000, >10000
 
 init_and_listen:
         pha

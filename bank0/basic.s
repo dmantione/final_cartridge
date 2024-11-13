@@ -78,6 +78,10 @@
 .import init_read_disk_name
 .import init_write_bam
 
+; from constants
+.import pow10lo
+.import pow10hi
+
 .global bar_flag
 .global evaluate_hex_expression
 .global new_mainloop
@@ -86,8 +90,6 @@
 ;.global list_line
 ;.global clear_right_from_cursor
 .global print_dec
-.global pow10lo
-.global pow10hi
 .global print_msg
 .global messages
 .global a_ready
@@ -531,11 +533,6 @@ L8443:  dex
         beq     L841C
         bpl     L841E
         rts
-
-pow10lo:
-        .byte   <1,<10,<100,<1000,<10000
-pow10hi:
-        .byte   >1,>10,>100,>1000,>10000
 
 ; Prints a the BASIC program line pointed to by ($14) with line number at cursor position
 ; Used by the screen editor for scrolling
