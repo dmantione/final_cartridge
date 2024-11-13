@@ -294,15 +294,20 @@ dump_registers2:
         jsr     print_hex_byte2 ; IRQ lo
         jsr     print_space
         lda     bank
-        bpl     :+
+        bpl     @3
+        cmp     #$81
+        beq     @vdc
+        ; drive
         lda     #'D'
-        jsr     BSOUT
-        lda     #'R'
-        jsr     BSOUT
-        bne     LABEB ; negative bank means drive ("DR")
-:       and     #$0F
+        ldx     #'R'
+        bne     @2
+@vdc:   lda     #'V'
+        ldx     #'D'
+@2:     jsr     print_a_x
+        bne     @1 ; negative bank means drive ("DR")
+@3:     and     #$0F
         jsr     print_hex_byte2 ; bank
-LABEB:  ldy     #$100 - 4
+@1:     ldy     #$100 - 4
 :       jsr     print_space
         lda     registers - ($100 - 4),y
         jsr     print_hex_byte2 ; registers...
