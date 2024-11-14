@@ -200,13 +200,15 @@ scr_dn:
         lda     #$80
         sta     $02AB
         ; Cursor on leftmost position
-        ldy     PNTR
-        beq     :+
-:       cpy     #40
-        beq     :+
-        dey
-        bne     :-
-:       sty     PNTR
+        lda     #24
+        jsr     set_cursor
+;        ldy     PNTR
+;        beq     @3
+;:       cpy     #40
+;        beq     @3
+;        dey
+;        bne     :-
+;@3:     sty     PNTR
         lda     #24
         sta     TBLX
         bne     cursor_on_done ; Always
@@ -227,7 +229,9 @@ scr_up:
 @2:     bcs     cursor_on_pass_kernal
         lda     #$40
         sta     $02AB
-        jsr     $E566 ; cursor home
+        lda     #0
+        jsr     set_cursor
+;        jsr     $E566 ; cursor home
         jmp     cursor_on_done
 
 hide_cursor:
@@ -238,6 +242,16 @@ hide_cursor:
         jsr     $EA18 ; put a character in the screen
 :       rts
 
+
+set_cursor:
+        sta     TBLX
+        ldy     #0
+        lda     CBINV+1
+        cmp     #$02
+        bne     :+
+        ldy     #7
+:       sty     PNTR
+        rts
 
 scrolldown_basic:
         bit     $02AB

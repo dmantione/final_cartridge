@@ -497,11 +497,12 @@ list_line:
 clear_right_from_cursor:
         lda     #' '
         ldy     PNTR
+        beq     @rts
 :       sta     ($D1),y
         cpy     $D5
         iny
         bcc     :-
-        rts
+@rts:   rts
 
 print_dec:
         stx     $C1
