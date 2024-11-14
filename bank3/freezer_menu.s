@@ -21,6 +21,7 @@
 .importzp colram_backup
 
 .import freezer_init
+.import __freezer_RUN__
 
       .macro MonoSpriteLine tribyte 
         .byte tribyte >> 16, ( tribyte >> 8) & 255,  tribyte & 255
@@ -1734,5 +1735,7 @@ freezer_nmi_handler:
 ;     CA65 does't each this
 ;      bne freezer_nmi_handler
 ;     Workaround:
-      bne * - ($FFF8 - $FFC0)
+      bne * - ($FFF8 - $FFD0)
       .addr freezer_nmi_handler, freezer_nmi_handler, freezer_irq_handler 
+
+.assert __freezer_RUN__ = $FFD0, error, "Address in source file must match address in linker cfg"
