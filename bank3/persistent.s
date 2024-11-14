@@ -152,7 +152,7 @@ ultimax_highlight_selected_menu:
       jmp  bank3_16kmode
 
 
-.segment "romio2l"
+.segment "romio2"
       .byte "REU REU REU REU REU REU REU U2CI"
 
 .global autofire_ldy_dc01
@@ -258,11 +258,4 @@ freezer_set_c64and_fc3_rts:
       sty  $01
       rts
 
-      .segment "romio2h"
-
-bank1_jump:
-      lda  #fcio_bank_1 | fcio_c64_crtrom_off |fcio_nmi_line ; goto_desktop
-      sta  fcio_reg                     ; Execution continues in bank 1
-reset_c64:
-      jmp  START                        ; Routine: Startup
 

@@ -15,7 +15,7 @@
 .import freezer_ultimax_exec_menu
 .import autofire_lda_dc01,autofire_ldx_dc01,autofire_ldy_dc01
 .import autofire_lda_dc00,autofire_ldx_dc00,autofire_ldy_dc00
-.import __romio2l_RUN__
+.import __romio2_RUN__
 .importzp __FREEZERZP_START__,__FREEZERZP_SIZE__
 .import __tape_backup_loader_LOAD__,__tape_backup_loader_SIZE__
 .import __disk_backup_loader_LOAD__,__disk_backup_loader_SIZE__
@@ -176,7 +176,7 @@ autofire_patch_code_4000:
 @3:   lda  autofire_traps,x             ; Load low byte of pointer to trap
       sta  (tmpptr_a),y                 ; Patch into instruction
       iny
-      lda  #>__romio2l_RUN__            ; $DFxx
+      lda  #>__romio2_RUN__             ; $DFxx
       sta  (tmpptr_a),y                 ; Patch into instruction
 @4:
       inc  tmpptr_a                     ; inc low byte of pointer
