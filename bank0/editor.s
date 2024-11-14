@@ -39,6 +39,10 @@ kbd_handler:
         ; visible.
         eor     #fcio_nmi_line|fcio_c64_16kcrtmode|fcio_bank_0
         php
+        lda     TXTPTR
+        pha
+        lda     TXTPTR+1
+        pha
         lda     $CC
         bne     pass_to_kernal ; if cursor is off, don't intervene
         ldy     $CB      ; Matrix code of key
@@ -80,6 +84,10 @@ ctrl_pressed:
         jmp     cursor_on_done
 
 pass_to_kernal:
+        pla
+        sta     TXTPTR+1
+        pla
+        sta     TXTPTR
         plp
         ; If FC3 ROM was not visible on entry, hide it, otherwise exit normally
         beq     :+ 
@@ -88,6 +96,10 @@ pass_to_kernal:
 
 done:   lda     #$7F
         sta     $DC00
+        pla
+        sta     TXTPTR+1
+        pla
+        sta     TXTPTR
         plp
         ; If FC3 ROM was not visible on entry, hide it, otherwise exit normally
         beq     :+
@@ -202,15 +214,6 @@ scr_dn:
         ; Cursor on leftmost position
         lda     #24
         jsr     set_cursor
-;        ldy     PNTR
-;        beq     @3
-;:       cpy     #40
-;        beq     @3
-;        dey
-;        bne     :-
-;@3:     sty     PNTR
-        lda     #24
-        sta     TBLX
         bne     cursor_on_done ; Always
 
 crsr_up:
@@ -246,8 +249,8 @@ hide_cursor:
 set_cursor:
         sta     TBLX
         ldy     #0
-        lda     CBINV+1
-        cmp     #$02
+        ldx     CBINV+1
+        cpx     #$02
         bne     :+
         ldy     #7
 :       sty     PNTR
