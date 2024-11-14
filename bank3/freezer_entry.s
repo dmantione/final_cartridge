@@ -64,6 +64,9 @@ freezer_mem_b_val:  .res 1
 
 .global freezer_init
 freezer_init:
+      ; Switch to 16K mode
+      ldx  #fcio_bank_3|fcio_c64_16kcrtmode
+      stx  fcio_reg
       ; Install loadram, routine at $0005
       ldx  #$06
 :     lda  loadram,x

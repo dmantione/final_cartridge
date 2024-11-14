@@ -260,11 +260,6 @@ freezer_set_c64and_fc3_rts:
 
       .segment "romio2h"
 
-.global t_freezer_init
-t_freezer_init:
-      stx  fcio_reg
-      jmp  freezer_init                 ; Continue freezer init in 16K crt mode
-
 bank1_jump:
       lda  #fcio_bank_1 | fcio_c64_crtrom_off |fcio_nmi_line ; goto_desktop
       sta  fcio_reg                     ; Execution continues in bank 1

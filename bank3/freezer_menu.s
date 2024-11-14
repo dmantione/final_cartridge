@@ -20,6 +20,8 @@
 .importzp spritexy_backup
 .importzp colram_backup
 
+.import freezer_init
+
       .macro MonoSpriteLine tribyte 
         .byte tribyte >> 16, ( tribyte >> 8) & 255,  tribyte & 255
       .endmacro
@@ -1722,8 +1724,9 @@ freezer_nmi_handler:
       lda  #$00
       sta  $DD0E                        ; Control register A of CIA #2
       sta  $DD0F                        ; Control register B of CIA #2
-      ldx  #fcio_bank_3|fcio_c64_16kcrtmode ; Stored info $DFFF
-      jmp  t_freezer_init
+      jmp  $8000
+;      ldx  #fcio_bank_3|fcio_c64_16kcrtmode ; Stored info $DFFF
+      jmp  freezer_init
 
 .segment "freezer_vectors"
 ;     We arrive here from the NMI handler in bank 0.
