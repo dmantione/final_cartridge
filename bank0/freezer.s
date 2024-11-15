@@ -18,7 +18,11 @@
 ; The freeze NMI handler starts execution in bank 0, then continues in bank 3.
 ;
 freezer:
-        sei
+;        sei ; not necessary, already cleared by cpu
+
+        ; it's rare, but you should be able to freeze a program that uses decimal mode
+        cld
+
         pha
         lda     $00
         pha
@@ -29,6 +33,7 @@ freezer:
         pha
         lda     #$37
         sta     $01 ; processor port defaut value
+
 
         ; Activate Ultimax mode and bank 3, NMI line stays active
         lda     #fcio_bank_3|fcio_c64_ultimaxmode
