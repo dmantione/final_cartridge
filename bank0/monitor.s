@@ -235,7 +235,10 @@ brk_entry2:
         sta     reg_pc_hi
         tsx
         stx     reg_s
-;        jsr     set_irq_vector
+        lda     CINV
+        sta     irq_lo
+        lda     CINV+1
+        sta     irq_hi
         jsr     set_irq_and_kbd_handlers
 .ifdef CART_FC3
         jsr     set_io_vectors
@@ -722,6 +725,10 @@ LAF03:  jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
         bmi     LAF2B ; drive
         jsr     uninstall_kbd_handler
+        lda     irq_lo
+        sta     CINV
+        lda     irq_hi
+        sta     CINV+1
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
