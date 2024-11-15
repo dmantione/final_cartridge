@@ -5,13 +5,12 @@
 .include "../../core/kernal.i"
 
 ;
-; This is the loader that loads and continues a Final Cartridge III disk
-; backup. It is stored in the "FC" file along with the contents of memory
-; til $0402. Most data is stored in a file "-FC" that stores the
+; This is the loader that loads and continues a Final Cartridge III tape
+; backup. After the loader, a file is stored on tape that stores the
 ; memory contents from $0403 to $fffd. This file is RLE compressed and
 ; needs decompression.
 ;.
-; Zeropage, stack, $0200..0402 and colour RAM is included in the loader
+; Zeropage, stack, $0200..0403 and colour RAM is included in the loader
 ; and starts right after code end.
 ;
 
@@ -21,11 +20,13 @@
 
 .segment "CODE"
 
-stored_zeropage   = __MAIN_LAST__ + $0000
-stored_stack      = __MAIN_LAST__ + $0100
-stored_colram     = __MAIN_LAST__ + $0200
-stored_vicregs    = __MAIN_LAST__ + $0400
-stored_0400       = __MAIN_LAST__ + $042f
+stored_zeropage   := __MAIN_LAST__ + $0000
+stored_stack      := __MAIN_LAST__ + $0100
+stored_colram     := __MAIN_LAST__ + $0200
+stored_vicregs    := __MAIN_LAST__ + $0400
+stored_0400       := __MAIN_LAST__ + $042f
+
+device            := $b0
 
 nr_vicregs        = $2f
 
@@ -33,6 +34,13 @@ start:
       sei
       ; Backup the file name of the loader
       ldy  #$00
+      lda  #':'
+      cmp  ($BB),y
+      bne  :+
+      dec  $B7
+      inc  $BB
+      bne  :+
+      inc  $BC
 :     lda  ($BB),y                      ; Pointer: current file name
       sta  filename_load+1,y
       iny
@@ -64,12 +72,11 @@ start:
 :     lda  #$80
       sta  $D402,x                      ; Pulse width low byte
       sta  $D403,x                      ; Pulse width high byte
+      sta  $D406,x                      ; Sustain/Release
       lda  #$21                         ; Sawtooth + voice on
       sta  $D404,x                      ; Voice control register
       lda  #$08
       sta  $D405,x                      ; Attack/Decay
-      lda  #$80
-      sta  $D406,x                      ; Sustain/Release
       txa
       sec
       sbc  #$07                         ; Subtract 7 for next voice
@@ -82,6 +89,15 @@ start:
       stx  $DC0E                        ; Control register A of CIA #1
 
       ;
+      ; The zero page that we are about to restore will contain a routine to
+      ; restore page $0300. It does contain an lda #8 to hardcode device 8.
+      ; The memory location of this lda #8 is the ideal place to backup
+      ; the current device number in order to make backups load from any
+      ; device.
+      lda $BA
+      sta stored_zeropage+device
+
+      ;
       ; Note that the freezer, upon entry, searches for two memory areas:
       ; one contains a backup of $0070..$00d6, the other the "restore"
       ; routine.
@@ -92,7 +108,7 @@ start:
       ; activate the restore routine that restores both memory areas and
       ; returns control to the program.
 
- @1:  ; Restore the zero page
+@1:   ; Restore the zero page
       lda  stored_zeropage,x
       sta  $00,x
       ; Restore the stack
@@ -113,9 +129,9 @@ start:
       dex
       bpl  :-
 
-      lda  #$0B                         ; Disable screen
-      sta  $D011                        ; $93 contains the backed up stack pointer
-      ldx  $93
+      lda  #$0B                           ; Disable screen
+      sta  $D011
+      ldx  $93                            ; $93 contains the backed up stack pointer
       txs
 
       ; Restore the colour ram
@@ -155,7 +171,7 @@ start:
       ; Install lowcode in page $0200
       sei
 :     lda  __LOWCODE_LOAD__,y
-      sta  $0200,y
+      sta  $0200,y                      ; INPUT buffer of BASIC
       iny
       bne  :-
 
@@ -210,7 +226,7 @@ start:
       jsr  IECOUT
       txa
       jsr  IECOUT
-      lda  #' '
+      lda  #32
       jsr  IECOUT
 :     lda  ($C3),y
       jsr  IECOUT
@@ -229,10 +245,8 @@ start:
       lda  #'e'
 send_Mx:
       pha
-      lda  #$08
-      jsr  LISTEN
       lda  #$6F                         ; Command channel 15
-      jsr  SECOND
+      jsr  device_listen_second
       lda  #'m'
       jsr  IECOUT
       lda  #'-'
@@ -329,13 +343,15 @@ read_track:
       sta  $36                          ; GCR byte counter
       ldy  #0
       sty  $C1                          ; Offset in buffer
-@3:   dec  $36                          ; Pointer: strings for auxiliari programs
+@3:   dec  $36
       sty  $1800                        ; DATA OUT low, CLOCK OUT low
       bne  :+                           ; More tuples to decode?
 
-      lda  $08                          ; Flag: search the quotation marks at the end of one string
-      cmp  $22                          ; Utility programs pointers area
+      lda  $08
+      cmp  $22                          ; Is the next sector to read on the same track?
       beq  @2
+      ; end job queue program, so the main loop of the drive code can issue a new command
+      ; for the next track
       jmp  $F418                        ; buffer status at $0001 to 01 (succesfull completion)
 
       ; A GCR tuple consists of 8 groups of 5 bits to be decoded to 8 * 4 bit.
@@ -350,7 +366,7 @@ read_track:
 
       lda  ($30),y                      ; Second 5 bits spread over byte 0 and 1
       and  #$07
-      sta  $5D                          ; Scratch for numeric operation
+      sta  $5D
       iny
       bne  :+
       iny
@@ -398,7 +414,7 @@ read_track:
       and  #$18
       sta  $56
       iny                               ; Byte 4
-      lda  ($30),y                      ; Pointer: BASIC starting arrays
+      lda  ($30),y
       rol
       rol
       rol
@@ -419,9 +435,9 @@ read_track:
 
       lda  ($30),y                      ; Seventh 5 bits
       and  #$1F
-      sta  $57                          ; Scratch for numeric operation
+      sta  $57
       iny
-      sty  $C1                          ; I/O starting address
+      sty  $C1
       lda  $36                          ; Pointer: strings for auxiliari programs
       cmp  #$41                         ; Last tuple?
       bne  :+                           ; No then skip
@@ -468,6 +484,8 @@ regvalue_lookup_23:
         .byte   0, 0, 0, 0
 .assert >* = >(regvalue_lookup_23-8), error, "Page boundary!"
 
+crc_correct:
+        .word $cea9
 
 .SEGMENT "LOWCODE"
 
@@ -553,8 +571,8 @@ receive_main_memory:
 
 :     lda  $96                          ; Receive but ignore sector slack
       beq  :+
-      jsr  receive_byte
-      jmp  :-
+      jsr  receive_byte                 ; Sets V=0
+      bvc  :-
 
       ; Compressed memory has been retrieved, now start decompression
 :     lda  #$34
@@ -667,10 +685,8 @@ farcode:
       bpl  :-
 
       ; Close the second file
-      lda  #$08
-      jsr  LISTEN
       lda  #$E0
-      jsr  SECOND
+      jsr  device_listen_second
       jsr  UNLSTN
 
       ; Reopen the second file
@@ -686,22 +702,24 @@ farcode:
       ; before writing memory to disk. This routine loads the $0300 page from disk and
       ; returns control to the program.
       ;
-      ; we jump to there with rts
-      lda  #$00
+      jmp $00a6
+
+.proc device_listen_second
       pha
-      lda  #$A5
-      pha
+      lda device
+      jsr LISTEN
+      pla
+      jsr SECOND
       rts
+.endproc
 
 .proc open_second_file
-      lda  #$08
-      jsr  LISTEN
       lda  #$F0                         ; $F0 = OPEN channel 0
-      jsr  SECOND
+      jsr  device_listen_second
 
       ; send the file name
       ldy  #0
-:     lda  filename,y                   ; Tape I/O buffer
+:     lda  filename,y
       beq  :+
       jsr  IECOUT
       iny
@@ -709,7 +727,7 @@ farcode:
 :     jsr  UNLSTN
 
       ; Talk the file
-      lda  #$08
+      lda  device
       jsr  TALK
       ldy  #$00
       lda  #$60
@@ -717,7 +735,7 @@ farcode:
 .endproc
 
 filename:
-      .byte "-1234567890123456"
+      .byte "-1234567890123456ABCD"
 
 filename_load = filename - __LOWCODE_RUN__ + __LOWCODE_LOAD__
 
