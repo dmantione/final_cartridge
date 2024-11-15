@@ -9,9 +9,11 @@
 .include "../core/fc3ioreg.i"
 .include "persistent.i"
 
-; from basic
+; from constants
 .import pow10lo
 .import pow10hi
+
+; from basic
 .import send_drive_command
 .import print_msg
 .import messages
@@ -34,6 +36,9 @@
 ; from printer
 .import set_io_vectors
 .import set_io_vectors_with_hidden_rom
+
+; from linker
+.import write_directory_back_to_disk
 
 .global load_and_run_program
 .global perform_operation_for_desktop
@@ -258,9 +263,9 @@ store_directory_byte:
 
 disk_operation_fallback:
         ; Write reordered directory back to disk
-        lda     #>($9200 - 1)
+        lda     #>(write_directory_back_to_disk - 1)
         pha
-        lda     #<($9200 - 1)
+        lda     #<(write_directory_back_to_disk - 1)
         pha
         lda     #fcio_nmi_line | fcio_bank_3
         jmp     _jmp_bank ; bank 3

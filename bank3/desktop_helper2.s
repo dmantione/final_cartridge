@@ -16,15 +16,15 @@
 
 .segment "desktop_helper_2"
 
-.global W9200
-W9200:
-      jsr  write_directory_back_to_disk
+.global write_directory_back_to_disk
+write_directory_back_to_disk:
+      jsr  write_directory_back_to_disk2
       lda  #fcio_nmi_line | fcio_bank_0
       jmp  _jmp_bank
 
 .global fill_loop
 
-write_directory_back_to_disk:
+write_directory_back_to_disk2:
       ; Fill $A000..$BFFF with #$00
       lda  #>$A000
       sta  $AD
