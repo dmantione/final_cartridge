@@ -81,22 +81,34 @@ call_pset_in_bank0:
       lda  #<pset
       pha
       bne  _enable_fcbank0 ; always taken
+
+.global _load_c1_rom_hidden
+_load_c1_rom_hidden:
+        sei
+        lda  #$35
+        sta  $01
+        lda  ($C1),y
+        jmp  unhide
+
 ;
 ; Do an "lda($AE),y" with ROMs disabled and interrupts off
 ;
 
 .global _load_ae_rom_hidden
-_load_ae_rom_hidden: ; $de20
+_load_ae_rom_hidden:
         sei
         lda  #$35
         sta  $01
         lda  ($AE),y
+unhide:
         pha
         lda  #$37
         sta  $01
         pla
         cli
         rts
+
+
 
 .global _freezer_upd_sprptr_16k
 _freezer_upd_sprptr_16k:

@@ -22,7 +22,13 @@ write_directory_back_to_disk:
       lda  #fcio_nmi_line | fcio_bank_0
       jmp  _jmp_bank
 
-.global fill_loop
+;
+; The desktop has created a list of directory entries to indicate
+; the desired order of the files on disk. Each directory entry consists
+; of two ASCIIZ strinfs. The first is the number of blocks in decimal,
+; the second the file name. All strings are directly concatenated after
+; each other.
+;
 
 write_directory_back_to_disk2:
       ; Fill $A000..$BFFF with #$00
@@ -69,7 +75,7 @@ fill_loop:
       stx  read_block+10
       sta  read_block+11
       lda  $AD
-      cmp  #$B0                         ; Do not read beyond $B000
+      cmp  #$C0                         ; Do not read beyond $C000
       bcc  :-
 close:
       jsr  close_chn2
@@ -82,45 +88,35 @@ directory_read_complete:
       ; The old directory is stored at $A000. Now build the new directory
       ; at $B000.
       ;
-      lda  #>$B000
-      sta  $C2
       lda  $0200
       sta  $C3
       lda  $0201
       sta  $C4
 
-      ; Count the number of dir entries
-      ldy  #$00
-      sty  $AE
-      sty  $0200
-      lda  #>$A000
-      sta  $AF
-      ldy  #$02                         ; Get file type
-@1:   jsr  _load_ae_rom_hidden
-      bpl  :+                           ; If slot not in use, skip.
-      inc  $0200                        ; Count a dir entry.
-:     jsr  next_dir_entry
-      bcc  @1                           ; Last dir entry?
-
-next_file:
       ; We search the entire directory for every file name, so start at $A000
       lda  #>$A000
+      sta  $C2
+      ldy  #$00
+      sty  $C1
+next_file:
+      lda  $C1
+      sta  $AE
+      lda  $C2
       sta  $AF
-      ldy  #<$A000
-      sty  $AE
       ; Y=0
+      ldy #0
       lda  ($C3),y
       tax
       bne  :+                           ; All files processed?
       jmp  write_dir_to_disk            ; Then write dir to disk.
-:     jsr  inc_c3c4_beyond_z
+:     jsr  inc_c3c4_beyond_z            ; Skip block count
       txa
       bmi  insert_line                  ; Do we need to insert a line?
-      dec  $0200
+;      dec  $0200
 process_dir_entry:
       ldy  #$02                         ; Get file type
       jsr  _load_ae_rom_hidden
-      bpl  entry_not_found
+      bpl  not_yet_found
       ; Adjust pointer to file name
       lda  #$05
       ora  $AE
@@ -131,7 +127,7 @@ process_dir_entry:
       beq  :+
       jsr  _load_ae_rom_hidden
       cmp  ($C3),y
-      bne  entry_not_found              ; File name not equal
+      bne  not_yet_found                ; File name not equal
       iny
       cpy  #$11                         ; If desktop passes too long file name (should not occur)
       bne  :-
@@ -140,29 +136,25 @@ process_dir_entry:
       beq  :+
       jsr  _load_ae_rom_hidden
       cmp  #$A0                         ; First character beyond file name must be white space ($A0)
-      bne  entry_not_found
+      bne  not_yet_found
 :     ; We found the file name in the directory
       iny
       tya
-      jsr  add_to_c3c4
-      ldy  #$00
+      jsr add_to_c3c4
       lda  $AE
-      and  #$F0                         ; Reset pointer to start of file entry
+      and  #$E0
       sta  $AE
-      ; Copy the entry to destination
-      lda  #$00
-      sta  ($C1),y
-      iny
-      sta  ($C1),y
-      iny
-:     jsr  _load_ae_rom_hidden
-      sta  ($C1),y
-      iny
-      cpy  #$20
-      bne  :-
+      cmp  $C1
+      bne  @s
+      lda  $AF
+      cmp  $C2
+      beq  @ns
+@s:
+      jsr swap_entries
+@ns:
 inc_dest_ptr:
       ; Increase destination pointer
-      tya
+      lda  #$20
       clc
       adc  $C1
       sta  $C1
@@ -172,17 +164,42 @@ inc_dest_ptr:
       cmp  #>$C000                      ; Destination buffer full?
       bcc  next_file
 no_space_left:
-@c:   jmp  close
+      jmp  close
 
-entry_not_found:
+not_yet_found:
       jsr  next_dir_entry
       bcs  no_space_left
       jmp  process_dir_entry
 
-.global next_dir_entry
+
+insert_line:
+      ldy  #$FF
+      jsr  inc_c3c4_beyond_z
+      ; Find an empty directory entry
+      ldy  #$02
+:     jsr  _load_ae_rom_hidden
+      bpl  :+
+      jsr  next_dir_entry
+      bcc  :-
+      ; No empty entry found, increase directory size by one sector
+      lda  $AD
+      cmp  #>$C000
+      bcs  no_space_left
+      inc  $AD
+      bcc  :- ; Always
+      ; Move the entry at ($AE) to the empty entry
+:     jsr  swap_entries
+      ; Write the line in to the destination entry
+      ldy  #$1F
+:     lda  dirline,y
+      sta  ($C1),y
+      dey
+      bpl  :-
+      bmi  inc_dest_ptr ; Always
+
 next_dir_entry:
       lda  $AE
-      and  #$F0
+      and  #$E0
       clc
       adc  #$20
       sta  $AE
@@ -192,20 +209,19 @@ next_dir_entry:
       cmp  $AD
       rts
 
-insert_line:
-      ldy  #$FF
-      jsr  inc_c3c4_beyond_z
-      ldy  #$00
-:     lda  dirline,y
+swap_entries:
+      ldy #31
+:     jsr  _load_ae_rom_hidden
+      pha
+      jsr  _load_c1_rom_hidden
+      sta  ($AE),y
+      pla
       sta  ($C1),y
-      iny
-      cpy  #$20
-      bne  :-
-      beq  inc_dest_ptr ; Always
+      dey
+      bpl :-
+      rts
 
 write_dir_to_disk:
-      lda  $0200
-      bne  no_space_left
       ; Start at sector 1
       lda  #'0'
       sta  write_block+10
@@ -214,18 +230,18 @@ write_dir_to_disk:
       lda  $C1
       bne  :+
       dec  $C2                          ; Prevent writing an empty sector
-:     lda  #<$B000
+:     lda  #<$A000
       sta  $AE
-      lda  #>$B000
+      lda  #>$A000
       sta  $AF
-      lda  #$02
+      lda  #$02                         ; Sector in directory track
       sta  $AC
 next_sector:
       ldy  #$00
       lda  $AF
       cmp  $C2
       bcs  :+
-      lda  #18
+      lda  #18                          ; Directory track
       sta  ($AE),y
       iny
       lda  $AC

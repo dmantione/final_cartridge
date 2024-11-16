@@ -7,6 +7,7 @@
 .import autofire_ldy_dc01
 .import _jmp_bank,_enable_fcbank0,_disable_fc3rom_set_01
 .import _load_ae_rom_hidden
+.import _load_c1_rom_hidden
 .import ultimax_draw_menu
 .import ultimax_highlight_selected_menu
 .import _freezer_upd_sprptr_16k
