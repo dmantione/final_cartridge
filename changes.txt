@@ -1,0 +1,309 @@
+
+Items 1-13 were added in the FC3101% firmware version 1.
+Items 13-22 were added in the FC3101% firmware version 2.
+
+1. BASIC as default
+-------------------
+
+Back in the day, the FC3 desktop was visionary, and it was understandable
+the developers of the FC3 did boot to desktop by default, but it never became
+the common use case to switch on the C64 and start using the desktop. The first
+thing you did want to do is go to BASIC.
+
+This firmware acknowledges this and boots to BASIC by default.
+
+Perhaps needless to say:
+- RUN/STOP during reset still forces the computer to start BASIC
+- C= during reset still forces the computer to start the desktop
+
+
+2. Speed impact on BASIC
+------------------------
+
+The Final Cartridge III has a significant speed impact on the execution speed
+of BASIC programs, due to the overhead of bank switching. This speed impact
+has been significantly reduced.
+
+
+3. REU registers
+----------------
+
+The Ram Expansion Unit (REU) uses memory addresses $DF00..$DF1F. These
+addresses are now no longer used by the Final Cartridge III, allowing
+the use of both at the same time. This is for example possible with the
+1541 Ultimate II.
+
+There is a bit set in the .crt file that makes the 1541 Ultimate II unlock
+the REU.
+
+
+4. Fastloader 1571 compatibility
+--------------------------------
+
+The fastloader has improved compatibility with the 1571 floppy drive. If you
+are using JiffyDOS to use double sided diskettes in the 1571 1MHz mode,
+the fastloader now works fine with them.
+
+And if you switch your 1571 into 2MHz mode, the fastloader adjusts itself
+and uses 2MHz compliant serial code. 2MHz mode sometimes makes the fastloader
+even faster, depending on the situation.
+
+A CRC collision has been created in order to maintain SD2IEC compatibility.
+SD2IEC author Ingo Korb has communicated that he plans to change the
+fastloader detection inside the SD2IEC and therefore, future SD2IEC firmwares
+may break compatibility. For the time being, it should work though.
+
+
+5. Undocumented opcodes
+-----------------------
+
+The monitor now understands undocumented 6502 opcodes. This feature was written
+by Michael Steil 
+
+
+6. Decimal operands
+-------------------
+
+While just about any assembler accepts decimal numbers in operands, to my
+knowledge, there doesn't exist a single monitor for the C64 that accepts:
+
+AC000 LDA #0
+
+Well, the FC3's monitor no longer has this relic of the stone age and accepts
+decimal operands just fine. Decimal operands are automatically converted to
+hex, so if you type the above command, the result on the screen is:
+
+.AC000 A9 00    LDA #$00
+
+Note that for hexadecimal operators, the monitor determines the length for the
+operand based on the number of digits, i.e.:
+
+AC0000 LDA $02
+AC0000 LDA $0002
+
+... result in two different opcodes. This is why you cannot type LDA #$0.
+If you use a decimal number, the monitor will try to automatically use the
+best opcode, in other words:
+
+AC000 LDA 2
+AC002 LDA 32768
+
+... results in:
+
+.AC000 A5 02    LDA $02
+.AC002 AD 00 80 LDA $8000
+
+So, if you need manual control, use hexadecimal.
+
+For byte sized operands range checking is performed; the following is rejected:
+
+AC000 LDA #256
+
+
+7. :;<=>?@ are no longer valid hex digits in the monitor
+--------------------------------------------------------
+
+The parser in the monitor takes many shortcuts. In my opinion, the shortcut
+that makes the monitor interpret the characters :;<=>?@ as valid hexadecimal
+digits cuts a corner too sharp and it is desired that the monitor checks syntax
+a bit more strictly. These characters are no longer accepted as digits.
+
+
+8. Monitor B command
+---------------------
+
+Because the FC3 hardware design allows cartridges up to 256KB and clones with
+with 256KB of ROM are common, the undocumented B command in the monitor (that
+allows you to inspect FC3 ROM memory), has been modified to accept 16 different
+banks. The bank number is hexademical, in order words, enter:
+
+.BF
+
+... to inspect bank 15. On a cartridge with 64KB ROM, bank 0..3 are mirrored
+in 4..7, 8..B and C..F.
+
+
+9. Devices beyond 8 and 9
+-------------------------
+
+DOS"10
+
+... now does what you expect and switches to device 10. Likewise the monitor
+now also supports:
+
+@#10
+
+(this syntax is the same as JiffyDOS)
+
+Device numbers up to 15 are accepted. Note the device number is decimal, unlike
+other commands in the monitor. This has been done to avoid confusion with
+JiffyDOS and because the # command is already used in the monitor for entering
+decimal numbers.
+
+
+10. Backup loader
+-----------------
+
+Disk backups created from the freezer would only load from device 8. They
+now load from any device. They are compatible with a double sided 1571
+diskette in 1MHz mode (JiffyDos), but not yet with a 1571 in 2MHz mode.
+
+If you have existing backups that you would like to upgrade, you can
+do as follows:
+
+MON
+.L"FC",09
+LOADING FROM $0801 TO $1075
+.@R:FC-OLD=FC
+.B3
+.T 86E9 8B2A 0801
+.S"FC",09,0801,1075
+SAVING "FC"
+
+Test wether the backup works, it should now load from any device number.
+If succesfull, you can delete the old loader file "FC-OLD".
+
+
+11. ARE YOU SURE (Y/N)
+----------------------
+
+If type type DESKTOP, the ARE YOUR SURE (Y/N) prompt no longer appears if
+there is no BASIC program in memory.
+
+
+12. DLOAD loads * instead of :*
+-------------------------------
+
+If you create a backup with the FC3, it will create two files: FC and -FC.
+The FC file is the loader and will try to automatically determine the name
+of the second file, so you can rename the files. The loader does this
+simply by placing a - in front of the filename.
+
+If you use the DLOAD command without any filename, such as when pressing F5
+when you are not in front of a directory, the DLOAD command will try to load
+file name :*. This is fully equivalent to * and will load the first file on
+diskette.
+
+However combining this, this means that if you try to use DLOAD without any
+file name to load a backup, the backup loader will use -:* as the second
+file name and this is not going to work, loading will crash.
+
+While the best solution would be to fix the backup loader, this won't be
+possible until source code of bank 3 of the FC3 has been reconstructed.
+Therefore, for now DLOAD has been modified to load * rather than :*,
+removing the use case when this problem happens.
+
+
+13. JiffyDOS compatible tokenizer
+---------------------------------
+
+JiffyDOS is very important in 21th century usage of the Commodore 64. Luckily
+the Final Cartridge 3 works well in combination with JiffyDOS. However, many
+JiffyDOS commands such as /* don't work if the FC3 is plugged in, instead
+of *, apparently a garbage file name is trying to be loaded.
+
+This is a JiffyDOS problem and not an FC3 problem. The reason this problem
+occurs is that many of the characters used by JiffyDOS are BASIC tokens and
+will normally be tokenized. To prevent this, JiffyDOS hooks the BASIC
+tokenizer and prevents that under certain circumstances, these characters
+get tokenized.
+
+Any BASIC extension will hook the BASIC tokenizer, and therefore any BASIC
+extension will break JiffyDOS' solution by simply installing itself.
+
+Recognizing the importance of JiffyDOS, I have added the special JiffyDOS
+checks inside the FC3 tokenizer, which means that JiffyDOS commands will no
+longer be tokenized and work well when the FC3 is plugged in.
+
+
+14. Tape speeder deactivates if KERNAL does not support tape
+------------------------------------------------------------
+
+Many Commodore 64s nowadays run a KERNAL that doesn't support tape drives.
+The tape speeder now does a check if the KERNAL supports tape and deactivates
+itself if there is no tape support. Device 7 is then passed to the serial
+port just like it is done when no FCIII is inserted.
+
+
+15. VDC monitor
+---------------
+
+Type "OV" in the monitor to inspect the memory of the VDC of your Commodore
+128. All monitor commands that view and/or modify memory will have effect
+on VDC memory, Type "O" to go back to C64 memory.
+
+
+16. Unified screen editor for BASIC and monitor
+-----------------------------------------------
+
+BASIC and the monitor now use the same code for the screen editor extensions.
+This makes the additional hotkeys that the FC3 adds to BASIC also available in
+the monitor, for example CTRL+HOME to move the cursos to the left-bottom corner
+of the screen, CRTL+DEL to clear the current line right from the cursor or
+CTRL+RETURN for print-screen.
+
+The change also makes scrolling inside the monitor faster.
+
+Lastly, the change allows for a full table of function keys, so more function
+keys do something:
+
+F1 - R
+F3 - Scroll up (unchanged)
+F5 - Scroll down (unchanged)
+F7 - @$
+F2 - X
+F4 - unassigned
+F6 - unassigned
+F8 - @
+
+
+17. Scroll-up bug fixed
+-----------------------
+
+In BASIC, if a line was exactly 80 characters long, the next line on the screen
+would be cleared when scrolling up. This would hide a line of the program.
+This bug has been fixed.
+
+
+18. Monitor restores BRK vector
+-------------------------------
+
+A quite serious bug in the original FC3 has been fixed: The monitor did not
+restore the BRK vector on exit. Since the BRK vector points to the KERNAL
+input buffer, a BRK would execute nonsense code. The bug wasn't that noticable,
+since you normally do not execute BRK instructions.
+
+
+19. Freezer clears decimal mode
+-------------------------------
+
+The freezer did not take into account decimal mode when freezing. This bug has
+been fixed.
+
+
+20. Freezer appears faster
+--------------------------
+
+The code that searches for memory when the freezer has been invoked has been
+optimized, which means that the freezer menu shows quite a bit more quickly.
+
+
+21. Directory write-back rewritten
+----------------------------------
+
+The code that wrote a directory back to disk after sorting was using two buffers
+of 4KB in size. The first buffer did contain the original order, and from this
+buffer a second buffer was created in the new order. This algorithm works, but
+a directory can be more than 4KB in size, especially as we want to support 1581
+drives at a later date.
+
+This code has been rewritten to use a single 8KB buffer where entries are
+swapped within the buffer to get to the desired order.
+
+
+22. 154x/157x check
+-------------------
+
+The directory writeback code now does not work on 1581 and other devices, the
+directory is now only written if a 154x or 158x is detected.
+
