@@ -30,9 +30,24 @@ write_directory_back_to_disk:
 ; each other.
 ;
 
+jmp_errexit:
+      jmp errexit
+
 write_directory_back_to_disk2:
+      ; Check for compatible drive
+      jsr read_drive_identification
+      lda #'7'  ; Status code '73'
+      cmp $0202
+      bne jmp_errexit
+      lda #'5'  ; From 1541
+      cmp $0213
+      bne jmp_errexit
+      lda #'4'  ; From 154x
+      beq :+
+      lda #'7'  ; From 157x
+      bne jmp_errexit
       ; Fill $A000..$BFFF with #$00
-      lda  #>$A000
+:     lda  #>$A000
       sta  $AD
       ldx  #$20 ; Fill $2000 bytes
       lda  #$00
@@ -79,6 +94,7 @@ fill_loop:
       bcc  :-
 close:
       jsr  close_chn2
+errexit:
       lda  #$80                         ; DEVICE NOT PRESENT ERROR
       sta  $90                          ; Statusbyte ST of I/O KERNAL
       rts
@@ -220,6 +236,22 @@ swap_entries:
       dey
       bpl :-
       rts
+
+inc_c3c4_beyond_z:
+      ; Search for a 0 byte
+:     iny
+      lda  ($C3),y
+      bne  :-
+      iny
+      tya
+add_to_c3c4:
+      ; Add the number of bytes to $C3/$C4
+      clc
+      adc  $C3
+      sta  $C3
+      bcc  :+
+      inc  $C4
+:     rts
 
 write_dir_to_disk:
       ; Start at sector 1
@@ -400,7 +432,7 @@ send_seek_0:
       .byte $2c
 send_seek_72:
       ldx  #<(seek_72 - __diredit_cmds_RUN__)
-      lda  #$6F                        ; Listen channel 15
+      lda  #$6F                         ; Listen channel 15
       jsr  listen_second
 :     lda  __diredit_cmds_RUN__,x
       beq  :+
@@ -409,16 +441,8 @@ send_seek_72:
       bne  :-
 :     jsr  UNLSTN
       ; Check for error omn cmd channel 15
-      lda  #$6F
-      jsr  talk_second
-      jsr  IECIN
-      pha
-:     cmp  #$0D
-      beq  :+
-      jsr  IECIN
-      bne  :-
-:     jsr  UNTALK
-      pla
+      jsr  read_drive_status
+      lda  $0202
       cmp  #$30
       beq  _rts2
 except_exit:
@@ -427,21 +451,29 @@ except_exit:
       pla
       jmp  close
 
-inc_c3c4_beyond_z:
-      ; Search for a 0 byte
-:     iny
-      lda  ($C3),y
-      bne  :-
+read_drive_identification:
+      lda #$6F
+      jsr listen_second
+      lda #'U'
+      jsr IECOUT
+      lda #'I'
+      jsr IECOUT
+      jsr UNLSTN
+      ; fall through
+
+read_drive_status:
+      lda #$6F
+      jsr talk_second
+      ldy #0
+:     jsr IECIN
+      cmp #$0D
+      sta $0202,y
+      beq :+
       iny
-      tya
-add_to_c3c4:
-      ; Add the number of bytes to $C3/$C4
-      clc
-      adc  $C3
-      sta  $C3
-      bcc  _rts2
-      inc  $C4
-_rts2: rts
+      cpy #$40 ; Avoid buffer overflow
+      bne :-
+:     jmp UNTALK
+
 
 ;
 ; Convert a nibble (actually a number 0..19) to ASCII with fixed with.
@@ -458,8 +490,10 @@ _rts2: rts
       inx
       sbc  #$0A
 :     ora  #'0'
-      rts
+r:    rts
 .endproc
+
+_rts2 = nibble2ascii::r
 
 dirline:
       .byte $00, $00, $80, $12, $00, '-', '-', '-' 
