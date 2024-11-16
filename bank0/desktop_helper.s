@@ -182,38 +182,37 @@ read_directory:
         sta     SA
         jsr     talk_second
         ldx     #6
-L95FA:  jsr     iecin_or_ret
+:       jsr     iecin_or_ret
         dex
-        bne     L95FA ; skip 6 bytes
-        beq     L9612
-L9602:  jsr     iecin_or_ret
+        bne     :- ; skip 6 bytes
+        beq     @1
+@l:     jsr     iecin_or_ret
         jsr     iecin_or_ret
         jsr     iecin_or_ret
         tax
         jsr     iecin_or_ret
         jsr     decode_decimal
-L9612:  jsr     iecin_or_ret
+@1:     jsr     iecin_or_ret
         cmp     #'"'
-        bne     L9612 ; skip until quote
-L9619:  jsr     iecin_or_ret
+        bne     @1 ; skip until quote
+:       jsr     iecin_or_ret
         cmp     #'"'
-        beq     L9626
+        beq     :+
         jsr     store_directory_byte
-        jmp     L9619 ; loop
+        bne     :- ; always, loop
 
-L9626:  jsr     terminate_directory_name
-L9629:  jsr     iecin_or_ret
+:       jsr     terminate_directory_name
+:       jsr     iecin_or_ret
         cmp     #0
-        bne     L9629
-        beq     L9602 ; always; loop
+        bne     :-
+        beq     @l ; always; loop
 
 iecin_or_ret:
         jsr     IECIN
         ldy     ST
-        bne     L963A
+        bne     @e
         rts
-
-L963A:  pla
+@e:     pla
         pla
         jsr     terminate_directory_name
         jsr     $F646 ; close file
@@ -225,13 +224,13 @@ decode_decimal:
         lda     #$31
         sta     $C3
         ldx     #4
-L964F:  dec     $C3
-L9651:  lda     #$2F
+@1:     dec     $C3
+@2:     lda     #$2F
         sta     $C4
         sec
         ldy     $C1
         .byte   $2C
-L9659:  sta     $C2
+:       sta     $C2
         sty     $C1
         inc     $C4
         tya
@@ -239,27 +238,24 @@ L9659:  sta     $C2
         tay
         lda     $C2
         sbc     pow10hi,x
-        bcs     L9659
+        bcs     :-
         lda     $C4
         cmp     $C3
-        beq     L9676
+        beq     :+
         jsr     store_directory_byte
         dec     $C3
-L9676:  dex
-        beq     L964F
-        bpl     L9651
-;        jmp     terminate_directory_name ; XXX redundant
+:       dex
+        beq     @1
+        bpl     @2
 terminate_directory_name:
         lda     #0
 store_directory_byte:
-;        sty     $AE
         ldy     #0
         sta     ($AC),y
         inc     $AC
         bne     :+
         inc     $AD
-:;       ldy     $AE
-        rts
+:       rts
 
 disk_operation_fallback:
         ; Write reordered directory back to disk
