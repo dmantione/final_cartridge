@@ -5,6 +5,8 @@
 ; this library code using cross-bank calls. It also calls this to
 ; start a program in BASIC mode.
 
+.linecont +
+
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
 .include "persistent.i"
@@ -44,6 +46,34 @@
 .global perform_operation_for_desktop
 
 .segment "desktop_helper"
+
+perform_operation_for_desktop:
+        tya
+        pha     ; bank to return to
+        lda     desktop_operations_h-1,x
+        pha
+        lda     desktop_operations_l-1,x
+        pha
+        rts
+
+.define desktop_operations \
+        read_directory - 1, \
+        send_drive_command_at_0200 - 1, \
+        read_cmd_channel - 1,  \
+        read_disk_name - 1, \
+        reset_load_and_run - 1, \
+        0, \
+        0, \
+        0, \
+        0, \
+        0, \
+        set_printer_output - 1, \
+        print_character - 1,  \
+        reset_printer_output - 1, \
+        write_dir_back_b3
+
+desktop_operations_l: .lobytes desktop_operations
+desktop_operations_h: .hibytes desktop_operations
 
 reset_load_and_run:
         sei
@@ -96,20 +126,6 @@ L953D:  sty     $B7
         sta     NDX
         jmp     $E16F ; LOAD
 
-perform_operation_for_desktop:
-        tya
-        pha ; bank to return to
-        cpx     #1
-        beq     read_directory
-        cpx     #2
-        beq     send_drive_command_at_0200
-        cpx     #3
-        beq     read_cmd_channel
-        cpx     #4
-        beq     read_disk_name
-        cpx     #5
-        beq     reset_load_and_run
-        jmp    pofd_part2
 
 ; reads zero terminated disk name to $0200
 read_disk_name:
@@ -218,6 +234,44 @@ iecin_or_ret:
         jsr     $F646 ; close file
         jmp     jmp_bank_from_stack
 
+
+write_dir_back_b3:
+        ; Write reordered directory back to disk
+        lda     #>(write_directory_back_to_disk - 1)
+        pha
+        lda     #<(write_directory_back_to_disk - 1)
+        pha
+        lda     #fcio_nmi_line | fcio_bank_3
+        jmp     _jmp_bank ; bank 3
+
+reset_printer_output:
+        lda     #$0D ; CR
+        jsr     BSOUT
+        jsr     CLALL
+        lda     #1
+        jsr     CLOSE
+        jsr     set_io_vectors_with_hidden_rom
+        jmp     jmp_bank_from_stack
+
+set_printer_output:
+        jsr     set_io_vectors
+        lda     #1 ; LA
+        ldy     #7 ; secondary address
+        ldx     #4 ; printer
+        jsr     SETLFS
+        lda     #0
+        jsr     SETNAM
+        jsr     OPEN
+        ldx     #1
+        jsr     CKOUT
+        jmp     jmp_bank_from_stack
+
+print_character:
+        lda     $0200
+        jsr     BSOUT
+        jmp     jmp_bank_from_stack
+
+
 decode_decimal:
         stx     $C1
         sta     $C2
@@ -256,50 +310,3 @@ store_directory_byte:
         bne     :+
         inc     $AD
 :       rts
-
-disk_operation_fallback:
-        ; Write reordered directory back to disk
-        lda     #>(write_directory_back_to_disk - 1)
-        pha
-        lda     #<(write_directory_back_to_disk - 1)
-        pha
-        lda     #fcio_nmi_line | fcio_bank_3
-        jmp     _jmp_bank ; bank 3
-
-pofd_part2:
-        cpx     #11
-        beq     set_printer_output
-        cpx     #12
-        beq     print_character
-        cpx     #13
-        beq     reset_printer_output
-        jsr     disk_operation_fallback
-        jmp     jmp_bank_from_stack
-
-reset_printer_output:
-        lda     #$0D ; CR
-        jsr     BSOUT
-        jsr     CLALL
-        lda     #1
-        jsr     CLOSE
-        jsr     set_io_vectors_with_hidden_rom
-        jmp     jmp_bank_from_stack
-
-set_printer_output:
-        jsr     set_io_vectors
-        lda     #1 ; LA
-        ldy     #7 ; secondary address
-        ldx     #4 ; printer
-        jsr     SETLFS
-        lda     #0
-        jsr     SETNAM
-        jsr     OPEN
-        ldx     #1
-        jsr     CKOUT
-        jmp     jmp_bank_from_stack
-
-print_character:
-        lda     $0200
-        jsr     BSOUT
-        jmp     jmp_bank_from_stack
-
