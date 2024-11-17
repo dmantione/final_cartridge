@@ -15,7 +15,7 @@
 
 L0110           := $0110
 
-.segment "speeder_a1"
+.segment "speeder_serial"
 
 send_byte:
         pha
@@ -125,7 +125,7 @@ receive_4_bytes:
 .assert >* = >@ntsc, error, "Page boundary!"
         rts
 
-.segment "speeder_a2"
+.segment "speeder_a"
 
 iec_load:
         jmp     $F530 ; IEC LOAD - used in the error case

@@ -11,9 +11,6 @@
 .import transfer_code_to_drive
 
 .global fast_format
-.global init_read_disk_name
-.global init_write_bam
-.global unlisten_e2
 
 .segment "fast_format"
 
@@ -32,47 +29,6 @@ fast_format:
         lda     #>fast_format_drive_code_entry
         jmp     IECOUT
 
-init_read_disk_name:
-        lda     #$F2
-        jsr     listen_second
-        lda     #'#'
-        jsr     IECOUT
-        jsr     UNLSTN
-        ldy     #drive_cmd_u1 - drive_cmds
-        jsr     send_drive_cmd ; send "U1:2 0 18 0", block read of BAM
-        jsr     check_iec_error
-        bne     unlisten_e2 ; error
-        ldy     #drive_cmd_bp - drive_cmds
-        jsr     send_drive_cmd ; send "B-P 2 144", read name
-        lda     #0
-        rts
-
-init_write_bam:
-        ldy     #drive_cmd_u2 - drive_cmds
-        jsr     send_drive_cmd ; send "U2:2 0 18 0", block write of BAM
-unlisten_e2:
-        lda     #$E2
-        jsr     listen_second
-        jsr     UNLSTN
-        lda     #1
-        rts
-
-send_drive_cmd:
-        jsr     cmd_channel_listen
-:       lda     drive_cmds,y
-        beq     @done
-        jsr     IECOUT
-        iny
-        bne     :-
-@done:  jmp     UNLSTN
-
-drive_cmds:
-drive_cmd_u1:
-        .byte   "U1:2 0 18 0", 0
-drive_cmd_bp:
-        .byte   "B-P 2 144", 0
-drive_cmd_u2:
-        .byte   "U2:2 0 18 0", 0
 
 ; ----------------------------------------------------------------
 
