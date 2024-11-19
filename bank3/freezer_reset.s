@@ -11,8 +11,10 @@
 .include "persistent.i"
 
 .import _jmp_bank,_enable_fcbank0,_disable_fc3rom_set_01
-.import monitor
+.import monitor_frozen
 .import freezer_screenshot_prepare
+
+.importzp tmpvar1,tmpptr_a
 
 .segment "freezer_monitor"
 
@@ -20,7 +22,12 @@ init_load_and_basic_vectors = $8021
 
 .global freezer_goto_monitor
 freezer_goto_monitor:
-      ldx  #$FF
+      jsr  detect_c128
+      bcc  :+
+      tsx
+      stx  tmpvar1
+      jsr  backup_to_vdc
+:     ldx  #$FF
       txs
       jsr  IOINIT_direct
       jsr  RESTOR_direct
@@ -36,15 +43,88 @@ freezer_goto_monitor:
       jsr  CINT_direct
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
-      lda  #>(monitor-1)
+      jsr  detect_c128
+      lda  #$01                         ; Entry reason
+      bcc  :+
+      lda  #$41
+:     pha
+      lda  #>(monitor_frozen-1)
       pha
-      lda  #<(monitor-1)
-      pha
-      lda  #>(init_load_and_basic_vectors-1)
-      pha
-      lda  #<(init_load_and_basic_vectors-1)
+      lda  #<(monitor_frozen-1)
       pha
       jmp  _enable_fcbank0
+
+
+detect_c128:
+      clc
+      lda  #$fe
+      sta  $d02f
+      sta  $d030
+      eor  $d02f
+      eor  $d030
+      eor  #$fe
+      bne  @noc128
+      ; A=0
+      sta  $d02f
+      sta  $d030
+      eor  $d02f
+      eor  $d030
+      eor  #$04
+      bne  @noc128
+      sec
+@noc128:
+      rts
+
+; stores a byte in A into VDC register X
+vdc_reg_store:
+      ldy     #63 ; VDC should have time for processing at least once per
+                  ; scanline, this is multiple scanlines in cycles, so
+                  ; should be enough.
+      stx     $d600
+:     dey
+      beq     @error
+      bit     $d600
+      bpl     :-
+      sta     $d601
+@error:
+      rts
+
+backup_to_vdc:
+        ; Backup $D800..$DBFF to $F400..$F7FF in VDC
+      lda     #$F4
+      ldx     #$12
+      jsr     vdc_reg_store
+      lda     #$00
+      inx
+      jsr     vdc_reg_store
+      sta     tmpptr_a
+      lda     #$D8
+      sta     tmpptr_a+1
+      ldx     #$1F
+:     ldy     #$00
+      lda     (tmpptr_a),y
+      jsr     vdc_reg_store
+      inc    tmpptr_a
+      bne     :-
+      inc    tmpptr_a+1
+      lda    tmpptr_a+1
+      cmp    #$DC
+      bne    :-
+
+      ; Backup $0000..$07FF to $F800..$FFFF in VDC
+      lda     #$00
+      sta     tmpptr_a+1
+      ldx     #$1F
+:     ldy     #$00
+      lda     (tmpptr_a),y
+      jsr     vdc_reg_store
+      inc    tmpptr_a
+      bne     :-
+      inc    tmpptr_a+1
+      lda    tmpptr_a+1
+      cmp    #$08
+      bne    :-
+      rts
 
 
 .segment "freezer_reset"

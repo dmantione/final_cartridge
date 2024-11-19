@@ -37,6 +37,7 @@
 
 ; from monitor
 .import monitor
+.importzp et_call
 
 ; from drive
 .import listen_6F_or_error
@@ -1276,6 +1277,7 @@ L89BC:  rts
 ; "MON" Command - enter machine code monitor
 ; ----------------------------------------------------------------
 MON:    bne     L89BC
+        lda     #et_call
         jmp     monitor
 
 ; ----------------------------------------------------------------

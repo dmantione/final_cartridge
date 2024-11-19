@@ -50,6 +50,9 @@ _basic_warm_start := $800A
 .endif
 .endif
 
+; from init
+.import init_load_and_basic_vectors
+
 ; from vectors
 .import jfast_format
 .import print_dir
@@ -69,7 +72,11 @@ _basic_warm_start := $800A
 .import pow10lo
 .import pow10hi
 
+; from linker
+.import restart_freezer
+
 .global monitor
+.global monitor_frozen
 
 .ifdef MACHINE_C64
 zp1             := $C1
@@ -124,6 +131,13 @@ tmp1            := ram_code_end + 18
 tmp2            := ram_code_end + 19
 cartridge_bank  := ram_code_end + 20
 
+.global et_brk,et_call,et_monitor_vdc,et_monitor_reu
+
+et_brk          := $00
+et_call         := $01
+et_monitor_vdc  := $40
+et_monitor_reu  := $80
+
 .segment "monitor_a"
 
 .import __monitor_ram_code_LOAD__
@@ -135,7 +149,12 @@ cartridge_bank  := ram_code_end + 20
 .import __asmchars1_RUN__
 .import __asmchars2_RUN__
 
+monitor_frozen:
+        jsr init_load_and_basic_vectors
+        pla
+
 monitor:
+        sta entry_type
 .ifdef MACHINE_TED
 ; change F keys to return their code, like on the C64
 ; http://plus4world.powweb.com/software/Club_Info_53
@@ -152,8 +171,6 @@ monitor:
         sta     CBINV
         lda     #>brk_entry
         sta     CBINV + 1 ; BRK vector
-        lda     #'C'
-        sta     entry_type
         lda     #DEFAULT_BANK
         sta     bank
 .ifdef CART_FC3
@@ -206,7 +223,7 @@ disable_rom_rti:
         ldx     tmp1
 .endif
         lda     reg_a
-        rti
+_rti:   rti
 
 brk_entry:
 .ifdef MACHINE_TED
@@ -244,10 +261,19 @@ brk_entry2:
         jsr     set_io_vectors
 .endif
         jsr     print_cr
-        lda     entry_type
-        cmp     #'C'
-        bne     :+
-        .byte   $2C ; XXX bne + skip = beq + 2
+        lda     #$3F
+        bit     entry_type
+        bmi     @reu
+        bvs     @vdc
+        bne     @c
+        lda     #'B'
+        .byte   $2C ; skip
+@reu:   lda     #'R'
+        .byte   $2C ; skip
+@vdc:   lda     #'V'
+        .byte   $2C ; skip
+@c:     lda     #'C'
+        .byte   $2C ; skip
 :       lda     #'B'
         ldx     #'*'
         jsr     print_a_x
@@ -261,7 +287,8 @@ brk_entry2:
         lda     FA
         and     #$FB
         sta     FA
-        lda     #'B'
+        lda     entry_type
+        and     #$C0
         sta     entry_type
 .ifdef MACHINE_C64
         lda     #$80
@@ -1181,7 +1208,7 @@ verify_numconst:
 LB146:  inx
         stx     tmp4
         ldx     tmp3
-        rts
+rts_01: rts
 
 bad_operand:
         jmp     input_loop
@@ -1259,8 +1286,14 @@ get_dec_word3:
 ; ----------------------------------------------------------------
 ; "X" - exit monitor
 ; ----------------------------------------------------------------
+
+tmpvar1  = $90
+tmpptr_a = $91
+
 cmd_x:
         jsr     uninstall_kbd_handler
+        bit     entry_type
+        bvs     @vdcxit
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
@@ -1280,6 +1313,78 @@ cmd_x:
         txs
         jmp     _basic_warm_start
 
+@vdcxit:
+        ; NMI is continuously low inside monitor, in order to safely re-enter monitor,
+        ; we need to generate a harmless NMI to avoid monitor code to trigger an undesired NMI.
+        sei
+        lda     #<_rti
+        sta     $0318
+        lda     #>_rti
+        sta     $0319
+        ; Pull NMI low
+        lda     #fcio_bank_0|fcio_c64_16kcrtmode
+        sta     fcio_reg
+
+        ; Restore $D800..$DBFF
+        lda     #$F4
+        ldx     #$12
+        jsr     vdc_reg_store
+        lda     #$00
+        inx
+        jsr     vdc_reg_store
+        sta     tmpptr_a
+        lda     #$D8
+        sta     tmpptr_a+1
+        ldx     #$1F
+:       jsr     vdc_reg_load
+        ldy     #$00
+        sta     (tmpptr_a),y
+        inc     tmpptr_a
+        bne     :-
+        inc     tmpptr_a+1
+        lda     tmpptr_a+1
+        cmp     #$DC
+        bne     :-
+
+        ; Restore $0000..$0090
+        lda     #$00
+        sta     tmpptr_a
+        sta     tmpptr_a+1
+        ldx     #$1F
+:       jsr     vdc_reg_load
+        ldy     #$00
+        sta     (tmpptr_a),y
+        inc     tmpptr_a
+        lda     tmpptr_a
+        cmp     #$91
+        bne     :-
+
+        ; Restore $0093..$07FF
+        lda     #$93
+        ldx     #$13
+        jsr     vdc_reg_store
+        sta     tmpptr_a
+        ldx     #$1F
+:       jsr     vdc_reg_load
+        ldy     #$00
+        sta     (tmpptr_a),y
+        inc     tmpptr_a
+        bne     :-
+        inc     tmpptr_a+1
+        lda     tmpptr_a+1
+        cmp     #$08
+        bne     :-
+
+        ldx     tmpvar1
+        txs
+        lda     #>(restart_freezer - 1)
+        pha
+        lda     #<(restart_freezer - 1)
+        pha
+        lda     #fcio_bank_3|fcio_c64_16kcrtmode
+        jmp     _jmp_bank
+
+
 LB1CB:  lda     zp2
         cmp     zp1
         lda     zp2 + 1
@@ -1287,23 +1392,23 @@ LB1CB:  lda     zp2
         bcs     LB1FC
         ldy     #0
         ldx     #0
-LB1D9:  jsr     load_byte
+@1:     jsr     load_byte
         pha
         jsr     swap_zp1_and_zp2
         pla
         jsr     store_byte
         jsr     swap_zp1_and_zp2
         cpx     tmp10
-        bne     LB1F1
+        bne     :+
         cpy     tmp9
-        beq     rts_01
-LB1F1:  iny
-        bne     LB1D9
+        beq     @x
+:       iny
+        bne     @1
         inc     zp1 + 1
         inc     zp2 + 1
         inx
-        bne     LB1D9
-rts_01: rts
+        bne     @1
+@x:     rts
 
 LB1FC:  clc
         ldx     tmp10

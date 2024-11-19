@@ -44,6 +44,7 @@
 .global tmpptr_a,tmpvar1,spritexy_backup
 .global freezer_mem_a,freezer_mem_a_val,freezer_mem_b,freezer_mem_b_val
 .global spritexy_backup,viciireg_backup,colram_backup,ciareg_backup
+.global restart_freezer
 
 ciareg_backup:      .res 32
 tmpvar1:            .res 1
@@ -187,6 +188,7 @@ freezer_init:
       ldx  #$10
       lda  #$7F                         ; Disable all interrupt sources
       sta  $DCFD,x
+
       ldy  ciareg_backup + $D,x         ; Did an interrupt occur
       bmi  @7                           ; Then skip
       lda  #$7F
@@ -412,6 +414,7 @@ freezer_init:
       ;
       ; Show the Freezer menu and let the user make a selection
       ;
+restart_menu:
       jsr  freezer_ultimax_exec_menu
 
       tay
@@ -460,21 +463,21 @@ freezer_init:
       ; This is a routine that is executed after a backup has been loaded and this routine
       ; will finalize the loading. Since temp variables at $A6 are no longer needed, this
       ; routine can now be installed.
-      ldy  #freezer_restore_0300_size-1
-:     lda  freezer_restore_0300,y
-      sta  $00A6,y
-      dey
-      bpl  :-
+;      ldy  #freezer_restore_0300_size-1
+;:     lda  freezer_restore_0300,y
+;      sta  $00A6,y
+;      dey
+;      bpl  :-
 
       sty  $D01A                        ; IRQ mask register
-      sty  spritexy_backup              ; ???
+;      sty  spritexy_backup              ; ???
       sty  $A3
       sty  $DD03                        ; Data direction register port A #2
       lda  #$7F
       sta  $D019                        ; Interrupt indicator register
       lda  #$3F
       sta  $DD02                        ; Data direction register port A #2
-      lda  $80                          ; CHRGET (Introduce a char) subroutine
+      lda  $80
       and  #$07
       ora  #$10
       sta  $DD00                        ; Data port A #2: serial bus, RS-232, VIC memory
@@ -484,6 +487,16 @@ freezer_init:
       lda  freezer_actions_l-1,x
       pha
       rts
+
+restart_freezer:
+      ; Clear CIA interrupts
+      lda #$7F
+      sta $DC0D
+      sta $DD0D
+      ; Important: Release pending interrupts
+      lda $DC0D
+      lda $DD0D
+      jmp restart_menu
 
 .define freezer_actions freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_tape-1,freezer_backup_disk-1, \
                         freezer_sprite_I-1,freezer_sprite_II-1,freezer_joyswap-1,freezer_autofire-1, \

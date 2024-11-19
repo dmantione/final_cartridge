@@ -23,7 +23,7 @@
 
 ; from desktop_helper
 .import perform_operation_for_desktop
-.import monitor
+.import monitor_frozen
 
 .segment "vectors"
 
@@ -47,4 +47,4 @@ jfast_format: ; monitor calls this
         jmp     go_basic                      ; $801b
         jmp     print_screen                  ; $801e
         jmp     init_load_and_basic_vectors   ; $8021
-        jmp     monitor                       ; $8024
+        jmp     monitor_frozen                ; $8024
