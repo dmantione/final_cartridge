@@ -254,7 +254,6 @@ freezer_init:
       sta  $02 + 11,x
       inx
       bne  :-
-      ; C=1 because X=10
 
       pla
       ldy  #<(r5 + 1 -__freezer_restore_1_LOAD__)
@@ -270,7 +269,8 @@ freezer_init:
       lda  #>$0100
       pha
       txa
-      sbc  #$12 ; C still 1
+      sec
+      sbc  #$12
       pha
 
       ; Patch loading the original value of the stack pointer
