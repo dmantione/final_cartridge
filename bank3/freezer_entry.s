@@ -249,11 +249,10 @@ freezer_init:
       ldy  #<(r3 + 1 -__freezer_restore_1_LOAD__)
       sta  (freezer_mem_b),y
 
-      ldx  #$FF
-:     inx
-      pla
-      sta  $02,x
-      cpx  #10
+      ldx  #256-11
+:     pla
+      sta  $02 + 11,x
+      inx
       bne  :-
       ; C=1 because X=10
 
