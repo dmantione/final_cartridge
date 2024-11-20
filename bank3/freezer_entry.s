@@ -24,6 +24,8 @@
 .import autofire_lda_dc00,autofire_ldx_dc00,autofire_ldy_dc00
 .import __romio2l_RUN__
 .importzp __FREEZERZP_START__,__FREEZERZP_SIZE__
+.import __freezer_entry_3_LOAD__
+.importzp __freezer_entry_3_RUN__,__freezer_entry_3_SIZE__
 .import __tape_backup_loader_LOAD__,__tape_backup_loader_SIZE__
 .import __disk_backup_loader_LOAD__,__disk_backup_loader_SIZE__
 .import __zp_load_mem_1_LOAD__,__zp_load_mem_1_SIZE__
@@ -69,9 +71,9 @@ freezer_init:
       ldx  #fcio_bank_3|fcio_c64_16kcrtmode
       stx  fcio_reg
       ; Install loadram, routine at $0005
-      ldx  #$06
-:     lda  loadram,x
-      sta  $05,x
+      ldx  #__freezer_entry_3_SIZE__ - 1
+:     lda  __freezer_entry_3_LOAD__,x
+      sta  __freezer_entry_3_RUN__,x
       dex
       bpl  :-
 
@@ -643,7 +645,7 @@ freezer_find_memory:
       sta  $03                          ; store hi byte of addr
       lda  #$33                         ; BASIC CHARROM KERNAL
       sta  $01
-      jsr  $0005                        ; load a byte from RAM at ($02),y
+      jsr  loadram                      ; load a byte from RAM at ($02),y
       sta  $04                          ; save the byte
 @no_overflow:
       ldy  #$00                         ; begin at the start of tye pointer
