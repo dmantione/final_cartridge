@@ -357,12 +357,12 @@ freezer_init:
       ; ciareg_backup + $0e/$0f/$1e/$1f can in principle be reused for other
       ; purposes, but I cannot find any code that does this, so why clear
       ; them then?
-;      ldx  #$01
-;      lda  #$00
-;:     sta  ciareg_backup + $0e,x
-;      sta  ciareg_backup + $1e,x
-;      dex
-;      bpl  :-
+      ldx  #$01
+      lda  #$00
+:     sta  ciareg_backup + $0e,x
+      sta  ciareg_backup + $1e,x
+      dex
+      bpl  :-
 
       sec
       lda  freezer_mem_b
