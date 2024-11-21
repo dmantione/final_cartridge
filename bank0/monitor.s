@@ -1325,13 +1325,33 @@ cmd_x:
         lda     #fcio_bank_0|fcio_c64_16kcrtmode
         sta     fcio_reg
 
-        ; Restore $D800..$DBFF
-        lda     #$F4
+        ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
+        lda     #$F3
         ldx     #$12
         jsr     vdc_reg_store
-        lda     #$00
+        lda     #$D1
         inx
         jsr     vdc_reg_store
+        lda     #$00
+        sta     tmpptr_a
+        lda     #$D0
+        sta     tmpptr_a+1
+        ldx     #$1F
+:       jsr     vdc_reg_load
+        sta     (tmpptr_a),y
+        inc     tmpptr_a
+        lda     tmpptr_a
+        cmp     #$2F
+        bne     :-
+
+        ; Restore $D800..$DBFF
+;        lda     #$F4
+;        ldx     #$12
+;        jsr     vdc_reg_store
+;        lda     #$00
+;        inx
+;        jsr     vdc_reg_store
+        lda     #$00
         sta     tmpptr_a
         lda     #$D8
         sta     tmpptr_a+1

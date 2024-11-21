@@ -100,13 +100,32 @@ vdc_reg_store:
       rts
 
 backup_to_vdc:
-        ; Backup $D800..$DBFF to $F400..$F7FF in VDC
-      lda     #$F4
+        ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
+      lda     #$F3
       ldx     #$12
       jsr     vdc_reg_store
-      lda     #$00
+      lda     #$D1
       inx
       jsr     vdc_reg_store
+      lda     #$00
+      sta     tmpptr_a
+      lda     #$D0
+      sta     tmpptr_a+1
+      ldx     #$1F
+:     lda     (tmpptr_a),y
+      jsr     vdc_reg_store
+      inc     tmpptr_a
+      lda     tmpptr_a
+      cmp     #$2F
+      bne     :-
+        ; Backup $D800..$DBFF to $F400..$F7FF in VDC
+;      lda     #$F4
+;      ldx     #$12
+;      jsr     vdc_reg_store
+;      lda     #$00
+;      inx
+;      jsr     vdc_reg_store
+      lda     #$00
       sta     tmpptr_a
       lda     #$D8
       sta     tmpptr_a+1
