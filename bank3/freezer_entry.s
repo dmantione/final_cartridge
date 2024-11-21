@@ -353,10 +353,10 @@ freezer_init:
       ora  #$10
       sta  (freezer_mem_b),y
 
-      ; No idea... restore code has been patched with the backed up values
-      ; ciareg_backup + $0e/$0f/$1e/$1f can in principle be reused for other
-      ; purposes, but I cannot find any code that does this, so why clear
-      ; them then?
+      ; This is to prevent the CIAs generating interrupts when their registers
+      ; are being restored before their timers have been set up. Especially
+      ; for CIA2 (NMI), this is important. The timer control register is first
+      ; initialized not to generate interrupts.
       ldx  #$01
       lda  #$00
 :     sta  ciareg_backup + $0e,x
