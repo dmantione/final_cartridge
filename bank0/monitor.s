@@ -1379,13 +1379,17 @@ cmd_x:
         cmp     #$91
         bne     :-
 
-        ; Restore $0093..$07FF
+        ; Restore $0093..$07FF. We will overwrite the stack, so cannot
+        ; use subroutines, read from VDC directly.
         lda     #$93
         ldx     #$13
         jsr     vdc_reg_store
         sta     tmpptr_a
         ldx     #$1F
-:       jsr     vdc_reg_load
+        stx     $D600
+:       bit     $D600
+        bpl     :-
+        lda     $D601
         ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
@@ -1395,8 +1399,10 @@ cmd_x:
         cmp     #$08
         bne     :-
 
+        ; Make the stack function again.
         ldx     tmpvar1
         txs
+
         lda     #>(restart_freezer - 1)
         pha
         lda     #<(restart_freezer - 1)
@@ -1404,6 +1410,7 @@ cmd_x:
         lda     #fcio_bank_3|fcio_c64_16kcrtmode
         jmp     _jmp_bank
 
+;---------------------------------------------------------
 
 LB1CB:  lda     zp2
         cmp     zp1
