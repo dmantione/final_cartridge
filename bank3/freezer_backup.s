@@ -18,11 +18,41 @@
 .importzp tmpvar1,tmpptr_a,spritexy_backup
 .import write_mg87_and_reset
 
+.segment "freezer_restore_0"
+;
+; This routine is stored into the zero page at $00a6
+; If a backup is loaded, the loader jumps to this routine in the (restored) zero page
+;
+.proc freezer_restore_0300
+:     jsr  IECIN
+      sta  $0300,y
+      iny
+      bne  :-
+      lda  #$08
+      jsr  LISTEN
+      lda  #$E0
+      jsr  SECOND
+      jsr  UNLSTN
+      dec  $01
+      rts
+.endproc
+freezer_restore_0300_size = .sizeof(freezer_restore_0300)
+
 .segment "backup_disk"
+
+install_restore_0300:
+      ldy  #freezer_restore_0300_size-1
+:     lda  freezer_restore_0300,y
+      sta  $00A6,y
+      dey
+      bpl  :-
+      rts
+
 
 .global freezer_backup_disk
 
 freezer_backup_disk:
+      jsr  install_restore_0300
       lda  #$00
       sta  $D015                        ; Disable sprites
       sta  $D418                        ; Mute sound
@@ -474,6 +504,7 @@ turbotape_tape_program_header:
 .global freezer_backup_tape
 
 freezer_backup_tape:
+      jsr  install_restore_0300
       lda  #$00                         ; Disable all sprites
       sta  $D015
       lda  #<__tape_backup_loader_LOAD__

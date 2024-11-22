@@ -458,18 +458,15 @@ restart_menu:
       sta  $D818,x
       dex
       bpl  :-
+
+      ; Necessary for backup
+      tsx
+      stx  tmpvar2
+
       tya
       tax
 
-      ; This is a routine that is executed after a backup has been loaded and this routine
-      ; will finalize the loading. Since temp variables at $A6 are no longer needed, this
-      ; routine can now be installed.
-;      ldy  #freezer_restore_0300_size-1
-;:     lda  freezer_restore_0300,y
-;      sta  $00A6,y
-;      dey
-;      bpl  :-
-
+      ldy  #0
       sty  $D01A                        ; IRQ mask register
 ;      sty  spritexy_backup              ; ???
       sty  $A3
@@ -499,7 +496,7 @@ restart_freezer:
       lda $DD0D
       jmp restart_menu
 
-.define freezer_actions freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_tape-1,freezer_backup_disk-1, \
+.define freezer_actions freezer_backup_disk-1,freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_tape-1, \
                         freezer_sprite_I-1,freezer_sprite_II-1,freezer_joyswap-1,freezer_autofire-1, \
                         0,0,0, \
                         freezer_goto_settings-1, 0, _freezer_pset-1, \
@@ -524,26 +521,6 @@ freezer_cbm64:
       pha
       txa
       jmp  _jmp_bank
-
-.segment "freezer_restore_0"
-;
-; This routine is stored into the zero page at $00a6
-; If a backup is loaded, the loader jumps to this routine in the (restored) zero page
-;
-.proc freezer_restore_0300
-:     jsr  IECIN
-      sta  $0300,y
-      iny
-      bne  :-
-      lda  #$08
-      jsr  LISTEN
-      lda  #$E0
-      jsr  SECOND
-      jsr  UNLSTN
-      dec  $01
-      rts
-.endproc
-freezer_restore_0300_size = .sizeof(freezer_restore_0300)
 
 .segment "freezer_restore_1"
       ;
