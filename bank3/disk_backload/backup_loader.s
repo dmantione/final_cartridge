@@ -673,10 +673,6 @@ farcode:
       lda  #$36
       sta  $01                          ; 6510 I/O register
 
-      ; Weird... this is the RS232 interrupt enable byte. No idea what is being done here:
-      ldy  #$00
-      sty  $02A1
-
       ; Put the vectors at the right place
       ldx  #$02
 :     lda  vectors_tmp,x
