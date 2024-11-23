@@ -1287,8 +1287,8 @@ get_dec_word3:
 ; "X" - exit monitor
 ; ----------------------------------------------------------------
 
-tmpvar1  = $90
 tmpptr_a = $91
+tmpvar2  = $93
 
 cmd_x:
         jsr     uninstall_kbd_handler
@@ -1400,7 +1400,7 @@ cmd_x:
         bne     :-
 
         ; Make the stack function again.
-        ldx     tmpvar1
+        ldx     tmpvar2
         txs
 
         lda     #>(restart_freezer - 1)
