@@ -24,6 +24,8 @@ init_load_and_basic_vectors = $8021
 freezer_goto_monitor:
       jsr  detect_c128
       bcc  :+
+      ldx  #0
+      stx  tmpvar1
       jsr  backup_to_vdc
 :     ldx  #$FF
       txs

@@ -138,6 +138,12 @@ et_call         := $01
 et_monitor_vdc  := $40
 et_monitor_reu  := $80
 
+; Freezer variables
+tmpvar1  = $90
+tmpptr_a = $91
+tmpvar2  = $93
+
+
 .segment "monitor_a"
 
 .import __monitor_ram_code_LOAD__
@@ -273,8 +279,6 @@ brk_entry2:
 @vdc:   lda     #'V'
         .byte   $2C ; skip
 @c:     lda     #'C'
-        .byte   $2C ; skip
-:       lda     #'B'
         ldx     #'*'
         jsr     print_a_x
         clc
@@ -748,7 +752,19 @@ cmd_g:
         beq     LAF06
         jmp     syntax_error
 
-LAF03:  jsr     copy_pc_to_zp2_and_zp1
+LAF03:  bit     entry_type
+        bvc     :+
+        lda     #$F8
+        ldx     #$12
+        jsr     vdc_reg_store
+        lda     #tmpvar1
+        ldx     #$13
+        jsr     vdc_reg_store
+        ldx     #$1F
+        lda     #$80
+        jsr     vdc_reg_store
+        jmp     vdcxit
+:       jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
         bmi     LAF2B ; drive
         jsr     uninstall_kbd_handler
@@ -1287,13 +1303,11 @@ get_dec_word3:
 ; "X" - exit monitor
 ; ----------------------------------------------------------------
 
-tmpptr_a = $91
-tmpvar2  = $93
 
 cmd_x:
         jsr     uninstall_kbd_handler
         bit     entry_type
-        bvs     @vdcxit
+        bvs     vdcxit
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
@@ -1313,7 +1327,8 @@ cmd_x:
         txs
         jmp     _basic_warm_start
 
-@vdcxit:
+
+vdcxit:
         ; NMI is continuously low inside monitor, in order to safely re-enter monitor,
         ; we need to generate a harmless NMI to avoid monitor code to trigger an undesired NMI.
         sei
@@ -1326,10 +1341,10 @@ cmd_x:
         sta     fcio_reg
 
         ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
-        lda     #$F3
+        lda     #>$F3D1
         ldx     #$12
         jsr     vdc_reg_store
-        lda     #$D1
+        lda     #<$F3D1
         inx
         jsr     vdc_reg_store
         lda     #$00
@@ -1345,15 +1360,9 @@ cmd_x:
         bne     :-
 
         ; Restore $D800..$DBFF
-;        lda     #$F4
-;        ldx     #$12
-;        jsr     vdc_reg_store
-;        lda     #$00
-;        inx
-;        jsr     vdc_reg_store
-        lda     #$00
+        lda     #<$D800
         sta     tmpptr_a
-        lda     #$D8
+        lda     #>$D800
         sta     tmpptr_a+1
         ldx     #$1F
 :       jsr     vdc_reg_load
@@ -1363,7 +1372,7 @@ cmd_x:
         bne     :-
         inc     tmpptr_a+1
         lda     tmpptr_a+1
-        cmp     #$DC
+        cmp     #>$DC00
         bne     :-
 
         ; Restore $0000..$0090
@@ -1387,7 +1396,7 @@ cmd_x:
         sta     tmpptr_a
         ldx     #$1F
         stx     $D600
-:       bit     $D600
+:       bit     $D600   ; No point for a timeout, all is lost if VDC fails
         bpl     :-
         lda     $D601
         ldy     #$00
@@ -1396,19 +1405,23 @@ cmd_x:
         bne     :-
         inc     tmpptr_a+1
         lda     tmpptr_a+1
-        cmp     #$08
+        cmp     #>$0800
         bne     :-
 
         ; Make the stack function again.
         ldx     tmpvar2
         txs
 
+        bit     tmpvar1
+        bmi     @run
         lda     #>(restart_freezer - 1)
         pha
         lda     #<(restart_freezer - 1)
         pha
         lda     #fcio_bank_3|fcio_c64_16kcrtmode
         jmp     _jmp_bank
+@run:   ldy     #$35
+        jmp     _disable_fc3rom_set_01
 
 ;---------------------------------------------------------
 
