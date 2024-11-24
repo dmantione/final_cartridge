@@ -142,7 +142,10 @@ et_monitor_reu  := $80
 tmpvar1  = $90
 tmpptr_a = $91
 tmpvar2  = $93
-
+freezer_mem_a = $d1
+freezer_mem_a_val = $d3
+freezer_mem_b = $d4
+freezer_mem_b_val = $d3
 
 .segment "monitor_a"
 
@@ -275,8 +278,26 @@ brk_entry2:
         lda     #'B'
         .byte   $2C ; skip
 @reu:   lda     #'R'
-        .byte   $2C ; skip
-@vdc:   lda     #'V'
+        bne     @c
+@vdc:
+        lda     #$F8
+        ldx     #$12
+        jsr     vdc_reg_store
+        inx
+        lda     #freezer_mem_a
+        jsr     vdc_reg_store
+        ldy     #0
+        ldx     #$1F
+        stx     $D600
+        ldx     #$00
+:       bit     $D600   ; No point for a timeout, all is lost if VDC fails
+        bpl     :-
+        lda     $D601
+        sta     $70,x
+        inx
+        cpx     #6
+        bne     :-
+        lda     #'V'
         .byte   $2C ; skip
 @c:     lda     #'C'
         ldx     #'*'
@@ -329,8 +350,10 @@ dump_registers2:
         jsr     print_space
         lda     bank
         bpl     @3
+.ifdef MACHINE_C64
         cmp     #$81
         beq     @vdc
+.endif
         ; drive
         lda     #'D'
         ldx     #'R'
@@ -339,7 +362,22 @@ dump_registers2:
         ldx     #'D'
 @2:     jsr     print_a_x
         bne     @1 ; negative bank means drive ("DR")
-@3:     and     #$0F
+@3:
+.ifdef MACHINE_C64
+        tax
+        and     #$40
+        beq     :+
+        lda     #'F'
+        jsr     BSOUT
+        txa
+        and     #$F
+        jsr     digit_to_ascii
+        jsr     BSOUT
+        bcc     @1 ; always
+:
+.endif
+        txa
+        and     #$0F
         jsr     print_hex_byte2 ; bank
 @1:     ldy     #$100 - 4
 :       jsr     print_space
@@ -1614,6 +1652,10 @@ load_byte:
         beq     load_byte_drive ; drive
         cmp     #$81
         beq     load_byte_vdc
+.ifdef CART_FC3
+        bit     bank
+        bvs     @frozen_vdc
+.endif
 .ifdef MACHINE_TED
         stx tmp1
         sty tmp2
@@ -1630,12 +1672,63 @@ load_byte:
         ldy tmp2
         rts
 .else
-        clc
+@r:     clc
 .ifdef CART_FC3
         pha
         lda     cartridge_bank
 .endif
         jmp     load_byte_ram ; "lda (zp1),y" with ROM and cartridge config
+.endif
+
+.ifdef CART_FC3
+@frozen_vdc:
+        tya
+        clc
+        adc     zp1
+        sta     tmp8
+        lda     zp1+1
+        adc     #$00
+        sta     tmp9
+        ; Check whether address is in freezer memory area A
+        lda     tmp8
+        sec
+        sbc     $70
+        sta     tmp3
+        lda     tmp9
+        sbc     $71
+        bcc     @na
+        bne     @na
+        lda     tmp3
+        cmp     #$67
+        bcs     @na
+        lda     $72
+        rts
+@na:
+        lda     tmp8
+        sec
+        sbc     $73
+        sta     tmp3
+        lda     tmp9
+        sbc     $74
+        bcc     @nm
+        bne     @nm
+        lda     tmp3
+        cmp     #$57
+        bcs     @nm
+        lda     $75
+        rts
+@nm:    lda     zp1+1
+        cmp     #$08
+        bcs     @r
+        sta     tmp3
+        ora     #$F8
+        sta     zp1+1
+        jsr     load_byte_vdc
+        pha
+        lda     tmp3
+        sta     zp1+1
+        pla
+        rts
 .endif
 
 ; stores a byte at (zp1),y in VDC RAM
@@ -1734,18 +1827,35 @@ syn_err3:
 ;       memory
 ; ----------------------------------------------------------------
 cmd_o:
-        jsr     basin_cmp_cr
+.ifdef MACHINE_C64
+        lda     #0
+        sta     tmp1
+.endif
+@nd:    jsr     basin_cmp_cr
         beq     @dflt ; without arguments: bank 7
         cmp     #' '
-        beq     cmd_o
+        beq     @nd
 .ifdef MACHINE_TED
         tax
         bmi     :+ ; shifted arg skips 'D' test
 .endif
         cmp     #'D'
         beq     @disk ; disk
+.ifdef MACHINE_C64
         cmp     #'V'
         beq     @vdc ; vdc
+        cmp     #'F'
+        bne     :+
+        ; Entry from freezer?
+        lda     #$C0
+        bit     entry_type
+        beq     syn_err3
+        ; Frozen memory
+        lda     #$40
+        sta     tmp1
+        bne     @nd
+:
+.endif
 .ifdef MACHINE_TED
 :       jsr     hex_digit_to_nybble
 .endif
@@ -1756,11 +1866,14 @@ cmd_o:
         bcs     syn_err3
         cmp     #$30
         bcc     syn_err3
-.endif
         .byte   $2C
+.endif
 @disk:  lda     #$80 ; drive
+.ifdef MACHINE_C64
         .byte   $2C
 @vdc:   lda     #$81
+        ora     tmp1
+.endif
         sta     bank
         jmp     print_cr_then_input_loop
 
@@ -3567,14 +3680,14 @@ print_hex_byte:
 byte_to_hex_ascii:
         pha
         and     #$0F
-        jsr     @digit_to_ascii
+        jsr     digit_to_ascii
         tay
         pla
         lsr     a
         lsr     a
         lsr     a
         lsr     a
-@digit_to_ascii:
+digit_to_ascii:
         sed
         cmp #10
         adc #$30
