@@ -1686,34 +1686,10 @@ load_byte:
         lda     zp1+1
         adc     #$00
         sta     tmp9
-        ; Check whether address is in freezer memory area A
-        lda     tmp8
-        sec
-        sbc     $70
-        sta     tmp3
-        lda     tmp9
-        sbc     $71
-        bcc     @na
-        bne     @na
-        lda     tmp3
-        cmp     #$67
-        bcs     @na
-        lda     $72
-        rts
-@na:
-        lda     tmp8
-        sec
-        sbc     $73
-        sta     tmp3
-        lda     tmp9
-        sbc     $74
-        bcc     @nm
-        bne     @nm
-        lda     tmp3
-        cmp     #$57
-        bcs     @nm
-        lda     $75
-        rts
+        stx     tmp1
+        jsr     check_frz_mem
+        ldx     tmp1
+        bcc     @x
 @nm:    lda     zp1+1
         cmp     #$08
         bcs     @r
@@ -1725,8 +1701,32 @@ load_byte:
         lda     tmp3
         sta     zp1+1
         pla
-        rts
+@x:     rts
 .endif
+
+check_frz_mem:
+        ; Check whether address is in freezer memory area A
+        ldx     #0
+        jsr     check_area
+        bcc     _rts
+        ; Check whether address is in freezer memory area B
+        ldx     #3
+check_area:
+        lda     tmp8
+        sec
+        sbc     $70,x
+        sta     tmp3
+        lda     tmp9
+        sbc     $71,x
+        bcc     secrts
+        bne     secrts
+        lda     tmp3
+        cmp     #$67
+        bcs     secrts
+        lda     $72,x
+        rts
+secrts: sec
+_rts:   rts
 
 ; stores a byte at (zp1),y in VDC RAM
 store_byte_vdc:
@@ -1838,7 +1838,7 @@ cmd_o:
 .endif
         cmp     #'D'
         beq     @disk ; disk
-.ifdef MACHINE_C64
+.ifdef CART_FC3
         cmp     #'V'
         beq     @vdc ; vdc
         cmp     #'F'
