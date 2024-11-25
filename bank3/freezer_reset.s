@@ -112,7 +112,8 @@ backup_to_vdc:
       lda     #$D0
       sta     tmpptr_a+1
       ldx     #$1F
-:     lda     (tmpptr_a),y
+:     ldy     #$00
+      lda     (tmpptr_a),y
       jsr     vdc_reg_store
       inc     tmpptr_a
       lda     tmpptr_a

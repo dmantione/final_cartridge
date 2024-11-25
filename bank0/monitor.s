@@ -1397,6 +1397,7 @@ vdcxit:
         sta     tmpptr_a+1
         ldx     #$1F
 :       jsr     vdc_reg_load
+        ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
         lda     tmpptr_a
@@ -1615,8 +1616,6 @@ vdc_reg_load:
 
 ; loads a byte at (zp1),y from VDC RAM
 load_byte_vdc:
-        stx     tmp1
-        sty     tmp2
         tya
         clc
         adc     zp1
@@ -1651,6 +1650,8 @@ load_byte_drive:
 ; loads a byte at (zp1),y from RAM with the correct ROM config
 load_byte:
         sei
+        stx     tmp1
+        sty     tmp2
         lda     bank
         cmp     #$80
         beq     load_byte_drive ; drive
@@ -1698,11 +1699,25 @@ load_byte:
         lda     $72,x
         ldx     tmp1
         bcc     @x
+        tya
 @nm:    lda     zp1+1
-        cmp     #$08
-        bcs     @r
         sta     tmp3
-        ora     #$F8
+        cmp     #$08
+        bcc     :+
+        ; Check if I/O visible
+        lda     #$03
+        bit     $01
+        beq     @r
+        lda     zp1+1
+        cmp     #$D0
+        bne     :+
+        tya
+        clc
+        adc     #$D1
+        tay
+        lda     #$F3
+        .byte  $2C
+:       ora     #$F8
         sta     zp1+1
         jsr     load_byte_vdc
         pha
