@@ -37,6 +37,8 @@
 ; * "OD" switches all memory dumps/input to the drive's memory.
 ; * "B" command to introspect cartridge ROM
 
+.linecont +
+
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
 
@@ -413,12 +415,9 @@ input_loop2:
 LAC27:  cmp     command_names,x
         bne     LAC3B
         stx     command_index
-        txa
-        asl     a
-        tax
-        lda     function_table + 1,x
+        lda     function_table_h,x
         pha
-        lda     function_table,x
+        lda     function_table_l,x
         pha
         rts
 LAC3B:  dex
@@ -3352,36 +3351,43 @@ command_index_i = * - command_names
 .endif
 command_names_end:
 
-function_table:
-        .word   cmd_mid-1
-        .word   cmd_mid-1
-        .word   cmd_colon-1
-        .word   cmd_a-1
-        .word   cmd_g-1
-        .word   cmd_x-1
-        .word   cmd_fhct-1
-        .word   cmd_fhct-1
-        .word   cmd_fhct-1
-        .word   cmd_fhct-1
-        .word   cmd_r-1
-        .word   cmd_ls-1
-        .word   cmd_ls-1
-        .word   cmd_comma-1
-        .word   cmd_o-1
-        .word   cmd_at-1
-        .word   cmd_dollar-1
-        .word   cmd_hash-1
-        .word   cmd_asterisk-1
-        .word   cmd_p-1
-        .word   cmd_e-1
-        .word   cmd_leftbracket-1
-        .word   cmd_rightbracket-1
-        .word   cmd_mid-1
-        .word   cmd_singlequote-1
-        .word   cmd_semicolon-1
+.define function_table \
+           cmd_mid-1 \
+           ,cmd_mid-1 \
+           ,cmd_colon-1 \
+           ,cmd_a-1 \
+           ,cmd_g-1 \
+           ,cmd_x-1 \
+           ,cmd_fhct-1 \
+           ,cmd_fhct-1 \
+           ,cmd_fhct-1 \
+           ,cmd_fhct-1 \
+           ,cmd_r-1 \
+           ,cmd_ls-1 \
+           ,cmd_ls-1 \
+           ,cmd_comma-1 \
+           ,cmd_o-1 \
+           ,cmd_at-1 \
+           ,cmd_dollar-1 \
+           ,cmd_hash-1 \
+           ,cmd_asterisk-1 \
+           ,cmd_p-1 \
+           ,cmd_e-1 \
+           ,cmd_leftbracket-1 \
+           ,cmd_rightbracket-1 \
+           ,cmd_mid-1 \
+           ,cmd_singlequote-1 \
+           ,cmd_semicolon-1 \
+
 .ifdef CART_FC3
-        .word   cmd_b-1
+.define temp function_table
+.undef function_table
+.define function_table temp ,cmd_b-1
+.undef temp
 .endif
+
+function_table_l:   .lobytes function_table
+function_table_h:   .hibytes function_table
 
 ; ----------------------------------------------------------------
 ; "P" - set output to printer
