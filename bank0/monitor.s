@@ -730,7 +730,7 @@ LAE7C:  pha
 
 LAE88:  jsr     check_end
         bcs     :+
-        jmp     syntax_error
+        bcc     syn_err1 ; always
 
 :       sty     tmp10
         jsr     basin_if_more
@@ -745,8 +745,6 @@ LAEA6:  jsr     LB245
         jmp     input_loop
 
 LAEAC:  jsr     basin_if_more
-;        ldx     #0
-;        stx     tmp11 ; XXX unused
         jsr     basin_if_more
         cmp     #$22
         bne     LAECF
@@ -758,7 +756,7 @@ LAEBB:  jsr     basin_cmp_cr
         inx
         cpx     #$20
         bne     LAEBB
-        jmp     syntax_error
+        beq     syn_err2 ; always
 
 LAECF:  jsr     get_hex_byte2
         bcs     LAEDC
@@ -787,7 +785,7 @@ cmd_g:
         jsr     get_hex_word2
         jsr     basin_cmp_cr
         beq     LAF06
-        jmp     syntax_error
+        bne     syn_err2 ; always
 
 LAF03:  bit     entry_type
         bvc     :+
