@@ -3727,17 +3727,3 @@ LBD20:  dex
 LBD2D:  bne     LBCDF ; next line
 LBD2F:  jmp     LF646 ; CLOSE
 
-init_drive:
-        lda     #0
-        sta     ST ; clear status
-        lda     #8
-        cmp     FA ; drive 8 and above ok
-        bcc     LBD3F
-LBD3C:  sta     FA ; otherwise set drive 8
-LBD3E:  rts
-LBD3F:  lda     FA 
-        cmp     #16 ; allow device numbers until 15
-        bcc     LBD3E
-        lda     #8
-        bne     LBD3C ; always
-
