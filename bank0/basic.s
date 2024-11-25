@@ -83,6 +83,10 @@
 .import pow10lo
 .import pow10hi
 
+; from drive
+.import set_colon_asterisk
+.import set_drive
+
 .global bar_flag
 .global evaluate_hex_expression
 .global new_mainloop
@@ -97,7 +101,6 @@
 .global send_drive_command
 .global send_printer_listen
 .global reset_warmstart
-.global set_drive
 .global new_detokenize
 
 ; variables
@@ -1588,31 +1591,6 @@ set_filename:
         jsr     SETLFS
         jsr     $E206 ; RTS if end of line
         jmp     _get_filename
-
-set_colon_asterisk:
-;        ldx     #<_a_colon_asterisk
-;        ldy     #>_a_colon_asterisk
-        ; Make DLOAD, DAPPEND etc. use * rather than :*. It should be identical, but avoids a bug in the
-        ; code that loads a backup than doesn't like it when :* is used as the file name to load the
-        ; backup. There are multiple * in the KERNAL, no alternative KERNAL will dare to change one at
-        ; $FFE5 (hopefully).
-        ldx     #<$FFE5
-        ldy     #>$FFE5
-        jsr     SETNAM
-set_drive:
-        lda     #0
-        sta     ST
-        lda     #8
-        cmp     FA
-        bcc     @hidev ; device number 9 or above
-@store: sta     FA
-@rts:   rts
-@hidev: lda     FA
-        cmp     #16
-        bcc     @rts
-        lda     #8 ; set drive 8
-        bne     @store ; always
-
 
 L8BDB:  jsr     _lda_TXTPTR_indy
         beq     :+

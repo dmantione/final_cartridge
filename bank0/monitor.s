@@ -70,6 +70,12 @@ _basic_warm_start := $800A
 ; from editor
 .import scroll_screen_up
 
+; from drive
+.import cmd_channel_listen
+.import listen_second
+.import command_channel_talk
+.import talk_second
+
 ; from constants
 .import pow10lo
 .import pow10hi
@@ -1631,7 +1637,7 @@ load_byte_drive:
         jsr     send_m_dash2
         jsr     iec_send_zp1_plus_y
         jsr     UNLSTN
-        jsr     talk_cmd_channel
+        jsr     command_channel_talk
         jsr     IECIN ; read byte
         pha
         jsr     UNTALK
@@ -1876,7 +1882,7 @@ cmd_o:
 
 listen_command_channel:
         lda     #$6F
-        jsr     init_and_listen
+        jsr     listen_second
         lda     ST
         bmi     LB3A6
         rts
@@ -1915,7 +1921,6 @@ LB38F:
 .ifdef CART_FC3
         jsr     restore_bsout_chrch
 .endif
-        ;jsr     set_irq_vector
         jsr     uninstall_kbd_handler
         ldx     zp1
         ldy     zp1 + 1
@@ -1924,7 +1929,6 @@ LB38F:
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
-;        jsr     set_irq_vector
         jsr     set_irq_and_kbd_handlers
         plp
 LB3A4:  bcc     LB3B3
@@ -2078,7 +2082,7 @@ cmd_at:
 print_drive_status:
         jsr     print_cr
         jsr     UNLSTN
-        jsr     talk_cmd_channel
+        jsr     command_channel_talk
         jsr     cat_line_iec
         jmp     input_loop
 
@@ -2086,7 +2090,7 @@ print_drive_status:
 LB475:  jsr     UNLSTN
         jsr     print_cr
         lda     #$F0 ; sec address
-        jsr     init_and_listen
+        jsr     listen_second
         lda     #'$'
         jsr     IECOUT
         jsr     UNLSTN
@@ -3472,7 +3476,7 @@ LBACD:  jsr     LBB48
         beq     LBB25
         lda     #'1' ; U1: read
         jsr     read_write_block
-        jsr     talk_cmd_channel
+        jsr     command_channel_talk
         jsr     IECIN
         cmp     #'0'
         beq     LBB00 ; no error
@@ -3599,8 +3603,7 @@ s_hash:
 
 send_m_dash2:
         pha
-        lda     #$6F
-        jsr     init_and_listen
+        jsr     cmd_channel_listen
         lda     #'M'
         jsr     IECOUT
         lda     #'-'
@@ -3650,23 +3653,6 @@ LBC7D:  dex
         bpl     LBC58
         rts
 
-
-init_and_listen:
-        pha
-        jsr     init_drive
-        jsr     LISTEN
-        pla
-        jmp     SECOND
-
-talk_cmd_channel:
-        lda     #$6F
-init_and_talk:
-        pha
-        jsr     init_drive
-        jsr     TALK
-        pla
-        jmp     TKSA
-
 cat_line_iec:
         jsr     IECIN
         jsr     LE716 ; KERNAL: output character to screen
@@ -3701,7 +3687,7 @@ digit_to_ascii:
 directory:
         lda     #$60
         sta     SA
-        jsr     init_and_talk
+        jsr     talk_second
         jsr     IECIN
         jsr     IECIN ; skip load address
 LBCDF:  jsr     IECIN
