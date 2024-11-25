@@ -1645,8 +1645,6 @@ load_byte_drive:
         rts
 
 
-
-
 ; loads a byte at (zp1),y from RAM with the correct ROM config
 load_byte:
         sei
@@ -1708,7 +1706,6 @@ load_byte:
         sta     zp1+1
         pla
 @x:     rts
-.endif
 
 check_frz_mem:
         ; Check whether address is in freezer memory area A
@@ -1733,6 +1730,7 @@ check_area:
         rts
 secrts: sec
 _rts:   rts
+.endif
 
 ; stores a byte at (zp1),y in VDC RAM
 store_byte_vdc:
@@ -2230,8 +2228,6 @@ validate_hex_digit:
         cmp     #'F' + 1
         bcs     syn_err5
 :       rts
-syn_err5:
-        jmp     syntax_error
 
 print_dollar_hex_16:
         lda     #'$'
@@ -2263,6 +2259,7 @@ LB565:  rol     a
         bne     LB565
         rts
 
+
 inc_zp1:
         clc
         inc     zp1
@@ -2270,6 +2267,7 @@ inc_zp1:
         inc     zp1 + 1
         sec
 :       rts
+
 
 dump_8_hex_bytes:
         ldy     #0
@@ -2280,6 +2278,9 @@ dump_8_hex_bytes:
         cpy     #8
         bne     :-
         rts
+
+syn_err5:
+        jmp     syntax_error
 
 dump_8_ascii_characters:
         ldx     #8
@@ -2340,8 +2341,8 @@ LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
         jsr     basin_if_more_cmp_space
         bne     LB604 ; not space
         jsr     basin_if_more_cmp_space
-        beq     LB60A ; always
-        jmp     syntax_error
+        beq     LB60A
+        bne     syn_err5 ; always
 
 LB604:  jsr     get_hex_byte2
 LB607:  jsr     store_byte
