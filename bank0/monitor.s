@@ -1569,19 +1569,19 @@ LB28D:  jsr     inc_zp1
 LB292:  rts
 
 LB293:  jsr     print_cr
-LB296:  jsr     check_end
-        bcc     LB2B3
+@1:     jsr     check_end
+        bcc     @x
         ldy     #0
-LB29D:  jsr     load_byte
+:       jsr     load_byte
         cmp     BUF,y
-        bne     LB2AE
+        bne     :+
         iny
         cpy     command_index
-        bne     LB29D
+        bne     :-
         jsr     print_space_hex_16
-LB2AE:  jsr     inc_zp1
-        bne     LB296
-LB2B3:  rts
+:       jsr     inc_zp1
+        bne     @1
+@x:     rts
 
 ; ----------------------------------------------------------------
 ; memory load/store
@@ -1695,6 +1695,7 @@ load_byte:
         sta     tmp9
         stx     tmp1
         jsr     check_frz_mem
+        lda     $72,x
         ldx     tmp1
         bcc     @x
 @nm:    lda     zp1+1
@@ -1728,8 +1729,6 @@ check_area:
         bne     secrts
         lda     tmp3
         cmp     #$67
-        bcs     secrts
-        lda     $72,x
         rts
 secrts: sec
 _rts:   rts
