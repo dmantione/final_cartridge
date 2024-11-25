@@ -1210,14 +1210,14 @@ LB0EF:  ldy     num_asm_bytes
         jsr     check_end
         bcc     LB10A
         tya
-        bne     LB12A
+        bne     bad_operand
         ldx     tmp9
-        bmi     LB12A
+        bmi     bad_operand
         bpl     LB112
 LB10A:  iny
-        bne     LB12A
+        bne     bad_operand
         ldx     tmp9
-        bpl     LB12A
+        bpl     bad_operand
 LB112:  dex
         dex
         txa
@@ -1231,7 +1231,8 @@ LB123:  lda     tmp6
         jsr     store_byte
         rts
 
-LB12A:  jmp     input_loop
+bad_operand:
+        jmp     input_loop
 
 verify_char:
         stx     tmp3
@@ -1270,8 +1271,6 @@ LB146:  inx
         ldx     tmp3
 rts_01: rts
 
-bad_operand:
-        jmp     input_loop
 
 ; ----------------------------------------------------------------
 ; "$" - convert hex to decimal
