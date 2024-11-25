@@ -75,6 +75,7 @@ _basic_warm_start := $800A
 .import listen_second
 .import command_channel_talk
 .import talk_second
+.import print_line_from_drive
 
 ; from constants
 .import pow10lo
@@ -2082,7 +2083,7 @@ print_drive_status:
         jsr     print_cr
         jsr     UNLSTN
         jsr     command_channel_talk
-        jsr     cat_line_iec
+        jsr     print_line_from_drive
         jmp     input_loop
 
 ; show directory
@@ -3654,13 +3655,6 @@ LBC7D:  dex
         beq     LBC56
         bpl     LBC58
         rts
-
-cat_line_iec:
-        jsr     IECIN
-        jsr     LE716 ; KERNAL: output character to screen
-        cmp     #CR
-        bne     cat_line_iec
-        jmp     UNTALK
 
 print_hex_byte:
         jsr     byte_to_hex_ascii

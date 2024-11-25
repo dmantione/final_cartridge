@@ -28,7 +28,7 @@
 
 print_line_from_drive:
         jsr     IECIN
-        jsr     $E716 ; output character to the screen
+        jsr     LE716 ; output character to the screen
         cmp     #CR
         bne     print_line_from_drive
         jmp     UNTALK
