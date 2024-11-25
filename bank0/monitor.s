@@ -398,13 +398,13 @@ dump_registers2:
         jsr     print_bin
         beq     input_loop ; always
 
+
 syntax_error:
         lda     #'?'
         .byte   $2C
 print_cr_then_input_loop:
         lda     #CR
         jsr     BSOUT
-
 input_loop:
         ldx     reg_s
         txs
@@ -418,17 +418,17 @@ input_loop2:
         cmp     #' '
         beq     input_loop2 ; skip spaces
         ldx     #command_names_end - command_names - 1
-LAC27:  cmp     command_names,x
-        bne     LAC3B
-        stx     command_index
+:       cmp     command_names,x
+        beq     :+
+        dex
+        bpl     :-
+        bmi     syntax_error ; always
+:       stx     command_index
         lda     function_table_h,x
         pha
         lda     function_table_l,x
         pha
         rts
-LAC3B:  dex
-        bpl     LAC27
-        bmi     syntax_error ; always
 
 ; ----------------------------------------------------------------
 ; "EC"/"ES"/"D" - dump character or sprite data
@@ -492,7 +492,25 @@ LAC86:  lda     command_index
         beq     is_mie ; 'EC'
         cmp     #'S'
         beq     is_mie ; 'ES'
-        jmp     LAE88
+
+; ----------------------------------------------------------------
+; "C" - compare
+; ----------------------------------------------------------------
+        jsr     check_end
+        bcs     :+
+syn_err0:
+        jmp     syntax_error
+:       sty     tmp10
+        jsr     basin_if_more
+        jsr     get_hex_word3
+        lda     command_index
+        cmp     #command_index_c
+        beq     LAEA6
+        jsr     LB1CB
+        jmp     print_cr_then_input_loop
+
+LAEA6:  jsr     LB245
+        jmp     input_loop
 
 LACA6:  jsr     LB64D
         bcs     is_mie
@@ -734,21 +752,6 @@ LAE7C:  pha
         jsr     LAD4B
         jmp     print_cr_dot
 
-LAE88:  jsr     check_end
-        bcs     :+
-        bcc     syn_err1 ; always
-
-:       sty     tmp10
-        jsr     basin_if_more
-        jsr     get_hex_word3
-        lda     command_index
-        cmp     #command_index_c
-        beq     LAEA6
-        jsr     LB1CB
-        jmp     print_cr_then_input_loop
-
-LAEA6:  jsr     LB245
-        jmp     input_loop
 
 LAEAC:  jsr     basin_if_more
         jsr     basin_if_more
@@ -1515,7 +1518,7 @@ LB20E:  jsr     load_byte
         dec     zp2 + 1
         dex
 LB229:  dey
-        jmp     LB20E
+        bcs     LB20E ; always because x > 0
 
 LB22D:  rts
 
@@ -3687,7 +3690,7 @@ digit_to_ascii:
 
 directory:
         lda     #$60
-        sta     SA
+;        sta     SA
         jsr     talk_second
         jsr     IECIN
         jsr     IECIN ; skip load address
