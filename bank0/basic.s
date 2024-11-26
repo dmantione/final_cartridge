@@ -1314,16 +1314,15 @@ L89D8:  lda     $DC00
         jsr     GETIN
         beq     L89D8
         cmp     #$59
-        bne     L89FA
+        bne     _rts2
 L89EC:  jmp     go_desktop
 
+L89EF:  inx
+        jsr     $E716 ; output character to the screen
 print_msg:
         lda     a_are_you_sure,x
-        beq     L89FA
-        jsr     $E716 ; output character to the screen
-        inx
-        bne     print_msg
-L89FA:  rts
+        bne     L89EF
+_rts2:  rts
 
 messages:
 a_are_you_sure:
