@@ -148,13 +148,16 @@ et_monitor_vdc  := $40
 et_monitor_reu  := $80
 
 ; Freezer variables
-tmpvar1  = $90
-tmpptr_a = $91
-tmpvar2  = $93
-freezer_mem_a = $d1
-freezer_mem_a_val = $d3
-freezer_mem_b = $d4
-freezer_mem_b_val = $d3
+tmpvar1         := $90
+tmpptr_a        := $91
+tmpvar2         := $93
+freezer_mem_a   := $d1
+freezer_mem_a_val := $d3
+freezer_mem_a_size := $67
+freezer_mem_b   := $d4
+freezer_mem_b_val := $d3
+freezer_mem_b_size := $57
+freezer_vicii_backup := $F3D1
 
 .segment "monitor_a"
 
@@ -306,6 +309,10 @@ brk_entry2:
         inx
         cpx     #6
         bne     :-
+        lda     #freezer_mem_a_size
+        sta     $76
+        lda     #freezer_mem_b_size
+        sta     $79
         lda     #'V'
         .byte   $2C ; skip
 @c:     lda     #'C'
@@ -1385,10 +1392,10 @@ vdcxit:
         sta     fcio_reg
 
         ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
-        lda     #>$F3D1
+        lda     #>freezer_vicii_backup
         ldx     #$12
         jsr     vdc_reg_store
-        lda     #<$F3D1
+        lda     #<freezer_vicii_backup
         inx
         jsr     vdc_reg_store
         lda     #$00
@@ -1662,8 +1669,8 @@ load_byte:
         bvs     @frozen_vdc
 .endif
 .ifdef MACHINE_TED
-        stx tmp1
-        sty tmp2
+;        stx tmp1
+;        sty tmp2
         lda zp1
         sta FETPTR
         lda zp1 + 1
@@ -1687,6 +1694,25 @@ load_byte:
 
 .ifdef CART_FC3
 @frozen_vdc:
+        lda     zp1+1
+        sta     tmp3
+        ; Check if I/O visible
+        lda     #$03
+        bit     bank
+        beq     @2
+        lda     zp1+1
+        ldx     #2
+@1:     cmp     chips_base,x
+        bne     @2
+        tya
+        clc
+        adc     chips_back_lo,x
+        tay
+        lda     chips_back_hi,x
+        bne     @6
+@2:     dex
+        bpl     @1
+
         tya
         clc
         adc     zp1
@@ -1694,37 +1720,30 @@ load_byte:
         lda     zp1+1
         adc     #$00
         sta     tmp9
-        stx     tmp1
         jsr     check_frz_mem
         lda     $72,x
-        ldx     tmp1
         bcc     @x
-        tya
-@nm:    lda     zp1+1
-        sta     tmp3
-        cmp     #$08
-        bcc     :+
-        ; Check if I/O visible
-        lda     #$03
-        bit     $01
-        beq     @r
         lda     zp1+1
-        cmp     #$D0
-        bne     :+
-        tya
-        clc
-        adc     #$D1
-        tay
-        lda     #$F3
-        .byte  $2C
-:       ora     #$F8
-        sta     zp1+1
+        cmp     #$08
+        bcs     @r
+        ora     #$F8
+@6:     sta     zp1+1
         jsr     load_byte_vdc
         pha
         lda     tmp3
         sta     zp1+1
         pla
-@x:     rts
+@x:     ldx     tmp1
+        ldy     tmp2
+        rts
+
+;
+; VIC-II, CIA1, CIA2
+;
+chips_base:     .byte >$D000, >$DC00, >$DD00
+chips_back_lo:  .byte <freezer_vicii_backup, $70, $80
+chips_back_hi:  .byte >freezer_vicii_backup, $F8, $F8
+
 
 check_frz_mem:
         ; Check whether address is in freezer memory area A
@@ -1737,13 +1756,13 @@ check_area:
         lda     tmp8
         sec
         sbc     $70,x
-        sta     tmp3
+        sta     tmp4
         lda     tmp9
         sbc     $71,x
         bcc     secrts
         bne     secrts
-        lda     tmp3
-        cmp     #$67
+        lda     tmp4
+        cmp     $76,x
         rts
 secrts: sec
 _rts:   rts

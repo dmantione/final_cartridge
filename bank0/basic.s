@@ -1333,7 +1333,7 @@ a_ready: ; XXX this is only used by desktop_helper.s, it should be defined there
 ; ----------------------------------------------------------------
 ; "DLOAD" Command - load a program from disk
 ; ----------------------------------------------------------------
-DLOAD:  
+DLOAD:
         lda     #0 ; load flag
         .byte   $2C
 ; ----------------------------------------------------------------
