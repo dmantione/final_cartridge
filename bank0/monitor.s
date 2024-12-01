@@ -286,12 +286,14 @@ brk_entry2:
         bit     entry_type
         bmi     @reu
         bvs     @vdc
-        bne     @c
-        lda     #'B'
+        beq     :+
+        jmp     @c
+:       lda     #'B'
         .byte   $2C ; skip
 @reu:   lda     #'R'
-        bne     @c
+        jmp     @c
 @vdc:
+        ; Get freezer mem a/b locations
         lda     #$F8
         ldx     #$12
         jsr     vdc_reg_store
@@ -313,6 +315,48 @@ brk_entry2:
         sta     $76
         lda     #freezer_mem_b_size
         sta     $79
+
+        ; Get original y register and stack pointer
+        lda     #78
+        clc
+        adc     $73
+        ldx     #$13
+        jsr     vdc_reg_store  ; A,X,C preserved
+        lda     #$F8
+        adc     $74
+        dex
+        jsr     vdc_reg_store
+        ldx     #$1F
+        jsr     vdc_reg_load
+        sta     reg_y
+        jsr     vdc_reg_load
+        jsr     vdc_reg_load
+        sta     reg_s
+
+        ; Get original bank, accumulator and flags
+        adc     #3
+        ldx     #$13
+        jsr     vdc_reg_store
+        lda     #$F9
+        dex
+        jsr     vdc_reg_store
+        ldx     #$1F
+        jsr     vdc_reg_load
+        sta     reg_x
+        jsr     vdc_reg_load ; Value of $01 at freeze
+        and     #$07
+        ora     #$40
+        sta     bank
+        jsr     vdc_reg_load ; Value of $00 at freeze
+        jsr     vdc_reg_load ; Value of A at freeze
+        sta     reg_a
+        jsr     vdc_reg_load ; Value of flags at freeze
+        sta     reg_p
+        jsr     vdc_reg_load ; Value of pc at freeze
+        sta     reg_pc_lo
+        jsr     vdc_reg_load ; Value of pc at freeze
+        sta     reg_pc_hi
+
         lda     #'V'
         .byte   $2C ; skip
 @c:     lda     #'C'
