@@ -257,6 +257,10 @@ ram_code_end:
 
 .segment "monitor_b"
 
+;frozen_regtable: .byte <reg_x,$40,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
+
+frozen_regtable: .byte <reg_pc_hi,<reg_pc_lo,<reg_p,<reg_a,$80,<bank,<reg_x
+
 brk_entry2:
         cld ; <- important :)
         pla
@@ -341,21 +345,20 @@ brk_entry2:
         dex
         jsr     vdc_reg_store
         ldx     #$1F
-        jsr     vdc_reg_load
-        sta     reg_x
-        jsr     vdc_reg_load ; Value of $01 at freeze
+        jsr     vdc_set_addreg
+        ldy     #.sizeof(frozen_regtable)
+@l:     bit     $d600
+        bpl     @l
+        lda     $d601
+        ldx     frozen_regtable-1,y
+        bmi     @d
+        cpx     #<bank
+        bne     :+
         and     #$07
         ora     #$40
-        sta     bank
-        jsr     vdc_reg_load ; Value of $00 at freeze
-        jsr     vdc_reg_load ; Value of A at freeze
-        sta     reg_a
-        jsr     vdc_reg_load ; Value of flags at freeze
-        sta     reg_p
-        jsr     vdc_reg_load ; Value of pc at freeze
-        sta     reg_pc_lo
-        jsr     vdc_reg_load ; Value of pc at freeze
-        sta     reg_pc_hi
+:       sta     $0200,x
+@d:     dey
+        bne     @l
 
         lda     #'V'
         .byte   $2C ; skip
@@ -380,6 +383,7 @@ brk_entry2:
         sta     RPTFLG ; enable key repeat for all keys
 .endif
         bne     dump_registers ; always
+
 
 ; ----------------------------------------------------------------
 ; "R" - dump registers
@@ -1737,6 +1741,9 @@ load_byte:
 .endif
 
 .ifdef CART_FC3
+@br:    lda     bank ; Bit 6 is set but doesn't hurt
+        bne     @r
+
 @frozen_vdc:
         lda     zp1+1
         sta     tmp3
@@ -1766,10 +1773,12 @@ load_byte:
         sta     tmp9
         jsr     check_frz_mem
         lda     $72,x
+        ldx     tmp1
+        ldy     tmp2
         bcc     @x
         lda     zp1+1
         cmp     #$08
-        bcs     @r
+        bcs     @br
         ora     #$F8
 @6:     sta     zp1+1
         jsr     load_byte_vdc
@@ -1777,8 +1786,9 @@ load_byte:
         lda     tmp3
         sta     zp1+1
         pla
-@x:     ldx     tmp1
-        ldy     tmp2
+@x:
+;     ldx     tmp1
+;        ldy     tmp2
         rts
 
 ;
