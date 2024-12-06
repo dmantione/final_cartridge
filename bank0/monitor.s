@@ -3642,13 +3642,12 @@ LBB42:  jsr     close_ch2
 
 
 to_dec:
-        ldx     #'0'
+        ldx     #'0' - 1
         sec
-:       sbc     #10
-        bcc     :+
-        inx
+:       inx
+        sbc     #10
         bcs     :-
-:       adc     #'9' + 1
+        adc     #'9' + 1
         rts
 
 read_write_block:
