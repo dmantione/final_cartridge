@@ -30,10 +30,10 @@
 .import command_channel_talk
 .import listen_second
 .import talk_second
+.import close_ch2
 
 ; from format
 .import init_read_disk_name
-.import unlisten_e2
 
 ; from printer
 .import set_io_vectors
@@ -146,7 +146,7 @@ read_disk_name:
         cpx     #16 ; max 16 characters
         bne     :-
 :       jsr     UNTALK
-        jsr     unlisten_e2
+        jsr     close_ch2
         jmp     zero_terminate
 
 read_cmd_channel:

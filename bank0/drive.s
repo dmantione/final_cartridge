@@ -20,7 +20,7 @@
 .global device_not_present
 .global init_read_disk_name
 .global init_write_bam
-.global unlisten_e2
+.global close_ch2
 .global set_colon_asterisk
 .global set_drive
 
@@ -125,7 +125,7 @@ init_read_disk_name:
         ldy     #drive_cmd_u1 - drive_cmds
         jsr     send_drive_cmd ; send "U1:2 0 18 0", block read of BAM
         jsr     check_iec_error
-        bne     unlisten_e2 ; error
+        bne     close_ch2 ; error
         ldy     #drive_cmd_bp - drive_cmds
         jsr     send_drive_cmd ; send "B-P 2 144", read name
         lda     #0
@@ -134,7 +134,7 @@ init_read_disk_name:
 init_write_bam:
         ldy     #drive_cmd_u2 - drive_cmds
         jsr     send_drive_cmd ; send "U2:2 0 18 0", block write of BAM
-unlisten_e2:
+close_ch2:
         lda     #$E2
         jsr     listen_second
         jsr     UNLSTN

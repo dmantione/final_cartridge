@@ -76,6 +76,7 @@ _basic_warm_start := $800A
 .import command_channel_talk
 .import talk_second
 .import print_line_from_drive
+.import close_ch2
 
 ; from constants
 .import pow10lo
@@ -3558,8 +3559,6 @@ syn_err7:
 ; "*R"/"*W" - read/write sector
 ; ----------------------------------------------------------------
 cmd_asterisk:
-        jsr     listen_command_channel
-        jsr     UNLSTN
         jsr     BASIN
         cmp     #'W'
         beq     :+
@@ -3584,7 +3583,11 @@ LBAC1:  jsr     get_hex_byte
         sta     zp2 + 1
         jsr     basin_cmp_cr
         bne     syn_err7
-LBACD:  jsr     open_2
+LBACD:  lda     #$F2
+        jsr     listen_second
+        lda     #'#'
+        jsr     IECOUT
+        jsr     UNLSTN
         jsr     swap_zp1_and_zp2
         lda     zp1
         cmp     #'W'
@@ -3603,7 +3606,7 @@ LBAED:  jsr     LE716 ; KERNAL: output character to screen
         cmp     #CR ; print drive status until CR (XXX redundant?)
         bne     LBAED
         jsr     UNTALK
-        jsr     close_2
+        jsr     close_ch2
         jmp     input_loop
 
 LBB00:  jsr     IECIN
@@ -3611,45 +3614,32 @@ LBB00:  jsr     IECIN
         bne     LBB00
         jsr     UNTALK
         jsr     send_bp
-        ldx     #2
-        jsr     CHKIN
+        lda     #$62
+        jsr     talk_second
         ldy     #0
         sty     zp1
-LBB16:  jsr     IECIN
+:       jsr     IECIN
         jsr     store_byte ; receive block
         iny
-        bne     LBB16
-        jsr     CLRCH
+        bne     :-
+        jsr     UNTALK
         jmp     LBB42 ; close 2 and print drive status
 
 LBB25:  jsr     send_bp
-        ldx     #2
-        jsr     CKOUT
+        lda     #$62
+        jsr     listen_second
         ldy     #0
         sty     zp1
-LBB31:  jsr     load_byte
+:       jsr     load_byte
         jsr     IECOUT ; send block
         iny
-        bne     LBB31
-        jsr     CLRCH
+        bne     :-
+        jsr     UNLSTN
         lda     #'2' ; U2: write
         jsr     read_write_block
-LBB42:  jsr     close_2
+LBB42:  jsr     close_ch2
         jmp     print_drive_status
 
-open_2: lda     #2
-        tay
-        ldx     FA
-        jsr     SETLFS
-        lda     #1
-        ldx     #<s_hash
-        ldy     #>s_hash
-        jsr     SETNAM
-        jmp     OPEN
-
-close_2:
-        lda     #2
-        jmp     CLOSE
 
 to_dec:
         ldx     #'0'
@@ -3710,9 +3700,6 @@ s_u1_len =  * - s_u1
 s_bp:
         .byte   "B-P 2 0"
 s_bp_len = * - s_bp
-
-s_hash:
-        .byte   "#"
 
 send_m_dash2:
         pha
