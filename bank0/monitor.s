@@ -3562,10 +3562,10 @@ cmd_asterisk:
         jsr     UNLSTN
         jsr     BASIN
         cmp     #'W'
-        beq     LBAA0
+        beq     :+
         cmp     #'R'
         bne     syn_err7
-LBAA0:  sta     zp2 ; save 'R'/'W' mode
+:       sta     zp2 ; save 'R'/'W' mode
         jsr     basin_skip_spaces_if_more
         jsr     get_hex_byte2
         bcc     syn_err7
@@ -3584,7 +3584,7 @@ LBAC1:  jsr     get_hex_byte
         sta     zp2 + 1
         jsr     basin_cmp_cr
         bne     syn_err7
-LBACD:  jsr     LBB48
+LBACD:  jsr     open_2
         jsr     swap_zp1_and_zp2
         lda     zp1
         cmp     #'W'
@@ -3637,7 +3637,7 @@ LBB31:  jsr     load_byte
 LBB42:  jsr     close_2
         jmp     print_drive_status
 
-LBB48:  lda     #2
+open_2: lda     #2
         tay
         ldx     FA
         jsr     SETLFS
@@ -3663,7 +3663,7 @@ to_dec:
 
 read_write_block:
         ;
-        ; The B-R and B-W commands have serious bugs. Details can be found in the bood
+        ; The B-R and B-W commands have serious bugs. Details can be found in the book
         ;  "Die Floppy 1571" by Karsten Schramm, chapter 14 "Fehler im DOS 3.0"
         ; ( the 1541 has these bugs too).
         ;
@@ -3680,17 +3680,15 @@ read_write_block:
         sta     BUF + 1  ; U1 or U2
         lda     zp2 ; track
         jsr     to_dec
-        stx     BUF + s_u1_len + 0
-        sta     BUF + s_u1_len + 1
-        lda     #' '
-        sta     BUF + s_u1_len + 2
+        stx     BUF + s_u1_len - 3
+        sta     BUF + s_u1_len - 2
         lda     zp2 + 1 ; sector
         jsr     to_dec
-        stx     BUF + s_u1_len + 3
-        sta     BUF + s_u1_len + 4
+        stx     BUF + s_u1_len + 0
+        sta     BUF + s_u1_len + 1
         jsr     listen_command_channel
-        ldx     #256-(s_u1_len+5)
-:       lda     BUF+s_u1_len+5-256,x
+        ldx     #256-(s_u1_len+2)
+:       lda     BUF+s_u1_len+2-256,x
         jsr     IECOUT
         inx
         bne     :-
@@ -3706,7 +3704,7 @@ send_bp:
         jmp     UNLSTN
 
 s_u1:
-        .byte   "U1:2 0 "
+        .byte   "U1:2 0 xx "
 s_u1_len =  * - s_u1
 
 s_bp:

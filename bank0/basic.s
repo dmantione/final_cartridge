@@ -1318,7 +1318,7 @@ L89D8:  lda     $DC00
 L89EC:  jmp     go_desktop
 
 L89EF:  inx
-        jsr     $E716 ; output character to the screen
+        jsr     LE716 ; output character to the screen
 print_msg:
         lda     a_are_you_sure,x
         bne     L89EF
