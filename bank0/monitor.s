@@ -84,6 +84,8 @@ _basic_warm_start := $800A
 ; from linker
 .import restart_freezer
 
+.import new_load
+
 .global monitor
 .global monitor_frozen
 
@@ -1439,7 +1441,7 @@ vdcxit:
         lda     #fcio_bank_0|fcio_c64_16kcrtmode
         sta     fcio_reg
 
-        ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
+        ; Restore $D000..$D02E from $F3D1..$F3FF in VDC
         lda     #>freezer_vicii_backup
         ldx     #$12
         jsr     vdc_reg_store
@@ -1745,50 +1747,71 @@ load_byte:
         bne     @r
 
 @frozen_vdc:
-        lda     zp1+1
+        lda     zp1
         sta     tmp3
+        lda     zp1+1
+        sta     tmp4
+        tya
+        clc
+        adc     zp1
+        sta     zp1
+        bcc     :+
+        inc     zp1+1
         ; Check if I/O visible
-        lda     #$03
+:       lda     #$03
         bit     bank
         beq     @2
         lda     zp1+1
         ldx     #2
 @1:     cmp     chips_base,x
         bne     @2
-        tya
         clc
-        adc     chips_back_lo,x
+        lda     chips_back_lo,x
+        adc     zp1
         tay
         lda     chips_back_hi,x
         bne     @6
 @2:     dex
         bpl     @1
 
-        tya
-        clc
-        adc     zp1
-        sta     tmp8
-        lda     zp1+1
-        adc     #$00
-        sta     tmp9
-        jsr     check_frz_mem
+@3:     jsr     check_frz_mem
         lda     $72,x
-        ldx     tmp1
-        ldy     tmp2
-        bcc     @x
+        bcc     @7
+        ldy     zp1
         lda     zp1+1
-        cmp     #$08
-        bcs     @br
-        ora     #$F8
-@6:     sta     zp1+1
+        bne     :+
+        ; Zero page
+        tya
+        sec
+        sbc     #$70
+        bcc     :+
+        cmp     #freezer_mem_a_size
+        bcs     :+
+        adc     $70
+        tay
+        lda     $71
+        adc     #$00
+:       ; Check whether < $0800, then read from backup,
+        ; otherwise read from mem
+        cmp     #>$0800
+        bcc     :+
+        lda     bank
+        jsr     @r
+        jmp     @7
+:       ora     #>$F800
+@6:     sty     zp1
+        sta     zp1+1
+        ldy     #0
         jsr     load_byte_vdc
-        pha
+@7:     pha
         lda     tmp3
+        sta     zp1
+        lda     tmp4
         sta     zp1+1
         pla
 @x:
-;     ldx     tmp1
-;        ldy     tmp2
+        ldx     tmp1
+        ldy     tmp2
         rts
 
 ;
@@ -1807,15 +1830,15 @@ check_frz_mem:
         ; Check whether address is in freezer memory area B
         ldx     #3
 check_area:
-        lda     tmp8
+        lda     zp1
         sec
         sbc     $70,x
-        sta     tmp4
-        lda     tmp9
+        tay
+        lda     zp1+1
         sbc     $71,x
         bcc     secrts
         bne     secrts
-        lda     tmp4
+        tya
         cmp     $76,x
         rts
 secrts: sec
@@ -2012,7 +2035,7 @@ LB38F:
         jsr     uninstall_kbd_handler
         ldx     zp1
         ldy     zp1 + 1
-        jsr     LB42D  ; perform load
+        jsr     perform_load
         php
 .ifdef CART_FC3
         jsr     set_io_vectors
@@ -2020,12 +2043,11 @@ LB38F:
         jsr     set_irq_and_kbd_handlers
         plp
 LB3A4:  bcc     LB3B3
-LB3A6:  ldx     #0
-LB3A8:  lda     LF0BD,x ; "I/O ERROR"
+LB3A6:  ldx     #256-10
+:       lda     LF0BD-(256-10),x ; "I/O ERROR"
         jsr     BSOUT
         inx
-        cpx     #10
-        bne     LB3A8
+        bne     :-
 LB3B3:  jmp     input_loop
 
 LB3B6:  cmp     #'"'
@@ -2033,7 +2055,7 @@ LB3B6:  cmp     #'"'
 LB3BA:  jsr     basin_cmp_cr
         beq     LB388
         cmp     #'"'
-        beq     LB3CF
+        beq     fn_parsed
         sta     (FNADR),y
         inc     FNLEN
         iny
@@ -2042,7 +2064,8 @@ LB3BA:  jsr     basin_cmp_cr
 syn_err4:
         jmp     syntax_error
 
-LB3CF:  jsr     basin_cmp_cr
+fn_parsed:
+        jsr     basin_cmp_cr
         beq     LB388
         cmp     #','
 LB3D6:  bne     syn_err4
@@ -2050,25 +2073,26 @@ LB3D6:  bne     syn_err4
         and     #$0F
         beq     syn_err4
         cmp     #1 ; tape
-        beq     LB3E7
+        beq     :+
         cmp     #4
         bcc     syn_err4 ; illegal device number
-LB3E7:  sta     FA
+:       sta     FA
         jsr     basin_cmp_cr
         beq     LB388
         cmp     #','
-LB3F0:  bne     LB3D6
+        bne     syn_err4
         jsr     get_hex_word3
         jsr     swap_zp1_and_zp2
         jsr     basin_cmp_cr
         bne     LB408
         lda     command_index
         cmp     #command_index_l
-        bne     LB3F0
+        bne     syn_err4
         dec     SA
         beq     LB38F
+
 LB408:  cmp     #','
-LB40A:  bne     LB3F0
+LB40A:  bne     syn_err4
         jsr     get_hex_word3
         jsr     basin_skip_spaces_cmp_cr
         bne     LB40A
@@ -2081,13 +2105,13 @@ LB40A:  bne     LB3F0
 .ifdef CART_FC3
         jsr     restore_bsout_chrch
 .endif
-        jsr     LB438  ; perform save
+        jsr     perform_save
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
         jmp     LB3A4
 
-LB42D:
+perform_load:
 .ifdef CART_FC3
         lda     #>(_enable_fcbank0 - 1)
         pha
@@ -2097,7 +2121,7 @@ LB42D:
         lda     #0
         jmp     LOAD
 
-LB438:
+perform_save:
 .ifdef CART_FC3
         lda     #>(_enable_fcbank0 - 1)
         pha
@@ -2338,7 +2362,7 @@ print_hex_byte2:
 
 print_bin:
         ldx     #8
-LB565:  rol     a
+@1:     rol     a
         pha
         lda     #'*'
         bcs     :+
@@ -2346,7 +2370,7 @@ LB565:  rol     a
 :       jsr     BSOUT
         pla
         dex
-        bne     LB565
+        bne     @1
         rts
 
 
