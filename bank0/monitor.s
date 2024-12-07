@@ -862,15 +862,15 @@ LAF03:  bit     entry_type
         ldx     #$12
         jsr     vdc_reg_store
         lda     #tmpvar1
-        ldx     #$13
+        inx
         jsr     vdc_reg_store
         ldx     #$1F
-        lda     #$80
+        ; A unmodified, tmpvar1 = $90
         jsr     vdc_reg_store
         jmp     vdcxit
 :       jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
-        bmi     LAF2B ; drive
+        bmi     go_drive ; drive
         jsr     uninstall_kbd_handler
         lda     irq_lo
         sta     CINV
@@ -891,7 +891,8 @@ LAF06:  lda     bank
         ldy     reg_y
         lda     bank
         jmp     disable_rom_rti
-LAF2B:  lda     #'E' ; send M-E to drive
+go_drive:
+        lda     #'E' ; send M-E to drive
         jsr     send_m_dash2
         lda     zp2
         jsr     IECOUT
@@ -1647,6 +1648,14 @@ LB293:  jsr     print_cr
 ; memory load/store
 ; ----------------------------------------------------------------
 
+add_y_to_zp1:
+        tya
+        clc
+        adc     zp1
+        sta     zp1
+        bcc     :+
+        inc     zp1+1
+
 vdc_set_addreg:
         ldy     #63 ; VDC should have time for processing at least once per
                     ; scanline, this is multiple scanlines in cycles, so
@@ -1684,6 +1693,7 @@ load_byte_vdc:
 ;        plp
         lda     #0
         adc     zp1+1
+;        lda     zp1+1
         dex
         jsr     vdc_reg_store
         ldx     #$1f
@@ -1708,7 +1718,6 @@ load_byte_drive:
 
 ; loads a byte at (zp1),y from RAM with the correct ROM config
 load_byte:
-        sei
         stx     tmp1
         sty     tmp2
         lda     bank
@@ -1741,6 +1750,7 @@ load_byte:
         pha
         lda     cartridge_bank
 .endif
+        sei
         jmp     load_byte_ram ; "lda (zp1),y" with ROM and cartridge config
 .endif
 
@@ -1753,12 +1763,7 @@ load_byte:
         sta     tmp3
         lda     zp1+1
         sta     tmp4
-        tya
-        clc
-        adc     zp1
-        sta     zp1
-        bcc     :+
-        inc     zp1+1
+        jsr     add_y_to_zp1
         ; Check if I/O visible
 :       lda     #$03
         bit     bank
