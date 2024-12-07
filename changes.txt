@@ -256,8 +256,14 @@ F4 - unassigned
 F6 - unassigned
 F8 - @
 
+17. Unified directory routine
+-----------------------------
 
-17. Scroll-up bug fixed
+BASIC and the monitor now use the same code for displaying the directory. This
+has a small benefit that the directory now can be sent to the printer in the
+monitor with the P command, previously this did only work from BASIC.
+
+18. Scroll-up bug fixed
 -----------------------
 
 In BASIC, if a line was exactly 80 characters long, the next line on the screen
@@ -265,7 +271,7 @@ would be cleared when scrolling up. This would hide a line of the program.
 This bug has been fixed.
 
 
-18. Monitor restores BRK vector
+19. Monitor restores BRK vector
 -------------------------------
 
 A quite serious bug in the original FC3 has been fixed: The monitor did not
@@ -274,21 +280,21 @@ input buffer, a BRK would execute nonsense code. The bug wasn't that noticable,
 since you normally do not execute BRK instructions.
 
 
-19. Freezer clears decimal mode
+20. Freezer clears decimal mode
 -------------------------------
 
 The freezer did not take into account decimal mode when freezing. This bug has
 been fixed.
 
 
-20. Freezer appears faster
+21. Freezer appears faster
 --------------------------
 
 The code that searches for memory when the freezer has been invoked has been
 optimized, which means that the freezer menu shows quite a bit more quickly.
 
 
-21. Directory write-back rewritten
+22. Directory write-back rewritten
 ----------------------------------
 
 The code that wrote a directory back to disk after sorting was using two buffers
@@ -301,9 +307,21 @@ This code has been rewritten to use a single 8KB buffer where entries are
 swapped within the buffer to get to the desired order.
 
 
-22. 154x/157x check
+23. 154x/157x check
 -------------------
 
 The directory writeback code now does not work on 1581 and other devices, the
 directory is now only written if a 154x or 158x is detected.
+
+
+24. Return from monitor to freezer on Commodore 128
+---------------------------------------------------
+
+If you have a Commodore 128, if you invoke the monitor from the freezer, you can
+now return to the freezer with the X command, or immedeately resume the frozen
+program with the G command.
+
+A frozen view of memory has been implemented. If you select bank with O0 to O7,
+you will see the real time condition of memory, but, you select bank with OF0
+to OF7, you will see the C64 memory in its frozen state.
 
