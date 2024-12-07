@@ -2245,17 +2245,15 @@ basin_skip_spaces_if_more:
 ; get a character; if it's CR, return to main input loop
 basin_if_more:
         jsr     basin_cmp_cr
-LB4C5:  bne     LB4CA ; rts
+LB4C5:  bne     _rts2
         jmp     input_loop
-
-LB4CA:  rts
 
 basin_skip_spaces_cmp_cr:
         jsr     BASIN
         cmp     #' '
         beq     basin_skip_spaces_cmp_cr ; skip spaces
         cmp     #CR
-        rts
+_rts2:  rts
 
 basin_cmp_cr:
         jsr     BASIN
@@ -2443,13 +2441,13 @@ read_8_bytes:
 read_x_bytes:
         ldy     #0
         jsr     copy_zp2_to_zp1
-        jsr     basin_skip_spaces_if_more
-        jsr     get_hex_byte2 ; sets C
-        bcs     LB607 ; always
+        jsr     basin_skip_spaces_if_more ; Z=0
+        bne     LB604 ; always
 
 LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
         jsr     basin_if_more_cmp_space
         bne     LB604 ; not space
+        ; space, next should be space
         jsr     basin_if_more_cmp_space
         beq     LB60A
         bne     syn_err5 ; always
@@ -2464,6 +2462,7 @@ LB60A:  iny
 basin_if_more_cmp_space:
         jsr     basin_cmp_cr
         bne     :+
+        ; CR: return from parent procedure
         pla
         pla
 :       cmp     #' '
