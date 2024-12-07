@@ -66,6 +66,7 @@ _basic_warm_start := $800A
 ; from basic
 .import set_irq_and_kbd_handlers
 .import uninstall_kbd_handler
+.import print_dir
 
 ; from editor
 .import scroll_screen_up
@@ -2207,7 +2208,7 @@ LB475:  jsr     UNLSTN
         lda     #'$'
         jsr     IECOUT
         jsr     UNLSTN
-        jsr     directory
+        jsr     print_dir
         jmp     input_loop
 
 LB48E:  jsr     print_space
@@ -3775,47 +3776,3 @@ digit_to_ascii:
         adc #$30
         cld
         rts
-
-directory:
-        lda     #$60
-;        sta     SA
-        jsr     talk_second
-        jsr     IECIN
-        jsr     IECIN ; skip load address
-LBCDF:  jsr     IECIN
-        jsr     IECIN ; skip link word
-        jsr     IECIN
-        tax
-        jsr     IECIN ; line number (=blocks)
-        ldy     ST
-        bne     LBD2F ; error
-        jsr     LBC4C ; print A/X decimal
-        lda     #' '
-        jsr     LE716 ; KERNAL: output character to screen
-        ldx     #$18
-LBCFA:  jsr     IECIN
-LBCFD:  ldy     ST
-        bne     LBD2F ; error
-        cmp     #CR
-        beq     LBD09 ; convert $0D to $1F
-        cmp     #$8D
-        bne     LBD0B ; also convert $8D to $1F
-LBD09:  lda     #$1F ; ???BLUE
-LBD0B:  jsr     LE716 ; KERNAL: output character to screen
-        inc     INSRT
-        jsr     GETIN
-        cmp     #KEY_STOP
-        beq     LBD2F
-        cmp     #' '
-        bne     LBD20
-LBD1B:  jsr     GETIN
-        beq     LBD1B ; space pauses until the next key press
-LBD20:  dex
-        bpl     LBCFA
-        jsr     IECIN
-        bne     LBCFD
-        lda     #CR
-        jsr     LE716 ; KERNAL: output character to screen
-LBD2D:  bne     LBCDF ; next line
-LBD2F:  jmp     LF646 ; CLOSE
-

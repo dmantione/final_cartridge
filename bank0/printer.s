@@ -12,6 +12,7 @@
 .global cent_rs232_or_cbm
 .global new_ckout
 .global new_bsout
+.global new_bsout2
 .global new_clall
 .global new_clrch
 

@@ -53,6 +53,7 @@
 .import set_io_vectors
 .import set_io_vectors_with_hidden_rom
 .import cent_rs232_or_cbm
+.import new_bsout2
 
 ; from wrappers
 .import WA3BF
@@ -532,7 +533,7 @@ L8426:  sta     $C2
         lda     $C4
         cmp     $C3
         beq     L8443
-        jsr     _basic_bsout
+        jsr     new_bsout2
         dec     $C3
 L8443:  dex
         beq     L841C
@@ -572,58 +573,67 @@ delete_rest_of_line:
 
 ; ----------------------------------------------------------------
 
-; XXX this seems like a redundant "directory" implementation
+.global print_dir
 print_dir:
         lda     #$60
         jsr     talk_second
+        jsr     IECIN ; skip load address
         jsr     IECIN
+@nextline:
+        jsr     maybe_retalk
         jsr     IECIN
-L845E:  jsr     talk_60
-        jsr     IECIN
-        jsr     IECIN
-        jsr     IECIN
+        jsr     IECIN ; skip link word
+        jsr     IECIN ; line number lo
         tax
-        jsr     IECIN
+        jsr     IECIN ; line number hi
         ldy     ST
-        bne     L84C0
-        jsr     L84DC
+        bne     @end_of_dir
+        jsr     maybe_relisten_prn
         jsr     print_dec
         lda     #' '
-        jsr     _basic_bsout
+;        jsr     _basic_bsout
+        jsr     new_bsout2
+        bcs     @end_of_dir
         ldx     #$18
-L847F:  jsr     talk_60
+@rl:    jsr     maybe_retalk
         jsr     IECIN
-L8485:  cmp     #CR
-        beq     L848D
+@l:     cmp     #CR
+        beq     @cr
         cmp     #CR + $80
-        bne     L848F
-L848D:  lda     #$1F
-L848F:  ldy     ST
-        bne     L84C0
-        jsr     L84DC
-        jsr     _basic_bsout
+        bne     :+
+@cr:    lda     #$1F
+:       ldy     ST
+        bne     @end_of_dir
+        jsr     maybe_relisten_prn
+;        jsr     _basic_bsout
+        jsr     new_bsout2
+        bcs     @end_of_dir
         inc     $D8
         jsr     GETIN
         cmp     #3 ; STOP
-        beq     L84C0
+        beq     @end_of_dir
         cmp     #' '
-        bne     L84AB
-L84A6:  jsr     GETIN
-        beq     L84A6
-L84AB:  dex
-        bpl     L847F
-        jsr     talk_60
+        bne     @goon
+        ; space bar, wait for key
+:       jsr     GETIN
+        beq     :-
+@goon:  dex
+        bpl     @rl
+        jsr     maybe_retalk
         jsr     IECIN
-        bne     L8485
-        jsr     L84DC
+        bne     @l
+        jsr     maybe_relisten_prn
         lda     #CR
-        jsr     _basic_bsout
-        bne     L845E
-L84C0:  lda     #$E0
+;        jsr     _basic_bsout
+        jsr     new_bsout2
+        bcs     @end_of_dir
+        bne     @nextline
+@end_of_dir:
+        lda     #$E0
         jsr     talk_second
         jmp     UNLSTN
 
-talk_60:
+maybe_retalk:
         lda     $9A
         cmp     #3
         beq     L84DB ; output to screen
@@ -634,7 +644,8 @@ talk_60:
         jsr     talk_second
 L84DB:  rts
 
-L84DC:  bit     $DD0C
+maybe_relisten_prn:
+        bit     $DD0C
         bmi     L84EC ; centronics printer disabled
         pha
         lda     $9A
