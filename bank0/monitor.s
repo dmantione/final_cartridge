@@ -2036,17 +2036,17 @@ LB388:  lda     command_index
         cmp     #command_index_l
         bne     syn_err4
 LB38F:
-.ifdef CART_FC3
-        jsr     restore_bsout_chrch
-.endif
+;.ifdef CART_FC3
+;        jsr     restore_bsout_chrch
+;.endif
         jsr     uninstall_kbd_handler
         ldx     zp1
         ldy     zp1 + 1
         jsr     perform_load
         php
-.ifdef CART_FC3
-        jsr     set_io_vectors
-.endif
+;.ifdef CART_FC3
+;        jsr     set_io_vectors
+;.endif
         jsr     set_irq_and_kbd_handlers
         plp
 LB3A4:  bcc     LB3B3
