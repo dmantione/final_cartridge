@@ -296,8 +296,8 @@ new_bsout2:
         beq     @dev4
 @kernal_bsout:
         pla
-        jmp     $F1CA ; KERNAL BSOUT
-@dev4:  bit     $DD0C         ; Printing via Centronics or RS232?
+        jmp     $F1CA       ; KERNAL BSOUT
+@dev4:  bit     $DD0C       ; Printing via Centronics or RS232?
         bpl     @kernal_bsout  ; Jump to KERNAL if not.
         pla
         sta     $95
@@ -518,6 +518,9 @@ LA2D2:  lsr     a
         sec
         rts
 
+
+htabstr: .byte   $1B,'D',$95,$00,$09
+
 LA319:  asl     a
         asl     a
         adc     $95
@@ -526,24 +529,24 @@ LA319:  asl     a
         lda     #$08
         ora     $DD0C
         bne     LA34A ;always
+
 LA327:  clc
         adc     $A4
         sta     $95
-        lda     #$1B
-        jsr     printer_send_byte
-        lda     #'D' ; Set horizontal tabs
-        jsr     printer_send_byte
+        ldx     #0
+@1:     lda     htabstr,x
+        bpl     :+
         lda     $95
-        jsr     printer_send_byte
-        lda     #0
-        jsr     printer_send_byte
-        lda     #9
-        jsr     printer_send_byte
+:       jsr     printer_send_byte
+        inx
+        cpx     #.sizeof(htabstr)
+        bne     @1
         lda     $DD0C
         and     #$F3
 LA34A:  sta     $DD0C
         sec
         rts
+
 
 swap_case:
         lda     $95
