@@ -1578,5 +1578,6 @@ WEF7C:
       jsr  $19EF
 :     rts
 
-      jmp  $1B21
+;W1FDD:
+;      jmp  $1B21
 
