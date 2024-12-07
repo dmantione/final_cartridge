@@ -826,8 +826,8 @@ LAEBB:  jsr     basin_cmp_cr
         bne     LAEBB
         beq     syn_err2 ; always
 
-LAECF:  jsr     get_hex_byte2
-        bcs     LAEDC
+LAECF:  jsr     get_hex_byte2 ; sets C
+        bcs     LAEDC ; always
 LAED4:  jsr     basin_cmp_cr
         beq     LAEE7
         jsr     get_hex_byte
@@ -2293,8 +2293,8 @@ get_hex_word:
 get_hex_word2:
         cmp     #' ' ; skip spaces
         beq     get_hex_word
-        jsr     get_hex_byte2
-        bcs     LB500 ; ??? always
+        jsr     get_hex_byte2 ; sets C
+        bcs     LB500 ; always
 get_hex_word3:
         jsr     get_hex_byte
 LB500:  sta     zp2 + 1
@@ -2449,8 +2449,8 @@ read_x_bytes:
         ldy     #0
         jsr     copy_zp2_to_zp1
         jsr     basin_skip_spaces_if_more
-        jsr     get_hex_byte2
-        jmp     LB607
+        jsr     get_hex_byte2 ; sets C
+        bcs     LB607 ; always
 
 LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
         jsr     basin_if_more_cmp_space
@@ -3535,7 +3535,7 @@ LBC16:  sta     KEYD
         sta     LA
         ldx     #0
         stx     FNLEN
-        jsr     CLOSE
+;        jsr     CLOSE
         jsr     OPEN
         ldx     LA
         jsr     CKOUT
@@ -3567,11 +3567,11 @@ cmd_asterisk:
 :       sta     zp2 ; save 'R'/'W' mode
         jsr     basin_skip_spaces_if_more
         jsr     get_hex_byte2
-        bcc     syn_err7
+;        bcc     syn_err7
         sta     zp1
         jsr     basin_if_more
         jsr     get_hex_byte
-        bcc     syn_err7
+;        bcc     syn_err7
         sta     zp1 + 1
         jsr     basin_cmp_cr
         bne     LBAC1
@@ -3579,7 +3579,7 @@ cmd_asterisk:
         sta     zp2 + 1
         bne     LBACD
 LBAC1:  jsr     get_hex_byte
-        bcc     syn_err7
+;        bcc     syn_err7
         sta     zp2 + 1
         jsr     basin_cmp_cr
         bne     syn_err7
