@@ -2005,17 +2005,6 @@ listen_command_channel:
         bmi     LB3A6
         rts
 
-restore_bsout_chrch: ; set_io_vectors in printer.s changes these; change them back
-        lda     #<LE716
-        sta     IBSOUT
-        lda     #>LE716
-        sta     IBSOUT + 1
-        lda     #<LF333
-        sta     ICLRCH
-        lda     #>LF333
-        sta     ICLRCH + 1
-        rts
-
 ; ----------------------------------------------------------------
 ; "L"/"S" - load/save file
 ; ----------------------------------------------------------------
@@ -2109,13 +2098,13 @@ LB40A:  bne     syn_err4
         cmp     #command_index_s
         bne     LB40A
         dec     SA
-.ifdef CART_FC3
-        jsr     restore_bsout_chrch
-.endif
+;.ifdef CART_FC3
+;        jsr     set_io_vectors_with_hidden_rom
+;.endif
         jsr     perform_save
-.ifdef CART_FC3
-        jsr     set_io_vectors
-.endif
+;.ifdef CART_FC3
+;        jsr     set_io_vectors
+;.endif
         jmp     LB3A4
 
 perform_load:
