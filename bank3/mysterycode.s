@@ -8,13 +8,15 @@
 
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
-.include "persistent.i"
 
 .import store_a_ff_to_ae,fill_loop
 .import __diredit_cmds_LOAD__,__diredit_cmds_RUN__,__diredit_cmds_SIZE__
 .import W9200
 .import not_last_sector
 .import next_dir_entry
+
+_jmp_bank             := $DE01
+_jsr_routine_in_bank1 := $DE05
 
 ;
 ; junk0, ramcode, mysterybytes2 and ramcode2 are necessary for the Notepad. The
@@ -23,6 +25,8 @@
 ; copied as well.
 ;
 
+; This starts at $A420
+
 .segment "ramcode"
       .byte $1c
 
@@ -30,7 +34,6 @@
 
 WA421:
       jmp  $1D48
-
       jmp  $1D58
 
       jsr  $154D
@@ -44,27 +47,38 @@ WA421:
       jsr  $1CAD
       jmp  $B603
 
+notepad_quit:
+      ; If there is no document in memory, don't ask
+      ; the user confirmation
       jsr  $18DA
       jsr  $1EB1
       bcs  @1
+      ; Ask user confirmation for quit
       ldx  #$6E
       ldy  #$11
       lda  #$49
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       txa
       beq  :+
+      ; User did select cancel
       jmp  $18D4
 :     jsr  $12BF
 @1:   ldx  #$FB ; init stack?
       txs
+      ; Draw the desktop screen
       lda  #$58
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       nop
       nop
       nop
-      jmp  $8003 ; warmstart ??
+      jmp  $8003 ; restart desktop
 
 .segment "mysterybytes2"
+
+; This has something to do with character spacing
+; if you clear these bytes, using the "character"
+; menu in the Notepad causes a crash.
+
       .byte $cd
       .byte $19,$a1,$19,$ef,$19,$47,$1a,$66
       .byte $1a,$52,$1a,$5a,$1a,$73,$1a,$5d
@@ -73,8 +87,8 @@ WA421:
 
 .segment "ramcode2"
 
-;WA489
-      jsr  $148D
+W1469:
+      jsr  W148D
       sec
       lda  $0DC1
       sbc  $9F
@@ -83,16 +97,17 @@ WA421:
       dec  $0DC2
 :     rts
 
-      jsr  $148D
+W147B:
+      jsr  W148D
       clc
       lda  $0DC1
       adc  $9F
-WE4A4:
       sta  $0DC1
       bcc  :+
       inc  $0DC2
 :     rts
 
+W148D:
       lda  $0E04
       bpl  :+
       clc
@@ -127,7 +142,7 @@ WE4A4:
 :     sty  $FA
       ldy  $0DBF
       lda  #$03
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $FE
       ldy  $FF
       stx  $0DC7
@@ -158,7 +173,7 @@ WE4F6:
       beq  WE4F6
       rts
 
-WE518:
+W14F8:
       lda  $8B
       bne  :+
       dec  $8C
@@ -180,7 +195,7 @@ WE518:
       lda  ($35),y
       inc  $36
       cmp  #$0D
-      beq  WE518
+      beq  W14F8
       rts
 
       lda  $A3
@@ -280,21 +295,21 @@ WE518:
       lda  $8E
       rts
 
-WA5E7:
-      jsr  $14F8
-      jsr  $1469
+W15C7:
+      jsr  W14F8
+      jsr  W1469
       lda  #$01
       sta  $0DCA
       bne  @1
-      jsr  $14F8
-      jsr  $1469
+      jsr  W14F8
+      jsr  W1469
       lda  #$00
       sta  $0DCA
       beq  :+
       lda  #$FF
       sta  $0DCA
-:     jsr  $14F8
-      jsr  $1469
+:     jsr  W14F8
+      jsr  W1469
       inc  $0DCA
       cpx  #$20
       bne  :-
@@ -328,7 +343,7 @@ WA5E7:
       sta  $8E
       beq  WE66D
 :     jsr  $14D6
-      jsr  $147B
+      jsr  W147B
       dec  $8E
       bne  :-
 WE66D:
@@ -371,7 +386,7 @@ WE66D:
 WE6AA:
       jsr  $1681
       beq  WE6D4
-      jsr  $14F8
+      jsr  W14F8
       cpx  #$20
       bcc  WE6CB
       cpx  #$7E
@@ -413,7 +428,7 @@ WE6F2:
       cpx  #$0D
       beq  WE71D
       inc  $0DCA
-      jsr  $147B
+      jsr  W147B
       lda  $A6
       cmp  $0DC2
       bcc  WE717
@@ -422,20 +437,20 @@ WE6F2:
       cmp  $A5
       bcc  WE6F2
 WE717:
-      jsr  $1469
+      jsr  W1469
       dec  $0DCA
 WE71D:
-      jsr  $14F8
+      jsr  W14F8
 WE720:
       rts
 
 WE721:
       lda  $0DCA
       beq  @x
-      jsr  $14F8
+      jsr  W14F8
       txa
       dec  $0DCA
-      jsr  $1469
+      jsr  W1469
       lda  $0DC2
       cmp  $A6
       bcc  @x
@@ -464,7 +479,7 @@ WE760:
       inc  $F7
       lda  #$00
       sta  $A5
-@3:   jsr  $14F8
+@3:   jsr  W14F8
       cpx  #$FF
       bne  @3
       jsr  $156F
@@ -505,7 +520,7 @@ WE7BF:
       jsr  $15A7
       beq  @1
 :     jsr  $14D6
-      jsr  $147B
+      jsr  W147B
       dec  $8E
       bne  :-
 @1:    ldy  #$00
@@ -611,7 +626,7 @@ WE87B:
       lda  #$00
       sta  $0DC0
       lda  #$3C
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       jsr  $18CC
       jsr  $17D8
 :     rts
@@ -659,13 +674,13 @@ WE8A4:
       rts
 
       lda  #$50
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       jsr  $18DA
       rts
 
       jsr  $18D4
       lda  #$57
-      jmp  _enable_fcbank0
+      jmp  _jsr_routine_in_bank1
 
       lda  #$43
       sta  $D015                        ; Sprites Abilitator
@@ -727,7 +742,7 @@ WE94E:
       ldx  #$00
       ldy  #$58
       lda  #$53
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $8F
 WE968:
       stx  $0DFF
@@ -761,7 +776,7 @@ WE985:
       lda  $0DBD
       sta  $AA
       lda  #$54
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$00
       lda  $0DBD
       cmp  #$08
@@ -775,7 +790,7 @@ WE9B8:
       jsr  $14D6
       txa
       bne  WE9B8
-      jmp  $14F8
+      jmp  W14F8
 
       jsr  $1679
       beq  @x1
@@ -824,19 +839,19 @@ WE9B8:
       ldx  #$05
       ldy  #$10
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9A
       ldy  #$B3
       lda  #$08
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9F
       ldy  #$10
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9A 
       ldy  #$B3
       lda  #$08
-      jmp  _enable_fcbank0
+      jmp  _jsr_routine_in_bank1
 
       lda  $0E04
       eor  #$10
@@ -957,7 +972,7 @@ WEB17:
       ldy  #$12
 WEB48:
       lda  #$49
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       jmp  $18D4
 
       lda  #$00
@@ -1037,33 +1052,33 @@ WEB9B:
       ldx  #$00
       ldy  #$00
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       lda  #$C8
       sta  $F9
       lda  #$05
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       lda  #$01
       sta  $FA
       ldx  #$3F
       ldy  #$00
       lda  #$03
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       lda  #$05
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$00
       ldy  #$C7
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9F
       stx  $F8
       lda  #$04
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9F
       ldy  #$C7
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       lda  #$04
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       rts
 
       lda  $A3
@@ -1141,7 +1156,7 @@ kungfu:
       cmp  #$0D
       beq  @rts
       lda  #$19
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       inc  $8D
       ldy  $8D
       cpy  $8E
@@ -1188,7 +1203,7 @@ WECF3:
 
       ldx  #$7B
       lda  #$19
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       sec
       lda  $0DC7
       sbc  $FE
@@ -1280,7 +1295,7 @@ WECF3:
       ldx  $0DBE
       ldy  $0DBF
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$2A
       ldy  #$01
       stx  $8D
@@ -1330,7 +1345,7 @@ ninja:
 @2:   ldx  $0E01
       ldy  $C3
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $FE
       ldy  $FF
       stx  $A7
@@ -1338,7 +1353,7 @@ ninja:
       ldx  #$00
       ldy  $0E03
       lda  #$0C
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $FE
       ldy  $FF
       stx  $A5
@@ -1376,7 +1391,7 @@ ninja:
       ldx  $0E01
       ldy  $C3
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $FE
       ldy  $FF
       stx  $A7
@@ -1384,7 +1399,7 @@ ninja:
       ldx  #$00
       ldy  $0E03
       lda  #$0C
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $FE
       ldy  $FF
       stx  $A5
@@ -1438,13 +1453,13 @@ WEEED:
       stx  $A4
       ldx  #$50
       ldy  #$3C
-      jmp  _enable_fcbank0
+      jmp  _jsr_routine_in_bank1
 
 WEEFC:
       ldx  #$50
       ldy  #$3C
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$A0
       ldy  #$46
       rts
@@ -1463,16 +1478,15 @@ WEEFC:
       jsr  $1ECD
       jsr  $1EDC
       lda  #$08
-      jsr  _enable_fcbank0
-      ; ????
+      jsr  _jsr_routine_in_bank1
       ldx  #$51
       ldy  #$3D
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$9E
       ldy  #$44
       lda  #$06
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$50
       ldy  #$3C
       stx  $C000
@@ -1481,7 +1495,7 @@ WEEFC:
       ldy  #$0F
 WEF48:
       lda  #$23
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  $C014
       ldy  $C015
       bne  WEF48
@@ -1489,14 +1503,14 @@ WEF48:
       ldx  #$5F
       ldy  #$53
       lda  #$02
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldx  #$82
       ldy  #$0A
       lda  #$09
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       jsr  $1EDC
       lda  #$09
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       jsr  $1F5C
       lda  #$4C
       jsr  $1ECD
@@ -1515,9 +1529,9 @@ WEF7C:
       ldx  #$EE
       ldy  #$0F
 :     lda  #$22
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       lda  #$35
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       bcs  :+
       ldx  $C014
       ldy  $C015
@@ -1529,7 +1543,7 @@ WEF7C:
       dey
       bpl  :-
       lda  #$37
-      jsr  _enable_fcbank0
+      jsr  _jsr_routine_in_bank1
       ldy  #$1E
 :     lda  $5790,y
       sta  $0100,y
