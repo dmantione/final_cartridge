@@ -139,7 +139,7 @@ irq_hi          := ram_code_end + 13
 entry_type      := ram_code_end + 14
 command_index   := ram_code_end + 15 ; index from "command_names", or 'C'/'S' in EC/ES case
 bank            := ram_code_end + 16
-disable_f_keys  := ram_code_end + 17
+;disable_f_keys  := ram_code_end + 17
 tmp1            := ram_code_end + 18
 tmp2            := ram_code_end + 19
 cartridge_bank  := ram_code_end + 20
@@ -468,8 +468,8 @@ print_cr_then_input_loop:
 input_loop:
         ldx     reg_s
         txs
-        lda     #0
-        sta     disable_f_keys
+;        lda     #0
+;        sta     disable_f_keys
         jsr     print_cr_dot
 input_loop2:
         jsr     basin_if_more
@@ -3510,32 +3510,31 @@ cmd_p:
         ldx     #$FF
         lda     FA
         cmp     #4
-        beq     LBC11 ; printer
+        beq     @1 ; printer
         jsr     basin_cmp_cr
-        beq     LBC16 ; no argument
+        beq     @2  ; no argument
         cmp     #','
         bne     syn_err7
         jsr     get_hex_byte
         tax
-LBC11:  jsr     basin_cmp_cr
+@1:     jsr     basin_cmp_cr
         bne     syn_err7
-LBC16:  sta     KEYD
+@2:     sta     KEYD
         inc     NDX
         lda     #4
         cmp     FA
-        beq     LBC39 ; printer
+        beq     @3 ; printer
         stx     SA
         sta     FA ; set device 4
         sta     LA
         ldx     #0
         stx     FNLEN
-;        jsr     CLOSE
         jsr     OPEN
         ldx     LA
         jsr     CKOUT
         jmp     input_loop2
 
-LBC39:  lda     LA
+@3:     lda     LA
         jsr     CLOSE
         jsr     CLRCH
         lda     #8
@@ -3577,7 +3576,8 @@ LBAC1:  jsr     get_hex_byte
         sta     zp2 + 1
         jsr     basin_cmp_cr
         bne     syn_err7
-LBACD:  lda     #$F2
+LBACD:  jsr     UNLSTN ; printer might be listening
+        lda     #$F2
         jsr     listen_second
         lda     #'#'
         jsr     IECOUT
