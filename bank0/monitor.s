@@ -294,12 +294,11 @@ brk_entry2:
         bit     entry_type
         bmi     @reu
         bvs     @vdc
-        beq     :+
-        jmp     @c
+        bne     @c
 :       lda     #'B'
         .byte   $2C ; skip
 @reu:   lda     #'R'
-        jmp     @c
+        bne     @c
 @vdc:
 
         ; Get original y register and stack pointer
