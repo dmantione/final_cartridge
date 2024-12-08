@@ -13,6 +13,10 @@
 .import _jmp_bank,_enable_fcbank0,_disable_fc3rom_set_01
 .import monitor_frozen
 .import freezer_screenshot_prepare
+.importzp freezer_mem_a
+
+.importzp __FREEZERZP_SIZE__
+.importzp __freezer_restore_1_SIZE__
 
 .importzp tmpvar1,tmpptr_a
 
@@ -50,14 +54,15 @@ freezer_goto_monitor:
       jsr  $FD8D                        ; Set top, bottom of memory and screen base
       jsr  CINT_direct
       jsr  detect_c128
-      bcs  :+                           ; Monitor wille exit to freezer
+      bcs  @1                           ; Monitor wille exit to freezer
       ; Only initialize BASIC if the monitor will exit to BASIC
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
       lda  #$01                         ; Monitor entry reason
-      .byte $2C                         ; Skip next instruction
-:     lda  #$41
-      pha
+      bne  @2
+@1:   jsr  mem_ab_for_monitor
+      lda  #$41
+@2:   pha
       lda  #>(monitor_frozen-1)
       pha
       lda  #<(monitor_frozen-1)
@@ -156,6 +161,30 @@ backup_to_vdc:
       bne    :-
       rts
 
+mem_ab_for_monitor:
+      ; Get freezer mem a/b locations
+      lda     #$F8
+      ldx     #$12
+      jsr     vdc_reg_store
+      inx
+      lda     #freezer_mem_a
+      jsr     vdc_reg_store
+      ldy     #0
+      ldx     #$1F
+      stx     $D600
+      ldx     #$00
+:     bit     $D600   ; No point for a timeout, all is lost if VDC fails
+      bpl     :-
+      lda     $D601
+      sta     $70,x
+      inx
+      cpx     #6
+      bne     :-
+      lda     #__FREEZERZP_SIZE__
+      sta     $76
+      lda     #__freezer_restore_1_SIZE__
+      sta     $79
+      rts
 
 .segment "freezer_reset"
 

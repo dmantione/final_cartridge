@@ -155,12 +155,12 @@ et_monitor_reu  := $80
 tmpvar1         := $90
 tmpptr_a        := $91
 tmpvar2         := $93
-freezer_mem_a   := $d1
-freezer_mem_a_val := $d3
-freezer_mem_a_size := $67
-freezer_mem_b   := $d4
-freezer_mem_b_val := $d3
-freezer_mem_b_size := $57
+;freezer_mem_a   := $d1
+;freezer_mem_a_val := $d3
+;freezer_mem_a_size := $67
+;freezer_mem_b   := $d4
+;freezer_mem_b_val := $d3
+;freezer_mem_b_size := $57
 freezer_vicii_backup := $F3D1
 
 .segment "monitor_a"
@@ -301,28 +301,6 @@ brk_entry2:
 @reu:   lda     #'R'
         jmp     @c
 @vdc:
-        ; Get freezer mem a/b locations
-        lda     #$F8
-        ldx     #$12
-        jsr     vdc_reg_store
-        inx
-        lda     #freezer_mem_a
-        jsr     vdc_reg_store
-        ldy     #0
-        ldx     #$1F
-        stx     $D600
-        ldx     #$00
-:       bit     $D600   ; No point for a timeout, all is lost if VDC fails
-        bpl     :-
-        lda     $D601
-        sta     $70,x
-        inx
-        cpx     #6
-        bne     :-
-        lda     #freezer_mem_a_size
-        sta     $76
-        lda     #freezer_mem_b_size
-        sta     $79
 
         ; Get original y register and stack pointer
         lda     #78
@@ -1765,7 +1743,7 @@ load_byte:
         sta     tmp4
         jsr     add_y_to_zp1
         ; Check if I/O visible
-:       lda     #$03
+        lda     #$03
         bit     bank
         beq     @2
         lda     zp1+1
@@ -1792,7 +1770,7 @@ load_byte:
         sec
         sbc     #$70
         bcc     :+
-        cmp     #freezer_mem_a_size
+        cmp     $76
         bcs     :+
         adc     $70
         tay
