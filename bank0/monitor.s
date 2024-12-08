@@ -347,12 +347,12 @@ brk_entry2:
         ldx     #'*'
         jsr     print_a_x
         clc
-        lda     reg_pc_lo
-        adc     #$FF
-        sta     reg_pc_lo
-        lda     reg_pc_hi
-        adc     #$FF
-        sta     reg_pc_hi ; decrement PC
+;        lda     reg_pc_lo
+;        adc     #$FF
+;        sta     reg_pc_lo
+;        lda     reg_pc_hi
+;        adc     #$FF
+;        sta     reg_pc_hi ; decrement PC
         lda     FA
         and     #$FB
         sta     FA
@@ -842,7 +842,9 @@ LAF03:  bit     entry_type
         inx
         jsr     vdc_reg_store
         ldx     #$1F
-        ; A unmodified, tmpvar1 = $90
+        ; Indicate we want to unfreezer rather than return to
+        ; the monitor. Bit 7 set in tmpvar1 = unfreeze
+        ; A unmodified, #tmpvar1 = $90
         jsr     vdc_reg_store
         jmp     vdcxit
 :       jsr     copy_pc_to_zp2_and_zp1
@@ -1777,6 +1779,7 @@ load_byte:
         adc     #$00
 :       ; Check whether < $0800, then read from backup,
         ; otherwise read from mem
+        ldy     #0
         cmp     #>$0800
         bcc     :+
         lda     bank
@@ -1785,7 +1788,6 @@ load_byte:
 :       ora     #>$F800
 @6:     sty     zp1
         sta     zp1+1
-        ldy     #0
         jsr     load_byte_vdc
 @7:     pha
         lda     tmp3
