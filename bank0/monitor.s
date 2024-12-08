@@ -52,6 +52,12 @@ _basic_warm_start := $800A
 .endif
 .endif
 
+.ifdef use_ill
+.define skip_2b_instr .byte $0C
+.else
+.define skip_2b_instr .byte $2C
+.endif
+
 ; from init
 .import init_load_and_basic_vectors
 
@@ -276,8 +282,11 @@ brk_entry2:
         pla
         sta     reg_p
         pla
+        sec
+        sbc     #$01  ; Compensate for BRK increasing PC with 2
         sta     reg_pc_lo
         pla
+        sbc     #$00
         sta     reg_pc_hi
         tsx
         stx     reg_s
@@ -289,16 +298,20 @@ brk_entry2:
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
-        jsr     print_cr
+        jsr     print_crx
         lda     #$3F
         bit     entry_type
         bmi     @reu
         bvs     @vdc
         bne     @c
 :       lda     #'B'
-        .byte   $2C ; skip
+        skip_2b_instr
 @reu:   lda     #'R'
-        bne     @c
+.ifdef use_ill
+        bne     @b
+.else
+        jmp     @b
+.endif
 @vdc:
 
         ; Get original y register and stack pointer
@@ -344,15 +357,9 @@ brk_entry2:
         lda     #'V'
         .byte   $2C ; skip
 @c:     lda     #'C'
-        ldx     #'*'
+@b:     ldx     #'*'
         jsr     print_a_x
         clc
-;        lda     reg_pc_lo
-;        adc     #$FF
-;        sta     reg_pc_lo
-;        lda     reg_pc_hi
-;        adc     #$FF
-;        sta     reg_pc_hi ; decrement PC
         lda     FA
         and     #$FB
         sta     FA

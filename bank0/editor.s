@@ -290,7 +290,7 @@ scrolldown_basic:
         jsr     $E716 ; shift+return, scrolls screen down
         jsr     print_line_basic
         clc
-        .byte $24 ; skip next instruction
+        rts
 @xcs:   sec
         rts
 
