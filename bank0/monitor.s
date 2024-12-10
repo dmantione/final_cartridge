@@ -298,7 +298,7 @@ brk_entry2:
 .ifdef CART_FC3
         jsr     set_io_vectors
 .endif
-        jsr     print_crx
+        jsr     print_cr
         lda     #$3F
         bit     entry_type
         bmi     @reu

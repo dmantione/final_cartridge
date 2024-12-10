@@ -458,6 +458,7 @@ new_load_continue:
         sta     $A5
         jsr     receive_4_bytes
         lda     $C3   ; Contains block number (determines memory location to write to)
+        php           ; Need to know whether block 0 later
 
         ; Compute memory address to write to.
         ;    Addr:= base + blockno * 254
@@ -465,19 +466,17 @@ new_load_continue:
 ;        clc          ; Carry already cleared by receive_4_bytes
         adc     $A4
         asl     $C3
-        php
         tax
-        sec
+        bcc     :+
+        dex
+:       sec
         lda     $A3
         sbc     $C3
         sta     $93
         bcs     @2
         dex
-@2:		plp
-        bcc     @3
-        dex
+@2:
 @3:     stx     $94
-        ror     $C3  ; Clears carry because right most bit is 0 (due to asl above).
 
         ldx     $C2  ; Contains number of bytes in block to use (0 if all)
         beq     @4
@@ -491,8 +490,9 @@ new_load_continue:
         adc     #0
         sta     $AF
 @4:     ldy     #0
-        lda     $C3
+        plp      ; Block 0??
         bne     @5
+        ; First block, skip load address
         jsr     receive_4_bytes ; in $C1..$C4
         ldy     #2
         bne     @9              ; always taken
@@ -500,9 +500,9 @@ new_load_continue:
 @b:     jmp     @back
 
 
-@5:     lda     $C1
-        sta     ($93),y
-        iny
+;@5:     lda     $C1
+;        sta     ($93),y
+;        iny
 @6:
         jsr     receive_4_bytes ; in $C1..C4  (A,X modified, Y untouched)
         cpy     $A5
@@ -529,7 +529,7 @@ new_load_continue:
 ;        bcs     @b
         cpy     $A5
         bcs     @14
-        lda     $C1             ; copy byte ...
+@5:     lda     $C1             ; copy byte ...
         sta     ($93),y         ; ...to target memory
 @14:    iny
 ;        cpy     #$FE           ; Never happens because block size is constant
@@ -737,9 +737,14 @@ L9BFE:
         lsr     a
         lsr     a
         sta     $5C
+.ifdef use_ill
+        lda     #$07
+        sax     $5D
+.else
         txa
         and     #$07
         sta     $5D
+.endif
         iny
         bne     @16      ; Not end of regular buffer?
         iny              ; End of register buffer
@@ -776,9 +781,14 @@ L9BFE:
         rol     a
         and     #$1F
         sta     $5B
+.ifdef use_ill
+        lda     #$0F
+        sax     $58
+.else
         txa
         and     #$0F
         sta     $58
+.endif
         iny
 .ifdef use_ill
         lax     ($30),y
@@ -812,9 +822,14 @@ L9BFE:
         and     #$07
         ora     $56
         sta     $56
+.ifdef use_ill
+        lda     #$1F
+        sax     $57
+.else
         txa
         and     #$1F
         sta     $57
+.endif
         iny
         sty     $C1
 @transmit_tuple:
@@ -865,7 +880,11 @@ L9BFE:
 .assert >* = >@transmit_tuple, error, "Page boundary!"
         ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
         ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
-        ldy     #10
+.ifdef use_ill
+        ldy     #11
+.else
+        ldy     #8
+.endif
 @18:
         dey
         bne     @18
