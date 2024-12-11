@@ -12,7 +12,7 @@ ifeq ($(PROJECT), cartridge)
 endif
 
 ifeq ($(MACHINE), c64)
-	ASFLAGS+=-D MACHINE_C64=1 --cpu 6502x
+	ASFLAGS+=-D MACHINE_C64=1 -D use_ill --cpu 6502x
 endif
 ifeq ($(MACHINE), ted)
 	ASFLAGS+=-D MACHINE_TED=1

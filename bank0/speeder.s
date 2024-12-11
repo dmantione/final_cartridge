@@ -410,6 +410,13 @@ new_load_continue:
         pla
         sta     $C1
         php     ; Note that pla instructions above don't modify V
+        lda     $A5
+        clc
+        adc     $93
+        sta     $AE
+        lda     $94
+        adc     #0
+        sta     $AF
 .ifdef use_ill
         lda     $95
         ldx     #$07
@@ -454,8 +461,6 @@ new_load_continue:
         bvc     @1
         lda     #0    ; Clear $DD00 to simply receive algorithm
         sta     $DD00
-        lda     #$FE  ; Default is 254 bytes of block will be written to RAM
-        sta     $A5
         jsr     receive_4_bytes
         lda     $C3   ; Contains block number (determines memory location to write to)
         php           ; Need to know whether block 0 later
@@ -479,17 +484,11 @@ new_load_continue:
 @3:     stx     $94
 
         ldx     $C2  ; Contains number of bytes in block to use (0 if all)
-        beq     @4
+        bne     :+
         dex
+:       dex
         stx     $A5
-        txa
-        ;clc         ; Carry flay already cleared by ror above.
-        adc     $93
-        sta     $AE
-        lda     $94
-        adc     #0
-        sta     $AF
-@4:     ldy     #0
+        ldy     #0
         plp      ; Block 0??
         bne     @5
         ; First block, skip load address
@@ -499,12 +498,7 @@ new_load_continue:
 
 @b:     jmp     @back
 
-
-;@5:     lda     $C1
-;        sta     ($93),y
-;        iny
-@6:
-        jsr     receive_4_bytes ; in $C1..C4  (A,X modified, Y untouched)
+@6:     jsr     receive_4_bytes ; in $C1..C4  (A,X modified, Y untouched)
         cpy     $A5
         bcs     @8
         lda     $C4             ; copy byte ...
@@ -881,9 +875,9 @@ L9BFE:
         ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
         ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
 .ifdef use_ill
-        ldy     #11
-.else
         ldy     #8
+.else
+        ldy     #5
 .endif
 @18:
         dey
