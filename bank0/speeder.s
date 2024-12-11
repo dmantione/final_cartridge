@@ -388,6 +388,12 @@ new_load_continue:
         and     #$07
         ora     $95 ; save VIC bank (XXX #$03 would have been enough)
         sta     $95
+        ; $A6 is used by kernal tape routines, code using load should be aware
+        ; it can be modified during LOAD, but just in case some program is not
+        ; designed to support tape and uses $A6 for its own storage, let's just
+        ; save it and be compatible.
+        lda     $A6
+        pha
         ; Backup $c1/$c2
         lda     $C1
         pha
@@ -409,14 +415,9 @@ new_load_continue:
         sta     $C2
         pla
         sta     $C1
+        pla
+        sta     $A6
         php     ; Note that pla instructions above don't modify V
-        lda     $A5
-        clc
-        adc     $93
-        sta     $AE
-        lda     $94
-        adc     #0
-        sta     $AF
 .ifdef use_ill
         lda     $95
         ldx     #$07
@@ -484,6 +485,7 @@ new_load_continue:
 @3:     stx     $94
 
         ldx     $C2  ; Contains number of bytes in block to use (0 if all)
+        stx     $A6
         bne     :+
         dex
 :       dex
@@ -496,7 +498,15 @@ new_load_continue:
         ldy     #2
         bne     @9              ; always taken
 
-@b:     jmp     @back
+@b:     lda     $A6
+        beq     :+
+        clc
+        adc     $93
+        sta     $AE
+        lda     $94
+        adc     #0
+        sta     $AF
+:       jmp     @back
 
 @6:     jsr     receive_4_bytes ; in $C1..C4  (A,X modified, Y untouched)
         cpy     $A5
