@@ -1494,15 +1494,62 @@ wait_for_next_frame:
 
 .segment "tape"
 
+tape_search_header:
+        jsr     tape_wait_play
+        bcs     tapexit_abnormal
+        jsr     turn_screen_off
+        sty     $D7
+        lda     #$07
+        sta     $DD06
+        ;
+        ; A turbo tape header starts with 256 times a byte with value 2 and then
+        ; a countdown form 9 to 1. Read a bits until we have a 2 and are possibly
+        ; synced, then check for the countdown.
+        ;
+        ; The loader has been coded so that besides the magical 2, $f2 is also
+        ; accepted and 2 and $f2 can be mixed in the header without limitation.
+        ; The reason is unknown but likely compatibility with other implementations
+        ; of turbotape.
+        ;
+        ldx     #1
+@nsync: jsr     tape_read_bit
+        rol     $BD
+        lda     $BD
+        cmp     #2
+        beq     @sync
+        cmp     #$F2
+        bne     @nsync
+@sync:  ldy     #9
+:       jsr     tape_read_byte
+        lda     $BD
+        cmp     #2
+        beq     :-
+        cmp     #$F2
+        beq     :-
+:       cpy     $BD
+        bne     @nsync
+        jsr     tape_read_byte
+        dey
+        bne     :-
+        rts
+
+tapexit_abnormal:
+        ; Abort because run/stop pressed
+        pla
+        pla
+        pla
+        pla
+tapexit:
+        lda     #0
+        jmp     _disable_fc3rom
+
 new_save_tape:
         ldx     #5
         stx     $AB
         jsr     $FB8E ; copy I/O start address to buffer address
         jsr     tape_wait_record
-        bcc     :+
-        lda     #0
-        jmp     _disable_fc3rom
-:       jsr     print_message  ; print mesaage on screen (unless disabled)
+        bcs     tapexit
+        jsr     print_message  ; print mesaage on screen (unless disabled)
         jsr     turn_screen_off
 
         ; Start writing file metadata in turbotape format
@@ -1520,9 +1567,12 @@ new_save_tape:
         cpy     #5
         nop
         bne     :-
+        ; The file name is storage in a full 192 byte tape frame
+        ; _load_FNADR_indy is called for every byte to get constant
+        ; timing for each iteration.
         ldy     #0
         ldx     #2
-@1:     jsr     _load_FNADR_indy
+@1:     jsr     _load_FNADR_indy 
         cpy     $B7
         bcc     :+
         lda     #$20
@@ -1530,7 +1580,7 @@ new_save_tape:
 :       jsr     tape_write_byte
         ldx     #3
         iny
-        cpy     #$BB
+        cpy     #192 - 5 ; 5 bytes written before loop
         bne     @1
         lda     #2
         sta     $AB
@@ -1607,11 +1657,10 @@ tape_load_code:
         plp
         sbc     $033D
         sta     $AF
-        jsr     LA8E5
+        jsr     LA8E5 ; sets C=0
         lda     $BD
         eor     $D7
         ora     ST
-        clc
         beq     LA8C2
         sec
         lda     #$FF
@@ -1648,9 +1697,9 @@ LA8E8:  jsr     tape_read_byte
         sta     $01
 LA8FF:
         inc     $C3
-        bne     LA905
+        bne     :+
         inc     $C4
-LA905:  lda     $C3
+:       lda     $C3
         cmp     $AE
         lda     $C4
         sbc     $AF
@@ -1670,51 +1719,6 @@ LA913:  sty     $C0
         clc
         rts
 
-tape_search_header:
-        jsr     tape_wait_play
-        bcc     :+
-        ; Abort because run/stop pressed
-        pla
-        pla
-        pla
-        pla
-        lda     #0
-        jmp     _disable_fc3rom
-:       jsr     turn_screen_off
-        sty     $D7
-        lda     #$07
-        sta     $DD06
-        ;
-        ; A turbo tape header starts with 256 times a byte with value 2 and then
-        ; a countdown form 9 to 1. Read a bits until we have a 2 and are possibly
-        ; synced, then check for the countdown.
-        ;
-        ; The loader has been coded so that besides the magical 2, $f2 is also
-        ; accepted and 2 and $f2 can be mixed in the header without limitation.
-        ; The reason is unknown but likely compatibility with other implementations
-        ; of turbotape.
-        ;
-        ldx     #1
-@nsync: jsr     tape_read_bit
-        rol     $BD
-        lda     $BD
-        cmp     #2
-        beq     @sync
-        cmp     #$F2
-        bne     @nsync
-@sync:  ldy     #9
-:       jsr     tape_read_byte
-        lda     $BD
-        cmp     #2
-        beq     :-
-        cmp     #$F2
-        beq     :-
-:       cpy     $BD
-        bne     @nsync
-        jsr     tape_read_byte
-        dey
-        bne     :-
-        rts
 
 tape_read_byte:
         lda     #8
@@ -1741,9 +1745,6 @@ tape_read_bit:
         lsr     a
         rts
 
-        lda     #4
-        sta     $AB
-
 tape_write_header:
         ldy     #0
 :       lda     #2
@@ -1754,7 +1755,7 @@ tape_write_header:
         bne     :-
         ldx     #5
         dec     $AB
-        bne     tape_write_byte
+        bne     :-
 :       tya
         jsr     tape_write_byte
         ldx     #7

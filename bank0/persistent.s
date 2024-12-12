@@ -233,7 +233,7 @@ _load_FNADR_indy: ; $DE6C
 .global tape_write_byte_from_ram
 .import tape_write_byte
 tape_write_byte_from_ram:
-        lda     #$0C
+        lda     #$0D
         sta     $01
         lda     ($AC),y
         ldy     #$0F

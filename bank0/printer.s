@@ -251,19 +251,16 @@ new_ckout:
 @noprn: pla
         tax
         jmp     $F250 ; KERNAL CKOUT
-
-@cbm:   pla
-        lda     #4
-        jmp     $F279 ; set output to IEC bus
-
 @found: jsr     $F31F ; set file par from table ($B8/$B9/$BA LA/SA/FA)
         lda     FA
         cmp     #4 ; printer
         bne     @noprn
         jsr     cent_rs232_or_cbm
-        bcs     @cbm
         pla
+        bcs     @cbm
         rts
+@cbm:   lda     #4
+        jmp     $F279 ; set output to IEC bus
 
 cent_rs232_or_cbm:
         ; Check whether we will print via centronics/rs232 or cbm serial
