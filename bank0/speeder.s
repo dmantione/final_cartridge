@@ -496,8 +496,7 @@ L9A35:  jsr     print_loading
         sta     $93
         bcs     @2
         dex
-@2:
-@3:     stx     $94
+@2:     stx     $94
 
         ldx     $C2  ; Contains number of bytes in block to use (0 if all)
         stx     $A6
@@ -513,8 +512,10 @@ L9A35:  jsr     print_loading
         ldy     #2
         bne     @9              ; always taken
 
-@b:     lda     $A6
+@b:     ldx     $A6
         beq     :+
+        dex
+        txa
         clc
         adc     $93
         sta     $AE
@@ -1399,8 +1400,8 @@ LA5A62:  lda     drive_code_save_timing_selfmod4,x
 
 ;        ldx     #$02
 ;        stx     $1800
-        lda     #$EA
-        sta     drive_code_save_timing_selfmod2
+;        lda     #$EA
+;        sta     drive_code_save_timing_selfmod2
 ;        lda     #$EA
         sta     drive_code_save_timing_selfmod1
         sta     drive_code_save_timing_selfmod1 + 1 ; insert 1 cycle into code
