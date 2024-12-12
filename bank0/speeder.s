@@ -131,104 +131,6 @@ receive_4_bytes:
 .assert >* = >@ntsc, error, "Page boundary!"
         rts
 
-.segment "speeder_a"
-
-iec_load:
-        jmp     $F530 ; IEC LOAD - used in the error case
-
-L99C9:  pla
-        pla
-        pla
-        tay
-        lda     #$F4
-        pha
-        lda     #$A6
-        pha
-        jmp     _disable_fc3rom_set_01
-
-
-new_load:
-        sty     $93
-        tya
-        ldy     FA
-        cpy     #7
-        bne     @1
-        ; A custom kernal may not support tape. A kernal without tape will remove the
-        ; tape sense check routine, do a PEEK in it for the right value:
-        ldy     #$01
-        cpy     $f831
-        bne     L99C9 ; KERNAL does not support tape
-        cpy     $f835
-        bne     L99C9 ; KERNAL does not support tape
-        ; tape turbo
-        tax
-        beq     @2     ; LOAD? Then do not install stack code.
-        ldx     #$16
-:       lda     L9A50,x
-        sta     L0110,x
-        dex
-        bpl     :-
-@2:     jmp     tape_load_code
-@1:     cpy     #8
-        bcc     L99C9
-        cpy     #10
-        bcs     L99C9
-        tay
-        lda     $B7
-        beq     L99C9
-        ;
-        ; We need to use 8K cartridge mode, because the routines that load bytes
-        ; from memory use dec $01. In 16K mode, this hides ROML but not ROMH,
-        ; in other words, you would not be able to save data from $A000..$BFFF,
-        ; or store a filename there. This is a bug in the original FC3 and is
-        ; hereby fixed.
-        ;
-        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
-        sta     fcio_reg
-        jsr     _load_FNADR_indy
-        cmp     #$24
-        beq     L99C9
-        ldx     SA
-        cpx     #2
-        beq     L99C9
-        jsr     print_searching
-        lda     #$60
-        sta     SA
-        jsr     open_file
-        lda     FA
-        jsr     $ED09 ; TALK
-        lda     SA
-        jsr     $EDC7 ; SECTLK
-        jsr     $EE13 ; IECIN
-        sta     $AE
-        lda     ST
-        lsr     a
-        lsr     a
-        bcs     iec_load
-        jsr     $EE13 ; IECIN
-        sta     $AF
-        txa
-        bne     L9A35
-        lda     $C3
-        sta     $AE
-        lda     $C4
-        sta     $AF
-L9A35:  jsr     print_loading
-        lda     $AF
-        cmp     #4
-        bcc     @low
-        jmp     new_load_continue
-        ; Low load below $0400, for compatibility with autostart programs,
-        ; abort fast loading and continue with slow kernal load
-@low:   pla
-        pla
-        pla
-        tay
-        lda     #$F4
-        pha
-        lda     #$F2
-        pha
-        jmp     _disable_fc3rom_set_01
 
 ; ----------------------------------------------------------------
 
@@ -246,12 +148,7 @@ L9A50:  lda     #$0C
         sta     $01
         jmp     LA8FF
 
-.segment "speeder_b"
-
-;rts_ldx0_carry_set:
-;        ldx     #0  ; Transfered to A in IO1
-;        sec
-;        rts
+.segment "speeder"
 
 original_save:
         jmp     $F5ED ; execute original SAVE routine
@@ -354,8 +251,120 @@ L9AD0:  sec
 ; Serial fastload code
 
 
+L99C9:  pla
+        pla
+        pla
+        tay
+        lda     #$F4
+        pha
+        lda     #$A6
+        pha
+        jmp     _disable_fc3rom_set_01
 
-new_load_continue:
+
+; Low load below $0400, for compatibility with autostart programs,
+; abort fast loading and continue with slow kernal load
+
+lowload:
+        pla
+        pla
+        pla
+        tay
+        lda     #$F4
+        pha
+        lda     #$F2
+        pha
+        jmp     _disable_fc3rom_set_01
+
+iec_load:
+        jmp     $F530 ; IEC LOAD - used in the error case
+
+;
+; New load routine, called from vector at $0330 via IO trampoline
+;
+
+new_load:
+        sty     $93
+        tya
+        ldy     FA
+        cpy     #7
+        bne     @1
+        ; A custom kernal may not support tape. A kernal without tape will remove the
+        ; tape sense check routine, do a PEEK in it for the right value:
+        ldy     #$01
+        cpy     $f831
+        bne     L99C9 ; KERNAL does not support tape
+        cpy     $f835
+        bne     L99C9 ; KERNAL does not support tape
+        ; tape turbo
+        tax
+        beq     @2     ; LOAD? Then do not install stack code.
+        ldx     #$16
+:       lda     L9A50,x
+        sta     L0110,x
+        dex
+        bpl     :-
+@2:     jmp     tape_load_code
+@1:     cpy     #8
+        bcc     L99C9
+        cpy     #10
+        bcs     L99C9
+        tay
+        lda     $B7
+        beq     L99C9
+        ;
+        ; We need to use 8K cartridge mode, because the routines that load bytes
+        ; from memory use dec $01. In 16K mode, this hides ROML but not ROMH,
+        ; in other words, you would not be able to save data from $A000..$BFFF,
+        ; or store a filename there. This is a bug in the original FC3 and is
+        ; hereby fixed.
+        ;
+        lda     #fcio_bank_0|fcio_c64_8kcrtmode|fcio_nmi_line
+        sta     fcio_reg
+        jsr     _load_FNADR_indy
+        cmp     #$24
+        beq     L99C9
+        ldx     SA
+        cpx     #2
+        beq     L99C9
+        jsr     print_searching
+        lda     #$60
+        sta     SA
+        jsr     open_file
+        lda     FA
+        jsr     $ED09 ; TALK
+        lda     SA
+        jsr     $EDC7 ; SECTLK
+        jsr     $EE13 ; IECIN
+        sta     $AE
+        lda     ST
+        lsr     a
+        lsr     a
+        bcs     iec_load
+        jsr     $EE13 ; IECIN
+        sta     $AF
+        txa
+        bne     L9A35
+        lda     $C3
+        sta     $AE
+        lda     $C4
+        sta     $AF
+L9A35:  jsr     print_loading
+        lda     $AF
+        cmp     #4
+        bcs     @fastload
+       ; Low load below $0400, for compatibility with autostart programs,
+       ; abort fast loading and continue with slow kernal load
+        pla
+        pla
+        pla
+        tay
+        lda     #$F4
+        pha
+        lda     #$F2
+        pha
+        jmp     _disable_fc3rom_set_01
+@fastload:
         jsr     UNTALK
         jsr     LA691
 .import __drive_code_load_LOAD__
@@ -545,6 +554,204 @@ new_load_continue:
 ;        cpy     #$FE           ; Never happens because block size is constant
 ;        bcs     @b
         bne     @6              ; always taken
+
+; ----------------------------------------------------------------
+; C64 IEC code
+; ----------------------------------------------------------------
+
+fastsave_initialize:
+        jsr     check_iec_error
+        bne     _rts2
+        lda     #12
+        sta     $93
+.import __drive_code_save_LOAD__
+.import __drive_code_save_RUN__
+        lda     #<__drive_code_save_LOAD__
+        ldy     #>__drive_code_save_LOAD__
+        ldx     #>__drive_code_save_RUN__
+        jsr     transfer_code_to_drive
+        lda     $02A6
+        beq     @ntsc
+        ; PAL
+        lda     #<L059C
+        jsr     IECOUT
+        lda     #>L059C
+        bne     LA671  ; Always taken
+
+@ntsc:  ;NTSC
+        lda     #<L05AF
+        jsr     IECOUT
+        lda     #>L05AF
+LA671:  jsr     IECOUT
+        jsr     UNLSTN
+        sei
+        lda     $D015  ; Save sprite enable reg
+        sta     $93
+        lda     #0     ; Hide sprites
+        sta     $D015
+        lda     $DD00
+        and     #$07
+        sta     $A4
+        ora     #$10
+        sta     $A5
+        sta     $DD00
+        jmp     wait_for_next_frame
+
+LA691:
+        ldy     #0
+        .byte   $2C    ; opcode for bit $ABCD
+LA694:
+        ldy     #8
+        bit     $9D
+        bpl     _rts2
+        jsr     LA6A8
+        lda     $AF
+        jsr     LA628
+        lda     $AE
+LA628:  jsr     byte_to_hex_ascii
+        jsr     LE716 ; KERNAL: output character to screen
+        tya
+        jmp     LE716 ; KERNAL: output character to screen
+
+_rts2:  rts
+
+LA6A8:  lda     s_from,y
+        beq     _rts2
+        jsr     $E716 ; KERNAL: output character to screen
+        iny
+        bne     LA6A8
+
+s_from: .byte   " FROM $", 0
+        .byte   " TO $", 0
+
+open_file:
+        ldy     #0
+        sty     ST
+        lda     FA
+        jsr     $ED0C ; LISTEN
+        lda     SA
+        ora     #$F0  ; $F0 means OPEN
+        jsr     $EDB9 ; SECLST
+        lda     ST
+        bpl     @1
+        pla
+        pla
+        jmp     $F707 ; DEVICE NOT PRESENT ERROR
+
+@1:     jsr     _load_FNADR_indy
+        jsr     $EDDD ; KERNAL IECOUT
+        iny
+        cpy     $B7
+        bne     @1
+        jmp     $F654 ; UNLISTEN
+
+
+tape_wait_play:
+         ; if already pressed, no need to display messages
+        jsr     $F82E ; cassette sense
+        beq     rts_  ; $F82E clears carry
+        ldy     #$1B  ; print PRESS PLAY ON TAPE
+print:  jsr     maybe_print_kernal_string
+        ; Wait for key on tape, but allow run/stop to abort.
+        ; Run/stop is column 7, row 7
+        ; $DC00 = $7f, = row 7 selected. Therefore test bit 7 of $DC01:
+:       bit     $DC01
+        bpl     rts_carry_set
+        jsr     $F82E ; cassette sense
+        bne     :-
+        ldy     #$6A  ; Offset to OK
+        bne     maybe_print_kernal_string ; (always) print OK
+
+tape_wait_record:
+        jsr     $F82E ; cassette sense
+        beq     rts_  ; $F82E clears carry
+        ldy     #$2E  ; print PRESS RECORD & PLAY ON TAPE
+        bne     print ; always
+;rts_lda0_carry_set:
+;        lda     #$00
+
+print_found:
+        lda     $9D
+        bpl     rts_
+        ldy     #$63 ; "FOUND"
+        jsr     print_kernal_string
+        ldy     #5
+:       lda     ($B2),y
+        jsr     LE716 ; KERNAL: output character to screen
+        iny
+        cpy     #$15
+        bne     :-
+rts_carry_set:
+        sec
+rts_:
+        rts
+
+print_message:
+        jsr     print_saving
+        bmi     LA796
+        rts
+
+print_searching:
+        lda     $9D
+        bpl     LA7A7
+        ldy     #$0C ; "SEARCHING"
+        jsr     print_kernal_string
+        lda     $B7
+        beq     LA7A7
+        ldy     #$17 ; "FOR"
+        jsr     print_kernal_string
+LA796:  ldy     $B7
+        beq     LA7A7
+        ldy     #0
+LA79C:  jsr     _load_FNADR_indy
+        jsr     LE716 ; KERNAL: output character to screen
+        iny
+        cpy     $B7
+        bne     LA79C
+LA7A7:  rts
+
+print_loading:
+        ldy     #$49 ; "LOADING"
+        lda     $93
+        beq     maybe_print_kernal_string
+print_verifying:
+        ldy     #$59 ; "VERIFYING"
+        .byte   $2C  ; BIT $abcd
+print_saving:
+        ldy     #$51 ; "SAVING"
+maybe_print_kernal_string:
+        bit     $9D  ; Display messages?
+        bpl     LA7C4 ; return if no
+print_kernal_string:
+        lda     $F0BD,y ; KERNAL strings
+        php
+        and     #$7F
+        jsr     $E716 ; KERNAL: output character to screen
+        iny
+        plp
+        bpl     print_kernal_string ; until MSB set
+LA7C4:  clc
+        rts
+
+turn_screen_off:
+        ldy     #0
+        sty     $C0
+        lda     $D011
+        and     #$EF
+        sta     $D011 ; turn screen off
+wait_for_next_frame:
+        ; It would be tempting to optimize this wait loop, but it creates too
+        ; much problems. The delay loop is necessary to ensure the VIC-II
+        ; has stopped generating bad lines, to give the floppy drive enough
+        ; time to executing the drive code and start receiving bytes, and
+        ; to give the C64s irq handler enough time to start the tape motor
+        ; when a tape button is pressed.
+:       dex
+        bne :-
+        dey
+        bne :-
+        sei
+        rts
 
 ; ----------------------------------------------------------------
 
@@ -1271,210 +1478,6 @@ crc_correction_s:
         .word $9148
         .align 32
 
-; ----------------------------------------------------------------
-; C64 IEC code
-; ----------------------------------------------------------------
-.segment "speeder_c"
-
-;LA612:  pha
-;        lda     FA
-;        jsr     LISTEN
-;        pla
-;        jmp     SECOND
-
-fastsave_initialize:
-        jsr     check_iec_error
-        bne     _rts2
-        lda     #12
-        sta     $93
-.import __drive_code_save_LOAD__
-.import __drive_code_save_RUN__
-        lda     #<__drive_code_save_LOAD__
-        ldy     #>__drive_code_save_LOAD__
-        ldx     #>__drive_code_save_RUN__
-        jsr     transfer_code_to_drive
-        lda     $02A6
-        beq     @ntsc
-        ; PAL
-        lda     #<L059C
-        jsr     IECOUT
-        lda     #>L059C
-        bne     LA671  ; Always taken
-
-@ntsc:  ;NTSC
-        lda     #<L05AF
-        jsr     IECOUT
-        lda     #>L05AF
-LA671:  jsr     IECOUT
-        jsr     UNLSTN
-        sei
-        lda     $D015  ; Save sprite enable reg
-        sta     $93
-        lda     #0     ; Hide sprites
-        sta     $D015
-        lda     $DD00
-        and     #$07
-        sta     $A4
-        ora     #$10
-        sta     $A5
-        sta     $DD00
-        jmp     wait_for_next_frame
-
-LA691:
-        ldy     #0
-        .byte   $2C    ; opcode for bit $ABCD
-LA694:
-        ldy     #8
-        bit     $9D
-        bpl     _rts2
-        jsr     LA6A8
-        lda     $AF
-        jsr     LA628
-        lda     $AE
-LA628:  jsr     byte_to_hex_ascii
-        jsr     LE716 ; KERNAL: output character to screen
-        tya
-        jmp     LE716 ; KERNAL: output character to screen
-
-_rts2:  rts
-
-LA6A8:  lda     s_from,y
-        beq     _rts2
-        jsr     $E716 ; KERNAL: output character to screen
-        iny
-        bne     LA6A8
-
-s_from: .byte   " FROM $", 0
-        .byte   " TO $", 0
-
-open_file:
-        ldy     #0
-        sty     ST
-        lda     FA
-        jsr     $ED0C ; LISTEN
-        lda     SA
-        ora     #$F0  ; $F0 means OPEN
-        jsr     $EDB9 ; SECLST
-        lda     ST
-        bpl     @1
-        pla
-        pla
-        jmp     $F707 ; DEVICE NOT PRESENT ERROR
-
-@1:     jsr     _load_FNADR_indy
-        jsr     $EDDD ; KERNAL IECOUT
-        iny
-        cpy     $B7
-        bne     @1
-        jmp     $F654 ; UNLISTEN
-
-
-tape_wait_play:
-         ; if already pressed, no need to display messages
-        jsr     $F82E ; cassette sense
-        beq     rts_  ; $F82E clears carry
-        ldy     #$1B  ; print PRESS PLAY ON TAPE
-print:  jsr     maybe_print_kernal_string
-        ; Wait for key on tape, but allow run/stop to abort.
-        ; Run/stop is column 7, row 7
-        ; $DC00 = $7f, = row 7 selected. Therefore test bit 7 of $DC01:
-:       bit     $DC01
-        bpl     rts_carry_set
-        jsr     $F82E ; cassette sense
-        bne     :-
-        ldy     #$6A  ; Offset to OK
-        bne     maybe_print_kernal_string ; (always) print OK
-
-tape_wait_record:
-        jsr     $F82E ; cassette sense
-        beq     rts_  ; $F82E clears carry
-        ldy     #$2E  ; print PRESS RECORD & PLAY ON TAPE
-        bne     print ; always
-;rts_lda0_carry_set:
-;        lda     #$00
-
-print_found:
-        lda     $9D
-        bpl     rts_
-        ldy     #$63 ; "FOUND"
-        jsr     print_kernal_string
-        ldy     #5
-:       lda     ($B2),y
-        jsr     LE716 ; KERNAL: output character to screen
-        iny
-        cpy     #$15
-        bne     :-
-rts_carry_set:
-        sec
-rts_:
-        rts
-
-print_message:
-        jsr     print_saving
-        bmi     LA796
-        rts
-
-print_searching:
-        lda     $9D
-        bpl     LA7A7
-        ldy     #$0C ; "SEARCHING"
-        jsr     print_kernal_string
-        lda     $B7
-        beq     LA7A7
-        ldy     #$17 ; "FOR"
-        jsr     print_kernal_string
-LA796:  ldy     $B7
-        beq     LA7A7
-        ldy     #0
-LA79C:  jsr     _load_FNADR_indy
-        jsr     LE716 ; KERNAL: output character to screen
-        iny
-        cpy     $B7
-        bne     LA79C
-LA7A7:  rts
-
-print_loading:
-        ldy     #$49 ; "LOADING"
-        lda     $93
-        beq     maybe_print_kernal_string
-print_verifying:
-        ldy     #$59 ; "VERIFYING"
-        .byte   $2C  ; BIT $abcd
-print_saving:
-        ldy     #$51 ; "SAVING"
-maybe_print_kernal_string:
-        bit     $9D  ; Display messages?
-        bpl     LA7C4 ; return if no
-print_kernal_string:
-        lda     $F0BD,y ; KERNAL strings
-        php
-        and     #$7F
-        jsr     $E716 ; KERNAL: output character to screen
-        iny
-        plp
-        bpl     print_kernal_string ; until MSB set
-LA7C4:  clc
-        rts
-
-turn_screen_off:
-        ldy     #0
-        sty     $C0
-        lda     $D011
-        and     #$EF
-        sta     $D011 ; turn screen off
-wait_for_next_frame:
-        ; It would be tempting to optimize this wait loop, but it creates too
-        ; much problems. The delay loop is necessary to ensure the VIC-II
-        ; has stopped generating bad lines, to give the floppy drive enough
-        ; time to executing the drive code and start receiving bytes, and
-        ; to give the C64s irq handler enough time to start the tape motor
-        ; when a tape button is pressed.
-:       dex
-        bne :-
-        dey
-        bne :-
-        sei
-        rts
 
 ; ----------------------------------------------------------------
 ; tape related
