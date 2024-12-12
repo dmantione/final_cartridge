@@ -10,8 +10,14 @@
 .global new_load
 .global new_save
 .global tape_write_byte
+
+; from drive
 .import check_iec_error
 .import transfer_code_to_drive
+.import listen_second
+
+; from monitor
+.import byte_to_hex_ascii
 
 L0110           := $0110
 
@@ -442,7 +448,7 @@ new_load_continue:
         lda     #$60
         sta     SA
         lda     #$E0
-        jsr     LA612
+        jsr     listen_second
         jsr     UNLSTN
         plp
         bvs     @done ; used to be "bcs" in 1988-05
@@ -1270,36 +1276,15 @@ crc_correction_s:
 ; ----------------------------------------------------------------
 .segment "speeder_c"
 
-LA612:  pha
-        lda     FA
-        jsr     LISTEN
-        pla
-        jmp     SECOND
-
-LA628:  jsr     LA632
-        jsr     $E716 ; KERNAL: output character to screen
-        tya
-        jmp     $E716 ; KERNAL: output character to screen
-
-LA632:  pha
-        and     #$0F
-        jsr     LA63E
-        tay
-        pla
-        lsr     a
-        lsr     a
-        lsr     a
-        lsr     a
-LA63E:  clc
-        adc     #$F6
-        bcc     LA645
-        adc     #$06
-LA645:  adc     #$3A
-rts_01: rts
+;LA612:  pha
+;        lda     FA
+;        jsr     LISTEN
+;        pla
+;        jmp     SECOND
 
 fastsave_initialize:
         jsr     check_iec_error
-        bne     rts_01
+        bne     _rts2
         lda     #12
         sta     $93
 .import __drive_code_save_LOAD__
@@ -1341,17 +1326,20 @@ LA691:
 LA694:
         ldy     #8
         bit     $9D
-        bpl     LA6A7
+        bpl     _rts2
         jsr     LA6A8
         lda     $AF
         jsr     LA628
         lda     $AE
-        jmp     LA628
+LA628:  jsr     byte_to_hex_ascii
+        jsr     LE716 ; KERNAL: output character to screen
+        tya
+        jmp     LE716 ; KERNAL: output character to screen
 
-LA6A7:  rts
+_rts2:  rts
 
 LA6A8:  lda     s_from,y
-        beq     LA6A7
+        beq     _rts2
         jsr     $E716 ; KERNAL: output character to screen
         iny
         bne     LA6A8
@@ -1404,22 +1392,21 @@ tape_wait_record:
         bne     print ; always
 ;rts_lda0_carry_set:
 ;        lda     #$00
-rts_carry_set:
-        sec
-rts_:
-        rts
 
 print_found:
         lda     $9D
-        bpl     LA7A7
+        bpl     rts_
         ldy     #$63 ; "FOUND"
         jsr     print_kernal_string
         ldy     #5
 :       lda     ($B2),y
-        jsr     $E716 ; KERNAL: output character to screen
+        jsr     LE716 ; KERNAL: output character to screen
         iny
         cpy     #$15
         bne     :-
+rts_carry_set:
+        sec
+rts_:
         rts
 
 print_message:
@@ -1440,7 +1427,7 @@ LA796:  ldy     $B7
         beq     LA7A7
         ldy     #0
 LA79C:  jsr     _load_FNADR_indy
-        jsr     $E716 ; KERNAL: output character to screen
+        jsr     LE716 ; KERNAL: output character to screen
         iny
         cpy     $B7
         bne     LA79C

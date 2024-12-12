@@ -23,6 +23,8 @@
 .global close_ch2
 .global set_colon_asterisk
 .global set_drive
+.global digit_to_ascii
+.global byte_to_hex_ascii
 
 .segment "drive"
 
@@ -173,6 +175,24 @@ set_drive:
         bcc     @rts
         lda     #8 ; set drive 8
         bne     @store ; always
+
+; convert byte into hex ASCII in A/Y
+byte_to_hex_ascii:
+        pha
+        and     #$0F
+        jsr     digit_to_ascii
+        tay
+        pla
+        lsr     a
+        lsr     a
+        lsr     a
+        lsr     a
+digit_to_ascii:
+        sed
+        cmp #10
+        adc #$30
+        cld
+        rts
 
 drive_cmds:
 drive_cmd_u1:

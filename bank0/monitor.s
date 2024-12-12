@@ -84,6 +84,8 @@ _basic_warm_start := $800A
 .import talk_second
 .import print_line_from_drive
 .import close_ch2
+.import byte_to_hex_ascii
+.import digit_to_ascii
 
 ; from constants
 .import pow10lo
@@ -3737,21 +3739,3 @@ print_hex_byte:
         jsr     BSOUT
         tya
         jmp     BSOUT
-
-; convert byte into hex ASCII in A/Y
-byte_to_hex_ascii:
-        pha
-        and     #$0F
-        jsr     digit_to_ascii
-        tay
-        pla
-        lsr     a
-        lsr     a
-        lsr     a
-        lsr     a
-digit_to_ascii:
-        sed
-        cmp #10
-        adc #$30
-        cld
-        rts
