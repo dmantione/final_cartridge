@@ -1765,22 +1765,32 @@ tape_write_byte:
 LA9C5:  asl     $BD
         lda     $01
         and     #$F7
-        jsr     LA9DD
+        jsr     tape_half_pulse
         ldx     #$11
         nop
         ora     #8
-        jsr     LA9DD
+        jsr     tape_half_pulse
         ldx     #14
         dec     $A3
         bne     LA9C5
         rts
 
-LA9DD:  dex
-        bne     LA9DD
-        bcc     LA9E7
+;
+; Do either the high or low phase of the pulse.
+; C contains the bit to write to tape
+;   0 = 176 us pulse
+;   1 = 256 us pulse
+;
+; A contains the value to write to $01, either bit 3 set or reset depending
+; on wheter to write the high or low phase.
+;
+tape_half_pulse:
+:       dex
+        bne     :-
+        bcc     @1
         ldx     #11
-LA9E4:  dex
-        bne     LA9E4
-LA9E7:  sta     $01
+:       dex
+        bne     :-
+@1:     sta     $01
         rts
 
