@@ -1788,15 +1788,16 @@ load_byte:
         adc     #$00
 :       ; Check whether < $0800, then read from backup,
         ; otherwise read from mem
-        ldy     #0
         cmp     #>$0800
         bcc     :+
         lda     bank
+        ldy     #0
         jsr     @r
         jmp     @7
 :       ora     #>$F800
 @6:     sty     zp1
         sta     zp1+1
+        ldy     #0
         jsr     load_byte_vdc
 @7:     pha
         lda     tmp3
@@ -1842,8 +1843,6 @@ _rts:   rts
 
 ; stores a byte at (zp1),y in VDC RAM
 store_byte_vdc:
-        stx     tmp1
-        sty     tmp2
         tya
         clc
         adc     zp1
@@ -1882,6 +1881,8 @@ store_byte:
         sta     (zp1),y ; store
         rts
 .else
+        stx     tmp1
+        sty     tmp2
         sei
         pha
         lda     bank
@@ -1889,6 +1890,10 @@ store_byte:
         beq     store_byte_drive ; drive
         cmp     #$81
         beq     store_byte_vdc ; drive
+.ifdef CART_FC3
+        bit     bank
+        bvs     @frozen_vdc
+.endif
         ; This is tricky code: At this time we are in 16K cartridge mode and
         ; executing from ROMH ($A000..). Writing the current bank to $01 may
         ; hide cartridge ROM.
@@ -1897,7 +1902,7 @@ store_byte:
         ; advantage of the C64's feature that writes to ROM go to RAM below
         ; ROM. If IO is disabled, we write $33, again taking advantage that
         ; writes to to RAM below ROM.
-        cmp     #$35
+@r:     cmp     #$35
         bcs     :+ ; I/O on
         lda     #$33 ; ROM at $8000, $A000, $D000 and $E000
         sta     R6510
@@ -1909,7 +1914,86 @@ store_byte:
         pla
         rts
 .endif
+.ifdef CART_FC3
+@br:    lda     bank ; Bit 6 is set but doesn't hurt
+        bne     @r
 
+@frozen_vdc:
+        lda     zp1
+        sta     tmp3
+        lda     zp1+1
+        sta     tmp4
+        jsr     add_y_to_zp1
+        ; Check if I/O visible
+        lda     #$03
+        bit     bank
+        beq     @2
+        lda     zp1+1
+        ldx     #2
+@1:     cmp     chips_base,x
+        bne     @2
+        clc
+        lda     chips_back_lo,x
+        adc     zp1
+        tay
+        lda     chips_back_hi,x
+        bne     @6
+@2:     dex
+        bpl     @1
+
+@3:     jsr     check_frz_mem
+        bcc     @7
+        ldy     zp1
+        lda     zp1+1
+        bne     :+
+        ; Zero page
+        tya
+        sec
+        sbc     #$70
+        bcc     :+
+        cmp     $76
+        bcs     :+
+        adc     $70
+        tay
+        lda     $71
+        adc     #$00
+:       ; Check whether < $0800, then read from backup,
+        ; otherwise read from mem
+        cmp     #>$0800
+        bcc     :+
+        lda     bank
+        pla
+        tax
+        lda     #>(@7 -1)
+        pha
+        lda     #<(@7 -1)
+        pha
+        txa
+        pha
+        ldy     #0
+        jmp     @r
+;        jmp     @7
+:       ora     #>$F800
+@6:     sty     zp1
+        sta     zp1+1
+        pla
+        tax
+        lda     #>(@7 -1)
+        pha
+        lda     #<(@7 -1)
+        pha
+        txa
+        pha
+        ldy     #0
+        jmp     store_byte_vdc
+@7:     lda     tmp3
+        sta     zp1
+        lda     tmp4
+        sta     zp1+1
+        ldx     tmp1
+        ldy     tmp2
+        rts
+.endif
 .ifdef CART_FC3
 ; ----------------------------------------------------------------
 ; "B" - set cartridge bank (0-3) to be visible at $8000-$BFFF
