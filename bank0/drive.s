@@ -15,11 +15,13 @@
 .global command_channel_talk
 .global talk_second
 .global m_w_and_m_e
+.global send_m_dash
 .global listen_6F_or_error
 .global listen_or_error
 .global device_not_present
 .global init_read_disk_name
 .global init_write_bam
+.global open_hash_ch2
 .global close_ch2
 .global set_colon_asterisk
 .global set_drive
@@ -118,12 +120,16 @@ device_not_present:
         jmp     disable_rom_jmp_error
 
 
-init_read_disk_name:
+open_hash_ch2:
         lda     #$F2
         jsr     listen_second
         lda     #'#'
         jsr     IECOUT
         jsr     UNLSTN
+        rts
+
+init_read_disk_name:
+        jsr     open_hash_ch2
         ldy     #drive_cmd_u1 - drive_cmds
         jsr     send_drive_cmd ; send "U1:2 0 18 0", block read of BAM
         jsr     check_iec_error

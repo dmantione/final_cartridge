@@ -83,7 +83,9 @@ _basic_warm_start := $800A
 .import command_channel_talk
 .import talk_second
 .import print_line_from_drive
+.import open_hash_ch2
 .import close_ch2
+.import send_m_dash
 .import byte_to_hex_ascii
 .import digit_to_ascii
 
@@ -881,7 +883,7 @@ LAF06:  lda     bank
         jmp     disable_rom_rti
 go_drive:
         lda     #'E' ; send M-E to drive
-        jsr     send_m_dash2
+        jsr     send_m_dash
         lda     zp2
         jsr     IECOUT
         lda     zp2 + 1
@@ -1693,7 +1695,7 @@ load_byte_vdc:
 ; loads a byte at (zp1),y from drive RAM
 load_byte_drive:
         lda     #'R' ; send M-R to drive
-        jsr     send_m_dash2
+        jsr     send_m_dash
         jsr     iec_send_zp1_plus_y
         jsr     UNLSTN
         jsr     command_channel_talk
@@ -1873,7 +1875,7 @@ store_byte_vdc:
 store_byte_drive:
         pha
         lda     #'W' ; send M-W to drive
-        jsr     send_m_dash2
+        jsr     send_m_dash
         jsr     iec_send_zp1_plus_y
         lda     #1 ; count
         jsr     IECOUT
@@ -1927,7 +1929,7 @@ store_byte:
         lda     zp1+1
         sta     tmp4
         jsr     add_y_to_zp1
-        jsr     frozen_io_trl
+        jsr     frozen_io_trl ; VIC-II, CIA1, CIA2
         bcs     @6
 @3:     jsr     check_frz_mem
         bcc     @7
@@ -1969,7 +1971,7 @@ cmd_b:  jsr     basin_cmp_cr
         bcs     syn_err3
         jsr     hex_digit_to_nybble
         ora     #$40  ; make $40 - $4f
-       skip_2b_instr
+        skip_2b_instr
 @1:     lda     #$70 ; by default, hide cartridge
         sta     cartridge_bank
         jmp     print_cr_then_input_loop
@@ -2269,7 +2271,7 @@ print_hash:
         skip_2b_instr
 print_space:
         lda     #' '
-        .byte   $2C
+        skip_2b_instr
 print_cr:
         lda     #CR
         jmp     BSOUT
@@ -3613,11 +3615,7 @@ LBAC1:  jsr     get_hex_byte
         jsr     basin_cmp_cr
         bne     syn_err7
 LBACD:  jsr     UNLSTN ; printer might be listening
-        lda     #$F2
-        jsr     listen_second
-        lda     #'#'
-        jsr     IECOUT
-        jsr     UNLSTN
+        jsr     open_hash_ch2
         jsr     swap_zp1_and_zp2
         lda     zp1
         cmp     #'W'
@@ -3729,16 +3727,6 @@ s_u1_len =  * - s_u1
 s_bp:
         .byte   "B-P 2 0"
 s_bp_len = * - s_bp
-
-send_m_dash2:
-        pha
-        jsr     cmd_channel_listen
-        lda     #'M'
-        jsr     IECOUT
-        lda     #'-'
-        jsr     IECOUT
-        pla
-        jmp     IECOUT
 
 iec_send_zp1_plus_y:
         tya
