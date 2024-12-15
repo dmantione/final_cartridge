@@ -1701,6 +1701,7 @@ load_byte_drive:
         pha
         jsr     UNTALK
         pla
+        ldx     tmp1
         rts
 
 
@@ -1708,10 +1709,10 @@ load_byte_drive:
 load_byte:
         stx     tmp1
         sty     tmp2
-        lda     bank
-        cmp     #$80
+        ldx     bank
+        cpx     #$80
         beq     load_byte_drive ; drive
-        cmp     #$81
+        cpx     #$81
         beq     load_byte_vdc
 .ifdef CART_FC3
         bit     bank
@@ -1737,6 +1738,7 @@ load_byte:
 .ifdef CART_FC3
         pha
         lda     cartridge_bank
+        ldx     tmp1
 .endif
         sei
         jmp     load_byte_ram ; "lda (zp1),y" with ROM and cartridge config
@@ -1763,7 +1765,8 @@ load_byte:
         clc
         lda     chips_back_lo,x
         adc     zp1
-        tay
+        sta     zp1+1
+        ldy     #$00
         lda     chips_back_hi,x
         bne     @6
 @2:     dex
@@ -1772,39 +1775,27 @@ load_byte:
 @3:     jsr     check_frz_mem
         lda     $72,x
         bcc     @7
-        ldy     zp1
+;        ldy     zp1
         lda     zp1+1
         bne     :+
         ; Zero page
-        tya
-        sec
-        sbc     #$70
-        bcc     :+
-        cmp     $76
-        bcs     :+
-        adc     $70
-        tay
-        lda     $71
-        adc     #$00
-:       ; Check whether < $0800, then read from backup,
+        jsr     frozen_zp_trl
+:       ldy     #$00
+        ; Check whether < $0800, then read from backup,
         ; otherwise read from mem
         cmp     #>$0800
         bcc     :+
         lda     bank
-        ldy     #0
         jsr     @r
         jmp     @7
 :       ora     #>$F800
-@6:     sty     zp1
-        sta     zp1+1
+@6:     sta     zp1+1
         ldy     #0
         jsr     load_byte_vdc
-@7:     pha
-        lda     tmp3
-        sta     zp1
-        lda     tmp4
-        sta     zp1+1
-        pla
+@7:     ldx     tmp3
+        stx     zp1
+        ldx     tmp4
+        stx     zp1+1
 @x:
         ldx     tmp1
         ldy     tmp2
@@ -1841,8 +1832,22 @@ secrts: sec
 _rts:   rts
 .endif
 
+frozen_zp_trl:
+        lda     zp1
+        sec
+        sbc     #$70
+        bcc     :+
+        cmp     $76
+        bcs     :+
+        adc     $70
+        sta     zp1
+        lda     $71
+        adc     #$00
+        rts
+
 ; stores a byte at (zp1),y in VDC RAM
 store_byte_vdc:
+        pha
         tya
         clc
         adc     zp1
@@ -1863,16 +1868,16 @@ store_byte_vdc:
 
 ; stores a byte at (zp1),y in drive RAM
 store_byte_drive:
+        pha
         lda     #'W' ; send M-W to drive
         jsr     send_m_dash2
         jsr     iec_send_zp1_plus_y
         lda     #1 ; count
         jsr     IECOUT
         pla
-        pha
         jsr     IECOUT
         jsr     UNLSTN
-        pla
+        ldx     tmp1
         rts
 
 ; stores a byte at (zp1),y in RAM with the correct ROM config
@@ -1884,11 +1889,10 @@ store_byte:
         stx     tmp1
         sty     tmp2
         sei
-        pha
-        lda     bank
-        cmp     #$80
+        ldx     bank
+        cpx     #$80
         beq     store_byte_drive ; drive
-        cmp     #$81
+        cpx     #$81
         beq     store_byte_vdc ; drive
 .ifdef CART_FC3
         bit     bank
@@ -1902,16 +1906,14 @@ store_byte:
         ; advantage of the C64's feature that writes to ROM go to RAM below
         ; ROM. If IO is disabled, we write $33, again taking advantage that
         ; writes to to RAM below ROM.
-@r:     cmp     #$35
+@r:     cpx     #$35
         bcs     :+ ; I/O on
         lda     #$33 ; ROM at $8000, $A000, $D000 and $E000
-        sta     R6510
-:       pla
-        sta     (zp1),y ; store
-        pha
+        stx     R6510
+:       sta     (zp1),y ; store
         lda     #DEFAULT_BANK
         sta     R6510 ; restore ROM config
-        pla
+        ldx     tmp1
         rts
 .endif
 .ifdef CART_FC3
@@ -1919,6 +1921,7 @@ store_byte:
         bne     @r
 
 @frozen_vdc:
+        pha
         lda     zp1
         sta     tmp3
         lda     zp1+1
@@ -1935,7 +1938,8 @@ store_byte:
         clc
         lda     chips_back_lo,x
         adc     zp1
-        tay
+        sta     zp1
+        ldy     #$00
         lda     chips_back_hi,x
         bne     @6
 @2:     dex
@@ -1943,49 +1947,25 @@ store_byte:
 
 @3:     jsr     check_frz_mem
         bcc     @7
-        ldy     zp1
+;        ldy     zp1
         lda     zp1+1
         bne     :+
         ; Zero page
-        tya
-        sec
-        sbc     #$70
-        bcc     :+
-        cmp     $76
-        bcs     :+
-        adc     $70
-        tay
-        lda     $71
-        adc     #$00
-:       ; Check whether < $0800, then read from backup,
+        jsr     frozen_zp_trl
+:       ldy     #$00
+        ; Check whether < $0800, then read from backup,
         ; otherwise read from mem
         cmp     #>$0800
         bcc     :+
-        lda     bank
+        ldx     bank
         pla
-        tax
-        lda     #>(@7 -1)
-        pha
-        lda     #<(@7 -1)
-        pha
-        txa
-        pha
-        ldy     #0
-        jmp     @r
-;        jmp     @7
+        jsr     @r
+        jmp     @7
 :       ora     #>$F800
-@6:     sty     zp1
-        sta     zp1+1
+@6:     sta     zp1+1
         pla
-        tax
-        lda     #>(@7 -1)
-        pha
-        lda     #<(@7 -1)
-        pha
-        txa
-        pha
-        ldy     #0
-        jmp     store_byte_vdc
+        ldx     bank
+        jsr     store_byte_vdc
 @7:     lda     tmp3
         sta     zp1
         lda     tmp4
