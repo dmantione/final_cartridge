@@ -357,7 +357,7 @@ brk_entry2:
         bne     @l
 
         lda     #'V'
-        .byte   $2C ; skip
+        skip_2b_instr
 @c:     lda     #'C'
 @b:     ldx     #'*'
         jsr     print_a_x
@@ -447,7 +447,7 @@ dump_registers2:
 
 syntax_error:
         lda     #'?'
-        .byte   $2C
+        skip_2b_instr
 print_cr_then_input_loop:
         lda     #CR
         jsr     BSOUT
@@ -1745,37 +1745,17 @@ load_byte:
 .endif
 
 .ifdef CART_FC3
-@br:    lda     bank ; Bit 6 is set but doesn't hurt
-        bne     @r
-
 @frozen_vdc:
         lda     zp1
         sta     tmp3
         lda     zp1+1
         sta     tmp4
         jsr     add_y_to_zp1
-        ; Check if I/O visible
-        lda     #$03
-        bit     bank
-        beq     @2
-        lda     zp1+1
-        ldx     #2
-@1:     cmp     chips_base,x
-        bne     @2
-        clc
-        lda     chips_back_lo,x
-        adc     zp1
-        sta     zp1+1
-        ldy     #$00
-        lda     chips_back_hi,x
-        bne     @6
-@2:     dex
-        bpl     @1
-
+        jsr     frozen_io_trl
+        bcs     @6
 @3:     jsr     check_frz_mem
         lda     $72,x
         bcc     @7
-;        ldy     zp1
         lda     zp1+1
         bne     :+
         ; Zero page
@@ -1787,7 +1767,7 @@ load_byte:
         bcc     :+
         lda     bank
         jsr     @r
-        jmp     @7
+        bcc     @7
 :       ora     #>$F800
 @6:     sta     zp1+1
         ldy     #0
@@ -1796,7 +1776,6 @@ load_byte:
         stx     zp1
         ldx     tmp4
         stx     zp1+1
-@x:
         ldx     tmp1
         ldy     tmp2
         rts
@@ -1843,6 +1822,30 @@ frozen_zp_trl:
         sta     zp1
         lda     $71
         adc     #$00
+        skip_2b_instr
+:       lda     #$00
+        rts
+
+frozen_io_trl:
+        ; Check if I/O visible
+        lda     #$03
+        bit     bank
+        beq     @2
+        lda     zp1+1
+        ldx     #2
+@1:     cmp     chips_base,x
+        bne     @2
+        clc
+        lda     chips_back_lo,x
+        adc     zp1
+        sta     zp1
+        ldy     #$00
+        lda     chips_back_hi,x
+        sec
+        rts
+@2:     dex
+        bpl     @1
+        clc
         rts
 
 ; stores a byte at (zp1),y in VDC RAM
@@ -1917,9 +1920,6 @@ store_byte:
         rts
 .endif
 .ifdef CART_FC3
-@br:    lda     bank ; Bit 6 is set but doesn't hurt
-        bne     @r
-
 @frozen_vdc:
         pha
         lda     zp1
@@ -1927,27 +1927,10 @@ store_byte:
         lda     zp1+1
         sta     tmp4
         jsr     add_y_to_zp1
-        ; Check if I/O visible
-        lda     #$03
-        bit     bank
-        beq     @2
-        lda     zp1+1
-        ldx     #2
-@1:     cmp     chips_base,x
-        bne     @2
-        clc
-        lda     chips_back_lo,x
-        adc     zp1
-        sta     zp1
-        ldy     #$00
-        lda     chips_back_hi,x
-        bne     @6
-@2:     dex
-        bpl     @1
-
+        jsr     frozen_io_trl
+        bcs     @6
 @3:     jsr     check_frz_mem
         bcc     @7
-;        ldy     zp1
         lda     zp1+1
         bne     :+
         ; Zero page
@@ -1974,6 +1957,7 @@ store_byte:
         ldy     tmp2
         rts
 .endif
+
 .ifdef CART_FC3
 ; ----------------------------------------------------------------
 ; "B" - set cartridge bank (0-3) to be visible at $8000-$BFFF
@@ -1985,7 +1969,7 @@ cmd_b:  jsr     basin_cmp_cr
         bcs     syn_err3
         jsr     hex_digit_to_nybble
         ora     #$40  ; make $40 - $4f
-       .byte   $2C
+       skip_2b_instr
 @1:     lda     #$70 ; by default, hide cartridge
         sta     cartridge_bank
         jmp     print_cr_then_input_loop
@@ -2032,18 +2016,18 @@ cmd_o:
 .ifdef MACHINE_TED
 :       jsr     hex_digit_to_nybble
 .endif
-        .byte   $2C
+        skip_2b_instr
 @dflt:  lda     #DEFAULT_BANK
 .ifdef MACHINE_C64
         cmp     #$38
         bcs     syn_err3
         cmp     #$30
         bcc     syn_err3
-        .byte   $2C
+        skip_2b_instr
 .endif
 @disk:  lda     #$80 ; drive
 .ifdef MACHINE_C64
-        .byte   $2C
+        skip_2b_instr
 @vdc:   lda     #$81
         ora     tmp1
 .endif
@@ -2264,11 +2248,11 @@ LB48E:  jsr     print_space
 
 print_up:
         ldx     #CSR_UP
-        .byte   $2C
+        skip_2b_instr
 print_cr_dot:
         ldx     #'.'
         lda     #CR
-        .byte   $2C
+        skip_2b_instr
 print_dot_x:
         lda     #'.'
 print_a_x:
@@ -2279,10 +2263,10 @@ print_a_x:
 print_up_dot:
         jsr     print_up
         lda     #'.'
-        .byte   $2C
+        skip_2b_instr
 print_hash:
         lda     #'#'
-        .byte   $2C
+        skip_2b_instr
 print_space:
         lda     #' '
         .byte   $2C
@@ -2391,7 +2375,7 @@ validate_hex_digit:
 
 print_dollar_hex_16:
         lda     #'$'
-        .byte   $2C
+        skip_2b_instr
 print_space_hex_16:
         lda     #' '
         jsr     BSOUT
@@ -2594,19 +2578,19 @@ check_end:
 
 fill_kbd_buffer_comma:
         lda     #','
-        .byte   $2C
+        skip_2b_instr
 fill_kbd_buffer_semicolon:
         lda     #':'
-        .byte   $2C
+        skip_2b_instr
 fill_kbd_buffer_a:
         lda     #'A'
-        .byte   $2C
+        skip_2b_instr
 fill_kbd_buffer_leftbracket:
         lda     #'['
-        .byte   $2C
+        skip_2b_instr
 fill_kbd_buffer_rightbracket:
         lda     #']'
-        .byte   $2C
+        skip_2b_instr
 fill_kbd_buffer_singlequote:
         lda     #$27 ; "'"
         sta     KEYD
@@ -3778,7 +3762,7 @@ LBC58:  lda     #$2F
         sta     zp2 + 1
         sec
         ldy     zp1
-        .byte   $2C
+        skip_2b_instr
 LBC60:  sta     zp1 + 1
         sty     zp1
         inc     zp2 + 1
