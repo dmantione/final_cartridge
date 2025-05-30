@@ -274,6 +274,7 @@ ram_code_end:
 ;frozen_regtable: .byte <reg_x,$40,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
 
 frozen_regtable: .byte <reg_pc_hi,<reg_pc_lo,<reg_p,<reg_a,$80,<bank,<reg_x
+frozen_regtable1: .byte <reg_x,<bank,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
 
 brk_entry2:
         cld ; <- important :)
@@ -319,43 +320,38 @@ brk_entry2:
 @vdc:
 
         ; Get original y register and stack pointer
-        lda     #78
-        clc
-        adc     $73
-        ldx     #$13
-        jsr     vdc_reg_store  ; A,X,C preserved
-        lda     #$F8
-        adc     $74
-        dex
-        jsr     vdc_reg_store
-        ldx     #$1F
-        jsr     vdc_reg_load
+        lda     #$41
+        sta     bank
+        lda     $73            ; position of mem_b
+        sta     zp1
+        lda     $74
+        sta     zp1+1
+        ldy     #78            ; location of label r5+1 in freezer_restore_1 segment
+        jsr     load_byte
         sta     reg_y
-        jsr     vdc_reg_load
-        jsr     vdc_reg_load
+        iny
+        iny
+        jsr     load_byte
         sta     reg_s
 
         ; Get original bank, accumulator and flags
+        clc
         adc     #3
-        ldx     #$13
-        jsr     vdc_reg_store
-        lda     #$F9
-        dex
-        jsr     vdc_reg_store
-        ldx     #$1F
-        jsr     vdc_set_addreg
-        ldy     #.sizeof(frozen_regtable)
-@l:     bit     $d600
-        bpl     @l
-        lda     $d601
-        ldx     frozen_regtable-1,y
+        sta     zp1
+        lda     #$01
+        sta     zp1+1
+
+        ldy     #0
+@l:     jsr     load_byte
+        ldx     frozen_regtable1,y
         bmi     @d
         cpx     #<bank
         bne     :+
         and     #$07
         ora     #$40
 :       sta     $0200,x
-@d:     dey
+@d:     iny
+        cpy     #.sizeof(frozen_regtable)
         bne     @l
 
         lda     #'V'
@@ -1755,10 +1751,13 @@ load_byte:
         jsr     add_y_to_zp1
         jsr     frozen_io_trl
         bcs     @6
-@3:     jsr     check_frz_mem
+@3:     lda     #$01
+        bit     bank
+        bne     :+
+        jsr     check_frz_mem
         lda     $72,x
         bcc     @7
-        lda     zp1+1
+:       lda     zp1+1
         bne     :+
         ; Zero page
         jsr     frozen_zp_trl
