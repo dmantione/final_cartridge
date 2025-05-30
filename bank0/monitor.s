@@ -320,7 +320,7 @@ brk_entry2:
 @vdc:
 
         ; Get original y register and stack pointer
-        lda     #$41
+        lda     #$60
         sta     bank
         lda     $73            ; position of mem_b
         sta     zp1
@@ -1751,7 +1751,7 @@ load_byte:
         jsr     add_y_to_zp1
         jsr     frozen_io_trl
         bcs     @6
-@3:     lda     #$01
+@3:     lda     #$20
         bit     bank
         bne     :+
         jsr     check_frz_mem
@@ -1831,7 +1831,7 @@ frozen_io_trl:
         ; Check if I/O visible
         lda     #$03
         bit     bank
-        beq     @2
+        beq     @3
         lda     zp1+1
         ldx     #2
 @1:     cmp     chips_base,x
@@ -1846,7 +1846,7 @@ frozen_io_trl:
         rts
 @2:     dex
         bpl     @1
-        clc
+@3:     clc
         rts
 
 ; stores a byte at (zp1),y in VDC RAM
