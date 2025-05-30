@@ -32,14 +32,18 @@ freezer_goto_monitor:
       ldx  #0
       stx  tmpvar1
       jsr  backup_to_vdc
+      lda  #$41
       jmp  @3
 :     jsr  detect_reu
-      bcc  :+
+      lda  #$01
+      bcc  @3
       ldx  #0
       stx  tmpvar1
       jsr  backup_to_reu
+      lda  #$81
 @3:   ldx  #$FF
       txs
+      pha
       jsr  IOINIT_direct
 
       ; Avoid use of RESTOR since it writes to RAM under ROM
@@ -60,17 +64,18 @@ freezer_goto_monitor:
       ldy  #>$A000
       jsr  $FD8D                        ; Set top, bottom of memory and screen base
       jsr  CINT_direct
-      jsr  detect_c128
-      bcs  @1                           ; Monitor wille exit to freezer
+      bit  $01FF
+      bmi  @1
+      bvs  @1                           ; Monitor wille exit to freezer
       ; Only initialize BASIC if the monitor will exit to BASIC
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
+      pla                               ; totally crazy, but $E3BF requires empty stack
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
-      lda  #$01                         ; Monitor entry reason
+      lda  #$01
+      pha
       bne  @2
 @1:   jsr  mem_ab_for_monitor
-      lda  #$41
-@2:   pha
-      lda  #>(monitor_frozen-1)
+@2:   lda  #>(monitor_frozen-1)
       pha
       lda  #<(monitor_frozen-1)
       pha

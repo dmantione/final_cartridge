@@ -132,6 +132,7 @@ tmp14           := BUF + 14
 tmp16           := BUF + 16
 tmp17           := BUF + 17
 tmp_opcode      := BUF + 18
+reubank         := BUF + 19
 
 reg_pc_hi       := ram_code_end + 5
 reg_pc_lo       := ram_code_end + 6
@@ -306,19 +307,12 @@ brk_entry2:
         jsr     print_cr
         lda     #$3F
         bit     entry_type
-        bmi     @reu
-        bvs     @vdc
+        bmi     @vdcreu
+        bvs     @vdcreu
         bne     @c
 :       lda     #'B'
-        skip_2b_instr
-@reu:   lda     #'R'
-.ifdef use_ill
         bne     @b
-.else
-        jmp     @b
-.endif
-@vdc:
-
+@vdcreu:
         ; Get original y register and stack pointer
         lda     #$60
         sta     bank
@@ -355,6 +349,9 @@ brk_entry2:
         bne     @l
 
         lda     #'V'
+        bit     entry_type
+        bvs     @b
+        lda     #'R'
         skip_2b_instr
 @c:     lda     #'C'
 @b:     ldx     #'*'
@@ -378,7 +375,8 @@ brk_entry2:
 ; ----------------------------------------------------------------
 cmd_r:
         jsr     basin_cmp_cr
-        bne     syntax_error
+        beq     dump_registers
+        jmp     syntax_error
 dump_registers:
         ldx     #0
         beq     @2
@@ -405,13 +403,20 @@ dump_registers2:
 .ifdef MACHINE_C64
         cmp     #$81
         beq     @vdc
+        cmp     #$82
+        beq     @reu
 .endif
         ; drive
         lda     #'D'
         ldx     #'R'
+.ifdef MACHINE_C64
         bne     @2
 @vdc:   lda     #'V'
         ldx     #'D'
+        bne     @2
+@reu:   lda     #'R'
+        ldx     #'E'
+.endif
 @2:     jsr     print_a_x
         bne     @1 ; negative bank means drive ("DR")
 @3:
@@ -1668,6 +1673,26 @@ vdc_reg_load:
         lda     $d601
         rts
 
+prepare_reu_byte:
+        lda     #$01      ; transfer length lo
+        sta     $DF07
+        lda     #$00
+        sta     $DF08     ; transfer length hi
+        lda     #<tmp17
+        sta     $DF02     ; c64 addr lo
+        lda     #>tmp17
+        sta     $DF03     ; c64 addr hi
+        tya
+        clc
+        adc     zp1
+        sta     $DF04
+        lda     #0
+        adc     zp1+1
+        sta     $DF05
+        lda     reubank
+        sta     $DF06
+        rts
+
 ; loads a byte at (zp1),y from VDC RAM
 load_byte_vdc:
         tya
@@ -1684,6 +1709,15 @@ load_byte_vdc:
         jsr     vdc_reg_store
         ldx     #$1f
         jsr     vdc_reg_load
+        ldx     tmp1
+        ldy     tmp2
+        rts
+
+load_byte_reu:
+        jsr     prepare_reu_byte
+        lda     #$91      ; start immediate transfer from C64 to reu
+        sta     $DF01
+        lda     tmp17
         ldx     tmp1
         ldy     tmp2
         rts
@@ -1710,8 +1744,12 @@ load_byte:
         ldx     bank
         cpx     #$80
         beq     load_byte_drive ; drive
+.ifdef MACHINE_C64
         cpx     #$81
         beq     load_byte_vdc
+        cpx     #$82
+        beq     load_byte_reu
+.endif
 .ifdef CART_FC3
         bit     bank
         bvs     @frozen_vdc
@@ -1734,6 +1772,7 @@ load_byte:
 .else
 @r:     clc
 .ifdef CART_FC3
+        txa
         pha
         lda     cartridge_bank
         ldx     tmp1
@@ -1870,6 +1909,15 @@ store_byte_vdc:
         ldy     tmp2
         rts
 
+store_byte_reu:
+        sta     tmp17
+        jsr     prepare_reu_byte
+        lda     #$90      ; start immediate transfer from C64 to reu
+        sta     $DF01
+        ldx     tmp1
+        ldy     tmp2
+        rts
+
 ; stores a byte at (zp1),y in drive RAM
 store_byte_drive:
         pha
@@ -1896,8 +1944,12 @@ store_byte:
         ldx     bank
         cpx     #$80
         beq     store_byte_drive ; drive
+.ifdef MACHINE_C64
         cpx     #$81
         beq     store_byte_vdc ; drive
+        cpx     #$82
+        beq     store_byte_reu
+.endif
 .ifdef CART_FC3
         bit     bank
         bvs     @frozen_vdc
@@ -1912,7 +1964,7 @@ store_byte:
         ; writes to to RAM below ROM.
 @r:     cpx     #$35
         bcs     :+ ; I/O on
-        lda     #$33 ; ROM at $8000, $A000, $D000 and $E000
+        ldx     #$33 ; ROM at $8000, $A000, $D000 and $E000
         stx     R6510
 :       sta     (zp1),y ; store
         lda     #DEFAULT_BANK
@@ -1999,9 +2051,13 @@ cmd_o:
 .endif
         cmp     #'D'
         beq     @disk ; disk
-.ifdef CART_FC3
+.ifdef MACHINE_C64
+        cmp     #'R'
+        beq     @reu
         cmp     #'V'
         beq     @vdc ; vdc
+.endif
+.ifdef CART_FC3
         cmp     #'F'
         bne     :+
         ; Entry from freezer?
@@ -2032,8 +2088,14 @@ cmd_o:
 @vdc:   lda     #$81
         ora     tmp1
 .endif
-        sta     bank
+@j:     sta     bank
         jmp     print_cr_then_input_loop
+.ifdef MACHINE_C64
+@reu:   jsr     get_hex_byte
+        sta     reubank
+        lda     #$82
+        bne     @j
+.endif
 
 listen_command_channel:
         lda     #$6F
