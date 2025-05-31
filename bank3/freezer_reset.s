@@ -33,15 +33,15 @@ freezer_goto_monitor:
       stx  tmpvar1
       jsr  backup_to_vdc
       lda  #$41
-      jmp  @3
+      jmp  @4
 :     jsr  detect_reu
       lda  #$01
-      bcc  @3
+      bcc  @4
       ldx  #0
       stx  tmpvar1
       jsr  backup_to_reu
       lda  #$81
-@3:   ldx  #$FF
+@4:   ldx  #$FF
       txs
       pha
       jsr  IOINIT_direct
@@ -65,7 +65,7 @@ freezer_goto_monitor:
       jsr  $FD8D                        ; Set top, bottom of memory and screen base
       jsr  CINT_direct
       bit  $01FF
-      bmi  @1
+      bmi  @3
       bvs  @1                           ; Monitor wille exit to freezer
       ; Only initialize BASIC if the monitor will exit to BASIC
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
@@ -74,7 +74,9 @@ freezer_goto_monitor:
       lda  #$01
       pha
       bne  @2
-@1:   jsr  mem_ab_for_monitor
+@1:   jsr  mem_ab_for_monitor_vdc       ; Clears Z
+      bne  @2                           ; always
+@3:   jsr  mem_ab_for_monitor_reu
 @2:   lda  #>(monitor_frozen-1)
       pha
       lda  #<(monitor_frozen-1)
@@ -173,7 +175,7 @@ backup_to_vdc:
       bne    :-
       rts
 
-mem_ab_for_monitor:
+mem_ab_for_monitor_vdc:
       ; Get freezer mem a/b locations
       lda     #$F8
       ldx     #$12
@@ -192,11 +194,31 @@ mem_ab_for_monitor:
       inx
       cpx     #6
       bne     :-
+      beq     mem_ab_size
+mem_ab_for_monitor_reu:
+      lda     #$70
+      sta     $DF02
+      lda     #$00
+      sta     $DF03
+      lda     #freezer_mem_a
+      sta     $DF04
+      lda     #$F8
+      sta     $DF05
+      lda     #$FF
+      sta     $DF06
+      lda     #6
+      sta     $DF07
+      lda     #$00
+      sta     $DF08
+      lda     #$91
+      sta     $DF01
+mem_ab_size:
       lda     #__FREEZERZP_SIZE__
       sta     $76
       lda     #__freezer_restore_1_SIZE__
       sta     $79
       rts
+
 
 detect_reu:
       ldx #0

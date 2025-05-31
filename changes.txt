@@ -252,6 +252,9 @@ CTRL+RETURN for print-screen.
 
 The change also makes scrolling inside the monitor faster.
 
+If the BASIC BAR is enabled (by typing BAR), the full Commodore 128 keyboard
+is now also functional inside the monitor.
+
 Lastly, the change allows for a full table of function keys, so more function
 keys do something:
 
@@ -263,6 +266,7 @@ F2 - X
 F4 - unassigned
 F6 - unassigned
 F8 - @
+
 
 18. Unified directory routine
 -----------------------------
