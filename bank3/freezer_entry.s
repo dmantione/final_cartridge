@@ -640,6 +640,7 @@ freezer_find_memory:
       bcc  @no_overflow
       inc  $03                          ; carry to high byte
       beq  restart_at_0201              ; end of memory reached? then restart at $0201
+      lda  $03
       cmp  #$D0                         ; I/O area reached?
       bne  @nextbyte
       ; This code is mysterious, because by storing $33 into $01, the code above
