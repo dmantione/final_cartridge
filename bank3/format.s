@@ -3,12 +3,13 @@
 ; ----------------------------------------------------------------
 
 .include "../core/kernal.i"
+.include "persistent.i"
 
 ; from drive
 .import check_iec_error
 .import cmd_channel_listen
 .import listen_second
-.import transfer_code_to_drive
+;.import transfer_code_to_drive
 
 .global fast_format
 
@@ -27,8 +28,49 @@ fast_format:
         lda     #<fast_format_drive_code_entry
         jsr     IECOUT
         lda     #>fast_format_drive_code_entry
-        jmp     IECOUT
+        jsr     IECOUT
+        lda     #$40
+        jmp     _jmp_bank
 
+.global transfer_code_to_drive
+transfer_code_to_drive:
+        sta     $C3
+        sty     $C4
+        ldy     #0
+@1:     lda     #'W'
+        jsr     send_m_dash ; send "M-W"
+        tya
+        jsr     IECOUT
+        txa
+        jsr     IECOUT
+        lda     #' '
+        jsr     IECOUT
+:       lda     ($C3),y
+        jsr     IECOUT
+        iny
+        tya
+        and     #$1F  ; 32 bytes sent?
+        bne     :-    ; if not, next byte
+        jsr     UNLSTN
+        dec     $93     ; decrease number of 32byte chunks to send
+        beq     @ready  ; if zero we are ready
+        tya
+        bne     @1
+        inc     $C4
+        inx
+        bne     @1   ; always taken
+@ready: lda     #'E' ; send "M-E"
+
+send_m_dash:
+        pha
+        lda     #$6F
+        jsr     listen_second
+        lda     #'M'
+        jsr     IECOUT
+        lda     #'-'
+        jsr     IECOUT
+        pla
+        jmp     IECOUT
 
 ; ----------------------------------------------------------------
 

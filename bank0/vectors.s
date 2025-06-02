@@ -36,9 +36,7 @@ jentry:
 ; this vector is called from other banks
         jmp     perform_operation_for_desktop ; $800c
 
-.global jfast_format
-jfast_format: ; monitor calls this
-        jmp     fast_format                   ; $800f
+        jmp     $0000                         ; $800f originally used by fast_format
 
 ; these vectors are called from other banks
         jmp     init_read_disk_name           ; $8012

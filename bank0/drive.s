@@ -4,9 +4,13 @@
 ; The BASIC extension and fast format call into this.
 
 .include "../core/kernal.i"
+.include "../core/fc3ioreg.i"
+.include "persistent.i"
 
 ; from wrapper
 .import disable_rom_jmp_error
+; from linker symbols
+.import fast_format
 
 .global print_line_from_drive
 .global check_iec_error
@@ -27,6 +31,8 @@
 .global set_drive
 .global digit_to_ascii
 .global byte_to_hex_ascii
+.global jfast_format
+
 
 .segment "drive"
 
@@ -207,3 +213,11 @@ drive_cmd_bp:
         .byte   "B-P 2 144", 0
 drive_cmd_u2:
         .byte   "U2:2 0 18 0", 0
+
+jfast_format:
+        lda     #>(fast_format - 1)
+        pha
+        lda     #<(fast_format - 1)
+        pha
+        lda     #fcio_nmi_line | fcio_bank_3
+        jmp     _jmp_bank ; bank 3

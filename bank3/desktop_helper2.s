@@ -407,6 +407,7 @@ close_chn2:
       jsr  listen_second
       jmp  UNLSTN
 
+.global listen_second
 listen_second:
       pha
       lda  $BA                          ; Current device number

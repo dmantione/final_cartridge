@@ -76,7 +76,7 @@
 .import cond_init_load_save_vectors
 
 ; from format
-.import fast_format
+.import jfast_format
 .import init_read_disk_name
 .import init_write_bam
 
@@ -1428,7 +1428,7 @@ send_drive_command:
         beq     change_disk_name
         cmp     #'F' ; drive command "F": fast format
         bne     L8A84
-        jsr     fast_format
+        jsr     jfast_format
 L8A84:  jmp     L8BE3
 
 ; drive command "D": change disk name
