@@ -316,6 +316,8 @@ brk_entry2:
         ; Get original y register and stack pointer
         lda     #$60
         sta     bank
+        lda     #$FF
+        sta     reubank
         lda     $73            ; position of mem_b
         sta     zp1
         lda     $74
@@ -1647,31 +1649,44 @@ add_y_to_zp1:
         bcc     :+
         inc     zp1+1
 
-vdc_set_addreg:
-        ldy     #63 ; VDC should have time for processing at least once per
-                    ; scanline, this is multiple scanlines in cycles, so
-                    ; should be enough.
-        stx     $d600
+;vdc_set_addreg:
+;        ldy     #63 ; VDC should have time for processing at least once per
+;                    ; scanline, this is multiple scanlines in cycles, so
+;                    ; should be enough.
+;        stx     $d600
 :       dey
-        beq     @error
+;        beq     @error
+;        bit     $d600
+;        bpl     :-
+;        .byte   $24 ; Skip next instruction
+;@error: tya         ; Return 0 if time-out
+;        rts
+
+vdc_wait:
+        ldy     #63
+:       dey
+        beq     @e
         bit     $d600
         bpl     :-
-        .byte   $24 ; Skip next instruction
-@error: tya         ; Return 0 if time-out
+        clc
         rts
-
+@e:     sec
+        rts
 
 ; stores a byte in A into VDC register X
 vdc_reg_store:
-        jsr     vdc_set_addreg
+        stx     $d600
         sta     $d601
         rts
 
 ; loads a byte in A from VDC register X
 vdc_reg_load:
-        jsr     vdc_set_addreg
+        stx     $d600
+        jsr     vdc_wait
+        lda     #$00
+        bcs     @r
         lda     $d601
-        rts
+@r:     rts
 
 prepare_reu_byte:
         lda     #$01      ; transfer length lo
@@ -1693,19 +1708,26 @@ prepare_reu_byte:
         sta     $DF06
         rts
 
+load_byte_frozen:
+        bit     entry_type
+        bmi     load_byte_reu
+
 ; loads a byte at (zp1),y from VDC RAM
 load_byte_vdc:
         tya
         clc
         adc     zp1
-;        php
-        ldx     #$13
-        jsr     vdc_reg_store
-;        plp
+        ; High byte of VDC addresses need to be written first!
+        pha
         lda     #0
         adc     zp1+1
-;        lda     zp1+1
-        dex
+        ; In theory we need to check the status bit, but with the overhead of
+        ; all subrouties, there should be a long enough delay for the VDC to
+        ; be idle
+        ldx     #$12
+        jsr     vdc_reg_store
+        inx
+        pla
         jsr     vdc_reg_store
         ldx     #$1f
         jsr     vdc_reg_load
@@ -1752,7 +1774,7 @@ load_byte:
 .endif
 .ifdef CART_FC3
         bit     bank
-        bvs     @frozen_vdc
+        bvs     @frozen
 .endif
 .ifdef MACHINE_TED
 ;        stx tmp1
@@ -1782,7 +1804,7 @@ load_byte:
 .endif
 
 .ifdef CART_FC3
-@frozen_vdc:
+@frozen:
         lda     zp1
         sta     tmp3
         lda     zp1+1
@@ -1811,7 +1833,7 @@ load_byte:
 :       ora     #>$F800
 @6:     sta     zp1+1
         ldy     #0
-        jsr     load_byte_vdc
+        jsr     load_byte_frozen
 @7:     ldx     tmp3
         stx     zp1
         ldx     tmp4
@@ -1894,16 +1916,21 @@ store_byte_vdc:
         tya
         clc
         adc     zp1
-;        php
-        ldx     #$13
-        jsr     vdc_reg_store
-;        plp
+        ; High byte of VDC addresses need to be written first!
+        pha
         lda     #0
         adc     zp1+1
-        dex
+        ldx     #$12
+        ; In theory we need to check the status bit, but with the overhead of
+        ; all subrouties, there should be a long enough delay for the VDC to
+        ; be idle
+        jsr     vdc_reg_store
+        pla
+        inx
         jsr     vdc_reg_store
         pla
         ldx     #$1f
+        jsr     vdc_wait
         jsr     vdc_reg_store
         ldx     tmp1
         ldy     tmp2
@@ -2065,6 +2092,8 @@ cmd_o:
         bit     entry_type
         beq     syn_err3
         ; Frozen memory
+        lda     #$FF
+        sta     reubank
         lda     #$40
         sta     tmp1
         bne     @nd

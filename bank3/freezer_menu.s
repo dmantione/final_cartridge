@@ -21,7 +21,7 @@
 .importzp colram_backup
 
 .import freezer_init
-.import __freezer_RUN__
+.import __freezer_nmi_RUN__
 
       .macro MonoSpriteLine tribyte 
         .byte tribyte >> 16, ( tribyte >> 8) & 255,  tribyte & 255
@@ -33,10 +33,10 @@ freezer_prepare = $DFE0
 
 freezer_screenram:
       .byte 5, 6, 7, 8, 9, 10, 11, 12   
-      .byte 13, 14, 15, 16, 17, 18, 19, 20 
-      .byte 21, 22, 23, 24, 25, 26, 27, 28 
-      .byte 29, 30, 31, 32, 33, 34, 35, 36 
-      .byte 37, 38, 39, 11, 11, 11, 11, 11 
+      .byte 13, 14, 15, 16, 17, 18, 19, 20
+      .byte 21, 22, 23, 24, 25, 26, 27, 28
+      .byte 29, 30, 31, 32, 33, 34, 35, 36
+      .byte 37, 38, 39, 11, 11, 11, 11, 11
 ; ▉▉▉░░░░▉▉▉▉░░▉▉▉▉░░░▉▉░▉▉▉░▉░▉▉▉░▉░░░░▉▉▉▉▉▉▉▉▉▉
 ; ▉▉▉░▉▉▉░▉▉░▉▉░▉▉░▉▉▉░▉░▉▉░▉▉░▉▉▉░▉░▉▉▉░▉▉▉▉▉▉▉▉▉
 ; ▉▉▉░▉▉▉░▉░▉▉▉▉░▉░▉▉▉▉▉░▉░▉▉▉░▉▉▉░▉░▉▉▉░▉▉▉▉▉▉▉▉▉
@@ -674,13 +674,124 @@ freezer_exit_ro:
       MonoSpriteLine %000000000000000000000000   ; ░░░░░░░░░░░░░░░░░░░░░░░░
       .byte $FF
 
+menu_horz_pos:
+      ; Freezer menu
+      .byte $01, $08, $0E, $15, $1B, $21, $27
+      ; Print view menu
+      .byte $01, $06, $0C, $12, $18, $1E, $24, $29
+
+
+.segment "menubar"
+
+;
+; Make set the first line of the colour RAM to light_green
+;
+colram_topline_green_16k = colram_topline_green & $BFFF
+colram_topline_green:
+      ldx  #40-1
+:     lda  #13                          ; Light-green
+      sta  $D800,x                      ; Color RAM
+      dex
+      bpl  :-
+      inx
+      rts
+
+.global highlight_selected_menu
+highlight_selected_menu:
+      jsr  colram_topline_green
+      ldy  $03
+      clc
+      lda  menu_horz_pos,y
+      tax
+      sbc  menu_horz_pos+1,y
+      eor  #$FF
+      tay
+      cpy  #$07
+      bcc  :+
+      dey
+:     lda  #1                           ; White
+:     sta  $D7FF,x
+      inx
+      dey
+      bne  :-
+      rts
+
+;
+; Draw the menu during raster interrupt
+;
+.global draw_menu
+draw_menu:
+      ; Screen RAM and charset at $F800
+      ldx  #$EE
+      stx  $D018                        ; VIC memory control register
+      ; Wait until raster line 58 (first visible line is 51)
+:     lda  $D012
+      cmp  #57
+      bcc  :-
+      ; Wait some cycles
+      nop
+      ldx  #$09
+:     dex
+      bne  :-
+      ; Scroll down 1 line
+      lda  #$1C
+      sta  $D011                        ; VIC control register
+      ; Wait some cycles
+      ldx  #$0A
+:     dex
+      bne  :-
+      ; Illegal bitmap mode 1, keep the scroll down
+      lda  #$7C
+      sta  $D011                        ; VIC control register
+      rts
+
+show_selected_menu:
+      lda  #$0F
+      sta  $D418                        ; Set volume to max to cause speaker pop
+      lda  #$C8                         ; Screen is 40 columns wide
+      sta  $D016
+      sei
+      jsr  _freezer_upd_sprptr_16k      ; Sprite pointers are in RAM, 16K mode is needed
+      cli
+      lda  #$00
+      sta  $D01B                        ; Sprite-background screen priority
+      sta  $D01D                        ; (2X) horizontal expansion (X) sprite 0..7
+      sta  $D01C                        ; Set multicolor mode for sprite 0..7
+      sta  $D017                        ; (2X) vertical expansion (Y) sprite 0..7
+      ldy  $03                          ; Currently selected drop-down menu
+      cpy  #$04
+      bcc  :+
+      lda  #$28                         ; Reset menu has right sprites on xpos>255
+      cpy  #$05
+      bcc  :+
+      lda  #$3C                         ; Exit menu has all sprites on xpos>255
+:     sta  $D010                        ; Position X MSB sprites 0..7
+      lda  freezer_menus_xpositions,y
+      sta  $D004                        ; Position X sprite 2
+      sta  $D008                        ; Position X sprite 4
+      clc
+      adc  #24                          ; Sprite is 24 px wide, next one 24px to the right
+      sta  $D006                        ; Position X sprite 3
+      sta  $D00A                        ; Position X sprite 5
+      lda  #58                          ; Y position of top sprites of menu
+      sta  $D005                        ; Position Y sprite 2
+      sta  $D007                        ; Position Y sprite 3
+      lda  #79                          ; Bottom sprites 21 px below top sprites
+      sta  $D009                        ; Position Y sprite 4
+      sta  $D00B                        ; Position Y sprite 5
+      ldx  $02
+      bpl  :+
+      jsr  highlight_selected_menu
+:     lda  #$3C
+      sta  $D015                        ; Sprites Abilitator
+      rts
 
 .segment "view_graphics"
-      .byte 5, 6, 7, 8, 9, 10, 11, 12   
-      .byte 13, 14, 15, 5, 16, 17, 18, 19 
-      .byte 20, 5, 16, 17, 18, 21, 28, 5
-      .byte 16, 17, 18, 22, 28, 5, 16, 17 
-      .byte 18, 23, 28, 24, 25, 26, 28, 28 
+      .byte 5, 6, 7, 8, 9, 10, 11, 12
+      .byte 13, 14, 15, 5, 16, 17, 18, 19
+      .byte 20, 5, 16, 17, 18, 21, 27, 5
+      .byte 16, 17, 18, 22, 27, 5, 16, 17
+      .byte 18, 23, 27, 24, 25, 26, 27, 27
       ; ▉▉░░░░▉▉▉░░░▉▉░░░░▉▉░░░░▉▉░░░░▉░░░░▉▉▉▉▉
       ; ▉▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉▉░▉▉▉░▉▉▉▉
       ; ▉▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉░▉░▉▉▉▉░▉▉▉░▉▉▉▉
@@ -759,6 +870,7 @@ freezer_exit_ro:
       .byte %11000010, %11011110, %11011111, %11000111, %11011111, %11011110, %11000010, %11111111
       .byte %11101010, %11101011, %01011011, %10111011, %01011011, %11101011, %11101011, %11111111
       .byte %00001111, %10111111, %10111111, %10111111, %10111111, %10111111, %10111111, %11111111
+
       ; ▉▉▉▉▉▉▉▉
       ; ▉▉▉▉▉▉▉▉
       ; ▉▉▉▉▉▉▉▉
@@ -768,6 +880,7 @@ freezer_exit_ro:
       ; ▉▉▉▉▉▉▉▉
       ; ▉▉▉▉▉▉▉▉
       .byte %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111
+.if 0
       ; ▉▉▉▉▉▉▉▉
       ; ▉▉▉▉▉▉▉▉
       ; ▉▉▉▉▉▉▉▉
@@ -804,6 +917,29 @@ freezer_exit_ro:
       ; ▉▉▉▉▉▉▉▉
       ; ░▉▉▉▉▉▉▉
       .byte %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %11111111, %01111111
+.endif
+
+.segment "freezer_menu_const_u"
+
+freezer_menus_xpositions:
+      .byte $18, $50, $80, $B8, $E8, $18
+selected_item_rasterlines:
+      .byte $39, $41, $49, $51
+menu_action_offset:
+      .byte $00, $04, $08, $0B, $0E, $11
+selected_item_wait_iters:
+      .byte $1E, $16, $16, $13
+selected_item_endwait:
+      .byte $13, $12, $10, $10
+
+.segment "freezer_menu_const_16k"
+freezer_spritepointers_base:
+      .byte <((freezer_backup_lb - $C000) / 64)
+      .byte <((freezer_game_lb - $C000) / 64)
+      .byte <((freezer_colors_lb - $C000) / 64)
+      .byte <((freezer_print_lb - $C000) / 64)
+      .byte <((freezer_reset_lb - $C000) / 64)
+      .byte <((freezer_exit_lb - $C000) / 64)
 
 .segment "freezer_menu"
 
@@ -1031,63 +1167,6 @@ left:
       jsr  colram_topline_green
       jmp  right
 
-show_selected_menu:
-      lda  #$0F
-      sta  $D418                        ; Set volume to max to cause speaker pop
-      lda  #$C8                         ; Screen is 40 columns wide
-      sta  $D016
-      sei
-      jsr  _freezer_upd_sprptr_16k      ; Sprite pointers are in RAM, 16K mode is needed
-      cli
-      lda  #$00
-      sta  $D01B                        ; Sprite-background screen priority
-      sta  $D01D                        ; (2X) horizontal expansion (X) sprite 0..7
-      sta  $D01C                        ; Set multicolor mode for sprite 0..7
-      sta  $D017                        ; (2X) vertical expansion (Y) sprite 0..7
-      ldy  $03                          ; Currently selected drop-down menu
-      cpy  #$04
-      bcc  :+
-      lda  #$28                         ; Reset menu has right sprites on xpos>255
-      cpy  #$05
-      bcc  :+
-      lda  #$3C                         ; Exit menu has all sprites on xpos>255
-:     sta  $D010                        ; Position X MSB sprites 0..7
-      lda  freezer_menus_xpositions,y
-      sta  $D004                        ; Position X sprite 2
-      sta  $D008                        ; Position X sprite 4
-      clc
-      adc  #24                          ; Sprite is 24 px wide, next one 24px to the right
-      sta  $D006                        ; Position X sprite 3
-      sta  $D00A                        ; Position X sprite 5
-      lda  #58                          ; Y position of top sprites of menu
-      sta  $D005                        ; Position Y sprite 2
-      sta  $D007                        ; Position Y sprite 3
-      lda  #79                          ; Bottom sprites 21 px below top sprites
-      sta  $D009                        ; Position Y sprite 4
-      sta  $D00B                        ; Position Y sprite 5
-      ldx  $02
-      bpl  :+
-      jsr  highlight_selected_menu
-:     lda  #$3C
-      sta  $D015                        ; Sprites Abilitator
-      rts
-
-freezer_menus_xpositions:
-      .byte $18, $50, $80, $B8, $E8, $18
-selected_item_rasterlines:
-      .byte $39, $41, $49, $51
-menu_horz_pos:
-      .byte $01, $08, $0E, $15, $1B, $21, $27
-unknown1:
-      .byte $01, $06, $0C, $12, $18
-WFAEF:
-      .byte $1E, $24, $29
-menu_action_offset:
-      .byte $00, $04, $08, $0B, $0E, $11
-selected_item_wait_iters:
-      .byte $1E, $16, $16, $13
-selected_item_endwait:
-      .byte $13, $12, $10, $10
 
 
 freezer_irq_handler:
@@ -1166,38 +1245,6 @@ WFB67:
       pla
       rti
 
-;
-; Make set the first line of the colour RAM to light_green
-;
-colram_topline_green_16k = colram_topline_green & $BFFF
-colram_topline_green:
-      ldx  #40-1
-:     lda  #13                          ; Light-green
-      sta  $D800,x                      ; Color RAM
-      dex
-      bpl  :-
-      inx
-      rts
-
-.global highlight_selected_menu
-highlight_selected_menu:
-      jsr  colram_topline_green
-      ldy  $03
-      clc
-      lda  menu_horz_pos,y
-      tax
-      sbc  menu_horz_pos+1,y
-      eor  #$FF
-      tay
-      cpy  #$07
-      bcc  :+
-      dey
-:     lda  #1                           ; White
-:     sta  $D7FF,x
-      inx
-      dey
-      bne  :-
-      rts
 
 freezer_action:
       ; If no item is select in an open menu (default), we ignore action.
@@ -1229,34 +1276,6 @@ freezer_action:
       stx  $D01A                        ; IRQ mask register
       rts
 
-;
-; Draw the menu during raster interrupt
-;
-.global draw_menu
-draw_menu:
-      ; Screen RAM and charset at $F800
-      ldx  #$EE
-      stx  $D018                        ; VIC memory control register
-      ; Wait until raster line 58 (first visible line is 51)
-:     lda  $D012
-      cmp  #57
-      bcc  :-
-      ; Wait some cycles
-      nop
-      ldx  #$09
-:     dex
-      bne  :-
-      ; Scroll down 1 line
-      lda  #$1C
-      sta  $D011                        ; VIC control register
-      ; Wait some cycles
-      ldx  #$0A
-:     dex
-      bne  :-
-      ; Illegal bitmap mode 1, keep the scroll down
-      lda  #$7C
-      sta  $D011                        ; VIC control register
-      rts
 
 .segment "freezer_menu_16k"
 
@@ -1274,8 +1293,6 @@ freezer_update_spritepointers:
       stx  $C7FD
       rts
 
-freezer_spritepointers_base:
-      .byte $C5, $C9, $CD, $D1, $D5, $D9
 
 ; $BC5B
 .global show_view_menu
@@ -1703,7 +1720,7 @@ restore_sprites:
       rts
 
 
-.segment "freezer"
+.segment "freezer_nmi"
 freezer_nmi_handler:
       ; Reading from CIA registers $B latches the TOD registers, which means
       ; we read and restore the exact time at the moment of freezing.
@@ -1736,4 +1753,4 @@ freezer_nmi_handler:
       bne * - ($FFF8 - $FFD0)
       .addr freezer_nmi_handler, freezer_nmi_handler, freezer_irq_handler 
 
-.assert __freezer_RUN__ = $FFD0, error, "Address in source file must match address in linker cfg"
+.assert __freezer_nmi_RUN__ = $FFD0, error, "Address in source file must match address in linker cfg"

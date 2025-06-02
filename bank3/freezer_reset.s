@@ -250,9 +250,9 @@ backup_to_reu:
       sta $DF02     ; c64 addr lo
       lda #>$D000
       sta $DF03     ; c64 addr hi
-      lda #>$FFF3D1
-      sta $DF04
       lda #<$FFF3D1
+      sta $DF04
+      lda #>$FFF3D1
       sta $DF05
       lda #^$FFF3D1
       sta $DF06
@@ -267,9 +267,9 @@ backup_to_reu:
       sta $DF02     ; c64 addr lo
       lda #>$D800
       sta $DF03     ; c64 addr hi
-      lda #>$FFF400
-      sta $DF04
       lda #<$FFF400
+      sta $DF04
+      lda #>$FFF400
       sta $DF05
       lda #^$FFF400
       sta $DF06
@@ -283,9 +283,9 @@ backup_to_reu:
       lda #$00
       sta $DF02     ; c64 addr lo
       sta $DF03     ; c64 addr hi
-      lda #>$FFF800
-      sta $DF04
       lda #<$FFF800
+      sta $DF04
+      lda #>$FFF800
       sta $DF05
       lda #^$FFF800
       sta $DF06
