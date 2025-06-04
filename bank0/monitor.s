@@ -89,6 +89,11 @@ _basic_warm_start := $800A
 .import byte_to_hex_ascii
 .import digit_to_ascii
 
+; from vdc
+.import vdc_wait
+.import vdc_reg_read
+.import vdc_reg_write
+
 ; from constants
 .import pow10lo
 .import pow10hi
@@ -851,15 +856,15 @@ LAF03:  bit     entry_type
         bvc     :+
         lda     #$F8
         ldx     #$12
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         lda     #tmpvar1
         inx
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         ldx     #$1F
         ; Indicate we want to unfreezer rather than return to
         ; the monitor. Bit 7 set in tmpvar1 = unfreeze
         ; A unmodified, #tmpvar1 = $90
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         jmp     vdcxit
 :       jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
@@ -1440,16 +1445,16 @@ vdcxit:
         ; Restore $D000..$D02E from $F3D1..$F3FF in VDC
         lda     #>freezer_vicii_backup
         ldx     #$12
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         lda     #<freezer_vicii_backup
         inx
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         lda     #$00
         sta     tmpptr_a
         lda     #$D0
         sta     tmpptr_a+1
         ldx     #$1F
-:       jsr     vdc_reg_load
+:       jsr     vdc_reg_read
         ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
@@ -1463,7 +1468,7 @@ vdcxit:
         lda     #>$D800
         sta     tmpptr_a+1
         ldx     #$1F
-:       jsr     vdc_reg_load
+:       jsr     vdc_reg_read
         ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
@@ -1478,7 +1483,7 @@ vdcxit:
         sta     tmpptr_a
         sta     tmpptr_a+1
         ldx     #$1F
-:       jsr     vdc_reg_load
+:       jsr     vdc_reg_read
         ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
@@ -1490,7 +1495,7 @@ vdcxit:
         ; use subroutines, read from VDC directly.
         lda     #$93
         ldx     #$13
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         sta     tmpptr_a
         ldx     #$1F
         stx     $D600
@@ -1641,6 +1646,7 @@ LB293:  jsr     print_cr
 ; memory load/store
 ; ----------------------------------------------------------------
 
+.ifdef CART_FC3
 add_y_to_zp1:
         tya
         clc
@@ -1648,45 +1654,8 @@ add_y_to_zp1:
         sta     zp1
         bcc     :+
         inc     zp1+1
-
-;vdc_set_addreg:
-;        ldy     #63 ; VDC should have time for processing at least once per
-;                    ; scanline, this is multiple scanlines in cycles, so
-;                    ; should be enough.
-;        stx     $d600
-:       dey
-;        beq     @error
-;        bit     $d600
-;        bpl     :-
-;        .byte   $24 ; Skip next instruction
-;@error: tya         ; Return 0 if time-out
-;        rts
-
-vdc_wait:
-        ldy     #63
-:       dey
-        beq     @e
-        bit     $d600
-        bpl     :-
-        clc
-        rts
-@e:     sec
-        rts
-
-; stores a byte in A into VDC register X
-vdc_reg_store:
-        stx     $d600
-        sta     $d601
-        rts
-
-; loads a byte in A from VDC register X
-vdc_reg_load:
-        stx     $d600
-        jsr     vdc_wait
-        lda     #$00
-        bcs     @r
-        lda     $d601
-@r:     rts
+:       rts
+.endif
 
 prepare_reu_byte:
         lda     #$01      ; transfer length lo
@@ -1725,12 +1694,12 @@ load_byte_vdc:
         ; all subrouties, there should be a long enough delay for the VDC to
         ; be idle
         ldx     #$12
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         inx
         pla
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         ldx     #$1f
-        jsr     vdc_reg_load
+        jsr     vdc_reg_read
         ldx     tmp1
         ldy     tmp2
         rts
@@ -1924,14 +1893,14 @@ store_byte_vdc:
         ; In theory we need to check the status bit, but with the overhead of
         ; all subrouties, there should be a long enough delay for the VDC to
         ; be idle
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         pla
         inx
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         pla
         ldx     #$1f
         jsr     vdc_wait
-        jsr     vdc_reg_store
+        jsr     vdc_reg_write
         ldx     tmp1
         ldy     tmp2
         rts

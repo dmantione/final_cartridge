@@ -795,7 +795,8 @@ tape_write_header_fast:
 
 
 
-      ldx  #$08
+;      ldx  #$08                        ; unreachable ?
+
 ;
 ; Write the byte in A to tape
 ;

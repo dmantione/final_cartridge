@@ -15,6 +15,7 @@
 ; from bank 2
 .import desktop_entry
 .import psettings
+.import init_vdc
 
 .global entry
 .global init_load_and_basic_vectors
@@ -61,6 +62,7 @@ init_vectors_goto_psettings:
 entry:
         ; short-circuit startup, skipping memory test
         jsr     $FDA3 ; init I/O
+        jsr     init_vdc
         lda     $D011
         pha
         lda     $DC01

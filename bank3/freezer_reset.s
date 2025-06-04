@@ -28,7 +28,7 @@ init_load_and_basic_vectors = $8021
 freezer_goto_monitor:
       ; Interrupts are off
       jsr  detect_c128
-      bcc  :+
+      bne  :+
       ldx  #0
       stx  tmpvar1
       jsr  backup_to_vdc
@@ -84,25 +84,30 @@ freezer_goto_monitor:
       jmp  _enable_fcbank0
 
 
+;
+; Detects whether we run on a C128 in C64 mode
+;
+; Returns:
+;  A<>0 - Commodore 64
+;  A=0  - Commodore 128
+;  Z=0  - Commodore 64
+;  Z=1  - Commodore 128
+;
 detect_c128:
-      clc
       lda  #$fe
       sta  $d02f
       sta  $d030
       eor  $d02f
       eor  $d030
       eor  #$fe
-      bne  @noc128
+      bne  @x
       ; A=0
       sta  $d02f
       sta  $d030
       eor  $d02f
       eor  $d030
       eor  #$04
-      bne  @noc128
-      sec
-@noc128:
-      rts
+@x:   rts
 
 ; stores a byte in A into VDC register X
 vdc_reg_store:
