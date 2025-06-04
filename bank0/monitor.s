@@ -92,6 +92,7 @@ _basic_warm_start := $800A
 ; from vdc
 .import vdc_wait
 .import vdc_reg_read
+.import vdc_reg_reread
 .import vdc_reg_write
 
 ; from constants
@@ -854,18 +855,17 @@ cmd_g:
 
 LAF03:  bit     entry_type
         bvc     :+
-        lda     #$F8
-        ldx     #$12
-        jsr     vdc_reg_write
         lda     #tmpvar1
-        inx
-        jsr     vdc_reg_write
-        ldx     #$1F
-        ; Indicate we want to unfreezer rather than return to
+        sta     zp1
+        lda     #$F8
+        sta     zp1+1
+        ldy     #0
+        ; Indicate we want to unfreeze rather than return to
         ; the monitor. Bit 7 set in tmpvar1 = unfreeze
-        ; A unmodified, #tmpvar1 = $90
-        jsr     vdc_reg_write
+        ; A unmodified, #tmpvar1 = $F8
+        jsr     store_byte_frozen
         jmp     vdcxit
+
 :       jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
         bmi     go_drive ; drive
@@ -1431,7 +1431,7 @@ cmd_x:
 
 
 vdcxit:
-        ; NMI is continuously low inside monitor, in order to safely re-enter monitor,
+        ; NMI is continuously low inside freezer. In order to safely re-enter freezer,
         ; we need to generate a harmless NMI to avoid monitor code to trigger an undesired NMI.
         sei
         lda     #<_rti
@@ -1480,10 +1480,11 @@ vdcxit:
 
         ; Restore $0000..$0090
         lda     #$00
-        sta     tmpptr_a
+;        sta     tmpptr_a   ; already zero
         sta     tmpptr_a+1
         ldx     #$1F
 :       jsr     vdc_reg_read
+
         ldy     #$00
         sta     (tmpptr_a),y
         inc     tmpptr_a
@@ -1498,6 +1499,7 @@ vdcxit:
         jsr     vdc_reg_write
         sta     tmpptr_a
         ldx     #$1F
+;        jsr     vdc_reg_read
         stx     $D600
 :       bit     $D600   ; No point for a timeout, all is lost if VDC fails
         bpl     :-
@@ -1879,6 +1881,10 @@ frozen_io_trl:
 @3:     clc
         rts
 
+store_byte_frozen:
+        bit     entry_type
+        bmi     store_byte_reu
+
 ; stores a byte at (zp1),y in VDC RAM
 store_byte_vdc:
         pha
@@ -1997,7 +2003,7 @@ store_byte:
 @6:     sta     zp1+1
         pla
         ldx     bank
-        jsr     store_byte_vdc
+        jsr     store_byte_frozen
 @7:     lda     tmp3
         sta     zp1
         lda     tmp4

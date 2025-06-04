@@ -4,6 +4,7 @@
 .global init_vdc
 .global vdc_wait
 .global vdc_reg_read
+.global vdc_reg_reread
 .global vdc_reg_write
 
 vdc_wait:
@@ -18,7 +19,8 @@ vdc_wait:
 vdc_reg_read:
         tya
         stx     $d600
-vdld:   jsr     vdc_wait
+vdc_reg_reread:
+        jsr     vdc_wait
         tay
         lda     $d601
         rts
