@@ -326,12 +326,12 @@ The directory writeback code now does not work on 1581 and other devices, the
 directory is now only written if a 154x or 158x is detected.
 
 
-25. Return from monitor to freezer on Commodore 128
----------------------------------------------------
+25. Return from monitor to freezer on REU or Commodore 128
+----------------------------------------------------------
 
-If you have a Commodore 128, if you invoke the monitor from the freezer, you can
-now return to the freezer with the X command, or immedeately resume the frozen
-program with the G command.
+If you have a Final Cartridge III with REU combination, or a Commodore 128, then
+if you invoke the monitor from the freezer, you can now return to the freezer
+with the X command, or immedeately resume the frozen program with the G command.
 
 A frozen view of memory has been implemented. If you select bank with O0 to O7,
 you will see the real time condition of memory, but, you select bank with OF0
