@@ -125,10 +125,10 @@ vdc_reg_store:
 
 backup_to_vdc:
         ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
-      lda     #$F3
+      lda     #>$F3D1
       ldx     #$12
       jsr     vdc_reg_store
-      lda     #$D1
+      lda     #<$F3D1
       inx
       jsr     vdc_reg_store
       lda     #$00
@@ -247,12 +247,13 @@ detect_reu:
       rts
 
 backup_to_reu:
+      ldx #$00
+      ldy #$90     ; start immediate transfer from c64 to reu
       ; Backup $D000..$D02E to $FFF3D1..$FFF3FF in REU
       lda #$2F      ; transfer length lo
       sta $DF07
-      lda #$00
-      sta $DF08     ; transfer length hi
-      sta $DF02     ; c64 addr lo
+      stx $DF08     ; transfer length hi
+      stx $DF02     ; c64 addr lo
       lda #>$D000
       sta $DF03     ; c64 addr hi
       lda #<$FFF3D1
@@ -261,41 +262,32 @@ backup_to_reu:
       sta $DF05
       lda #^$FFF3D1
       sta $DF06
-      lda #$90     ; start immediate transfer from c64 to reu
-      sta $DF01
+      sty $DF01
       ; Backup $D800..$DBFF to $FFF400..$FFF7FF in REU
-      lda #$00      ; transfer length lo
-      sta $DF07
+      stx $DF07      ; transfer length lo
       lda #$04
       sta $DF08     ; transfer length hi
-      lda #$00
-      sta $DF02     ; c64 addr lo
+      stx $DF02     ; c64 addr lo
       lda #>$D800
       sta $DF03     ; c64 addr hi
-      lda #<$FFF400
-      sta $DF04
-      lda #>$FFF400
-      sta $DF05
-      lda #^$FFF400
-      sta $DF06
-      lda #$90     ; start immediate transfer from c64 to reu
-      sta $DF01
+;      stx $DF04
+;      lda #>$FFF400
+;      sta $DF05
+;      lda #^$FFF400
+;      sta $DF06
+      sta $DF01     ; start immediate transfer from c64 to reu
       ; Backup $0000..$07FF to $FFF800..$FFFFFF in REU
-      lda #$00      ; transfer length lo
-      sta $DF07
+      stx $DF07     ; transfer length lo
       lda #$08
       sta $DF08     ; transfer length hi
-      lda #$00
-      sta $DF02     ; c64 addr lo
-      sta $DF03     ; c64 addr hi
-      lda #<$FFF800
-      sta $DF04
-      lda #>$FFF800
-      sta $DF05
-      lda #^$FFF800
-      sta $DF06
-      lda #$90     ; start immediate transfer from c64 to reu
-      sta $DF01
+      stx $DF02     ; c64 addr lo
+      stx $DF03     ; c64 addr hi
+;      stx $DF04
+;      lda #>$FFF800
+;      sta $DF05
+;      lda #^$FFF800
+;      sta $DF06
+      sty $DF01     ; start immediate transfer from c64 to reu
       rts
 
 .segment "freezer_reset"

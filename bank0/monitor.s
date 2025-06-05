@@ -853,8 +853,9 @@ cmd_g:
         beq     LAF06
         bne     syn_err2 ; always
 
-LAF03:  bit     entry_type
-        bvc     :+
+LAF03:  lda     entry_type
+        and     #$C0
+        beq     :+
         lda     #tmpvar1
         sta     zp1
         lda     #$F8
@@ -864,7 +865,7 @@ LAF03:  bit     entry_type
         ; the monitor. Bit 7 set in tmpvar1 = unfreeze
         ; A unmodified, #tmpvar1 = $F8
         jsr     store_byte_frozen
-        jmp     vdcxit
+        jmp     freezxit
 
 :       jsr     copy_pc_to_zp2_and_zp1
 LAF06:  lda     bank
@@ -1409,7 +1410,8 @@ get_dec_word3:
 cmd_x:
         jsr     uninstall_kbd_handler
         bit     entry_type
-        bvs     vdcxit
+        bmi     freezxit
+        bvs     freezxit
 .ifdef CART_FC3
         jsr     set_io_vectors_with_hidden_rom
 .endif
@@ -1430,7 +1432,7 @@ cmd_x:
         jmp     _basic_warm_start
 
 
-vdcxit:
+freezxit:
         ; NMI is continuously low inside freezer. In order to safely re-enter freezer,
         ; we need to generate a harmless NMI to avoid monitor code to trigger an undesired NMI.
         sei
@@ -1441,6 +1443,9 @@ vdcxit:
         ; Pull NMI low
         lda     #fcio_bank_0|fcio_c64_16kcrtmode
         sta     fcio_reg
+
+        bit     entry_type
+        bmi     reuxit
 
         ; Restore $D000..$D02E from $F3D1..$F3FF in VDC
         lda     #>freezer_vicii_backup
@@ -1482,8 +1487,8 @@ vdcxit:
         lda     #$00
 ;        sta     tmpptr_a   ; already zero
         sta     tmpptr_a+1
-        ldx     #$1F
-:       jsr     vdc_reg_read
+;        ldx     #$1F
+:       jsr     vdc_reg_reread
 
         ldy     #$00
         sta     (tmpptr_a),y
@@ -1498,8 +1503,8 @@ vdcxit:
         ldx     #$13
         jsr     vdc_reg_write
         sta     tmpptr_a
+        ; We are modifying the stack, cannot call subroutines in this loop!
         ldx     #$1F
-;        jsr     vdc_reg_read
         stx     $D600
 :       bit     $D600   ; No point for a timeout, all is lost if VDC fails
         bpl     :-
@@ -1512,7 +1517,43 @@ vdcxit:
         lda     tmpptr_a+1
         cmp     #>$0800
         bne     :-
+        beq     done_restore ; always
+reuxit:
+      ldx #$00
+      ldy #$91      ; start immediate transfer from reu to c64
+      ; Backup $D000..$D02E to $FFF3D1..$FFF3FF in REU
+      lda #$2F      ; transfer length lo
+      sta $DF07
+      stx $DF08     ; transfer length hi
+      stx $DF02     ; c64 addr lo
+      lda #>$D000
+      sta $DF03     ; c64 addr hi
+      lda #<$FFF3D1
+      sta $DF04
+      lda #>$FFF3D1
+      sta $DF05
+      lda #^$FFF3D1
+      sta $DF06
+      sty $DF01     ; start immediate transfer from reu to c64
+      ; Backup $D800..$DBFF to $FFF400..$FFF7FF in REU
+      stx $DF07      ; transfer length lo
+      lda #$04
+      sta $DF08     ; transfer length hi
+      stx $DF02     ; c64 addr lo
+      lda #>$D800
+      sta $DF03     ; c64 addr hi
+      ; REU address already points to right location
+      sty $DF01
+      ; Backup $0000..$07FF to $FFF800..$FFFFFF in REU
+      stx $DF07     ; transfer length lo
+      lda #$08
+      sta $DF08     ; transfer length hi
+      stx $DF02     ; c64 addr lo
+      stx $DF03     ; c64 addr hi
+      ; REU address already points to right location
+      sty $DF01    ; start immediate transfer from reu to c64
 
+done_restore:
         ; Make the stack function again.
         ldx     tmpvar2
         txs
