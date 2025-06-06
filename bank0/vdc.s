@@ -112,15 +112,15 @@ y_to_1000:
 init_vdc_regs:
         ldy     #$00
         jsr     @progregs
-        lda     $d600
-        and     #$07
+        ; A=7
+        bit     $d600
         beq     :+ ; version 0
         ; version 1/2
         jsr     @progregs
-:       lda     $02A6
-        beq     @x
-        ldy     #palregvals-regvals
+:       ldy     #palregvals-regvals
+        lda     $02A6
         bne     @progregs ; always
+        rts
 @l:     iny
         lda     regvals,y
         iny
@@ -131,17 +131,18 @@ init_vdc_regs:
         iny
 @x:     rts
 
-        ;       CRTC 8563 Set Up Pairs <- from $e2f8 in C128 Kernal
-
+        ; CRTC 8563 Set Up Pairs <- from $e2f8 in C128 Kernal
+        ; odd bytes  = register number
+        ; even bytes = register value
 regvals:
         .byte    $00,$7e,$01,$50,$02,$66,$03,$49
         .byte    $04,$20,$05,$00,$06,$19,$07,$1d
-        .byte    $08,$00,$09,$07,$0a,$20,$0b,$07
+        .byte    $08,$00,$16,$78,$0a,$20,$0b,$07
         .byte    $0c,$00,$0d,$00,$0e,$00,$0f,$00
         .byte    $14,$08,$15,$00,$17,$08,$18,$20
         .byte    $19,$40,$1a,$f0,$1b,$00
         .byte    $1d,$07,$22,$7d,$23,$64,$24,$05
-        .byte    $16,$78,$ff
+        .byte    $09,$07,$ff  ; code depends on $07 last register value
 ver12regvals:
         .byte    $19,$47,$ff
 palregvals:

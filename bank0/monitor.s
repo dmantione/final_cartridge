@@ -278,10 +278,7 @@ ram_code_end:
 
 .segment "monitor_b"
 
-;frozen_regtable: .byte <reg_x,$40,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
-
-frozen_regtable: .byte <reg_pc_hi,<reg_pc_lo,<reg_p,<reg_a,$80,<bank,<reg_x
-frozen_regtable1: .byte <reg_x,<bank,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
+frozen_regtable: .byte <reg_x,<bank,$80,<reg_a,<reg_p,<reg_pc_lo,<reg_pc_hi
 
 brk_entry2:
         cld ; <- important :)
@@ -345,7 +342,7 @@ brk_entry2:
 
         ldy     #0
 @l:     jsr     load_byte
-        ldx     frozen_regtable1,y
+        ldx     frozen_regtable,y
         bmi     @d
         cpx     #<bank
         bne     :+
@@ -1839,7 +1836,7 @@ load_byte:
         ; otherwise read from mem
         cmp     #>$0800
         bcc     :+
-        lda     bank
+        ldx     bank
         jsr     @r
         bcc     @7
 :       ora     #>$F800

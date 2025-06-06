@@ -226,24 +226,30 @@ mem_ab_size:
 
 
 detect_reu:
-      ldx #0
-      stx $DF08
-:     cpx $D012
-      bne :-
-      dex
-      stx $DF07
       ; Exchange 255 bytes of c64 and reu memory
-      ldx #%10010010
-      stx $DF01
-      ; Exchange back
-      stx $DF01
+      jsr @xchg
       ; D012 == 0?
       lda $D012
-      bne :+
       clc
-      rts
-:     ; REU found
-      sec
+      beq :+
+      sec ; REU found
+:
+      ; Exchange back
+@xchg:
+      ldx #$04
+      stx $DF03
+      ldx #0
+      stx $DF02
+      stx $DF04
+      stx $DF05
+      stx $DF06
+      stx $DF08
+      dex
+      stx $DF07
+:     ldx $D012
+      bne :-
+      ldx #%10010010
+      stx $DF01
       rts
 
 backup_to_reu:
