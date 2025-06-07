@@ -1516,39 +1516,15 @@ freezxit:
         bne     :-
         beq     done_restore ; always
 reuxit:
-      ldx #$00
-      ldy #$91      ; start immediate transfer from reu to c64
-      ; Backup $D000..$D02E to $FFF3D1..$FFF3FF in REU
-      lda #$2F      ; transfer length lo
-      sta $DF07
-      stx $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      lda #>$D000
-      sta $DF03     ; c64 addr hi
-      lda #<$FFF3D1
-      sta $DF04
-      lda #>$FFF3D1
-      sta $DF05
-      lda #^$FFF3D1
-      sta $DF06
-      sty $DF01     ; start immediate transfer from reu to c64
-      ; Backup $D800..$DBFF to $FFF400..$FFF7FF in REU
-      stx $DF07      ; transfer length lo
-      lda #$04
-      sta $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      lda #>$D800
-      sta $DF03     ; c64 addr hi
-      ; REU address already points to right location
-      sty $DF01
-      ; Backup $0000..$07FF to $FFF800..$FFFFFF in REU
-      stx $DF07     ; transfer length lo
-      lda #$08
-      sta $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      stx $DF03     ; c64 addr hi
-      ; REU address already points to right location
-      sty $DF01    ; start immediate transfer from reu to c64
+        ; Stack being modified, cannot use jsr until txs
+        ldy   #0
+:       ldx   reu_commands,y
+        bmi   done_restore
+        iny
+        lda   reu_commands,y
+        iny
+        sta   $DF00,x
+        bpl   :- ; always
 
 done_restore:
         ; Make the stack function again.
@@ -1565,6 +1541,30 @@ done_restore:
         jmp     _jmp_bank
 @run:   ldy     #$35
         jmp     _disable_fc3rom_set_01
+
+reu_commands:
+        ; Restore $D000..$D02E from $FFF3D1..$FFF3FF in REU
+        .byte   $02,<$D000
+        .byte   $03,>$D000
+        .byte   $04,<$FFF3D1
+        .byte   $05,>$FFF3D1
+        .byte   $06,^$FFF3D1
+        .byte   $07,<$002F
+        .byte   $08,>$002F
+        .byte   $01,$91        ; start immediate transfer from reu to c64
+        ; Restore $D800..$DBFF
+        .byte   $02,<$D800
+        .byte   $03,>$D800
+        .byte   $07,<$0400
+        .byte   $08,>$0400
+        .byte   $01,$91        ; start immediate transfer from reu to c64
+        ; Restore $0000..$07FF
+        .byte   $02,<$0000
+        .byte   $03,>$0000
+        .byte   $07,<$0800
+        .byte   $08,>$0800
+        .byte   $01,$91        ; start immediate transfer from reu to c64
+        .byte   $FF
 
 ;---------------------------------------------------------
 

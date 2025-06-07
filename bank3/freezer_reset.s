@@ -20,6 +20,13 @@
 
 .importzp tmpvar1,tmpptr_a
 
+.ifdef use_ill
+.define skip_2b_instr .byte $0C
+.else
+.define skip_2b_instr .byte $2C
+.endif
+
+
 .segment "freezer_monitor"
 
 init_load_and_basic_vectors = $8021
@@ -123,6 +130,14 @@ vdc_reg_store:
 @error:
       rts
 
+
+vdc_memory_store:
+      ldy     #$00
+      lda     (tmpptr_a),y
+      jsr     vdc_reg_store
+      inc     tmpptr_a
+      rts
+
 backup_to_vdc:
         ; Backup $D000..$D02E to $F3D1..$F3FF in VDC
       lda     #>$F3D1
@@ -136,10 +151,7 @@ backup_to_vdc:
       lda     #$D0
       sta     tmpptr_a+1
       ldx     #$1F
-:     ldy     #$00
-      lda     (tmpptr_a),y
-      jsr     vdc_reg_store
-      inc     tmpptr_a
+:     jsr     vdc_memory_store
       lda     tmpptr_a
       cmp     #$2F
       bne     :-
@@ -155,10 +167,7 @@ backup_to_vdc:
       lda     #$D8
       sta     tmpptr_a+1
       ldx     #$1F
-:     ldy     #$00
-      lda     (tmpptr_a),y
-      jsr     vdc_reg_store
-      inc    tmpptr_a
+:     jsr     vdc_memory_store
       bne     :-
       inc    tmpptr_a+1
       lda    tmpptr_a+1
@@ -169,10 +178,7 @@ backup_to_vdc:
       lda     #$00
       sta     tmpptr_a+1
       ldx     #$1F
-:     ldy     #$00
-      lda     (tmpptr_a),y
-      jsr     vdc_reg_store
-      inc    tmpptr_a
+:     jsr     vdc_memory_store
       bne     :-
       inc    tmpptr_a+1
       lda    tmpptr_a+1
@@ -201,22 +207,7 @@ mem_ab_for_monitor_vdc:
       bne     :-
       beq     mem_ab_size
 mem_ab_for_monitor_reu:
-      lda     #$70
-      sta     $DF02
-      lda     #$00
-      sta     $DF03
-      lda     #freezer_mem_a
-      sta     $DF04
-      lda     #$F8
-      sta     $DF05
-      lda     #$FF
-      sta     $DF06
-      lda     #6
-      sta     $DF07
-      lda     #$00
-      sta     $DF08
-      lda     #$91
-      sta     $DF01
+      jsr     reu_memab_setup
 mem_ab_size:
       lda     #__FREEZERZP_SIZE__
       sta     $76
@@ -236,65 +227,75 @@ detect_reu:
 :
       ; Exchange back
 @xchg:
-      ldx #$04
-      stx $DF03
-      ldx #0
-      stx $DF02
-      stx $DF04
-      stx $DF05
-      stx $DF06
-      stx $DF08
-      dex
-      stx $DF07
+      jsr reu_detect_setup
 :     ldx $D012
       bne :-
       ldx #%10010010
       stx $DF01
       rts
 
+reu_memab_setup:
+       ldy  #reu_memab_command-reu_commands
+       skip_2b_instr
+
+reu_detect_setup:
+       ldy  #reu_detect_command-reu_commands
+       skip_2b_instr
+
 backup_to_reu:
-      ldx #$00
-      ldy #$90     ; start immediate transfer from c64 to reu
-      ; Backup $D000..$D02E to $FFF3D1..$FFF3FF in REU
-      lda #$2F      ; transfer length lo
-      sta $DF07
-      stx $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      lda #>$D000
-      sta $DF03     ; c64 addr hi
-      lda #<$FFF3D1
-      sta $DF04
-      lda #>$FFF3D1
-      sta $DF05
-      lda #^$FFF3D1
-      sta $DF06
-      sty $DF01
-      ; Backup $D800..$DBFF to $FFF400..$FFF7FF in REU
-      stx $DF07      ; transfer length lo
-      lda #$04
-      sta $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      lda #>$D800
-      sta $DF03     ; c64 addr hi
-;      stx $DF04
-;      lda #>$FFF400
-;      sta $DF05
-;      lda #^$FFF400
-;      sta $DF06
-      sta $DF01     ; start immediate transfer from c64 to reu
-      ; Backup $0000..$07FF to $FFF800..$FFFFFF in REU
-      stx $DF07     ; transfer length lo
-      lda #$08
-      sta $DF08     ; transfer length hi
-      stx $DF02     ; c64 addr lo
-      stx $DF03     ; c64 addr hi
-;      stx $DF04
-;      lda #>$FFF800
-;      sta $DF05
-;      lda #^$FFF800
-;      sta $DF06
-      sty $DF01     ; start immediate transfer from c64 to reu
-      rts
+       ldy   #0
+:      ldx   reu_commands,y
+       bmi   @x
+       iny
+       lda   reu_commands,y
+       iny
+       sta   $DF00,x
+       bpl   :- ; always
+@x:    rts
+
+reu_commands:
+        ; Restore $D000..$D02E from $FFF3D1..$FFF3FF in REU
+        .byte   $02,<$D000
+        .byte   $03,>$D000
+        .byte   $04,<$FFF3D1
+        .byte   $05,>$FFF3D1
+        .byte   $06,^$FFF3D1
+        .byte   $07,<$002F
+        .byte   $08,>$002F
+        .byte   $01,$90        ; start immediate transfer from C64 to reu
+        ; Restore $D800..$DBFF
+        .byte   $02,<$D800
+        .byte   $03,>$D800
+        .byte   $07,<$0400
+        .byte   $08,>$0400
+        .byte   $01,$90        ; start immediate transfer from C64 to reu
+        ; Restore $0000..$07FF
+        .byte   $02,<$0000
+        .byte   $03,>$0000
+        .byte   $07,<$0800
+        .byte   $08,>$0800
+        .byte   $01,$90        ; start immediate transfer from C64 to reu
+        .byte   $FF
+reu_detect_command:
+        .byte   $02,<$0000
+        .byte   $03,>$0400
+        .byte   $04,>$000000
+        .byte   $05,>$000000
+        .byte   $06,<$000000
+        .byte   $07,<$00FF
+        .byte   $08,>$00FF
+        .byte   $FF
+reu_memab_command:
+        .byte   $02,<$0070
+        .byte   $03,>$0070
+        .byte   $04,<freezer_mem_a
+        .byte   $05,$F8
+        .byte   $06,$FF
+        .byte   $07,<6
+        .byte   $08,>6
+        .byte   $01,$91
+        .byte   $ff
+
 
 .segment "freezer_reset"
 
