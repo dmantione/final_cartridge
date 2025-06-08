@@ -606,8 +606,19 @@ is_d:   jsr     print_cr
 
 is_f:   jsr     basin_if_more
         jsr     get_hex_byte
-        jsr     LB22E
-        jmp     print_cr_then_input_loop
+        ldy     #0
+@l:     pha
+        jsr     store_byte
+        pla
+        ldx     zp1
+        cpx     zp2
+        bne     :+
+        ldx     zp1 + 1
+        cpx     zp2 + 1
+        beq     @done
+:       jsr     inc_zp1
+        bne     @l
+@done:  jmp     print_cr_then_input_loop
 
 dump_sprite_line:
         ldx     #']'
@@ -1628,17 +1639,19 @@ LB229:  dey
 
 LB22D:  rts
 
-LB22E:  ldy     #0
-LB230:  jsr     store_byte
+.if 0
+fill:   ldy     #0
+@l:     jsr     store_byte
         ldx     zp1
         cpx     zp2
-        bne     LB23F
+        bne     :+
         ldx     zp1 + 1
         cpx     zp2 + 1
-        beq     LB244
-LB23F:  jsr     inc_zp1
-        bne     LB230
-LB244:  rts
+        beq     @x
+:       jsr     inc_zp1
+        bne     @l
+@x:     rts
+.endif
 
 LB245:  jsr     print_cr
         clc
