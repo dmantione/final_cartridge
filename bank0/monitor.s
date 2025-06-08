@@ -73,6 +73,8 @@ _basic_warm_start := $800A
 .import set_irq_and_kbd_handlers
 .import uninstall_kbd_handler
 .import print_dir
+.import print_dec_xa
+.import print_dec_zp1
 
 ; from editor
 .import scroll_screen_up
@@ -1180,8 +1182,12 @@ sadd_a_to_zp1:
         beq     @1
         lsr     zp3
         bcs     @thex
-        jsr     is_dec_character
+        ; Is A a decimal digit?
+        cmp     #'0'
+        bcc     @nodgt
+        cmp     #'9'+1
         bcs     @nodgt
+        ; A is a decimal digit
         stx     tmp10
         jsr     get_dec_word3 ; (returns next char in A)
         ldx     tmp10
@@ -1339,7 +1345,7 @@ cmd_dollar:
         jsr     print_dollar_hex_16
         jsr     LB48E
         jsr     print_hash
-        jsr     LBC50
+        jsr     print_dec_zp1
         jmp     input_loop
 
 ; ----------------------------------------------------------------
@@ -1353,7 +1359,7 @@ cmd_hash:
         pha
         lda     zp1 + 1
         pha
-        jsr     LBC50
+        jsr     print_dec_zp1
         pla
         sta     zp1 + 1
         pla
@@ -1369,9 +1375,9 @@ get_dec_word3:
         ldy     #0
         sty     zp1
         sty     zp1 + 1
+        clc
 @1:     and     #$0F
         ; Add digit to zp1
-        clc
         adc     zp1
         sta     zp1
         bcc     :+
@@ -1397,7 +1403,7 @@ get_dec_word3:
         rol     a
         sta     zp1 + 1
         txa
-        bcc     @1       ; Next digit (alwaysa)
+        bcc     @1       ; Next digit (always)
 
 ; ----------------------------------------------------------------
 ; "X" - exit monitor
@@ -2607,19 +2613,10 @@ basin_if_more_cmp_space:
         rts
 
 
-is_dec_character:
-        cmp     #'0'
-        bcc     @no
-        cmp     #':'
-        bcc     @rts
-        rts
-@no:    sec
-@rts:   rts
-
 is_hex_character:
         cmp     #'0'
         bcc     @no
-        cmp     #':'
+        cmp     #'9' + 1
         bcc     @rts
         cmp     #'A'
         bcc     @no
@@ -2917,11 +2914,11 @@ read_byte:
         asl     a
         asl     a
         asl     a
-        sta     tmp11
+        sta     zp2
         jsr     get_digit
         jsr     hex_digit_to_nybble
         iny
-        ora     tmp11
+        ora     zp2
         rts
 
 
@@ -3720,7 +3717,7 @@ LBACD:  jsr     UNLSTN ; printer might be listening
         lda     zp1
         cmp     #'W'
         beq     LBB25
-        lda     #'1' ; U1: read
+        ldy     #'1' ; U1: read
         jsr     read_write_block
         jsr     command_channel_talk
         jsr     IECIN
@@ -3729,10 +3726,10 @@ LBACD:  jsr     UNLSTN ; printer might be listening
         pha
         jsr     print_cr
         pla
-LBAED:  jsr     LE716 ; KERNAL: output character to screen
+:       jsr     LE716 ; KERNAL: output character to screen
         jsr     IECIN
         cmp     #CR ; print drive status until CR (XXX redundant?)
-        bne     LBAED
+        bne     :-
         jsr     UNTALK
         jsr     close_ch2
         jmp     input_loop
@@ -3763,7 +3760,7 @@ LBB25:  jsr     send_bp
         iny
         bne     :-
         jsr     UNLSTN
-        lda     #'2' ; U2: write
+        ldy     #'2' ; U2: write
         jsr     read_write_block
 LBB42:  jsr     close_ch2
         jmp     print_drive_status
@@ -3786,15 +3783,13 @@ read_write_block:
         ;
         ; The U1/U2 commands are used instead.
         ;
-        pha
         ; Copy s_u1 to temp buffer
         ldx     #256-s_u1_len
 :       lda     s_u1+s_u1_len-256,x
         sta     BUF+s_u1_len-256,x
         inx
         bne     :-
-        pla
-        sta     BUF + 1  ; U1 or U2
+        sty     BUF + 1  ; U1 or U2
         lda     zp2 ; track
         jsr     to_dec
         stx     BUF + s_u1_len - 3
@@ -3809,6 +3804,7 @@ read_write_block:
         jsr     IECOUT
         inx
         bne     :-
+j_unlstn:
         jmp     UNLSTN
 
 send_bp:
@@ -3818,7 +3814,7 @@ send_bp:
         jsr     IECOUT
         inx
         bne     :-
-        jmp     UNLSTN
+        beq     j_unlstn ; always
 
 s_u1:
         .byte   "U1:2 0 xx "
@@ -3839,36 +3835,6 @@ iec_send_zp1_plus_y:
         adc     #0
         jmp     IECOUT
 
-
-LBC4C:  stx     zp1
-        sta     zp1 + 1
-LBC50:  lda     #$31
-        sta     zp2
-        ldx     #4
-LBC56:  dec     zp2
-LBC58:  lda     #$2F
-        sta     zp2 + 1
-        sec
-        ldy     zp1
-        skip_2b_instr
-LBC60:  sta     zp1 + 1
-        sty     zp1
-        inc     zp2 + 1
-        tya
-        sbc     pow10lo,x
-        tay
-        lda     zp1 + 1
-        sbc     pow10hi,x
-        bcs     LBC60
-        lda     zp2 + 1
-        cmp     zp2
-        beq     LBC7D
-        jsr     LE716 ; KERNAL: output character to screen
-        dec     zp2
-LBC7D:  dex
-        beq     LBC56
-        bpl     LBC58
-        rts
 
 print_hex_byte:
         jsr     byte_to_hex_ascii

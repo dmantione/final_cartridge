@@ -95,7 +95,8 @@
 .global new_execute
 ;.global list_line
 ;.global clear_right_from_cursor
-.global print_dec
+.global print_dec_xa
+.global print_dec_zp1
 .global print_msg
 .global messages
 .global a_ready
@@ -453,7 +454,7 @@ L839D:  ldx     $3A ; line number hi
         inx
         beq     L838C ; RTS
         ldx     $39 ; line number lo
-        jsr     print_dec
+        jsr     print_dec_xa
         jsr     _search_for_line
         lda     PNTR
         sta     $B0
@@ -509,9 +510,10 @@ clear_right_from_cursor:
         bcc     :-
 @rts:   rts
 
-print_dec:
+print_dec_xa:
         stx     $C1
         sta     $C2
+print_dec_zp1:
         lda     #$31
         sta     $C3
         ldx     #4
@@ -554,7 +556,7 @@ print_line_basic:
         tax
         iny
         jsr     _lda_5f_indy
-        jsr     print_dec
+        jsr     print_dec_xa
         ; Print line
         jsr     list_line
 .global reset_input
@@ -589,7 +591,7 @@ print_dir:
         ldy     ST
         bne     @end_of_dir
         jsr     maybe_relisten_prn
-        jsr     print_dec
+        jsr     print_dec_xa
         lda     #' '
 ;        jsr     _basic_bsout
         jsr     new_bsout2
