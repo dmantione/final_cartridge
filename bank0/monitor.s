@@ -1404,6 +1404,13 @@ get_dec_word3:
 ; ----------------------------------------------------------------
 
 
+vdcread:
+        jsr     vdc_reg_read
+        ldy     #$00
+        sta     (tmpptr_a),y
+        inc     tmpptr_a
+        rts
+
 cmd_x:
         jsr     uninstall_kbd_handler
         bit     entry_type
@@ -1456,10 +1463,7 @@ freezxit:
         lda     #$D0
         sta     tmpptr_a+1
         ldx     #$1F
-:       jsr     vdc_reg_read
-        ldy     #$00
-        sta     (tmpptr_a),y
-        inc     tmpptr_a
+:       jsr     vdcread
         lda     tmpptr_a
         cmp     #$2F
         bne     :-
@@ -1470,10 +1474,7 @@ freezxit:
         lda     #>$D800
         sta     tmpptr_a+1
         ldx     #$1F
-:       jsr     vdc_reg_read
-        ldy     #$00
-        sta     (tmpptr_a),y
-        inc     tmpptr_a
+:       jsr     vdcread
         bne     :-
         inc     tmpptr_a+1
         lda     tmpptr_a+1
@@ -1484,12 +1485,8 @@ freezxit:
         lda     #$00
 ;        sta     tmpptr_a   ; already zero
         sta     tmpptr_a+1
-;        ldx     #$1F
-:       jsr     vdc_reg_reread
-
-        ldy     #$00
-        sta     (tmpptr_a),y
-        inc     tmpptr_a
+        ldx     #$1F
+:       jsr     vdcread
         lda     tmpptr_a
         cmp     #$91
         bne     :-
@@ -3673,7 +3670,7 @@ cmd_p:
         jsr     OPEN
         ldx     LA
         jsr     CKOUT
-        jmp     input_loop2
+        beq     @il
 
 @3:     lda     LA
         jsr     CLOSE
@@ -3682,7 +3679,7 @@ cmd_p:
         sta     FA
         lda     #0
         sta     NDX
-        jmp     input_loop
+@il:    jmp     input_loop
 
 ; ----------------------------------------------------------------
 
@@ -3701,11 +3698,11 @@ cmd_asterisk:
 :       sta     zp2 ; save 'R'/'W' mode
         jsr     basin_skip_spaces_if_more
         jsr     get_hex_byte2
-;        bcc     syn_err7
+        bcc     syn_err7
         sta     zp1
         jsr     basin_if_more
         jsr     get_hex_byte
-;        bcc     syn_err7
+        bcc     syn_err7
         sta     zp1 + 1
         jsr     basin_cmp_cr
         bne     LBAC1
@@ -3713,7 +3710,7 @@ cmd_asterisk:
         sta     zp2 + 1
         bne     LBACD
 LBAC1:  jsr     get_hex_byte
-;        bcc     syn_err7
+        bcc     syn_err7
         sta     zp2 + 1
         jsr     basin_cmp_cr
         bne     syn_err7
