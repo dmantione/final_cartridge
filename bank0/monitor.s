@@ -133,7 +133,7 @@ prefix_suffix_bitfield := BUF + 7
 tmp8            := BUF + 8
 tmp9            := BUF + 9
 tmp10           := BUF + 10
-tmp11           := BUF + 11
+printmode       := BUF + 11
 tmp12           := BUF + 12
 tmp13           := BUF + 13
 tmp14           := BUF + 14
@@ -341,6 +341,10 @@ brk_entry2:
         sta     zp1
         lda     #$01
         sta     zp1+1
+
+        ; print ASCII by default
+        lda     #0
+        sta     printmode
 
         ldy     #0
 @l:     jsr     load_byte
@@ -2539,7 +2543,16 @@ dump_8_ascii_characters:
 dump_ascii_characters:
         ldy     #$FF
 @1:     iny
-        jsr     load_byte
+        jsr     load_byte ; stores x/y in tmp1/2
+        bit     printmode
+        beq     @kernal
+        ldx     $0286 ; current colour
+        jsr     $EA13
+        jsr     $E6B6
+        ldx     tmp1
+        ldy     tmp2
+        jmp     @2
+@kernal:
         cmp     #$20
         bcs     :+
         inc     RVS
@@ -2552,13 +2565,37 @@ dump_ascii_characters:
         ora     #$60
         inc     RVS
 :       jsr     BSOUT
-        lda     #0
+@2:     lda     #0
         sta     RVS
         sta     QTSW
         dex
         bne     @1
         tya ; number of bytes consumed
         jmp     sadd_a_to_zp1
+
+
+read_8_bytes:
+        ldx     #8
+read_x_bytes:
+        ldy     #0
+        jsr     copy_zp2_to_zp1
+        jsr     basin_skip_spaces_if_more ; Z=0
+        bne     LB604 ; always
+
+LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
+        jsr     basin_if_more_cmp_space
+        bne     LB604 ; not space
+        ; space, next should be space
+        jsr     basin_if_more_cmp_space
+        bne     syn_err5 ; always
+        beq     LB60A
+
+LB604:  jsr     get_hex_byte2
+LB607:  jsr     store_byte
+LB60A:  iny
+        dex
+        bne     LB5F5
+        rts
 
 read_ascii:
         ldy     #0
@@ -2578,29 +2615,6 @@ read_ascii:
 :       iny
         cpy     #$20
         bne     @1
-        rts
-
-read_8_bytes:
-        ldx     #8
-read_x_bytes:
-        ldy     #0
-        jsr     copy_zp2_to_zp1
-        jsr     basin_skip_spaces_if_more ; Z=0
-        bne     LB604 ; always
-
-LB5F5:  jsr     basin_if_more_cmp_space ; ignore character where space should be
-        jsr     basin_if_more_cmp_space
-        bne     LB604 ; not space
-        ; space, next should be space
-        jsr     basin_if_more_cmp_space
-        beq     LB60A
-        bne     syn_err5 ; always
-
-LB604:  jsr     get_hex_byte2
-LB607:  jsr     store_byte
-LB60A:  iny
-        dex
-        bne     LB5F5
         rts
 
 basin_if_more_cmp_space:
@@ -3648,7 +3662,16 @@ cmd_p:
         beq     @1 ; printer
         jsr     basin_cmp_cr
         beq     @2  ; no argument
-        cmp     #','
+        cmp     #'*'
+        beq     @sc ; print screen codes
+        cmp     #'#'
+        bne     @4
+        ldy     #0
+        skip_2b_instr
+@sc:    ldy     #$ff
+        sty     printmode
+        jmp     input_loop
+@4:     cmp     #','
         bne     syn_err7
         jsr     get_hex_byte
         tax
@@ -3667,6 +3690,8 @@ cmd_p:
         jsr     OPEN
         ldx     LA
         jsr     CKOUT
+        ldy     #0
+        sty     printmode
         beq     @il
 
 @3:     lda     LA

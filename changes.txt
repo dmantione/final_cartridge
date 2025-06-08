@@ -337,3 +337,19 @@ A frozen view of memory has been implemented. If you select bank with O0 to O7,
 you will see the real time condition of memory, but, you select bank with OF0
 to OF7, you will see the C64 memory in its frozen state.
 
+
+26. Screen code mode in monitor
+-------------------------------
+
+The monitor has two new commands:
+P* - The M and I commands display screen codes
+P# - The M and I commands display ASCII
+
+This functionality is similar to the I* command that the monitor of the Action
+Replace cartridge has. These commands are not accepted if the output is
+redirected to the printer (P command), and issuing the P command also switches
+back to ASCII mode.
+
+Note that even in ASCII mode, the Final Cartridge III monitor has always treated
+ASCII control codes that it encounters in memory, as screen codes, and displays
+these characters using reverse video.
