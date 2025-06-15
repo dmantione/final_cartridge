@@ -53,8 +53,10 @@ _basic_warm_start := $800A
 .endif
 
 .ifdef use_ill
+.define skip_1b_instr .byte $80
 .define skip_2b_instr .byte $0C
 .else
+.define skip_1b_instr .byte $24
 .define skip_2b_instr .byte $2C
 .endif
 
@@ -718,7 +720,29 @@ LAD9F:  jsr     store_byte
 ; ----------------------------------------------------------------
 cmd_singlequote:
         jsr     get_hex_word
-        jsr     read_ascii
+        ldy     #0
+        jsr     copy_zp2_to_zp1
+        jsr     basin_if_more
+@1:     sty     tmp9
+        ldy     PNTR    ; read character directly
+        jsr     basin_if_more
+        tax
+        lda     (PNT),y ; from screen
+        php
+        ldy     tmp9
+        bit     printmode
+        bmi     @2
+        txa
+        plp
+        bmi     @3   ; skip characters in reverse
+        cmp     #$60 ; skip ASCII > $60
+        bcs     @3
+        skip_1b_instr
+@2:     plp
+        jsr     store_byte
+@3:     iny
+        cpy     #$20
+        bne     @1
         jsr     print_up
         jsr     dump_ascii_line
         jsr     print_cr_dot
@@ -2558,10 +2582,10 @@ dump_ascii_characters:
 @1:     iny
         jsr     load_byte ; stores x/y in tmp1/2
         bit     printmode
-        beq     @kernal
-        ldx     $0286 ; current colour
-        jsr     $EA13
-        jsr     $E6B6
+        bpl     @kernal
+        ldx     COLOR ; current colour
+        jsr     DSPP
+        jsr     WLOGIC
         ldx     tmp1
         ldy     tmp2
         jmp     @2
@@ -2608,26 +2632,6 @@ LB607:  jsr     store_byte
 LB60A:  iny
         dex
         bne     LB5F5
-        rts
-
-read_ascii:
-        ldy     #0
-        jsr     copy_zp2_to_zp1
-        jsr     basin_if_more
-@1:     sty     tmp9
-        ldy     PNTR
-        lda     (PNT),y
-        php
-        jsr     basin_if_more
-        ldy     tmp9
-        plp
-        bmi     :+
-        cmp     #$60
-        bcs     :+
-        jsr     store_byte
-:       iny
-        cpy     #$20
-        bne     @1
         rts
 
 basin_if_more_cmp_space:

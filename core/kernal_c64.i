@@ -2,8 +2,10 @@
 ; http://www.c64.ch/programming/memorymap.php
 
 LE50C  := $E50C ; set cursor position
+WLOGIC := $E6B6 ; advance the cursor
 LE716  := $E716 ; screen CHROUT
 LE96C  := $E96C ; insert line at top of screen
+DSPP   := $EA13 ; print character a with colour X
 LEA31  := $EA31 ; default contents of CINV vector
 LEA81  := $EA81 ; exit from interrupt
 kernal_check_modifier_keys := $EB48
@@ -44,4 +46,5 @@ LDTB1           := $D9   ; screen line link table
 
 BUF             := $0200 ; system input buffer
 KEYD            := $0277 ; keyboard buffer
+COLOR           := $0286 ; current color in screen editor
 RPTFLG          := $028A ; key repeat flag

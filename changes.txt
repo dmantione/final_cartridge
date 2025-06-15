@@ -237,7 +237,7 @@ on VDC memory. Type "O" to go back to C64 memory.
 
 Type "ORxx", where xx is the REU bank, to inspect the memory of the REU
 installed in your computer. For example type OR00 to inspect the first 64KB
-of your REY. All commands that view and/or modify memory will have effect
+of your REU. All commands that view and/or modify memory will have effect
 on REU memory. Type "O" to go back to C64 memory.
 
 
