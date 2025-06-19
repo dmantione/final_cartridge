@@ -317,7 +317,7 @@ brk_entry2:
         bmi     @vdcreu
         bvs     @vdcreu
         bne     @c
-:       lda     #'B'
+        lda     #'B'
         bne     @b
 @vdcreu:
         ; Get original y register and stack pointer
@@ -530,7 +530,50 @@ cmd_mid:
         jsr     copy_zp2_to_zp1
         jmp     LAC86
 
-is_h:   jmp     LAEAC
+is_h:
+        jsr     basin_if_more
+        jsr     basin_if_more
+        ldx     #0
+        cmp     #$22
+        bne     @num
+:       jsr     basin_cmp_cr
+        beq     @search
+        cmp     #$22
+        beq     @search
+        sta     BUF,x
+        inx
+        cpx     #$20
+        bne     :-
+        beq     @syn_err2 ; always
+@num:   jsr     get_hex_byte2 ; sets C
+        bcs     @1 ; always
+@l:     jsr     basin_cmp_cr
+        beq     @search
+        jsr     get_hex_byte
+@1:     sta     BUF,x
+        inx
+        cpx     #$20
+        bne     @l
+@syn_err2:
+        jmp     syntax_error
+@search:
+        stx     command_index
+        txa
+        beq     @syn_err2
+        jsr     print_cr
+@2:     jsr     check_end
+        bcc     @x
+        ldy     #0
+:       jsr     load_byte
+        cmp     BUF,y
+        bne     :+
+        iny
+        cpy     command_index
+        bne     :-
+        jsr     print_space_hex_16
+:       jsr     inc_zp1
+        bne     @2
+@x:     jmp     input_loop
 
 ; ----------------------------------------------------------------
 ; "F"/"H"/"C"/"T" - find, hunt, compare, transfer
@@ -546,10 +589,10 @@ LAC86:  lda     command_index
         beq     is_mie ; 'I' (ASCII dump)
         cmp     #command_index_d
         beq     is_d ; 'D' (disassemble)
-        cmp     #command_index_f
-        beq     is_f ; 'F' (fill)
         cmp     #command_index_h
         beq     is_h ; 'H' (hunt)
+        cmp     #command_index_f
+        beq     is_f ; 'F' (fill)
         cmp     #'C'
         beq     is_mie ; 'EC'
         cmp     #'S'
@@ -848,37 +891,6 @@ LAE7C:  pha
         jmp     print_cr_dot
 
 
-LAEAC:  jsr     basin_if_more
-        jsr     basin_if_more
-        cmp     #$22
-        bne     LAECF
-LAEBB:  jsr     basin_cmp_cr
-        beq     LAEE7
-        cmp     #$22
-        beq     LAEE7
-        sta     BUF,x
-        inx
-        cpx     #$20
-        bne     LAEBB
-        beq     syn_err2 ; always
-
-LAECF:  jsr     get_hex_byte2 ; sets C
-        bcs     LAEDC ; always
-LAED4:  jsr     basin_cmp_cr
-        beq     LAEE7
-        jsr     get_hex_byte
-LAEDC:  sta     BUF,x
-        inx
-        cpx     #$20
-        bne     LAED4
-syn_err2:
-        jmp     syntax_error
-
-LAEE7:  stx     command_index
-        txa
-        beq     syn_err2
-        jsr     LB293
-        jmp     input_loop
 
 ; ----------------------------------------------------------------
 ; "G" - run code
@@ -889,7 +901,7 @@ cmd_g:
         jsr     get_hex_word2
         jsr     basin_cmp_cr
         beq     LAF06
-        bne     syn_err2 ; always
+        bne     syn_err1 ; always
 
 LAF03:  lda     entry_type
         and     #$C0
@@ -1711,20 +1723,6 @@ LB28D:  jsr     inc_zp1
         bne     LB25B
 LB292:  rts
 
-LB293:  jsr     print_cr
-@1:     jsr     check_end
-        bcc     @x
-        ldy     #0
-:       jsr     load_byte
-        cmp     BUF,y
-        bne     :+
-        iny
-        cpy     command_index
-        bne     :-
-        jsr     print_space_hex_16
-:       jsr     inc_zp1
-        bne     @1
-@x:     rts
 
 ; ----------------------------------------------------------------
 ; memory load/store
