@@ -97,6 +97,7 @@ _load_ptr2_rom_hidden:
         inc  $01
         inc  $01
         cli
+        ora  #$00 ; set flags
         rts
 
 .global _swap_ptr2_ptr3_rom_hidden

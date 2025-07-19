@@ -16,14 +16,16 @@
 .import __diredit_cmds_LOAD__,__diredit_cmds_RUN__,__diredit_cmds_SIZE__
 
 ; locations of these variables are chosen to be unlikely used by the desktop
+bam_buf         := $69  ; Floating point accumulator
 dir_track       := $AB  ; (normally used by KERNAL for tape)
-track_sectors   := $A6  ; (normally used by KERNAL for tape)
-dir_sector      := $A7  ; (normally used by KERNAL for RS232)
+track_sectors   := $26  ; (normally used by BASIC for arithmetic)
+dir_sector      := $27  ; (normally used by BASIC for arithmetic)
 
 ; original FC3 firmware uses these locations, so safe to use:
 ptr1            := $AC  ; (normally used by KERNAL for SAVE)
 ptr2            := $AE  ; (normally used by KERNAL for LOAD)
 ptr3            := $C1  ; (normally used by KERNAL for SAVE)
+ptr4            := $C3  ; (normally used by KERNAL for LOAD)
 
 .segment "desktop_helper_2"
 
@@ -149,9 +151,9 @@ directory_read_complete:
       ; at $B000.
       ;
       lda  $0200
-      sta  $C3
+      sta  ptr4
       lda  $0201
-      sta  $C4
+      sta  ptr4+1
 
       ; We search the entire directory for every file name, so start at $A000
       lda  #>$A000
@@ -165,11 +167,11 @@ next_file:
       sta  ptr2+1
       ; Y=0
       ldy  #0
-      lda  ($C3),y
+      lda  (ptr4),y
       tax
       bne  :+                           ; All files processed?
       jmp  write_dir_to_disk            ; Then write dir to disk.
-:     jsr  inc_c3c4_beyond_z            ; Skip block count
+:     jsr  inc_ptr4_beyond_z            ; Skip block count
       txa
       bmi  insert_line                  ; Do we need to insert a line?
 process_dir_entry:
@@ -182,10 +184,10 @@ process_dir_entry:
       sta  ptr2
       ; Compare file name
       ldy  #$00
-:     lda  ($C3),y
+:     lda  (ptr4),y
       beq  :+
       jsr  _load_ptr2_rom_hidden
-      cmp  ($C3),y
+      cmp  (ptr4),y
       bne  not_yet_found                ; File name not equal
       iny
       cpy  #$11                         ; If desktop passes too long file name (should not occur)
@@ -199,7 +201,7 @@ process_dir_entry:
 :     ; We found the file name in the directory
       iny
       tya
-      jsr  add_to_c3c4
+      jsr  add_to_ptr4
       lda  ptr2
       and  #$E0
       sta  ptr2
@@ -233,7 +235,7 @@ not_yet_found:
 
 insert_line:
       ldy  #$FF
-      jsr  inc_c3c4_beyond_z
+      jsr  inc_ptr4_beyond_z
       ; Find an empty directory entry
       ldy  #$02
 :     jsr  _load_ptr2_rom_hidden
@@ -275,20 +277,20 @@ swap_entries:
       bpl :-
       rts
 
-inc_c3c4_beyond_z:
+inc_ptr4_beyond_z:
       ; Search for a 0 byte
 :     iny
-      lda  ($C3),y
+      lda  (ptr4),y
       bne  :-
       iny
       tya
-add_to_c3c4:
-      ; Add the number of bytes to $C3/$C4
+add_to_ptr4:
+      ; Add the number of bytes to ptr4
       clc
-      adc  $C3
-      sta  $C3
+      adc  ptr4
+      sta  ptr4
       bcc  :+
-      inc  $C4
+      inc  ptr4+1
 :     rts
 
 write_dir_to_disk:
@@ -343,25 +345,21 @@ not_last_sector:
       ; assumed used. We have the number of sectors used in ptr1, so a 0 is
       ; shifted in dir_sector times.
 :     lda  track_sectors
-      sec
+      ; C=1 does to bcs above
       sbc  dir_sector
-      sta  $02B0
+      sta  bam_buf
       ldx  #4
       lda  #$FF
-:     sta  $02B1,x
+:     sta  bam_buf+1,x
       dex
       bpl  :-
-:     clc
-      rol  $02B1
-      rol  $02B2
-      rol  $02B3
-      rol  $02B4
-;      rol  $02C5  More than 32 sectors not possible: Buffer is 8KB
-      dec  dir_sector
+@1:   clc
+      ldx  #252     ; Need only 4 iterations because dir>32 sectors does not fit in RAM
+:     rol  <(bam_buf+1+256-252),x
+      inx
       bne  :-
-      lda  $C4
-      and  #$07
-      sta  $C4
+      dec  dir_sector
+      bne  @1
       ; Update the BAM. Update commands for BAM sector
       ldx  #'0'
       stx  read_block+10
@@ -387,7 +385,7 @@ not_last_sector:
       lda  #$62
       jsr  listen_second
       ldx  #$00
-:     lda  $02B0,x
+:     lda  bam_buf,x
       jsr  IECOUT
       inx
       cpx  ptr3
