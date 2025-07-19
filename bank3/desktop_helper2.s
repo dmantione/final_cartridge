@@ -23,6 +23,7 @@ dir_sector      := $A7  ; (normally used by KERNAL for RS232)
 ; original FC3 firmware uses these locations, so safe to use:
 ptr1            := $AC  ; (normally used by KERNAL for SAVE)
 ptr2            := $AE  ; (normally used by KERNAL for LOAD)
+ptr3            := $C1  ; (normally used by KERNAL for SAVE)
 
 .segment "desktop_helper_2"
 
@@ -99,7 +100,7 @@ write_directory_back_to_disk2:
       tay
       sta  ptr1
       sta  ptr2
-      sta  $C1
+      sta  ptr3
 fill_loop:
 :     sta  (ptr1),y
       iny
@@ -154,13 +155,13 @@ directory_read_complete:
 
       ; We search the entire directory for every file name, so start at $A000
       lda  #>$A000
-      sta  $C2
+      sta  ptr3+1
       ldy  #$00
-      sty  $C1
+      sty  ptr3
 next_file:
-      lda  $C1
+      lda  ptr3
       sta  ptr2
-      lda  $C2
+      lda  ptr3+1
       sta  ptr2+1
       ; Y=0
       ldy  #0
@@ -171,10 +172,9 @@ next_file:
 :     jsr  inc_c3c4_beyond_z            ; Skip block count
       txa
       bmi  insert_line                  ; Do we need to insert a line?
-;      dec  $0200
 process_dir_entry:
       ldy  #$02                         ; Get file type
-      jsr  _load_ae_rom_hidden
+      jsr  _load_ptr2_rom_hidden
       bpl  not_yet_found
       ; Adjust pointer to file name
       lda  #$05
@@ -184,7 +184,7 @@ process_dir_entry:
       ldy  #$00
 :     lda  ($C3),y
       beq  :+
-      jsr  _load_ae_rom_hidden
+      jsr  _load_ptr2_rom_hidden
       cmp  ($C3),y
       bne  not_yet_found                ; File name not equal
       iny
@@ -193,7 +193,7 @@ process_dir_entry:
       beq  no_space_left
 :     cpy  #$10
       beq  :+
-      jsr  _load_ae_rom_hidden
+      jsr  _load_ptr2_rom_hidden
       cmp  #$A0                         ; First character beyond file name must be white space ($A0)
       bne  not_yet_found
 :     ; We found the file name in the directory
@@ -203,22 +203,23 @@ process_dir_entry:
       lda  ptr2
       and  #$E0
       sta  ptr2
-      cmp  $C1
+      cmp  ptr3
       bne  @s
       lda  ptr2+1
-      cmp  $C2
+      cmp  ptr3+1
       beq  @ns
-@s:   jsr swap_entries
+@s:   ; Swap both entries
+      jsr swap_entries
 @ns:
 inc_dest_ptr:
       ; Increase destination pointer
       lda  #$20
       clc
-      adc  $C1
-      sta  $C1
+      adc  ptr3
+      sta  ptr3
       bcc  next_file
-      inc  $C2
-      lda  $C2
+      inc  ptr3+1
+      lda  ptr3+1
       cmp  #>$C000                      ; Destination buffer full?
       bcc  next_file
 no_space_left:
@@ -235,7 +236,7 @@ insert_line:
       jsr  inc_c3c4_beyond_z
       ; Find an empty directory entry
       ldy  #$02
-:     jsr  _load_ae_rom_hidden
+:     jsr  _load_ptr2_rom_hidden
       bpl  :+
       jsr  next_dir_entry
       bcc  :-
@@ -250,7 +251,7 @@ insert_line:
       ; Write the line in to the destination entry
       ldy  #$1F
 :     lda  dirline,y
-      sta  ($C1),y
+      sta  (ptr3),y
       dey
       bpl  :-
       bmi  inc_dest_ptr ; Always
@@ -269,12 +270,7 @@ next_dir_entry:
 
 swap_entries:
       ldy #31
-:     jsr  _load_ae_rom_hidden
-      pha
-      jsr  _load_c1_rom_hidden
-      sta  (ptr2),y
-      pla
-      sta  ($C1),y
+:     jsr _swap_ptr2_ptr3_rom_hidden
       dey
       bpl :-
       rts
@@ -300,19 +296,17 @@ write_dir_to_disk:
       jsr  to_dec
       stx  write_block+10
       sta  write_block+11
-      lda  $C1
+      lda  ptr3
       bne  :+
-      dec  $C2                          ; Prevent writing an empty sector
+      dec  ptr3+1                       ; Prevent writing an empty sector
 :     lda  #<$A000
       sta  ptr2
       lda  #>$A000
       sta  ptr2+1
-;      lda  #$02                         ; Sector in directory track
-;      sta  ptr1
 next_sector:
       ldy  #$00
       lda  ptr2+1
-      cmp  $C2
+      cmp  ptr3+1
       bcs  :+
       lda  dir_track
       sta  (ptr2),y
@@ -329,9 +323,6 @@ next_sector:
       iny
       sta  (ptr2),y
 not_last_sector:
-;      lda  ptr1
-;      sec
-;      sbc  #$01
       lda  dir_sector
       jsr to_dec
       ; Store sector number
@@ -342,7 +333,7 @@ not_last_sector:
       jsr  send_write_block
       inc  dir_sector
       lda  ptr2+1
-      cmp  $C2
+      cmp  ptr3+1
       bcs  :+
       inc  ptr2+1
       bcc  next_sector ; always
@@ -378,7 +369,7 @@ not_last_sector:
       stx  read_block+11
       stx  write_block+11
       lda  #4
-      sta  $C1
+      sta  ptr3
       ldx  #<(seek_72 - __diredit_cmds_RUN__)
       lda  #40
       cmp  dir_track
@@ -386,12 +377,12 @@ not_last_sector:
       inc  write_block+11
       inc  read_block+11
       lda  #6
-      sta  $C1
+      sta  ptr3
       ldx  #<(seek_250 - __diredit_cmds_RUN__)
 @no_d81:
-      stx  $C2
+      stx  ptr3+1
       jsr  send_read_block
-      ldx  $C2
+      ldx  ptr3+1
       jsr  send_seek
       lda  #$62
       jsr  listen_second
@@ -399,7 +390,7 @@ not_last_sector:
 :     lda  $02B0,x
       jsr  IECOUT
       inx
-      cpx  $C1
+      cpx  ptr3
       bne  :-
       jsr  UNLSTN
       jsr  send_write_block
@@ -416,7 +407,7 @@ send_256byte_to_channel_2:
       lda  #$62
       jsr  listen_second
       ldy  #$00
-:     jsr  _load_ae_rom_hidden
+:     jsr  _load_ptr2_rom_hidden
       jsr  IECOUT
       iny
       bne  :-

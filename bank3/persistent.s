@@ -82,29 +82,36 @@ call_pset_in_bank0:
       pha
       bne  _enable_fcbank0 ; always taken
 
-.global _load_c1_rom_hidden
-_load_c1_rom_hidden:
-        sei
-        lda  #$35
-        sta  $01
-        lda  ($C1),y
-        jmp  unhide
-
 ;
-; Do an "lda($AE),y" with ROMs disabled and interrupts off
+; Do an "lda($AE),y" with ROMs disabled
+; We have to use #$35, because in 16K cartridge mode #$36 keeps ROM at $A000
+; enabled. Because #$35 disables the KERNAL, interrupts must be off.
 ;
 
-.global _load_ae_rom_hidden
-_load_ae_rom_hidden:
+.global _load_ptr2_rom_hidden
+_load_ptr2_rom_hidden:
         sei
         lda  #$35
         sta  $01
         lda  ($AE),y
-unhide:
+        inc  $01
+        inc  $01
+        cli
+        rts
+
+.global _swap_ptr2_ptr3_rom_hidden
+_swap_ptr2_ptr3_rom_hidden:
+        sei
+        lda  #$35
+        sta  $01
+        lda  ($AE),y
         pha
+        lda  ($C1),y
+        sta  ($AE),y
+        pla
+        sta  ($C1),y
         lda  #$37
         sta  $01
-        pla
         cli
         rts
 
