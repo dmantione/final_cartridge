@@ -70,7 +70,7 @@ perform_operation_for_desktop:
         set_printer_output - 1, \
         print_character - 1,  \
         reset_printer_output - 1, \
-        write_dir_back_b3
+        write_dir_back_b3 - 1
 
 desktop_operations_l: .lobytes desktop_operations
 desktop_operations_h: .hibytes desktop_operations

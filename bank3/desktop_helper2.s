@@ -9,17 +9,27 @@
 
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
+.include "../core/macros.i"
 .include "persistent.i"
 
 .import load_ae_rom_hidden
 .import __diredit_cmds_LOAD__,__diredit_cmds_RUN__,__diredit_cmds_SIZE__
+
+; locations of these variables are chosen to be unlikely used by the desktop
+dir_track       := $AB  ; (normally used by KERNAL for tape)
+track_sectors   := $A6  ; (normally used by KERNAL for tape)
+dir_sector      := $A7  ; (normally used by KERNAL for RS232)
+
+; original FC3 firmware uses these locations, so safe to use:
+ptr1            := $AC  ; (normally used by KERNAL for SAVE)
+ptr2            := $AE  ; (normally used by KERNAL for LOAD)
 
 .segment "desktop_helper_2"
 
 .global write_directory_back_to_disk
 write_directory_back_to_disk:
       jsr  write_directory_back_to_disk2
-      lda  #fcio_nmi_line | fcio_bank_0
+      pla
       jmp  _jmp_bank
 
 ;
@@ -34,32 +44,34 @@ jmp_errexit:
       jmp errexit
 
 write_directory_back_to_disk2:
+      lda #18
+      sta dir_track
+      lda #19
+      sta track_sectors
       ; Check for compatible drive
       jsr read_drive_identification
-      lda #'7'  ; Status code '73'
-      cmp $0202
+      lda $02C0
+      cmp #'7' ; Status code '73'
       bne jmp_errexit
       lda #'5'  ; From 1541
-      cmp $0213
+      cmp $02D1
+      bne @test_1581
+      lda $02D2
+      cmp #'4'  ; From 154x
+      beq @d64
+      cmp #'7'  ; From 157x
+      beq @d64
       bne jmp_errexit
-      lda #'4'  ; From 154x
-      beq :+
-      lda #'7'  ; From 157x
+@test_1581:
+      cmp $02DA
       bne jmp_errexit
+      lda #'8'
+      cmp $02DB
+      bne jmp_errexit
+      ; C set if equal
+      skip_1b_instr
       ; Fill $A000..$BFFF with #$00
-:     lda  #>$A000
-      sta  $AD
-      ldx  #$20 ; Fill $2000 bytes
-      lda  #$00
-      tay
-      sta  $AC
-fill_loop:
-:     sta  ($AC),y
-      iny
-      bne  :-
-      inc  $AD
-      dex
-      bne  :-
+@d64: clc
 
       ; Copy directory editing commands to low RAM
       ldx  #<(__diredit_cmds_SIZE__-1)
@@ -68,35 +80,66 @@ fill_loop:
       dex
       bpl  :-
 
-      jsr  open_hash_on_chan_2
+      bcc  :+
+      ; D81 directory on track 40!
+      lda  #'4'
+      sta  read_block+7
+      sta  write_block+7
+      lda  #'0'
+      sta  read_block+8
+      sta  write_block+8
+      lda  #40
+      sta  dir_track
+      sta  track_sectors
+
+:     lda  #>$A000
+      sta  ptr1+1
+      ldx  #$20 ; Fill $2000 bytes
       lda  #$00
-      sta  $AC
-      sta  $AE
+      tay
+      sta  ptr1
+      sta  ptr2
       sta  $C1
+fill_loop:
+:     sta  (ptr1),y
+      iny
+      bne  :-
+      inc  ptr1+1
+      dex
+      bne  :-
+
+      jsr  open_hash_on_chan_2
       lda  #>$A000
-      sta  $AD
-:     jsr  send_read_block
+      sta  ptr1+1
+      ; Start by reading the BAM sector and skipping its contents
+      jsr  send_read_block
       jsr  send_seek_0
       jsr  read_sector_from_chan_2
-      inc  $AD                          ; Increasepointer for next sector
-      cpx  #$00                         ; End of directory?
+      sta  dir_sector
+      jmp  @1
+:     ; Read a directory sector
+      jsr  send_read_block
+      jsr  send_seek_0
+      jsr  read_sector_from_chan_2
+      inc  ptr1+1                       ; Increasepointer for next sector
+@1:   cpx  #$00                         ; End of directory?
       beq  directory_read_complete
-      cpx  #18                          ; Not on track 18?
+      cpx  dir_track                    ; Not on track 18?
       bne  close                        ; Then blast off.
-      cmp  #19                          ; Sector >= 19?
+      cmp  track_sectors                ; Sector >= 19?
       bcs  close                        ; Then blast off.
-      jsr  nibble2ascii
+      jsr  to_dec
       ; Store sector number in command
       stx  read_block+10
       sta  read_block+11
-      lda  $AD
+      lda  ptr1+1
       cmp  #$C0                         ; Do not read beyond $C000
       bcc  :-
 close:
       jsr  close_chn2
 errexit:
       lda  #$80                         ; DEVICE NOT PRESENT ERROR
-      sta  $90                          ; Statusbyte ST of I/O KERNAL
+      sta  ST                           ; Statusbyte ST of I/O KERNAL
       rts
 
 directory_read_complete:
@@ -116,11 +159,11 @@ directory_read_complete:
       sty  $C1
 next_file:
       lda  $C1
-      sta  $AE
+      sta  ptr2
       lda  $C2
-      sta  $AF
+      sta  ptr2+1
       ; Y=0
-      ldy #0
+      ldy  #0
       lda  ($C3),y
       tax
       bne  :+                           ; All files processed?
@@ -135,8 +178,8 @@ process_dir_entry:
       bpl  not_yet_found
       ; Adjust pointer to file name
       lda  #$05
-      ora  $AE
-      sta  $AE
+      ora  ptr2
+      sta  ptr2
       ; Compare file name
       ldy  #$00
 :     lda  ($C3),y
@@ -156,17 +199,16 @@ process_dir_entry:
 :     ; We found the file name in the directory
       iny
       tya
-      jsr add_to_c3c4
-      lda  $AE
+      jsr  add_to_c3c4
+      lda  ptr2
       and  #$E0
-      sta  $AE
+      sta  ptr2
       cmp  $C1
       bne  @s
-      lda  $AF
+      lda  ptr2+1
       cmp  $C2
       beq  @ns
-@s:
-      jsr swap_entries
+@s:   jsr swap_entries
 @ns:
 inc_dest_ptr:
       ; Increase destination pointer
@@ -198,12 +240,12 @@ insert_line:
       jsr  next_dir_entry
       bcc  :-
       ; No empty entry found, increase directory size by one sector
-      lda  $AD
+      lda  ptr1+1
       cmp  #>$C000
       bcs  no_space_left
-      inc  $AD
+      inc  ptr1+1
       bcc  :- ; Always
-      ; Move the entry at ($AE) to the empty entry
+      ; Move the entry at (ptr2) to the empty entry
 :     jsr  swap_entries
       ; Write the line in to the destination entry
       ldy  #$1F
@@ -214,15 +256,15 @@ insert_line:
       bmi  inc_dest_ptr ; Always
 
 next_dir_entry:
-      lda  $AE
+      lda  ptr2
       and  #$E0
       clc
       adc  #$20
-      sta  $AE
+      sta  ptr2
       bcc  :+
-      inc  $AF
-:     lda  $AF
-      cmp  $AD
+      inc  ptr2+1
+:     lda  ptr2+1
+      cmp  ptr1+1
       rts
 
 swap_entries:
@@ -230,7 +272,7 @@ swap_entries:
 :     jsr  _load_ae_rom_hidden
       pha
       jsr  _load_c1_rom_hidden
-      sta  ($AE),y
+      sta  (ptr2),y
       pla
       sta  ($C1),y
       dey
@@ -254,94 +296,110 @@ add_to_c3c4:
 :     rts
 
 write_dir_to_disk:
-      ; Start at sector 1
-      lda  #'0'
-      sta  write_block+10
-      lda  #'1'
+      lda  dir_sector                   ; First sector of directory
+      jsr  to_dec
+      stx  write_block+10
       sta  write_block+11
       lda  $C1
       bne  :+
       dec  $C2                          ; Prevent writing an empty sector
 :     lda  #<$A000
-      sta  $AE
+      sta  ptr2
       lda  #>$A000
-      sta  $AF
-      lda  #$02                         ; Sector in directory track
-      sta  $AC
+      sta  ptr2+1
+;      lda  #$02                         ; Sector in directory track
+;      sta  ptr1
 next_sector:
       ldy  #$00
-      lda  $AF
+      lda  ptr2+1
       cmp  $C2
       bcs  :+
-      lda  #18                          ; Directory track
-      sta  ($AE),y
+      lda  dir_track
+      sta  (ptr2),y
       iny
-      lda  $AC
-      sta  ($AE),y
+      ldx  dir_sector
+      inx
+      txa
+      sta  (ptr2),y
       bne  not_last_sector
 :     tya
       ; Last sector, Y=0
-.global store_a_ff_to_ae
-store_a_ff_to_ae:
-      sta  ($AE),y
+      sta  (ptr2),y
       lda  #$FF
       iny
-      sta  ($AE),y
-.global not_last_sector
+      sta  (ptr2),y
 not_last_sector:
-      lda  $AC
-      sec
-      sbc  #$01
-      jsr  nibble2ascii
+;      lda  ptr1
+;      sec
+;      sbc  #$01
+      lda  dir_sector
+      jsr to_dec
       ; Store sector number
       stx  write_block+10
       sta  write_block+11
       jsr  send_seek_0
       jsr  send_256byte_to_channel_2
       jsr  send_write_block
-      lda  $AF
+      inc  dir_sector
+      lda  ptr2+1
       cmp  $C2
       bcs  :+
-      inc  $AF
-      inc  $AC
-      jmp  next_sector
+      inc  ptr2+1
+      bcc  next_sector ; always
 
       ; Now do the BAM.
       ; This is a simplistic algorithm: All sectors in track 18 are initially
-      ; assumed used. We have the number of sectors used in $AC, so a 0 is
-      ; shifted in $AC times.
-:     lda  #19         ; Track 18 has 19 sectors
+      ; assumed used. We have the number of sectors used in ptr1, so a 0 is
+      ; shifted in dir_sector times.
+:     lda  track_sectors
       sec
-      sbc  $AC
-      sta  $C1
+      sbc  dir_sector
+      sta  $02B0
+      ldx  #4
       lda  #$FF
-      sta  $C2
-      sta  $C3
-      sta  $C4
+:     sta  $02B1,x
+      dex
+      bpl  :-
 :     clc
-      rol  $C2
-      rol  $C3
-      rol  $C4
-      dec  $AC
+      rol  $02B1
+      rol  $02B2
+      rol  $02B3
+      rol  $02B4
+;      rol  $02C5  More than 32 sectors not possible: Buffer is 8KB
+      dec  dir_sector
       bne  :-
       lda  $C4
       and  #$07
       sta  $C4
-      ; Update the BAM. Update commands for sector 0
-      lda  #'0'
-      sta  read_block+10
-      sta  read_block+11
-      sta  write_block+10
-      sta  write_block+11
+      ; Update the BAM. Update commands for BAM sector
+      ldx  #'0'
+      stx  read_block+10
+      stx  write_block+10
+      stx  read_block+11
+      stx  write_block+11
+      lda  #4
+      sta  $C1
+      ldx  #<(seek_72 - __diredit_cmds_RUN__)
+      lda  #40
+      cmp  dir_track
+      bne  @no_d81
+      inc  write_block+11
+      inc  read_block+11
+      lda  #6
+      sta  $C1
+      ldx  #<(seek_250 - __diredit_cmds_RUN__)
+@no_d81:
+      stx  $C2
       jsr  send_read_block
-      jsr  send_seek_72    ; BAM for track 18 at offset 72
+      ldx  $C2
+      jsr  send_seek
       lda  #$62
       jsr  listen_second
       ldx  #$00
-:     lda  $C1,x
+:     lda  $02B0,x
       jsr  IECOUT
       inx
-      cpx  #4
+      cpx  $C1
       bne  :-
       jsr  UNLSTN
       jsr  send_write_block
@@ -367,8 +425,8 @@ send_256byte_to_channel_2:
 ;
 ; Reads a sector from channel 2.
 ;
-; The 254 bytes payload of a sector are stored in ($AC)+2 onwards.
-; Pointer $AC/$AD is not increased
+; The 254 bytes payload of a sector are stored in (ptr1)+2 onwards.
+; Pointer ptr1 is not increased
 ;
 ; Returns:
 ;
@@ -384,7 +442,7 @@ read_sector_from_chan_2:
       jsr  IECIN
       pha
 :     jsr  IECIN
-      sta  ($AC),y
+      sta  (ptr1),y
       iny
       bne  :-
       jsr  UNTALK
@@ -392,11 +450,9 @@ read_sector_from_chan_2:
       rts
 
 open_hash_on_chan_2:
-      lda  #$00
-      sta  $90
       lda  #$F2
       jsr  listen_second
-      lda  $90
+      lda  ST
       bmi  except_exit
       lda  #'#'
       jsr  IECOUT
@@ -410,6 +466,8 @@ close_chn2:
 .global listen_second
 listen_second:
       pha
+      lda  #$00
+      sta  ST
       lda  $BA                          ; Current device number
       jsr  LISTEN
       pla
@@ -417,6 +475,8 @@ listen_second:
 
 talk_second:
       pha
+      lda  #$00
+      sta  ST
       lda  $BA                          ; Current device number
       jsr  TALK
       pla
@@ -424,15 +484,13 @@ talk_second:
 
 send_read_block:
       ldx  #<(read_block - __diredit_cmds_RUN__)
-      .byte $2c
+      skip_2b_instr
 send_write_block:
       ldx  #<(write_block - __diredit_cmds_RUN__)
-      .byte $2c
+      skip_2b_instr
 send_seek_0:
       ldx  #<(seek_0 - __diredit_cmds_RUN__)
-      .byte $2c
-send_seek_72:
-      ldx  #<(seek_72 - __diredit_cmds_RUN__)
+send_seek:
       lda  #$6F                         ; Listen channel 15
       jsr  listen_second
 :     lda  __diredit_cmds_RUN__,x
@@ -443,7 +501,7 @@ send_seek_72:
 :     jsr  UNLSTN
       ; Check for error omn cmd channel 15
       jsr  read_drive_status
-      lda  $0202
+      lda  $02C0
       cmp  #$30
       beq  _rts2
 except_exit:
@@ -467,9 +525,9 @@ read_drive_status:
       jsr talk_second
       ldy #0
 :     jsr IECIN
-      cmp #$0D
-      sta $0202,y
-      beq :+
+      sta $02C0,y
+      lda ST
+      bne :+
       iny
       cpy #$40 ; Avoid buffer overflow
       bne :-
@@ -477,24 +535,24 @@ read_drive_status:
 
 
 ;
-; Convert a nibble (actually a number 0..19) to ASCII with fixed with.
+; Convert a number 0..99 to ASCII with fixed with.
 ; 
 ; IN:   A  - Nibble
 ;
 ; OUT:  A - Least significant digit
 ;       X - Most sigificant digit
 ;
-.proc nibble2ascii
-      ldx  #'0'
-      cmp  #$0A
-      bcc  :+
-      inx
-      sbc  #$0A
-:     ora  #'0'
-r:    rts
+.proc to_dec
+        ldx     #'0' - 1
+        sec
+:       inx
+        sbc     #10
+        bcs     :-
+        adc     #'9' + 1
+r:      rts
 .endproc
 
-_rts2 = nibble2ascii::r
+_rts2 = to_dec::r
 
 dirline:
       .byte $00, $00, $80, $12, $00, '-', '-', '-' 
@@ -504,8 +562,9 @@ dirline:
 
 .segment "diredit_cmds"
 
-read_block:     .asciiz "U1:2 0 18 01"            ; Read block on channel 2 from drive 0, track 18 sector 1
+read_block:     .asciiz "U1:2 0 18 00"            ; Read block on channel 2 from drive 0, track 18 sector 1
 write_block:    .asciiz "U2:2 0 18 01"            ; Write block on channel 2 to drive 0, track 18 sector 1
 seek_0:         .asciiz "B-P 2 0"                 ; Seek channel 2 to position 0
 seek_72:        .asciiz "B-P 2 72"                ; Seek channel 2 to position 72
+seek_250:       .asciiz "B-P 2 250"               ; Seek channel 2 to position 250¨
 

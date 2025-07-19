@@ -8,6 +8,7 @@
 
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
+.include "../core/macros.i"
 .include "persistent.i"
 
 .import _jmp_bank,_enable_fcbank0,_disable_fc3rom_set_01
@@ -19,13 +20,6 @@
 .importzp __freezer_restore_1_SIZE__
 
 .importzp tmpvar1,tmpptr_a
-
-.ifdef use_ill
-.define skip_2b_instr .byte $0C
-.else
-.define skip_2b_instr .byte $2C
-.endif
-
 
 .segment "freezer_monitor"
 

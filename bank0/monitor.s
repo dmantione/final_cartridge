@@ -41,6 +41,7 @@
 
 .include "../core/kernal.i"
 .include "../core/fc3ioreg.i"
+.include "../core/macros.i"
 
 .ifdef CART_FC3
 .include "persistent.i"
@@ -50,14 +51,6 @@ _basic_warm_start := $E37B
 .elseif .defined(MACHINE_TED)
 _basic_warm_start := $800A
 .endif
-.endif
-
-.ifdef use_ill
-.define skip_1b_instr .byte $80
-.define skip_2b_instr .byte $0C
-.else
-.define skip_1b_instr .byte $24
-.define skip_2b_instr .byte $2C
 .endif
 
 ; from init
