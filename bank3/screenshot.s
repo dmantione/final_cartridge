@@ -331,10 +331,12 @@ routine1:
       rol  $3B
       dex
       bne  :-
-      clc
-      adc  #$00
+      ; huh?!
+;      clc
+;      adc  #$00
       sta  $3A
       lda  $3B
+      clc
       adc  #$60
       sta  $3B
 
@@ -1314,6 +1316,7 @@ freezer_goto_settings:
       sta  <__copycode_RUN__,x                        ; DATA current line number
       dex
       bpl  :-
+
       ldy  #$00
       ; Compute VIC-II base adress
       lda  $DD00                        ; Data port A #2: serial bus, RS-232, VIC memory
@@ -1349,7 +1352,7 @@ freezer_goto_settings:
       sta  $AF
       ldx  #$10
       lda  #$33
-      jsr  __copycode_LOAD__            ; Ugly!
+      jsr  copy_x_pages
 
 @1:   ; Copy the colour RAM to $1800
       lda  #>$D800
@@ -1358,7 +1361,7 @@ freezer_goto_settings:
       sta  $AF
       ldx  #$04
       lda  #$37
-      jsr  __copycode_LOAD__            ; Ugly!
+      jsr  copy_x_pages
       ; Y=0
 
       ; Backup the VIC-II to $0B00
@@ -1475,7 +1478,7 @@ freezer_goto_settings:
       sei
       txs
       cld
-      jsr  $FDA3                        ; IOINIT inside KERNAL
+      jsr  IOINIT
       lda  #$00
       tay
 :     sta  $0002,y
@@ -1483,15 +1486,15 @@ freezer_goto_settings:
       sta  $0300,y
       iny
       bne  :-
-      jsr  $FD15                        ; Routine RESTOR of KERNAL
+      jsr  RESTOR ; sets C=0
       ldx  #$00
       ldy  #$A0
-      jsr  $FE2D                        ; SETTOP inside KERNAL
+      jsr  MEMTOP
       lda  #$08
       sta  $0282                        ; Pointer: Memory base for Operative System
       lda  #$04
       sta  $0288                        ; Top of memory screen (page)
-      jsr  $FF5B                        ; Routine CINT of KERNAL
+      jsr  CINT
       jsr  $E453                        ; Routine: Set BASIC vectors (case 0x300..case 0x309)
       jsr  $E3BF                        ; Routine: Set USR instruction and memory for BASIC
 
@@ -1905,4 +1908,3 @@ copy_ac_ec:
       lda  #$37
       sta  $01
       rts
-

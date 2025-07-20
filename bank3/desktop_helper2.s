@@ -47,10 +47,10 @@ jmp_errexit:
       jmp errexit
 
 write_directory_back_to_disk2:
-      lda #18
-      sta dir_track
-      lda #19
-      sta track_sectors
+      ldx #18
+      stx dir_track
+      inx
+      stx track_sectors
       ; Check for compatible drive
       jsr read_drive_identification
       lda $02C0
@@ -85,15 +85,14 @@ write_directory_back_to_disk2:
 
       bcc  :+
       ; D81 directory on track 40!
-      lda  #'4'
-      sta  read_block+7
-      sta  write_block+7
-      lda  #'0'
-      sta  read_block+8
-      sta  write_block+8
       lda  #40
       sta  dir_track
       sta  track_sectors
+      jsr  to_dec
+      stx  read_block+7
+      stx  write_block+7
+      sta  read_block+8
+      sta  write_block+8
 
 :     lda  #>$A000
       sta  ptr1+1
@@ -119,7 +118,7 @@ fill_loop:
       jsr  send_seek_0
       jsr  read_sector_from_chan_2
       sta  dir_sector
-      jmp  @1
+      bne  @1 ; always because directory sector never is 0
 :     ; Read a directory sector
       jsr  send_read_block
       jsr  send_seek_0
@@ -294,10 +293,7 @@ add_to_ptr4:
 :     rts
 
 write_dir_to_disk:
-      lda  dir_sector                   ; First sector of directory
-      jsr  to_dec
-      stx  write_block+10
-      sta  write_block+11
+      jsr  dir_sector_to_wb
       lda  ptr3
       bne  :+
       dec  ptr3+1                       ; Prevent writing an empty sector
@@ -325,11 +321,7 @@ next_sector:
       iny
       sta  (ptr2),y
 not_last_sector:
-      lda  dir_sector
-      jsr to_dec
-      ; Store sector number
-      stx  write_block+10
-      sta  write_block+11
+      jsr  dir_sector_to_wb
       jsr  send_seek_0
       jsr  send_256byte_to_channel_2
       jsr  send_write_block
@@ -539,6 +531,14 @@ read_drive_status:
         bcs     :-
         adc     #'9' + 1
 r:      rts
+.endproc
+
+.proc dir_sector_to_wb
+      lda  dir_sector                   ; First sector of directory
+      jsr  to_dec
+      stx  write_block+10
+      sta  write_block+11
+      rts
 .endproc
 
 _rts2 = to_dec::r
