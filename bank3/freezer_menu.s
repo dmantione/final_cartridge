@@ -1590,12 +1590,17 @@ exit_infinite_loop:
       ldy  #$03
       sty  $03
       tsx
+.ifdef use_ill
+      txa
+      axs  #256-6
+.else
       inx
       inx
       inx
       inx
       inx
       inx
+.endif
       txs
       pla
       sta  viciireg_backup + $01

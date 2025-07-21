@@ -147,7 +147,7 @@ backup_to_vdc:
       ldx     #$1F
 :     jsr     vdc_memory_store
       lda     tmpptr_a
-      cmp     #$2F
+      eor     #$2F
       bne     :-
         ; Backup $D800..$DBFF to $F400..$F7FF in VDC
 ;      lda     #$F4
@@ -156,7 +156,7 @@ backup_to_vdc:
 ;      lda     #$00
 ;      inx
 ;      jsr     vdc_reg_store
-      lda     #$00
+;      lda     #$00
       sta     tmpptr_a
       lda     #$D8
       sta     tmpptr_a+1
@@ -165,11 +165,11 @@ backup_to_vdc:
       bne     :-
       inc    tmpptr_a+1
       lda    tmpptr_a+1
-      cmp    #$DC
+      eor    #$DC
       bne    :-
 
       ; Backup $0000..$07FF to $F800..$FFFF in VDC
-      lda     #$00
+;      lda     #$00
       sta     tmpptr_a+1
       ldx     #$1F
 :     jsr     vdc_memory_store
@@ -191,7 +191,7 @@ mem_ab_for_monitor_vdc:
       ldy     #0
       ldx     #$1F
       stx     $D600
-      ldx     #$00
+      ldx     #0
 :     bit     $D600   ; No point for a timeout, all is lost if VDC fails
       bpl     :-
       lda     $D601

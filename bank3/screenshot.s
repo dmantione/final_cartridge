@@ -414,10 +414,12 @@ routine7:
       ror  $53
       lda  $53
       and  #$F0
-      clc
-      adc  #$00
+;     huh??
+;     clc
+;     adc  #$00
       sta  $53
       lda  #$60
+      clc
       adc  $54
       sta  $54
       clc
@@ -1384,8 +1386,12 @@ freezer_goto_settings:
       stx  $C3
       stx  $CE     ; Character line counter
 
+.ifdef use_ill
+      lax  $0B18
+.else
       lda  $0B18
       tax
+.endif
       and  #$F0
       lsr
       lsr

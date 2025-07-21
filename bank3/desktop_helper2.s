@@ -166,8 +166,12 @@ next_file:
       sta  ptr2+1
       ; Y=0
       ldy  #0
-      lda  (ptr4),y
+.ifdef use_ill
+      lax  (ptr4),y
+.else
+      ldx  (ptr4),y
       tax
+.endif
       bne  :+                           ; All files processed?
       jmp  write_dir_to_disk            ; Then write dir to disk.
 :     jsr  inc_ptr4_beyond_z            ; Skip block count
@@ -483,7 +487,7 @@ send_seek:
       ; Check for error omn cmd channel 15
       jsr  read_drive_status
       lda  $02C0
-      cmp  #$30
+      cmp  #'0'
       beq  _rts2
 except_exit:
       ; Error condition. Pull return address and abort directory write back.
@@ -504,14 +508,13 @@ read_drive_identification:
 read_drive_status:
       lda #$6F
       jsr talk_second
-      ldy #0
+      ldy #$C0
 :     jsr IECIN
-      sta $02C0,y
+      sta $0200,y
       lda ST
       bne :+
       iny
-      cpy #$40 ; Avoid buffer overflow
-      bne :-
+      bne :-  ; Avoid buffer overflow
 :     jmp UNTALK
 
 
