@@ -294,13 +294,19 @@ reu_memab_command:
 .segment "freezer_reset"
 
 .global freezer_zero_fill
+.global write_mg87_and_reset
+.global freezer_final_kill
+.global freezer_cbm64
+
 freezer_zero_fill:
       ldy  #$00
       sty  $AC
       lda  #$08
       sta  $AD
       lda  #$33
-      sei
+;     Not needed: Interrupts are already off, and since all roms are visible
+;     with $01=#$33, they would not harm either.
+;      sei
       sta  $01
       tya
 :     sta  ($AC),y
@@ -308,24 +314,30 @@ freezer_zero_fill:
       bne  :-
       inc  $AD
       bne  :-
-c64_reset:
-      lda  #>(START-1)
-      pha
-      lda  #<(START-1)
-      pha
       lda  #$37
       sta  $01
-      jmp  _enable_fcbank0
-
-.global write_mg87_and_reset
+      bne  freezer_cbm64 ; always
 write_mg87_and_reset:
       ldx  #sizeof_MG87 - 1
 :     lda  MG87,x
       sta  $CFFC,x
       dex
       bpl  :-
-      bmi  c64_reset ; always
+      bmi freezer_cbm64
+freezer_final_kill:
+      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
+      ldx  #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
+      skip_2b_instr
+freezer_cbm64:
+      ; ROM bank 0, C64 in 16K mode, NMI line released
+      ldx  #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
+      ; Jump to RESET vector in KERNAL
+      lda  #>(START-1)
+      pha
+      lda  #<(START-1)
+      pha
+      txa
+      jmp  _jmp_bank
 
 MG87: .byte "MG87"
 sizeof_MG87 = .sizeof(MG87)
-

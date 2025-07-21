@@ -37,6 +37,7 @@
 .importzp __memswap_RUN__,__memswap_SIZE__
 .import pset
 .import freezer_goto_settings,freezer_zero_fill,write_mg87_and_reset
+.import freezer_final_kill,freezer_cbm64
 .import freezer_sprite_I,freezer_sprite_II,freezer_autofire,freezer_joyswap
 .import freezer_backup_disk,freezer_backup_tape
 .import freezer_goto_monitor
@@ -506,21 +507,6 @@ restart_freezer:
 freezer_actions_l: .lobytes freezer_actions
 freezer_actions_h: .hibytes freezer_actions
 
-
-freezer_final_kill:
-      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
-      ldx  #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
-      .byte $2c ; skip next instruction
-freezer_cbm64:
-      ; ROM bank 0, C64 in 16K mode, NMI line released
-      ldx  #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
-      ; Jump to RESET vector in KERNAL
-      lda  #>(START-1)
-      pha
-      lda  #<(START-1)
-      pha
-      txa
-      jmp  _jmp_bank
 
 .segment "freezer_restore_1"
       ;

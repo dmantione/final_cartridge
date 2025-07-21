@@ -522,7 +522,7 @@ W534E:
       jsr  close_all
       lda  #$01
       ldy  #$0A
-      jsr  routine22
+      jsr  open_printer
       lda  #$0D
       jsr  BSOUT
       jmp  close_all
@@ -1269,7 +1269,8 @@ routine34:
       bit  printer_type_flags
       bpl  :+
       dey
-routine22:
+
+open_printer:
 :     ldx  #4                           ; Device 4 = printer
       jsr  SETLFS
 
