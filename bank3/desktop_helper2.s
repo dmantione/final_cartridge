@@ -114,15 +114,11 @@ fill_loop:
       lda  #>$A000
       sta  ptr1+1
       ; Start by reading the BAM sector and skipping its contents
-      jsr  send_read_block
-      jsr  send_seek_0
-      jsr  read_sector_from_chan_2
+      jsr  read_dir_sector
       sta  dir_sector
       bne  @1 ; always because directory sector never is 0
 :     ; Read a directory sector
-      jsr  send_read_block
-      jsr  send_seek_0
-      jsr  read_sector_from_chan_2
+      jsr  read_dir_sector
       inc  ptr1+1                       ; Increasepointer for next sector
 @1:   cpx  #$00                         ; End of directory?
       beq  directory_read_complete
@@ -143,6 +139,8 @@ errexit:
       lda  #$80                         ; DEVICE NOT PRESENT ERROR
       sta  ST                           ; Statusbyte ST of I/O KERNAL
       rts
+
+
 
 directory_read_complete:
       ;
@@ -254,7 +252,7 @@ insert_line:
       ; Move the entry at (ptr2) to the empty entry
 :     jsr  swap_entries
       ; Write the line in to the destination entry
-      ldy  #$1F
+      ldy  #31
 :     lda  dirline,y
       sta  (ptr3),y
       dey
@@ -269,9 +267,9 @@ next_dir_entry:
       sta  ptr2
       bcc  :+
       inc  ptr2+1
-:     lda  ptr2+1
+      lda  ptr2+1
       cmp  ptr1+1
-      rts
+:     rts
 
 swap_entries:
       ldy #31
@@ -407,6 +405,12 @@ send_256byte_to_channel_2:
       bne  :-
       jmp  UNLSTN
 
+
+read_dir_sector:
+      jsr  send_read_block
+      jsr  send_seek_0
+      ;jmp  read_sector_from_chan_2
+
 ;
 ; Reads a sector from channel 2.
 ;
@@ -487,7 +491,7 @@ send_seek:
       ; Check for error omn cmd channel 15
       jsr  read_drive_status
       lda  $02C0
-      cmp  #'0'
+      eor  #'0'
       beq  _rts2
 except_exit:
       ; Error condition. Pull return address and abort directory write back.

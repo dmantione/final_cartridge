@@ -176,7 +176,7 @@ backup_to_vdc:
       bne     :-
       inc    tmpptr_a+1
       lda    tmpptr_a+1
-      cmp    #$08
+      eor    #$08
       bne    :-
       rts
 
@@ -221,19 +221,19 @@ detect_reu:
 :
       ; Exchange back
 @xchg:
-      jsr reu_detect_setup
-:     ldx $D012
-      bne :-
-      ldx #%10010010
-      stx $DF01
+      jsr     reu_detect_setup
+:     ldx     $D012
+      bne     :-
+      ldx     #%10010010
+      stx     $DF01
       rts
 
 reu_memab_setup:
-       ldy  #reu_memab_command-reu_commands
+       ldy    #reu_memab_command-reu_commands
        skip_2b_instr
 
 reu_detect_setup:
-       ldy  #reu_detect_command-reu_commands
+       ldy    #reu_detect_command-reu_commands
        skip_2b_instr
 
 backup_to_reu:

@@ -195,7 +195,8 @@ L9826:  sec
         bmi     L9831
 L982E:  inx
         bne     L9826
-L9831:  stx     $0626 ; ??? never read
+L9831:
+;  stx     $0626 ; ??? never read
         cpx     #4
         bcc     L97F8
 L9838:  jsr     ram_code

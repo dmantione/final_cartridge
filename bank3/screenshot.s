@@ -1482,16 +1482,21 @@ freezer_goto_settings:
       lda  #$37
       sta  $01                          ; 6510 I/O register
       ldx  #$FF
-      sei
+      ; Not necessary, interrupts are already off
+      ; sei
       txs
       cld
       jsr  IOINIT
+.ifdef use_ill 
+      lax  #$00
+.else
       lda  #$00
-      tay
-:     sta  $0002,y
-      sta  $0200,y
-      sta  $0300,y
-      iny
+      tax
+.endif
+:     sta  $0002,x
+      sta  $0200,x
+      sta  $0300,x
+      inx
       bne  :-
       jsr  RESTOR ; sets C=0
       ldx  #$00
