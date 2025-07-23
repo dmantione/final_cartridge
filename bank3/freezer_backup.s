@@ -218,8 +218,6 @@ freezer_backup_disk:
       jmp  write_mg87_and_reset
 
 
-.segment "backup_disk_2"
-
 st_high_nibble:
       asl
       asl
