@@ -38,6 +38,62 @@
 .endproc
 freezer_restore_0300_size = .sizeof(freezer_restore_0300)
 
+.segment "backup_common"
+
+freezer_backup_common_prepare:
+      ; Install the zp_load_mem* routines into zeropage
+      ldx  #<__zp_load_mem_1_SIZE__-1
+:     lda  __zp_load_mem_1_LOAD__,x
+      sta  __zp_load_mem_1_RUN__,x
+      dex
+      bpl :-
+
+      ; Backup $FFFD..$FFFF
+      lda  #<$FFFD
+      sta  tmpptr_a
+      lda  #>$FFFD
+      sta  tmpptr_a+1
+      ldy  #$02
+      lda  #$33
+      sta  $01
+:     jsr  zp_load_tmpptr_a
+      sta  $009B,y
+      dey
+      bpl  :-
+
+      ; Compress the memory
+      jsr  backup_compress_ram
+      lda  $99
+      sta  tmpptr_a
+      lda  $9A
+      sta  tmpptr_a+1
+
+      ldx  #<__zp_load_mem_2_SIZE__-1
+:     lda  __zp_load_mem_2_LOAD__,x
+      sta  __zp_load_mem_2_RUN__,x
+      dex
+      bpl  :-
+
+      lda  tmpptr_a
+      sta  $96
+      lda  tmpptr_a+1
+      sta  $97
+
+      ; Negate tmpptr_a, add $0400 and store in $9e/$9f
+      sec
+      lda  #$00
+      sbc  tmpptr_a
+      sta  $9E
+      lda  #$00
+      sbc  tmpptr_a+1
+      clc
+      adc  #$04
+      sta  $9F
+
+      ldx  #$37
+      stx  $01
+      rts
+
 .segment "backup_disk"
 
 install_restore_0300:
@@ -124,57 +180,8 @@ freezer_backup_disk:
       jsr  file_close_ch1
 
       sei
-
-      ; Install the zp_load_mem* routines into zeropage
-      ldx  #<__zp_load_mem_1_SIZE__-1
-:     lda  __zp_load_mem_1_LOAD__,x
-      sta  __zp_load_mem_1_RUN__,x
-      dex
-      bpl :-
-
-      ; Backup $FFFD..$FFFF
-      lda  #<$FFFD
-      sta  tmpptr_a
-      lda  #>$FFFD
-      sta  tmpptr_a+1
-      ldy  #$02
-      lda  #$33
-      sta  $01
-:     jsr  zp_load_tmpptr_a
-      sta  $009B,y
-      dey
-      bpl  :-
-
-      ; Compress the memory
-      jsr  backup_compress_ram
-      lda  $99
-      sta  tmpptr_a
-      lda  $9A
-      sta  tmpptr_a+1
-
-      ldx  #<__zp_load_mem_2_SIZE__-1
-:     lda  __zp_load_mem_2_LOAD__,x
-      sta  __zp_load_mem_2_RUN__,x
-      dex
-      bpl  :-
-
-      lda  tmpptr_a
-      sta  $96
-      lda  tmpptr_a+1
-      sta  $97
-      sec
-      lda  #$00
-      sbc  tmpptr_a
-      sta  $9E
-      lda  #$00
-      sbc  tmpptr_a+1
-      clc
-      adc  #$04
-      sta  $9F
-      ldx  #$37
-      stx  $01
-
-
+      ; Compress memory and other prepatations
+      jsr  freezer_backup_common_prepare
       jsr  open_minusfc
       ldx  #$00
 
@@ -602,56 +609,8 @@ freezer_backup_tape:
       jsr  tape_write_byte_fast
       jsr  tape_finnish
 
-      ; Install the zp_load_mem* routines into zeropage
-      ldx  #<__zp_load_mem_1_SIZE__-1
-:     lda  __zp_load_mem_1_LOAD__,x
-      sta  __zp_load_mem_1_RUN__,x
-      dex
-      bpl  :-
-
-      ; Retrieve the vectors from $FFFD
-      ldy  #$02
-      lda  #<$FFFD
-      sta  tmpptr_a
-      lda  #>$FFFD
-      sta  tmpptr_a+1
-      lda  #$33
-      sta  $01
-:     jsr  zp_load_tmpptr_a
-      sta  $009B,y
-      dey
-      bpl  :-
-
-      jsr  backup_compress_ram
-      lda  $99
-      sta  tmpptr_a
-      lda  $9A
-      sta  tmpptr_a+1
-
-      ldx  #<__zp_load_mem_2_SIZE__-1
-:     lda  __zp_load_mem_2_LOAD__,x
-      sta  __zp_load_mem_2_RUN__,x
-      dex
-      bpl  :-
-
-      lda  tmpptr_a
-      sta  $96
-      lda  tmpptr_a+1
-      sta  $97
-
-      ; Negate tmpptr_a, add $0400 and store in $9e/$9f
-      sec
-      lda  #0
-      sbc  tmpptr_a
-      sta  $9E
-      lda  #0
-      sbc  tmpptr_a+1
-      clc
-      adc  #$04
-      sta  $9F
-
-      lda  #$37
-      sta  $01
+      ; Compress memory and other prepatations
+      jsr  freezer_backup_common_prepare
       jsr  tape_prepare
       sty  tmpptr_a
       lda  #$04
@@ -790,10 +749,6 @@ tape_write_header_fast:
       dex
       sty  $A4                          ; Y=0
       rts
-
-
-
-;      ldx  #$08                        ; unreachable ?
 
 ;
 ; Write the byte in A to tape
