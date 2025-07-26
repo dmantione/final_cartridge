@@ -353,3 +353,25 @@ back to ASCII mode.
 Note that even in ASCII mode, the Final Cartridge III monitor has always treated
 ASCII control codes that it encounters in memory, as screen codes, and displays
 these characters using reverse video.
+
+
+27. Fast format restricted to 1541/1571 with original ROM
+---------------------------------------------------------
+
+The fast format feature of the FC3 only works on 1541/1571 drives and is not
+compatible with JiffyDOS. Therefore, the firmware now detects the drive type
+before a fast format.
+
+Only if a 1541/1571 with stock ROM is detected, a fast format will be
+performed. Otherwise, the command will fall back to a normal format.
+
+A 1571 will exit 2 MHz mode as a side effect of the UI command that is used
+to detect the drive. This is kind of okay, since fast format always formats a
+single sided disk.
+
+If you want to format a dual sided disk, issue the normal N command in 2MHz
+mode, or use the N2 command if you have JiffyDOS. This is already fast, so
+fast format would not bring any benefit.
+
+The result of this is that the "FAST FORMAT" button in the desktop is now safe
+to use on any drive.
