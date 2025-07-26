@@ -9,6 +9,7 @@
 .import check_iec_error
 .import cmd_channel_listen
 .import listen_second
+.import read_drive_identification2
 ;.import transfer_code_to_drive
 
 .global fast_format
@@ -19,6 +20,44 @@
 .import __fast_format_drive_RUN__
 
 fast_format:
+        ;
+        ; At this point the drive is already listening on channel 15, waiting
+        ; a command. The caller of this routine has already scanned the first
+        ; char of the DOS command, and return with the drive still listering
+        ; it will send this can and then send the rest of the command.
+        ;
+        ; This fast format code is incompatible with JiffyDOS modded drives,
+        ; and won't work on non-1541/1581 drives either.
+        ;
+        ; We will detect the drive type. If it is a 1541 or 1571 without ROM
+        ; mod, we will proceed with fast format. We will send a command like
+        ; M-Elh:DISKNAME,01
+        ; I.e. the disk name and ID are part of the M-E command.
+        ;
+        ; In case of rom mods or entirely different devices, we will send N
+        ; to proceed with a normal format.
+        ;
+        ; A 1571 will return to 1 MHz mode due to the UI command, so 2MHz
+        ; mode does not need to be taken into account. The normal command
+        ; N to format a dual sided disk in 2MHz mode.
+        ;
+        jsr     read_drive_identification2
+        lda     $02C3 ; 'C'
+        eor     $02C7 ; 'D'
+        eor     #$07  ; 'C' eor 'D'
+        bne     @no1541
+        lda     $02D2
+        cmp     #'4'
+        beq     @1541
+        cmp     #'7'
+        beq     @1541
+@no1541:
+        lda     #$6F                         ; Listen channel 15
+        jsr     listen_second
+        lda     #'N'
+        jsr     IECOUT
+        jmp     @r
+@1541:
         lda     #8
         sta     $93 ; times $20 bytes
         lda     #<__fast_format_drive_LOAD__
@@ -29,7 +68,7 @@ fast_format:
         jsr     IECOUT
         lda     #>fast_format_drive_code_entry
         jsr     IECOUT
-        lda     #$40
+@r:     lda     #$40
         jmp     _jmp_bank
 
 .global transfer_code_to_drive
@@ -80,87 +119,90 @@ ram_code := $0630
 
 ; this lives at $0400
 fast_format_drive_code:
-        jmp     L0463
+        ; Drive controller jumps here when we execute the buffer
+        jmp perform_buffer_code
 
 fast_format_drive_code_entry:
-        jsr     $C1E5
-        bne     L9768
-        jmp     $C1F3
-
-L9768:  sty     $027A
+        jsr     $C1E5 ; Search for : in command string
+        bne     :+
+        jmp     $C1F3 ; 34, SYNTAX ERROR
+:       sty     $027A
         lda     #$A0
-        jsr     $C268
-        jsr     $C100
-        ldy     $027B
-        cpy     $0274
-        bne     L977E
-        jmp     $EE46
+        jsr     $C268  ; Search for char
+        jsr     $C100  ; Turn led on
+        ldy     $027B  ; Position of ID in command string
+        cpy     $0274  ; Check for end of command
+        bne     :+
+        jmp     $EE46  ; Do format in ROM
 
-L977E:  lda     $0200,y
+:       lda     $0200,y
         sta     $12
         lda     $0201,y
         sta     $13
+
+        ; Copy some ROM code to RAM
         ldx     #$78
-L978A:  lda     $FC36 - 1,x
-        sta     ram_code - 1,x ; copy drive kernal code to RAM
+:       lda     $FC36 - 1,x
+        sta     ram_code - 1,x
         dex
-        bne     L978A
+        bne     :-
+        ; Patch it to become a subroutine
         lda     #$60 ; add RTS at the end
         sta     ram_code + $78
         lda     #1
-        sta     $80
-        sta     $51
-        jsr     $D6D3
-        lda     $22
-        bne     L97AA
-        lda     #$C0
-        jsr     L045C
-L97AA:  lda     #$E0
-        jsr     L045C
+        sta     $80 ; Track for operation
+        sta     $51 ; Track during format
+        jsr     $D6D3 ; Set track and sector for buffer
+
+        lda     $22    ; Current track number
+        bne     :+
+        lda     #$C0   ; Move head to track 0 (machinegun sound)
+        jsr     do_buffer1_cmd
+:       lda     #$E0   ; Exec buffer command
+        jsr     do_buffer1_cmd
         cmp     #2
-        bcc     L97B6
+        bcc     :+
         jmp     $C8E8
+:       jmp     $EE40 ; create a new BAM
 
-L97B6:  jmp     $EE40
 
-L045C:
-        sta     $01
-L97BB:  lda     $01
-        bmi     L97BB
-        rts
-
-L0463:
-        lda     $51
-        cmp     ($32),y
-        beq     L97CB
+perform_buffer_code:
+        lda     $51   ; Track during format
+        cmp     ($32),y ; Track correct?
+        beq     :+
         sta     ($32),y
-        jmp     $F99C
+        jmp     $F99C ; motor and stepper control
 
-L97CB:  ldx     #4
-L97CD:  cmp     $FED7,x
-        beq     L97D7
+        ; Determine track zone
+:       ldx     #4
+:       cmp     $FED7,x ; Control bytes for head position
+        beq     :+
         dex
-        bcs     L97CD
+        bcs     :-
         bcc     L9838
-L97D7:  jsr     $FE0E
+        ; Zone OK
+:       jsr     $FE0E ; Track erase: Write 10240 times $55 to diskette
+        ; Write 5 times $FF to diskette (sync)
         lda     #$FF
         sta     $1C01
-L97DF:  bvc     L97DF
+:       bvc     :-
         clv
         inx
         cpx     #5
-        bcc     L97DF
-        jsr     $FE00
-L97EA:  lda     $1C00
-        bpl     L97FD
-        bvc     L97EA
+
+        bcc     :-
+        jsr     $FE00 ; Disk controller in read mode
+:       lda     $1C00 ; Bit 7: SYNC detect
+        bpl     L97FD ; Sync? Then jump
+        bvc     :-
         clv
         inx
-        bne     L97EA
+        bne     :-
         iny
-        bpl     L97EA
+        bpl     :-    ; Loop till sync
+
 L97F8:  lda     #3
-        jmp     $FDD3
+        jmp     $FDD3  ; decrease error counter and make other attempt in ROM
 
 L97FD:  sty     $C0
         stx     $C1
@@ -169,17 +211,17 @@ L97FD:  sty     $C0
         tya
 L9806:  clc
         adc     #$64
-        bcc     L980C
+        bcc     :+
         iny
-L980C:  iny
+:       iny
         dex
         bne     L9806
         eor     #$FF
         sec
         adc     $C1
-        bcs     L9819
+        bcs     :+
         dec     $C0
-L9819:  tax
+:       tax
         tya
         eor     #$FF
         sec
@@ -190,13 +232,13 @@ L9819:  tax
         ldx     #0
 L9826:  sec
         sbc     $43
-        bcs     L982E
+        bcs     :+
         dey
         bmi     L9831
-L982E:  inx
+:       inx
         bne     L9826
 L9831:
-;  stx     $0626 ; ??? never read
+        stx     $0626 ; Used in ram_code
         cpx     #4
         bcc     L97F8
 L9838:  jsr     ram_code
@@ -207,7 +249,18 @@ L9838:  jsr     ram_code
         dec     $1C03
         ldx     #$55
         stx     $1C01
-L984D:  bvc     L984D
+:       bvc     :-
         inx
-        bne     L984D
+        bne     :-
         jmp     $FCB1
+
+
+;
+; Give a command to buffer 1 ($0400..$04FF)
+;
+do_buffer1_cmd:
+        sta     $01
+:       lda     $01
+        bmi     :-
+        rts
+

@@ -59,6 +59,8 @@ cmd_channel_listen:
         lda     #$6F
 listen_second:
         pha
+        lda     #$00
+        sta     ST
         jsr     set_drive
         jsr     LISTEN
         pla

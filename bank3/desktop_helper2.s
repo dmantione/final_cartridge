@@ -499,9 +499,12 @@ except_exit:
       pla
       jmp  close
 
+.global read_drive_identification2
+
 read_drive_identification:
       lda #$6F
       jsr listen_second
+read_drive_identification2:
       lda #'U'
       jsr IECOUT
       lda #'I'
