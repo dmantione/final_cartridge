@@ -43,10 +43,15 @@ write_directory_back_to_disk:
 ; each other.
 ;
 
-jmp_errexit:
-      jmp errexit
 
 write_directory_back_to_disk2:
+      ; Copy directory editing commands to low RAM
+      ldx  #<(__diredit_cmds_SIZE__-1)
+:     lda  __diredit_cmds_LOAD__,x
+      sta  $0202,x
+      dex
+      bpl  :-
+
       ldx #18
       stx dir_track
       inx
@@ -55,7 +60,11 @@ write_directory_back_to_disk2:
       jsr read_drive_identification
       lda $02C0
       cmp #'7' ; Status code '73'
-      bne jmp_errexit
+      bne @jmp_errexit
+      lda $02C3
+      eor $02C5
+      eor #'S' ^ '2'
+      beq @test_sd2iec
       lda #'5'  ; From 1541
       cmp $02D1
       bne @test_1581
@@ -64,24 +73,32 @@ write_directory_back_to_disk2:
       beq @d64
       cmp #'7'  ; From 157x
       beq @d64
-      bne jmp_errexit
+      bne @jmp_errexit
+@test_sd2iec:
+      jsr send_partinfo  ; G-P command
+      jsr read_drive_status
+      lda $02C0
+      cmp #4
+      bne :+
+      sec
+      bcs @dd ; SD2IEC in D81 mode
+:     cmp #2
+      beq @d64 ; SD2IEC in D64 mode
+      cmp #3
+      beq @d64 ; SD2IEC in D71 mode
+@jmp_errexit:
+      jmp errexit
 @test_1581:
       cmp $02DA
-      bne jmp_errexit
+      bne @jmp_errexit
       lda #'8'
       cmp $02DB
-      bne jmp_errexit
+      bne @jmp_errexit
       ; C set if equal
       skip_1b_instr
       ; Fill $A000..$BFFF with #$00
 @d64: clc
-
-      ; Copy directory editing commands to low RAM
-      ldx  #<(__diredit_cmds_SIZE__-1)
-:     lda  __diredit_cmds_LOAD__,x
-      sta  $0202,x
-      dex
-      bpl  :-
+@dd:
 
       bcc  :+
       ; D81 directory on track 40!
@@ -471,6 +488,19 @@ talk_second:
       pla
       jmp  TKSA
 
+send_partinfo:
+      ldx  #<(partinfo - __diredit_cmds_RUN__)
+transmit_command:
+      lda  #$6F                         ; Listen channel 15
+      jsr  listen_second
+:     lda  __diredit_cmds_RUN__,x
+      beq  :+
+      jsr  IECOUT
+      inx
+      bne  :-
+:     jsr  UNLSTN
+      rts
+
 send_read_block:
       ldx  #<(read_block - __diredit_cmds_RUN__)
       skip_2b_instr
@@ -480,14 +510,7 @@ send_write_block:
 send_seek_0:
       ldx  #<(seek_0 - __diredit_cmds_RUN__)
 send_seek:
-      lda  #$6F                         ; Listen channel 15
-      jsr  listen_second
-:     lda  __diredit_cmds_RUN__,x
-      beq  :+
-      jsr  IECOUT
-      inx
-      bne  :-
-:     jsr  UNLSTN
+      jsr  transmit_command
       ; Check for error omn cmd channel 15
       jsr  read_drive_status
       lda  $02C0
@@ -566,4 +589,4 @@ write_block:    .asciiz "U2:2 0 18 01"            ; Write block on channel 2 to 
 seek_0:         .asciiz "B-P 2 0"                 ; Seek channel 2 to position 0
 seek_72:        .asciiz "B-P 2 72"                ; Seek channel 2 to position 72
 seek_250:       .asciiz "B-P 2 250"               ; Seek channel 2 to position 250¨
-
+partinfo:       .byte "G-P",13,0                  ; Get partition info
