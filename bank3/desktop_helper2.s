@@ -75,6 +75,11 @@ write_directory_back_to_disk2:
       beq @d64
       bne @jmp_errexit
 @test_sd2iec:
+      ;
+      ; An SD2IEC might be in bare filesystem mode, or a D64, D71 or D81 image
+      ; might be mounted. We can only support the SD2IEC if an image is mounted
+      ; and need to differentiate between D64/D71 and D81.
+      ;
       jsr send_partinfo  ; G-P command
       jsr read_drive_status
       lda $02C0
@@ -98,9 +103,7 @@ write_directory_back_to_disk2:
       skip_1b_instr
       ; Fill $A000..$BFFF with #$00
 @d64: clc
-@dd:
-
-      bcc  :+
+@dd:  bcc  :+
       ; D81 directory on track 40!
       lda  #40
       sta  dir_track
@@ -488,6 +491,7 @@ talk_second:
       pla
       jmp  TKSA
 
+.global send_partinfo
 send_partinfo:
       ldx  #<(partinfo - __diredit_cmds_RUN__)
 transmit_command:
@@ -535,6 +539,7 @@ read_drive_identification2:
       jsr UNLSTN
       ; fall through
 
+.global read_drive_status
 read_drive_status:
       lda #$6F
       jsr talk_second
@@ -583,6 +588,8 @@ dirline:
       .byte $00, $00, $00, $00, $00, $00, $00, $00 
 
 .segment "diredit_cmds"
+
+.global partinfo
 
 read_block:     .asciiz "U1:2 0 18 00"            ; Read block on channel 2 from drive 0, track 18 sector 1
 write_block:    .asciiz "U2:2 0 18 01"            ; Write block on channel 2 to drive 0, track 18 sector 1

@@ -20,6 +20,7 @@
 .import draw_menu
 .import highlight_selected_menu
 .import pset
+.import listen_second
 ;.import freezer_exec_bank
 
 .segment "romio1"
@@ -117,7 +118,6 @@ _swap_ptr2_ptr3_rom_hidden:
         rts
 
 
-
 .global _freezer_upd_sprptr_16k
 _freezer_upd_sprptr_16k:
       lda  #fcio_bank_3|fcio_c64_16kcrtmode
@@ -161,19 +161,7 @@ ultimax_draw_menu:
       jsr  draw_menu
       jmp  bank3_16kmode
 
-;
-; Go to ultimax mode, execute $fb98 and return to 16K mode
-;
 
-.global ultimax_highlight_selected_menu
-ultimax_highlight_selected_menu:
-      jsr  ultimax_bank3_rts
-      jsr  highlight_selected_menu
-      jmp  bank3_16kmode
-
-
-.segment "romio2"
-      .byte "REU REU REU REU REU REU REU U2CI"
 
 .global autofire_ldy_dc01
 autofire_ldy_dc01:
@@ -272,10 +260,122 @@ autofire_signal_press:
       pla
       rts
 
+
+.segment "romio2"
+      .byte "REU REU REU REU REU REU REU U2CI"
+
+
+;
+; Go to ultimax mode, execute $fb98 and return to 16K mode
+;
+
+.global ultimax_highlight_selected_menu
+ultimax_highlight_selected_menu:
+      jsr  ultimax_bank3_rts
+      jsr  highlight_selected_menu
+      jmp  bank3_16kmode
+
 .global freezer_set_c64and_fc3_rts
 freezer_set_c64and_fc3_rts:
       sta  fcio_reg
       sty  $01
       rts
 
+lda_txtptr_indy:
+      dec $01
+      lda (TXTPTR),y
+      inc $01
+      rts
 
+.global sd2iec_createimg
+sd2iec_createimg:
+      ldy #1
+      jsr lda_txtptr_indy
+      cmp #':'
+      beq @1
+@e:   jmp @err
+@1:   iny
+      jsr lda_txtptr_indy
+      beq @e
+      cmp #'.'
+      bne @1
+      iny
+      jsr lda_txtptr_indy
+      cmp #'D'
+      bne @e
+      iny
+      jsr lda_txtptr_indy
+      ldx #strpd64 - strings
+      cmp #'6'
+      beq @ok
+      ldx #strpd71 - strings
+      cmp #'7'
+      beq @ok
+      ldx #strpd81 - strings
+      cmp #'8'
+      bne @e
+@ok:  ; Send filename, including image extension and comma, i.e. image.d64,
+      txa
+      pha
+      lda #$F2 ; Open channel 2
+      jsr listen_second
+      ldy #1
+:     jsr lda_txtptr_indy
+      jsr IECOUT
+      iny
+      cmp #','
+      bne :-
+      ldx #strpw - strings
+      jsr outstr
+      jsr UNLSTN
+      lda #$6F
+      jsr listen_second
+      pla
+      tax
+      jsr outstr
+      jsr UNLSTN
+      lda #$62
+      jsr listen_second
+      ; Write a byte
+      lda #0
+      jsr IECOUT
+      jsr UNLSTN
+      lda #$E2 ; Close channel 2
+      jsr listen_second
+      jsr UNLSTN
+      ; Chdir to image
+      lda #$6F
+      jsr listen_second
+      lda #'C'
+      jsr IECOUT
+      lda #'D'
+      jsr IECOUT
+      ldy #1
+:     jsr lda_txtptr_indy
+      cmp #','
+      beq :+
+      jsr IECOUT
+      iny
+      jmp :-
+:     jsr UNLSTN
+      clc
+      rts
+;      jmp @r
+@err:
+      sec
+;@r:
+      rts
+
+out:  jsr IECOUT
+      inx
+outstr:
+      lda strings,x
+      bne out
+      rts
+
+strings:
+strpw:      .asciiz "P,W"
+strpd64:    .byte 'P',2,$ff,$aa,$02,0
+strpd71:    .byte 'P',2,$55,$5b,$05,0
+strpd81:    .byte 'P',2,$ff,$7f,$0c,0
+strcd:      .asciiz "CD"

@@ -312,21 +312,17 @@ optimized, which means that the freezer menu shows quite a bit more quickly.
 The code that wrote a directory back to disk after sorting was using two buffers
 of 4KB in size. The first buffer did contain the original order, and from this
 buffer a second buffer was created in the new order. This algorithm works, but
-a directory can be more than 4KB in size, especially as we want to support 1581
-drives at a later date.
+a directory can be more than 4KB in size, especially as we want to support 1581.
 
 This code has been rewritten to use a single 8KB buffer where entries are
 swapped within the buffer to get to the desired order.
 
-
-24. 154x/157x check
--------------------
-
-The directory writeback code now does not work on 1581 and other devices, the
-directory is now only written if a 154x or 158x is detected.
+1581 support has been added to the directory write-back code and the code also
+detects an SD2IEC in D81 mode. Therefore, directory sorting is now fully
+supported on 1581 and SD2IEC devices.
 
 
-25. Return from monitor to freezer on REU or Commodore 128
+24. Return from monitor to freezer on REU or Commodore 128
 ----------------------------------------------------------
 
 If you have a Final Cartridge III with REU combination, or a Commodore 128, then
@@ -338,7 +334,7 @@ you will see the real time condition of memory, but, you select bank with OF0
 to OF7, you will see the C64 memory in its frozen state.
 
 
-26. Screen code mode in monitor
+25. Screen code mode in monitor
 -------------------------------
 
 The monitor has two new commands:
@@ -355,7 +351,7 @@ ASCII control codes that it encounters in memory, as screen codes, and displays
 these characters using reverse video.
 
 
-27. Fast format restricted to 1541/1571 with original ROM
+26. Fast format restricted to 1541/1571 with original ROM
 ---------------------------------------------------------
 
 The fast format feature of the FC3 only works on 1541/1571 drives and is not
@@ -375,3 +371,25 @@ fast format would not bring any benefit.
 
 The result of this is that the "FAST FORMAT" button in the desktop is now safe
 to use on any drive.
+
+
+27. Fast format creates images on SD2IEC
+----------------------------------------
+
+If you have an SD2IEC, you can create new disk images with the fast format
+function if no image is mounted.
+
+For example, on the desktop, open "DISK" from the "UTILTIES" menu, click on
+"FAST FORMAT" and in the "FROM" field enter: BANANAS.D71,BA
+Make sure no image is mounted and click on "DO".
+
+A new image "BANANAS.D71" will be created on the SD card, it will be formatted
+and automatically mounted. Read the directory to see the result.
+
+You can of course also do this from BASIC, type:
+
+DOS"F:BANANAS.D71,BA
+
+If you do have an image mounted, the format command will simply format the
+currently mounted image.
+

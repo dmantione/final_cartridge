@@ -10,7 +10,12 @@
 .import cmd_channel_listen
 .import listen_second
 .import read_drive_identification2
+.import read_drive_status
+.import partinfo
+;.import send_partinfo
 ;.import transfer_code_to_drive
+.import __diredit_cmds_LOAD__,__diredit_cmds_RUN__
+.import sd2iec_createimg
 
 .global fast_format
 
@@ -23,7 +28,7 @@ fast_format:
         ;
         ; At this point the drive is already listening on channel 15, waiting
         ; a command. The caller of this routine has already scanned the first
-        ; char of the DOS command, and return with the drive still listering
+        ; char of the DOS command, and return with the drive still listening
         ; it will send this can and then send the rest of the command.
         ;
         ; This fast format code is incompatible with JiffyDOS modded drives,
@@ -45,18 +50,55 @@ fast_format:
         lda     $02C3 ; 'C'
         eor     $02C7 ; 'D'
         eor     #$07  ; 'C' eor 'D'
-        bne     @no1541
+        bne     @nocbm
         lda     $02D2
         cmp     #'4'
         beq     @1541
         cmp     #'7'
         beq     @1541
+        bne     @no1541
+
+        ;
+        ; Test for SD2IEC
+        ;
+@nocbm:
+        lda     $02C3
+        eor     $02C5
+        eor     #'S' ^ '2'
+        bne     @no1541
+
+        ;
+        ; If we are dealing with an SD2IEC, we will create a new image
+        ; if no image is mounted.
+        ;
+        ldx     #<(partinfo - __diredit_cmds_RUN__)
+        lda     #$6F                         ; Listen channel 15
+        jsr     listen_second
+:       lda     __diredit_cmds_LOAD__,x
+        beq     :+
+        jsr     IECOUT
+        inx
+        bne     :-
+:       jsr     UNLSTN
+
+        jsr     read_drive_status
+        ldx     #0
+        lda     $02C0
+        cmp     #1
+        bne     @no1541
+
+        ; Create image
+        jsr     sd2iec_createimg
+
 @no1541:
         lda     #$6F                         ; Listen channel 15
         jsr     listen_second
         lda     #'N'
         jsr     IECOUT
-        jmp     @r
+        inc     TXTPTR
+        bne     :+
+        inc     TXTPTR+1
+:       jmp     @r
 @1541:
         lda     #8
         sta     $93 ; times $20 bytes
@@ -179,7 +221,7 @@ perform_buffer_code:
         beq     :+
         dex
         bcs     :-
-        bcc     L9838
+        bcc     @6
         ; Zone OK
 :       jsr     $FE0E ; Track erase: Write 10240 times $55 to diskette
         ; Write 5 times $FF to diskette (sync)
@@ -193,7 +235,7 @@ perform_buffer_code:
         bcc     :-
         jsr     $FE00 ; Disk controller in read mode
 :       lda     $1C00 ; Bit 7: SYNC detect
-        bpl     L97FD ; Sync? Then jump
+        bpl     @2 ; Sync? Then jump
         bvc     :-
         clv
         inx
@@ -201,21 +243,21 @@ perform_buffer_code:
         iny
         bpl     :-    ; Loop till sync
 
-L97F8:  lda     #3
+@3:     lda     #3
         jmp     $FDD3  ; decrease error counter and make other attempt in ROM
 
-L97FD:  sty     $C0
+@2:     sty     $C0
         stx     $C1
         ldx     $43
         ldy     #0
         tya
-L9806:  clc
+@1:     clc
         adc     #$64
         bcc     :+
         iny
 :       iny
         dex
-        bne     L9806
+        bne     @1
         eor     #$FF
         sec
         adc     $C1
@@ -226,22 +268,21 @@ L9806:  clc
         eor     #$FF
         sec
         adc     $C0
-        bcc     L97F8
+        bcc     @3
         tay
         txa
         ldx     #0
-L9826:  sec
+@4:     sec
         sbc     $43
         bcs     :+
         dey
-        bmi     L9831
+        bmi     @5
 :       inx
-        bne     L9826
-L9831:
-        stx     $0626 ; Used in ram_code
+        bne     @4
+@5:     stx     $0626 ; Used in ram_code
         cpx     #4
-        bcc     L97F8
-L9838:  jsr     ram_code
+        bcc     @3
+@6:     jsr     ram_code
         lda     $1C0C
         and     #$1F
         ora     #$C0
