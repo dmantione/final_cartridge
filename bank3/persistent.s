@@ -281,11 +281,23 @@ freezer_set_c64and_fc3_rts:
       sty  $01
       rts
 
+.global lda_txtptr_indy
 lda_txtptr_indy:
       dec $01
       lda (TXTPTR),y
       inc $01
       rts
+
+.global out_inc_txtptr
+.global inc_txtptr
+
+out_inc_txtptr:
+        jsr     IECOUT
+inc_txtptr:
+        inc     TXTPTR
+        bne     :+
+        inc     TXTPTR+1
+:       rts
 
 .global sd2iec_createimg
 sd2iec_createimg:
@@ -379,3 +391,4 @@ strpd64:    .byte 'P',2,$ff,$aa,$02,0
 strpd71:    .byte 'P',2,$55,$5b,$05,0
 strpd81:    .byte 'P',2,$ff,$7f,$0c,0
 strcd:      .asciiz "CD"
+

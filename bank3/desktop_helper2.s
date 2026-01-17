@@ -491,13 +491,15 @@ talk_second:
       pla
       jmp  TKSA
 
+; use load segment, because called from elsewhere without copy
+; in ram in place
 .global send_partinfo
 send_partinfo:
       ldx  #<(partinfo - __diredit_cmds_RUN__)
 transmit_command:
       lda  #$6F                         ; Listen channel 15
       jsr  listen_second
-:     lda  __diredit_cmds_RUN__,x
+:     lda  __diredit_cmds_LOAD__,x
       beq  :+
       jsr  IECOUT
       inx
@@ -588,8 +590,6 @@ dirline:
       .byte $00, $00, $00, $00, $00, $00, $00, $00 
 
 .segment "diredit_cmds"
-
-.global partinfo
 
 read_block:     .asciiz "U1:2 0 18 00"            ; Read block on channel 2 from drive 0, track 18 sector 1
 write_block:    .asciiz "U2:2 0 18 01"            ; Write block on channel 2 to drive 0, track 18 sector 1

@@ -156,12 +156,12 @@ start:
       bne  :-
 
       ; Open the second (main) file of the backup
-      jsr  open_second_file
+      jsr  open_second_file  ; sets Y=0
 
       jsr  UNTALK
 
       ; Upload the drive code and execute it
-      jsr  upload_drivecode
+      jsr  upload_drivecode  ; needs Y=0
       lda  #<drivecode_entry
       jsr  IECOUT
       lda  #>drivecode_entry
@@ -214,11 +214,12 @@ start:
 .endproc
 
 .proc upload_drivecode
+      ; Assumes Y=0
       ldx  #4
       lda  #<__DRIVECODE_LOAD__
-      sta  $C3                          ; Transient tape load
+      sta  $C3
       lda  #>__DRIVECODE_LOAD__
-      sta  $C4                          ; Transient tape load
+      sta  $C4
       ; Send M-W
 @bl:  lda  #'w'
       jsr  send_Mx
@@ -237,7 +238,7 @@ start:
       jsr  UNLSTN
       tya
       bne  @bl
-      inc  $C4                          ; Transient tape load
+      inc  $C4
       inx
       cpx  #$06
       bcc  @bl
@@ -674,11 +675,14 @@ farcode:
       sta  $01                          ; 6510 I/O register
 
       ; Put the vectors at the right place
-      ldx  #$02
-:     lda  vectors_tmp,x
-      sta  $FFFD,x
+      ldx  #$03
+:     lda  vectors_tmp-1,x
+      sta  $FFFC,x
       dex
-      bpl  :-
+      bne  :-
+
+      ; The LISTEN KERNAL call checks the flag at $02A1, must be 0
+      stx  $02A1
 
       ; Close the second file
       lda  #$E0
@@ -698,7 +702,7 @@ farcode:
       ; before writing memory to disk. This routine loads the $0300 page from disk and
       ; returns control to the program.
       ;
-      jmp $00a6
+      jmp  $00a6
 
 .proc device_listen_second
       pha

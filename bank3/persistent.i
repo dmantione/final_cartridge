@@ -14,3 +14,7 @@
 .import _show_view_menu
 .import _freezer_run
 .import _freezer_pset
+.import lda_txtptr_indy
+.import skip_ext
+.import out_inc_txtptr
+.import inc_txtptr

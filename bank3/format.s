@@ -11,7 +11,7 @@
 .import listen_second
 .import read_drive_identification2
 .import read_drive_status
-.import partinfo
+.import send_partinfo
 ;.import send_partinfo
 ;.import transfer_code_to_drive
 .import __diredit_cmds_LOAD__,__diredit_cmds_RUN__
@@ -71,15 +71,7 @@ fast_format:
         ; If we are dealing with an SD2IEC, we will create a new image
         ; if no image is mounted.
         ;
-        ldx     #<(partinfo - __diredit_cmds_RUN__)
-        lda     #$6F                         ; Listen channel 15
-        jsr     listen_second
-:       lda     __diredit_cmds_LOAD__,x
-        beq     :+
-        jsr     IECOUT
-        inx
-        bne     :-
-:       jsr     UNLSTN
+        jsr     send_partinfo
 
         jsr     read_drive_status
         ldx     #0
@@ -89,16 +81,25 @@ fast_format:
 
         ; Create image
         jsr     sd2iec_createimg
+        jsr     start_format_cmd
+        ; Skip file extension
+        ldy     #0
+:       jsr     lda_txtptr_indy
+        cmp     #'.'
+        beq     @s
+        jsr     out_inc_txtptr
+        bne     :- ; always
+@s:     jsr     inc_txtptr
+        jsr     lda_txtptr_indy
+        cmp     #','
+        beq     @r
+        cmp     #0
+        beq     @r
+        bne     @s
 
 @no1541:
-        lda     #$6F                         ; Listen channel 15
-        jsr     listen_second
-        lda     #'N'
-        jsr     IECOUT
-        inc     TXTPTR
-        bne     :+
-        inc     TXTPTR+1
-:       jmp     @r
+        jsr     start_format_cmd
+:       bne     @r ; always
 @1541:
         lda     #8
         sta     $93 ; times $20 bytes
@@ -112,6 +113,7 @@ fast_format:
         jsr     IECOUT
 @r:     lda     #$40
         jmp     _jmp_bank
+
 
 .global transfer_code_to_drive
 transfer_code_to_drive:
@@ -152,6 +154,13 @@ send_m_dash:
         jsr     IECOUT
         pla
         jmp     IECOUT
+
+start_format_cmd:
+        lda     #$6F                         ; Listen channel 15
+        jsr     listen_second
+        lda     #'N'
+        jsr     out_inc_txtptr
+        rts
 
 ; ----------------------------------------------------------------
 

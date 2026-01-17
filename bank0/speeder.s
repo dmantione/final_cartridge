@@ -574,15 +574,15 @@ fastsave_initialize:
         lda     $02A6
         beq     @ntsc
         ; PAL
-        lda     #<L059C
+        lda     #<drivecode_save_initialize_pal
         jsr     IECOUT
-        lda     #>L059C
+        lda     #>drivecode_save_initialize_pal
         bne     LA671  ; Always taken
 
 @ntsc:  ;NTSC
-        lda     #<L05AF
+        lda     #<drivecode_save_initialize_ntsc
         jsr     IECOUT
-        lda     #>L05AF
+        lda     #>drivecode_save_initialize_ntsc
 LA671:  jsr     IECOUT
         jsr     UNLSTN
         sei
@@ -760,22 +760,22 @@ wait_for_next_frame:
 
 sector_not_needed = $FF
 
-drive_code_load:
+.proc drive_code_load
         lda     $43        ; Number of sectors on current track
         sta     $C1
-L9BFE:
+lh:
         ;
         ; Here we wait for a sector header and read it
         ;
         jsr     wait_for_header ; (sets Y=0)
         ; 7 more bytes to read
-@1:     bvc     @1         ; Loop until byte ready
+l1:     bvc     l1         ; Loop until byte ready
         clv
         lda     $1C01      ; Read next byte of header
         sta     $25,y      ; Store
         iny
         cpy     #7         ; Did we read 7 bytes?
-        bne     @1         ; No? Read next byte
+        bne     l1         ; No? Read next byte
         ; Sector header has been read
 
         ; 
@@ -783,38 +783,38 @@ L9BFE:
         ;
         jsr     wait_for_sync ; Sets Y=0
         clv
-@2:     bvc     @2         ; Loop until byte ready
+l2:     bvc     l2         ; Loop until byte ready
         clv
         lda     $1C01
         sta     ($30),y
         iny
         cpy     #5         ; Did we read 5 bytes?
-        bne     @2         ; No? Read next byte
+        bne     l2         ; No? Read next byte
         jsr     $F497      ; GCR decode header (not sector data) and write to $16..$1A
 
         ; Check checksum $1A = $16 xor $17 xor $18 xor $19
         ; Therefore xorring $16..$1A should result in 0
         ldx     #5
         lda     #0
-@3:     eor     $15,x
+l3:     eor     $15,x
         dex
-        bne     @3
+        bne     l3
         tay
-        beq     @4
-@error: jmp     $F40B     ; Read error
+        beq     l4
+lerror: jmp     $F40B     ; Read error
 
                           ; X=0
-@4:     inx               ; X=1
-@6:     lda     $12,x     ; Compare expected header ID
+l4:     inx               ; X=1
+l6:     lda     $12,x     ; Compare expected header ID
         cmp     $16,x     ; ..  with read header ID
-        bne     @error
+        bne     lerror
         dex
-        bpl     @6
+        bpl     l6
 
         jsr     $F7E8     ; GCR decode first 5 bytes of sector data and write to $52..$55
         ldx     $19       ; Is the sector number that we read smaller
         cpx     $43       ; than the number of sectors on this track?
-        bcs     @error
+        bcs     lerror
         lda     $53       ; Store next track
         sta     track_links,x
         lda     $54       ; Store next sector
@@ -822,7 +822,7 @@ L9BFE:
         lda     #sector_not_needed
         sta     sector_order,x ; initialize array
         dec     $C1
-        bne     L9BFE
+        bne     lh
 
         ;
         ; Now build the sector_order array
@@ -830,24 +830,24 @@ L9BFE:
         lda     #1
         sta     $C3
         ldx     $09       ; Sector last read
-@7:     lda     $C2       ; Counter, initalized to 0 by drivecode_load_initialize
+l7:     lda     $C2       ; Counter, initalized to 0 by drivecode_load_initialize
         sta     sector_order,x
         inc     $C2
         lda     track_links,x
         cmp     $08       ; Next sector on the same track as last?
-        bne     @8        ; Then sector_order array is finished
+        bne     l8        ; Then sector_order array is finished
         lda     sector_links,x ; Chain to
         tax                    ; next sector of file
         inc     $C3
-        bne     @7
-        beq     @error         ; If $C3 hits 0 (255 iterations), then there must be a cycle in the sector chain
+        bne     l7
+        beq     lerror         ; If $C3 hits 0 (255 iterations), then there must be a cycle in the sector chain
         ;
         ; When we arrive here we either need to continue on a different track, or
         ; we hit the final sector of the file (A=0). Either way the sector_order array
         ; is complete.
         ;
-@8:     cmp     $02AC          ; Track beyond end of disk?
-        bcs     @error         ; Then a problem. NOTE: This is incompatible with dual sided disks on 1571.
+l8:     cmp     $02AC          ; Track beyond end of disk?
+        bcs     lerror         ; Then a problem. NOTE: This is incompatible with dual sided disks on 1571.
         sta     $08
         lda     sector_links,x
         sta     $09
@@ -855,24 +855,24 @@ L9BFE:
         ;
         ; Wait for a sector header and read it
         ;
-@9:     jsr     wait_for_header ; (sets Y=0)
+l9:     jsr     wait_for_header ; (sets Y=0)
         iny
         ; 3 more bytes to read
-@10:    bvc     @10       ; Loop until byte ready
+l10:    bvc     l10       ; Loop until byte ready
         clv
         lda     $1C01
         sta     ($30),y
         iny
         cpy     #4
-        bne     @10
+        bne     l10
         ldy     #0
         jsr     $F7E8     ; GCR decode the bytes
         ldx     $54       ; If sector number
         cpx     $43       ; >= number of sectors on track
-        bcs     @error    ; then there is a problem
+        bcs     lerror    ; then there is a problem
         lda     sector_order,x
         cmp     #sector_not_needed   ; If we don't need to read this sector,
-        beq     @9                   ; Wait for the next one
+        beq     l9                   ; Wait for the next one
         stx     $C0
 
         ;
@@ -881,27 +881,27 @@ L9BFE:
         jsr     wait_for_sync ; Sets Y=0
         clv
         ; Read 256 bytes in the buffer
-@11:    bvc     @11       ; Loop until byte ready
+l11:    bvc     l11       ; Loop until byte ready
         clv
         lda     $1C01
         sta     ($30),y
         iny
-        bne     @11
+        bne     l11
         ; Read another 70 bytes in the auxiliary buffer at end of the stack
         ldy     #$BA
-@12:    bvc     @12      ; Loop until byte ready
+l12:    bvc     l12      ; Loop until byte ready
         clv
         lda     $1C01
         sta     $0100,y
         iny
-        bne     @12
+        bne     l12
         ; GCR decode bytes
         jsr     $F7E8
         lda     $53      ; Get link to next track ???
-        beq     @13      ; 0? Then skip
+        beq     l13      ; 0? Then skip
         lda     #0       ; Clear link to next sector ???
         sta     $54
-@13:    sta     $34
+l13:    sta     $34
         sta     $C1
         ldx     $C0
         lda     sector_order,x
@@ -916,19 +916,19 @@ L9BFE:
         ldy     #$08     ; Clock out high, data out low
         sty     $1800
         ; C64 will set DATA IN high if it is ready to receive
-@14:    lda     $1800
+l14:    lda     $1800
         lsr     a
-        bcc     @14
+        bcc     l14
         ldy     #0
-@next:
+lnext:
         sty     $1800     ; Y=0 also when entering via branch -> DATA OUT low, CLOCK OUT low
         dec     $36
-        bne     @transmit_buffer
+        bne     ltransmit_buffer
         dec     $C3       ; Did we read all blocks?
-        bne     @9
+        bne     l9
         jmp     $F418     ; Set buffer status at $0001 to 01 (succesfull completion)
 
-@transmit_buffer:
+ltransmit_buffer:
         ; 5 bytes of GCR data become 4 bytes of decoded data. But the GCR data will not be decoded
         ; into raw data, but directly decoded into values that can be written to VIA register $1800.
         ; In order to convert to register values, we will convert the 5 bytes GCR into 8 "quintets"
@@ -964,11 +964,11 @@ L9BFE:
         sta     $5D
 .endif
         iny
-        bne     @16      ; Not end of regular buffer?
+        bne     l16      ; Not end of regular buffer?
         iny              ; End of register buffer
         sty     $31      ; Y=1
         ldy     #$BA     ; Continue from auxiliary buffer at $01BA
-@16:
+l16:
 .ifdef use_ill
         lax     ($30),y
 .else
@@ -1050,30 +1050,30 @@ L9BFE:
 .endif
         iny
         sty     $C1
-@transmit_tuple:
+ltransmit_tuple:
         ; Transmit the 4-byte tuple to the C64
         ; $55..5D contain indexes into the tables with CIA register values
         ldy     #$08      ; Signal C64 with CLOCK OUT high, DATA OUT low
         sty     $1800
-        ldx     $55,y     ; Replaced by bne @transmit_tuple_2mhz in 2MHz mode
+        ldx     $55,y     ; Replaced by bne ltransmit_tuple_2mhz in 2MHz mode
         ; Transmit bits 0-1 of the 4 bits of decoded data
-@15:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
+l15:    lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         sta     $1800
         ; Transmit bits 2-3 of the 4 bits of decoded data
         lda     regvalue_lookup_23 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
         ldx     $54,y     ; This ldx might look illogicallly placed but is here also for timing reasons!
         sta     $1800
         dey
-        bne     @15
-.assert >* = >@transmit_tuple, error, "Page boundary!"
-        jmp     @next
+        bne     l15
+.assert >* = >ltransmit_tuple, error, "Page boundary!"
+        jmp     lnext
 
-@transmit_tuple_2mhz:
+ltransmit_tuple_2mhz:
         ; Transmit the 4-byte tuple to the C64
         ; $55..5D contain indexes into the tables with CIA register values
         ldx     $55,y
         nop
-@17:
+l17:
         nop
         ; Transmit bits 0-1 of the 4 bits of decoded data
         lda     regvalue_lookup_01 - 8,x  ; - 8 because the table is only 24 rather than 32 bytes
@@ -1094,8 +1094,8 @@ L9BFE:
         bit     $00       ; Waste 3 cycles
         dey
         nop
-        bne     @17
-.assert >* = >@transmit_tuple, error, "Page boundary!"
+        bne     l17
+.assert >* = >ltransmit_tuple, error, "Page boundary!"
         ; Because we can convert GCR to kwintets much faster in 2MHz mode, we need a little delay,
         ; otherwise the C64 can't write the transmitted bytes to destination memory fast enough
 .ifdef use_ill
@@ -1103,13 +1103,13 @@ L9BFE:
 .else
         ldy     #5
 .endif
-@18:
+l18:
         dey
-        bne     @18
-        jmp     @next
+        bne     l18
+        jmp     lnext
 
-modpoint = @transmit_tuple+5
-
+modpoint := ltransmit_tuple+5
+mod_distance := ltransmit_tuple_2mhz - modpoint - 2
 
 
 wait_for_sync:
@@ -1122,42 +1122,43 @@ wait_for_header:
         stx     $31
         ldx     #90      ; The 1541 ROM also tries 90 times (see $F3B1 onwards)
         stx     $C4
-@try_again:
+ltry_again:
         dec     $C4
-        bne     @try
+        bne     ltry
         jmp     $F40B    ; Read error
 
-@try:   jsr     wait_for_sync ; Sets Y=0
+ltry:   jsr     wait_for_sync ; Sets Y=0
         clv
-@1:     bvc     @1       ; Loop until byte ready
+l19:    bvc     l19       ; Loop until byte ready
         clv
         lda     $1C01
         cmp     $24      ; Header block ID as expected?
-        bne     @try_again
+        bne     ltry_again
         rts
 
 drivecode_load_initialize:
         lda     $02AC    ; 1571 stores number of tracks on current disk here (either $24 or $71)
-        bne     @3
+        bne     l20
         lda     #$24     ; 1541 has a 0 there, that's quickly fixed
         sta     $02AC
-@3:
+l20:
         lda     #$37
         cmp     $E5C6    ; Skip 2MHz check for 1541. Not needed on real hardware, but on the 1541
-        bne     @4       ; Ultimate you would falsely detect 2MHz. Don't check too naive :)
+        bne     l1541    ; Ultimate you would falsely detect 2MHz. Don't check too naive :)
         lda     $180F
         and     #$20     ; Check for 2MHz mode
-        beq     @4
+        beq     l1541
         ; 1571 in 2MHz mode. Adjust wait_for_sync to jump to $9754 instead
         lda     #$54
         sta     wait_for_sync+1
         lda     #$97
         sta     wait_for_sync+2
-        lda     #$D0
+        lda     #$D0     ; Opcode for bne
         sta     modpoint
-        lda     #$14
+;        lda     #$14
+        lda     #<mod_distance
         sta     modpoint+1
-@4:
+l1541:
         ldx     #$00     ; CLOCK OUT low, DATA OUT low
         stx     $1800
         stx     $C2
@@ -1167,22 +1168,22 @@ drivecode_load_initialize:
         sta     $08      ; Buffer 1 track
         ; The drive code is in memory at $400, the address of buffer 1.
         ; So we want to send an execute command for buffer 1.
-@2:     lda     #$E0     ; $E0 = read sector header and then execute code in buffer
+l24:    lda     #$E0     ; $E0 = read sector header and then execute code in buffer
         sta     $01
-@1:     lda     $01      ; Wait until command has completed
-        bmi     @1
+l23:    lda     $01      ; Wait until command has completed
+        bmi     l23
         ;
         ; If the command has completed, it means the load has completed.
         ;
         cmp     #2       ; >=2 means error
-        bcs     @error
+        bcs     :+
         lda     $08
-        bne     @2
+        bne     l24
         lda     #$02     ; DATA OUT high, CLOCK OUT low 
         sta     $1800
         jmp     $C194    ; Prepare status message
 
-@error: inx
+:       inx
         ldy     #$0A     ; DATA out high, lock out high
         sty     $1800
         jmp     $E60A    ; 21, 'read error'
@@ -1212,11 +1213,16 @@ sector_order := track_links + 21
 
 crc_correction_l:
 .ifdef use_ill
-        .word $74c3
+;        .word $937a
+        .word $47ae
 .else
         .word $65f7
 .endif
-        .align 32
+.endproc
+        last_slice_size_l = (* - drive_code_load) .mod 32
+        .res 32-last_slice_size_l,$ff
+
+drivecode_load_initialize = drive_code_load::drivecode_load_initialize
 
 ; ----------------------------------------------------------------
 ; drive code $0500
@@ -1380,7 +1386,7 @@ drive_code_save_timing_selfmod4_end:
 ;        nop
 
 
-L059C:
+drivecode_save_initialize_pal:
         ; PAL entry
 ;        lda     #$85
 ;        sta     drive_code_save_timing_selfmod2
@@ -1410,7 +1416,7 @@ LA5A62:  lda     drive_code_save_timing_selfmod4,x
         sta     drive_code_save_timing_selfmod3 + 2 ; insert 1 cycle into code
         sta     drive_code_save_timing_selfmod3 + 3 ; insert 1 cycle into code
 
-L05AF:
+drivecode_save_initialize_ntsc:
         ldx     #$65
         ; NTSC entry
         ; 9775 + $74
@@ -1476,8 +1482,9 @@ L05AF:
 buffer_to_use = @error + 1
 
 crc_correction_s:
-        .word $9148
-        .align 32
+        .word $026d
+        last_slice_size_s = (* - drive_code_save) .mod 32
+        .res 32-last_slice_size_s,$ff
 
 
 ; ----------------------------------------------------------------
