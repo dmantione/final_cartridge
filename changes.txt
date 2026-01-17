@@ -393,3 +393,15 @@ DOS"F:BANANAS.D71,BA
 If you do have an image mounted, the format command will simply format the
 currently mounted image.
 
+
+28. Backup device selection
+---------------------------
+
+The freezer menu of the FC3 did allow you to choose between slow and fast backup
+on disk/tape. However, this choice did not have any effect: Tape backups were
+always saved in Turbotape forme, and disk backups were always written with
+KERNAL routines, but with fastloader included.
+
+Instead of choosing between standard/fast, the Freezer menu now allows you to
+select the serial device where the backup is written, further bringing the FC3
+into the modern C64 world where having many devices is the standard.

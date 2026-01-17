@@ -497,7 +497,7 @@ restart_freezer:
       lda $DD0D
       jmp restart_menu
 
-.define freezer_actions freezer_backup_disk-1,freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_tape-1, \
+.define freezer_actions freezer_backup_tape-1,freezer_backup_disk-1,freezer_backup_disk-1,freezer_backup_disk-1,freezer_backup_disk-1, \
                         freezer_sprite_I-1,freezer_sprite_II-1,freezer_joyswap-1,freezer_autofire-1, \
                         0,0,0, \
                         freezer_goto_settings-1, 0, _freezer_pset-1, \

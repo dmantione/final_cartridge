@@ -18,6 +18,8 @@
 .importzp tmpvar1,tmpptr_a,spritexy_backup
 .import write_mg87_and_reset
 
+device = $00bf
+
 .segment "freezer_restore_0"
 ;
 ; This routine is stored into the zero page at $00a6
@@ -28,7 +30,7 @@
       sta  $0300,y
       iny
       bne  :-
-      lda  #$08
+      lda  #$08  ; Patched by loader to actual loading device
       jsr  LISTEN
       lda  #$E0
       jsr  SECOND
@@ -109,6 +111,10 @@ install_restore_0300:
 
 freezer_backup_disk:
       jsr  install_restore_0300
+      txa
+      clc
+      adc  #6
+      sta  device
       lda  #$00
       sta  $D015                        ; Disable sprites
       sta  $D418                        ; Mute sound
@@ -257,7 +263,7 @@ send_fc:
       lda  #$61   ; LISTEN channel 1
 listen_second:
       pha
-      lda  #$08
+      lda  device
       jsr  LISTEN
       pla
       jmp  SECOND
