@@ -929,6 +929,9 @@ selected_item_rasterlines:
       .byte $39, $41, $49, $51, $59
 menu_action_offset:
       .byte $00, $05, $09, $0C, $0F, $12
+
+view_action = $0E
+
 selected_item_wait_iters:
       .byte $1E, $16, $16, $13
 selected_item_endwait:
@@ -1264,7 +1267,7 @@ freezer_action:
       beq  :-
       pla
       sei
-      cmp  #$0D
+      cmp  #view_action                 ; View menu?
       bne  :+
       ; Disable all sprites
       lda  #$00
