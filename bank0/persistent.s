@@ -318,7 +318,11 @@ _get_filename: ; $DEDB
 jmp_enable_fcbank0:
         jmp     _enable_fcbank0
 
-
+.global _a_colon_asterisk
+_a_colon_asterisk:
+        .byte   ':','*'
+.global _a_colon_asterisk_end
+_a_colon_asterisk_end:
 
 .segment "romio2"
 ;

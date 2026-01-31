@@ -167,28 +167,20 @@ send_drive_cmd:
 @done:  jmp     UNLSTN
 
 set_colon_asterisk:
-;        ldx     #<_a_colon_asterisk
-;        ldy     #>_a_colon_asterisk
-        ; Make DLOAD, DAPPEND etc. use * rather than :*. It should be identical, but avoids a bug in the
-        ; code that loads a backup than doesn't like it when :* is used as the file name to load the
-        ; backup. There are multiple * in the KERNAL, no alternative KERNAL will dare to change one at
-        ; $FFE5 (hopefully).
-        ldx     #<$FFE5
-        ldy     #>$FFE5
+        ldx     #<_a_colon_asterisk
+        ldy     #>_a_colon_asterisk
         jsr     SETNAM
 set_drive:
         lda     #0
         sta     ST
-        lda     #8
-        cmp     FA
-        bcc     @hidev ; device number 9 or above
-@store: sta     FA
-@rts:   rts
-@hidev: lda     FA
+        lda     FA
+        cmp     #8
+        bcc     @8
         cmp     #16
-        bcc     @rts
-        lda     #8 ; set drive 8
-        bne     @store ; always
+        bcc     @r
+@8:     lda     #8
+        sta     FA
+@r:     rts
 
 ; convert byte into hex ASCII in A/Y
 byte_to_hex_ascii:

@@ -187,7 +187,7 @@ next_file:
 .ifdef use_ill
       lax  (ptr4),y
 .else
-      ldx  (ptr4),y
+      lda  (ptr4),y
       tax
 .endif
       bne  :+                           ; All files processed?

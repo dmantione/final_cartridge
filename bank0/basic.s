@@ -1588,8 +1588,8 @@ L8B95:  jsr     print_dir
 ; ----------------------------------------------------------------
 
 set_filename_or_colon_asterisk:
-;        lda     #<(_a_colon_asterisk_end - _a_colon_asterisk); ":*" (XXX "<" required to make ca65 happy)
-        lda     #1  ; * is string of length 1
+        lda     #<(_a_colon_asterisk_end - _a_colon_asterisk); ":*" (XXX "<" required to make ca65 happy)
+;        lda     #1  ; * is string of length 1
         .byte   $2C
 set_filename_or_empty:
         lda     #0 ; empty filename
