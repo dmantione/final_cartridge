@@ -2244,9 +2244,9 @@ L9050:  sta     $FE00,x
         sta     $FF00,x
         inx
         bne     L9050
-        sty     $AE
-        sty     $AC
-        sty     $AD
+        stx     $AE
+        stx     $AC
+        stx     $AD
         lda     $2C
         sta     $AF
         ldy     $2B
