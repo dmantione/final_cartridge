@@ -174,24 +174,7 @@ there is no BASIC program in memory.
 12. DLOAD loads * instead of :*
 -------------------------------
 
-If you create a backup with the FC3, it will create two files: FC and -FC.
-The FC file is the loader and will try to automatically determine the name
-of the second file, so you can rename the files. The loader does this
-simply by placing a - in front of the filename.
-
-If you use the DLOAD command without any filename, such as when pressing F5
-when you are not in front of a directory, the DLOAD command will try to load
-file name :*. This is fully equivalent to * and will load the first file on
-diskette.
-
-However combining this, this means that if you try to use DLOAD without any
-file name to load a backup, the backup loader will use -:* as the second
-file name and this is not going to work, loading will crash.
-
-While the best solution would be to fix the backup loader, this won't be
-possible until source code of bank 3 of the FC3 has been reconstructed.
-Therefore, for now DLOAD has been modified to load * rather than :*,
-removing the use case when this problem happens.
+This change has been reverted in version 2 of the 101% firmware.
 
 
 13. JiffyDOS compatible tokenizer

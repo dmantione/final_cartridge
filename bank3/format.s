@@ -11,6 +11,7 @@
 .import listen_second
 .import read_drive_identification2
 .import read_drive_status
+.import install_cmds_ram
 .import send_partinfo
 ;.import send_partinfo
 ;.import transfer_code_to_drive

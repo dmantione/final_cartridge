@@ -35,6 +35,17 @@ write_directory_back_to_disk:
       pla
       jmp  _jmp_bank
 
+
+.global install_cmds_ram
+install_cmds_ram:
+      ; Copy directory editing commands to low RAM
+      ldx  #<(__diredit_cmds_SIZE__-1)
+:     lda  __diredit_cmds_LOAD__,x
+      sta  $0202,x
+      dex
+      bpl  :-
+      rts
+
 ;
 ; The desktop has created a list of directory entries to indicate
 ; the desired order of the files on disk. Each directory entry consists
@@ -44,13 +55,9 @@ write_directory_back_to_disk:
 ;
 
 
+
 write_directory_back_to_disk2:
-      ; Copy directory editing commands to low RAM
-      ldx  #<(__diredit_cmds_SIZE__-1)
-:     lda  __diredit_cmds_LOAD__,x
-      sta  $0202,x
-      dex
-      bpl  :-
+      jsr install_cmds_ram
 
       ldx #18
       stx dir_track
@@ -491,20 +498,29 @@ talk_second:
       pla
       jmp  TKSA
 
-; use load segment, because called from elsewhere without copy
+; get from rom, because called from elsewhere without copy
 ; in ram in place
 .global send_partinfo
 send_partinfo:
-      ldx  #<(partinfo - __diredit_cmds_RUN__)
-transmit_command:
       lda  #$6F                         ; Listen channel 15
       jsr  listen_second
-:     lda  __diredit_cmds_LOAD__,x
-      beq  :+
+      ldx  #0
+:     lda  partinfo,x
+      beq  ulsnr
       jsr  IECOUT
       inx
       bne  :-
-:     jsr  UNLSTN
+
+transmit_command:
+      lda  #$6F                         ; Listen channel 15
+      jsr  listen_second
+:     lda  __diredit_cmds_RUN__,x
+      beq  ulsnr
+      jsr  IECOUT
+      inx
+      bne  :-
+ulsnr:
+      jsr  UNLSTN
       rts
 
 send_read_block:
@@ -589,6 +605,8 @@ dirline:
       .byte '-', '-', '-', '-', '-', $00, $00, $00 
       .byte $00, $00, $00, $00, $00, $00, $00, $00 
 
+partinfo:       .byte "G-P",13,0                  ; Get partition info
+
 .segment "diredit_cmds"
 
 read_block:     .asciiz "U1:2 0 18 00"            ; Read block on channel 2 from drive 0, track 18 sector 1
@@ -596,4 +614,3 @@ write_block:    .asciiz "U2:2 0 18 01"            ; Write block on channel 2 to 
 seek_0:         .asciiz "B-P 2 0"                 ; Seek channel 2 to position 0
 seek_72:        .asciiz "B-P 2 72"                ; Seek channel 2 to position 72
 seek_250:       .asciiz "B-P 2 250"               ; Seek channel 2 to position 250¨
-partinfo:       .byte "G-P",13,0                  ; Get partition info
