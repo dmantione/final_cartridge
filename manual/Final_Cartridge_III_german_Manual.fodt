@@ -1049,12 +1049,6 @@
   <style:style style:name="T13" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
-  <style:style style:name="T14" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="T15" style:family="text">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
   <style:style style:name="T16" style:family="text">
    <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
@@ -1924,16 +1918,16 @@
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Vorwort<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III ist eine Eigenentwicklung der Riska B.V. Home &amp; Personal Computers.</text:p>
-   <text:p text:style-name="Text_20_body">Die Final Cartridge III, die aus 64K Maschinencode besteht, bietet Ihnen neben dem <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T14">Desktop</text:span></text:span> , in dem alles mit <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T15">Windows</text:span></text:span> funktioniert, unter anderem: </text:p>
+   <text:p text:style-name="Text_20_body">Die Final Cartridge III, die aus 64K Maschinencode besteht, bietet Ihnen neben dem <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span>, in dem alles mit <text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span> funktioniert, unter anderem: </text:p>
    <text:list xml:id="list473462835" text:style-name="Numbering_20_IVX">
     <text:list-item>
-     <text:p text:style-name="P109">Verschiedene nützliche Hilfsmittel für die Programmierung (die sogenannte <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T15">Basic-Toolkit</text:span></text:span>).</text:p>
+     <text:p text:style-name="P109">Verschiedene nützliche Hilfsmittel für die Programmierung (die sogenannte <text:span text:style-name="Kleine_20_hoofdletters">Basic-Toolkit</text:span>).</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="P110">Sehr einfache Disk-Befehle.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">24K zusätzlicher Speicher in <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T15">Basic</text:span></text:span>.</text:p>
+     <text:p text:style-name="P110">24K zusätzlicher Speicher in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="P110">Einen Tape-Schnelllader/-Schnellspeicher, der die Tape-Funktionen um das 10-fache beschleunigt.</text:p>
@@ -1954,10 +1948,10 @@
      <text:p text:style-name="P110">Einen eingebauten Game-Trainer.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Eine <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T15">Reset</text:span></text:span>-Möglichkeit. Dies, kombiniert mit dem Befehl <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, sorgt dafür, dass Sie nach einem <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T14">Reset</text:span></text:span> oder <text:span text:style-name="Monospace">NEW</text:span> nie wieder ein Programm verlieren.</text:p>
+     <text:p text:style-name="P110">Eine <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span>-Möglichkeit. Dies, kombiniert mit dem Befehl <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, sorgt dafür, dass Sie nach einem <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span> oder <text:span text:style-name="Monospace">NEW</text:span> nie wieder ein Programm verlieren.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Die Möglichkeit, jedes beliebige Programm, das sich im Speicher befindet, zu unter­brechen (<text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T15">Freezer</text:span></text:span>), um es danach:</text:p>
+     <text:p text:style-name="P110">Die Möglichkeit, jedes beliebige Programm, das sich im Speicher befindet, zu unter­brechen (<text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>), um es danach:</text:p>
     </text:list-item>
    </text:list>
    <text:list xml:id="list3970118434" text:style-name="Numbering_5f_20_5f_sub">
@@ -2082,7 +2076,7 @@
    <text:p text:style-name="P5"><draw:frame draw:style-name="fr2" draw:name="Afbeelding10" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.249cm" draw:z-index="9"><draw:image xlink:href="fc3_diskops.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="P5"/>
-   <text:p text:style-name="P38">Erst nachdem Sie auf den Requester reagiert haben, arbeitet der Computer weiter. Sie kön­nen auf einen Requester antworten, indem Sie die darin enthaltenen Gadgets verwenden. Diese Gadgets bestehen meist aus einem Gadget, mit dem Sie die Aufgabe fortsetzen (das <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T14">Continue</text:span></text:span>-Gadget u.a.) und einem Gadget, mit dem Sie die Aufgabe abbrechen (das <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T14">Cancel</text:span></text:span>-Gadget u.a.). Wenn Sie auf einen Requester reagiert haben, verschwindet er und der Computer fährt mit seiner Aufgabe fort.</text:p>
+   <text:p text:style-name="P38">Erst nachdem Sie auf den Requester reagiert haben, arbeitet der Computer weiter. Sie kön­nen auf einen Requester antworten, indem Sie die darin enthaltenen Gadgets verwenden. Diese Gadgets bestehen meist aus einem Gadget, mit dem Sie die Aufgabe fortsetzen (das <text:span text:style-name="Kleine_20_hoofdletters">Continue</text:span>-Gadget u.a.) und einem Gadget, mit dem Sie die Aufgabe abbrechen (das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget u.a.). Wenn Sie auf einen Requester reagiert haben, verschwindet er und der Computer fährt mit seiner Aufgabe fort.</text:p>
    <text:p text:style-name="P5"><draw:frame draw:style-name="fr3" draw:name="Afbeelding11" text:anchor-type="as-char" svg:y="-2.898cm" svg:width="7.001cm" svg:height="3.161cm" draw:z-index="10"><draw:image xlink:href="fc3_requester.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4728_2830447109"/>Desktop<text:bookmark-end text:name="__RefHeading___Toc4728_2830447109"/></text:h>
@@ -3436,7 +3430,7 @@
    <text:p text:style-name="P16"><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
    <text:h text:style-name="P58" text:outline-level="3"><text:soft-page-break/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3" text:is-list-header="true"><text:bookmark-start text:name="__RefHeading___Toc4988_2164442888"/>Bank switching<text:bookmark-end text:name="__RefHeading___Toc4988_2164442888"/></text:h>
-   <text:p text:style-name="P93"><text:span text:style-name="T15">In Ihrem Commodore sind verschiedene ROMs untergebracht. Diese können vom Monitor aus ein- und ausgeschaltet werden. Sie schalten dann zwischen den verschiedenen Speicherbänken um, und dies nennt man Bank Switching. In der Registeranzeige wird dargestellt, welche Bänke Sie eingeschaltet haben. Welche Werte mit welchen Bänken übereinstimmen, wird ausführlich beim </text:span><text:a xlink:type="simple" xlink:href="#O (MONITOR)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="T15">O</text:span></text:a><text:span text:style-name="T15">-Befehl besprochen.</text:span></text:p>
+   <text:p text:style-name="P93">In Ihrem Commodore sind verschiedene ROMs untergebracht. Diese können vom Monitor aus ein- und ausgeschaltet werden. Sie schalten dann zwischen den verschiedenen Speicherbänken um, und dies nennt man Bank Switching. In der Registeranzeige wird dargestellt, welche Bänke Sie eingeschaltet haben. Welche Werte mit welchen Bänken übereinstimmen, wird ausführlich beim <text:a xlink:type="simple" xlink:href="#O (MONITOR)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">O-Befehl</text:a> besprochen.</text:p>
    <text:p text:style-name="P93"><text:span text:style-name="Kleine_20_hoofdletters">Modi</text:span></text:p>
    <text:p text:style-name="P25">Wenn Sie ein Disk-Laufwerk besitzen, können Sie mit zwei Speichern arbeiten, nämlich dem Speicher des Computers und dem des Disks. Wir haben daher zwei verschiedene Modi im Monitor angebracht; den Computer-Modus (Modus 1) und den Disk-Modus (Modus 2).</text:p>
    <text:p text:style-name="P46"><text:span text:style-name="Kleine_20_hoofdletters">Umschalten zwischen den Modi</text:span></text:p>
