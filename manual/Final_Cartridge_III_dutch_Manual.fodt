@@ -332,6 +332,9 @@
   <style:style style:name="Kleine_20_hoofdletters" style:display-name="Kleine hoofdletters" style:family="text">
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
+  <style:style style:name="C64" style:display-name="Commodore 64" style:family="text">
+   <style:text-properties style:font-name="Commodore 64" fo:font-size="10pt"/>
+  </style:style>
   <style:style style:name="Endnote_20_anchor" style:display-name="Endnote anchor" style:family="text">
    <style:text-properties style:text-position="super 58%"/>
   </style:style>
@@ -449,9 +452,6 @@
   <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Footer">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
-  <style:style style:name="P3" style:family="paragraph" style:parent-style-name="Preformatted_20_Text">
-   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
-  </style:style>
   <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
@@ -476,9 +476,6 @@
   </style:style>
   <style:style style:name="P10" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:line-height="90%"/>
-  </style:style>
-  <style:style style:name="P11" style:family="paragraph" style:parent-style-name="Monospace">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:line-height="90%"/>
   </style:style>
   <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
@@ -526,9 +523,6 @@
   </style:style>
   <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Text_20_body" style:master-page-name="">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" style:page-number="auto"/>
-  </style:style>
-  <style:style style:name="P24" style:family="paragraph" style:parent-style-name="Monospace">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
   <style:style style:name="P25" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
@@ -805,9 +799,6 @@
   <style:style style:name="P97" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L13">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="T1" style:family="text">
-   <style:text-properties style:font-name="Commodore 64" fo:font-size="10pt"/>
-  </style:style>
   <style:style style:name="T2" style:family="text">
    <style:text-properties style:font-name="Liberation Serif"/>
   </style:style>
@@ -817,14 +808,8 @@
   <style:style style:name="T4" style:family="text">
    <style:text-properties fo:font-weight="normal"/>
   </style:style>
-  <style:style style:name="T5" style:family="text">
-   <style:text-properties fo:font-size="9.5pt"/>
-  </style:style>
   <style:style style:name="T6" style:family="text">
    <style:text-properties fo:font-size="9.5pt" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="T7" style:family="text">
-   <style:text-properties fo:font-size="9.5pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="T8" style:family="text">
    <style:text-properties style:font-name="Liberation Serif1"/>
@@ -1563,7 +1548,7 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
    </text:sequence-decls>
-   <text:p text:style-name="Preformatted_20_Text"><draw:frame draw:style-name="fr5" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="17"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Standard"><draw:frame draw:style-name="fr5" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="17"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Inhoudsopgave1">
     <text:table-of-content-source text:outline-level="3">
@@ -1799,12 +1784,12 @@
    <text:p text:style-name="Text_20_body">Geen deel van dit produkt of van de handleiding mag worden verveelvuldigd en/of openbaar gemaakt door middel van druk, fotokopie, microfilm, magnetische informatiedragers, elektroni­sche informatiedragers of op welke andere wijze dan ook zonder voorafgaande schriftelijke toe­stem­ming van Riska B.V. Home &amp; Personal Computers en/of E. Th. v.d. Enden.</text:p>
    <text:p text:style-name="Text_20_body">Riska B.V. Home &amp; Personal Computers kan geen enkele verantwoording nemen voor het ver­keerd gebruik van de Final Cartridge III.</text:p>
    <text:p text:style-name="Text_20_body">Het materiaal in deze handleiding is alleen bedoeld voor informatiedoeleinden en is onderhevig aan veranderingen zonder bekendmakingen.</text:p>
-   <text:p text:style-name="Text_20_body">Riska B.V. Home <text:span text:style-name="T5">&amp;</text:span> Personal Computers behoudt het recht om veranderingen aan te brengen in de specificaties van de Final Cartridge III en de handleiding.</text:p>
+   <text:p text:style-name="Text_20_body">Riska B.V. Home &amp; Personal Computers behoudt het recht om veranderingen aan te brengen in de specificaties van de Final Cartridge III en de handleiding.</text:p>
    <text:p text:style-name="P9">Produkt-idee en realisatie:<text:tab/>Wil Sparreboom<text:line-break/>Desktop en menu’s:<text:tab/>Gerard van Assem<text:line-break/><text:tab/>Marc Derksen<text:line-break/>Tools, freezer, fastloader en printerinterface:<text:tab/>Uwe Stahl<text:line-break/>Supporting software:<text:tab/>Wil Sparreboom<text:line-break/>Hardware ontwerp:<text:tab/>Ton Peters<text:line-break/><text:tab/>Jacques van Schajik<text:line-break/>Handleiding:<text:tab/>Patrick Mast<text:line-break/><text:line-break/>Exclusieve verkooprechten voor Nederland en België:<text:tab/>Dunnet Int. Trading<text:line-break/><text:tab/>Company B.V. Rotterdam</text:p>
-   <text:p text:style-name="Preformatted_20_Text"/>
-   <text:p text:style-name="P3"><draw:frame draw:style-name="fr4" draw:name="Afbeelding1" text:anchor-type="as-char" svg:y="-2.639cm" svg:width="8.999cm" svg:height="4.611cm" draw:z-index="0"><draw:image xlink:href="fc3_colofon.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="P4"><draw:frame draw:style-name="fr4" draw:name="Afbeelding1" text:anchor-type="as-char" svg:y="-2.639cm" svg:width="8.999cm" svg:height="4.611cm" draw:z-index="0"><draw:image xlink:href="fc3_colofon.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
-   <text:p text:style-name="P3"/>
+   <text:p text:style-name="P4"/>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:h text:style-name="P68" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Voorwoord<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
@@ -1869,7 +1854,7 @@
    <text:p text:style-name="Standard">De user-interface, windows en pull-down-menu&apos;s zijn gebaseerd op ideeën toegepast in o.a. de Apple Macintosh en de Commodore Amiga.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="P3"><draw:frame draw:style-name="fr2" draw:name="Afbeelding2" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="1"><draw:image xlink:href="fc3_desktop1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="P4"><draw:frame draw:style-name="fr2" draw:name="Afbeelding2" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="1"><draw:image xlink:href="fc3_desktop1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame><text:s text:c="5"/><draw:frame draw:style-name="fr2" draw:name="Afbeelding3" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="2"><draw:image xlink:href="fc3_desktop2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4722_2830447109"/>Installatie<text:bookmark-end text:name="__RefHeading___Toc4722_2830447109"/></text:h>
@@ -1882,7 +1867,7 @@
    <text:p text:style-name="Text_20_body">Als u de computer gewoon aanzet met de Final Cartridge III, start hij automatisch op in de desktop. Deze stand wordt beschreven in het hoofdstuk <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>.</text:p>
    <text:p text:style-name="Text_20_body">Wilt u direkt in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> gaan werken, houdt dan terwijl u de computer aanzet de <text:span text:style-name="Toets">RUN/STOP</text:span>-toets ingedrukt.</text:p>
    <text:p text:style-name="Text_20_body">Als u geen melding krijgt en er, nadat u de resetknop ingedrukt heeft, niets op het scherm komt, zit de Final Cartridge III waarschijnlijk niet goed in de computer.</text:p>
-   <text:p text:style-name="Text_20_body">Bij oudere types computer kan het noodzakelijk zijn dat u, nadat de computer aangezet is, toch op de resetknop (eventueel in combinatie met <text:span text:style-name="Toets">RUN/STOP</text:span> of <text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span>) moet drukken om de Fi­nal Cartridge III op te starten.</text:p>
+   <text:p text:style-name="Text_20_body">Bij oudere types computer kan het noodzakelijk zijn dat u, nadat de computer aangezet is, toch op de resetknop (eventueel in combinatie met <text:span text:style-name="Toets">RUN/STOP</text:span> of <text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span>) moet drukken om de Fi­nal Cartridge III op te starten.</text:p>
    <text:p text:style-name="Text_20_body"><text:span text:style-name="Kleine_20_hoofdletters">!!! Zie ook het hoofdstuk </text:span><text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Opmerkingen</text:span></text:a><text:span text:style-name="Kleine_20_hoofdletters"> !!!</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Standard"/>
@@ -1906,7 +1891,7 @@
    <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 3 </text:span>: naar beneden</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 5 </text:span>: naar links</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 7 </text:span>: naar rechts</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span>: de vuurknop</text:p>
+   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span>: de vuurknop</text:p>
    <text:p text:style-name="P31">Hoewel we het mogelijk hebben gemaakt de pointer door beide joystickpoorten aan te laten sturen, raden wij u ten sterkste aan poort 2 te gebruiken. Ook kunnen we helaas niets aan het feit doen dat sommige muizen het toetsen­bord blokkeren (dit is een fout in de hardware van de muis), waardoor het soms noodzake­lijk is dat u de muis uit de computer moet ver­wijderen als u het toetsenbord wilt gebruiken.</text:p>
    <text:p text:style-name="P31">Als de pointer te snel, respectievelijk te langzaam beweegt of de kleur ervan bevalt u niet, dan kunt u deze instellingen veranderen vanuit <text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a>. Dit wordt verderop bij <text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Pre</text:span></text:a><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">­</text:span></text:a><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">fe­rences</text:span></text:a> uitgelegd.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4815_2830447109"/>Klikken en selecteren<text:bookmark-end text:name="__RefHeading___Toc4815_2830447109"/></text:h>
@@ -2079,7 +2064,7 @@
    <text:p text:style-name="P35">Intoetsen:<text:tab/>Scherm:<text:span text:style-name="T4"><text:line-break/></text:span><text:span text:style-name="Monospace"><text:span text:style-name="T4">AC<text:tab/>0<text:line-break/>4<text:tab/>4<text:line-break/>+<text:tab/>4<text:line-break/>96<text:tab/>96<text:line-break/>=<text:tab/>100<text:line-break/>AC<text:tab/>0<text:line-break/>999<text:tab/>999<text:line-break/>:<text:tab/>999<text:line-break/>3<text:tab/>3<text:line-break/>=<text:tab/>333<text:line-break/>AC<text:tab/>0<text:line-break/>1000<text:tab/>1000<text:line-break/>+<text:tab/>1000<text:line-break/>–<text:tab/>1000<text:line-break/>750<text:tab/>750<text:line-break/>=<text:tab/>250</text:span></text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4957_2830447109"/>H<text:span text:style-name="T13">et geheugen</text:span><text:bookmark-end text:name="__RefHeading___Toc4957_2830447109"/></text:h>
    <text:p text:style-name="P31">Om u bekend te maken met het gebruik van het geheugen volgen hier een aantal voorbeel­den:</text:p>
-   <text:p text:style-name="P41"><text:span text:style-name="T6">Intoetsen:<text:tab/>Scherm:</text:span><text:span text:style-name="T7"><text:line-break/></text:span><text:span text:style-name="Monospace"><text:span text:style-name="T4">AC<text:tab/>0<text:line-break/>MC<text:tab/>0<text:line-break/>7.25<text:tab/>7.25<text:line-break/>+<text:tab/>7.25<text:line-break/>6.25<text:tab/>6.25<text:line-break/>+<text:tab/>13.5<text:line-break/>8.5<text:tab/>8.5<text:line-break/>=<text:tab/>22<text:line-break/>ME<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>4<text:tab/>M 4<text:line-break/>=<text:tab/>M 5.5<text:line-break/>MR<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>3<text:tab/>M 3<text:line-break/>=<text:tab/>7.33333334</text:span></text:span></text:p>
+   <text:p text:style-name="P41"><text:span text:style-name="T6">Intoetsen:<text:tab/>Scherm:</text:span><text:line-break/><text:span text:style-name="Monospace"><text:span text:style-name="T4">AC<text:tab/>0<text:line-break/>MC<text:tab/>0<text:line-break/>7.25<text:tab/>7.25<text:line-break/>+<text:tab/>7.25<text:line-break/>6.25<text:tab/>6.25<text:line-break/>+<text:tab/>13.5<text:line-break/>8.5<text:tab/>8.5<text:line-break/>=<text:tab/>22<text:line-break/>ME<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>4<text:tab/>M 4<text:line-break/>=<text:tab/>M 5.5<text:line-break/>MR<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>3<text:tab/>M 3<text:line-break/>=<text:tab/>7.33333334</text:span></text:span></text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4756_2830447109"/><text:soft-page-break/>Preferences<text:bookmark-end text:name="__RefHeading___Toc4756_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4959_2830447109"/>I<text:span text:style-name="T13">nleiding</text:span><text:bookmark-end text:name="__RefHeading___Toc4959_2830447109"/></text:h>
    <text:p text:style-name="P31">Met Preferences (voorkeuren in het Nederlands) kunt u een aantal instellingen van de Final Cartridge III veranderen, denkt u maar aan de kleuren van het scherm, e.d.</text:p>
@@ -2150,7 +2135,7 @@
    <text:p text:style-name="P31">In het <text:span text:style-name="Kleine_20_hoofdletters">from</text:span>-gadget staat de naam zoals het programma nu heet. In het <text:span text:style-name="Kleine_20_hoofdletters">to</text:span>-gadget kunt u, door het te selecteren, de naam van het programma aanpassen of vernieuwen. De uiteinde­lijke opdracht om de naam te veranderen, geeft u door het <text:span text:style-name="Kleine_20_hoofdletters">do</text:span>-gadget te selecteren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5013_2830447109"/><text:soft-page-break/>Een diskettenaam veranderen<text:bookmark-end text:name="__RefHeading___Toc5013_2830447109"/></text:h>
    <text:p text:style-name="P31">Eerst selecteert u het programma waarvan u de naam wilt verande­ren. Hierna selecteert u het gadget met de naam <text:span text:style-name="Kleine_20_hoofdletters">rename</text:span>, waarna de naam van de diskette in de string-gadget <text:span text:style-name="Kleine_20_hoofdletters">from</text:span> verschijnt.</text:p>
-   <text:p text:style-name="P31">In het <text:span text:style-name="Kleine_20_hoofdletters">from</text:span>-gadget staat de naam zoals de schijf nu heet. In het <text:span text:style-name="Kleine_20_hoofdletters"><text:span text:style-name="T5">to</text:span></text:span>-gadget kunt u, door het te selecteren, de naam van de diskette aanpassen of vernieuwen. De uiteindelijke op­dracht om de naam te veranderen, geeft u door het <text:span text:style-name="Kleine_20_hoofdletters">do</text:span>-gadget te selecteren.</text:p>
+   <text:p text:style-name="P31">In het <text:span text:style-name="Kleine_20_hoofdletters">from</text:span>-gadget staat de naam zoals de schijf nu heet. In het <text:span text:style-name="Kleine_20_hoofdletters">to</text:span>-gadget kunt u, door het te selecteren, de naam van de diskette aanpassen of vernieuwen. De uiteindelijke op­dracht om de naam te veranderen, geeft u door het <text:span text:style-name="Kleine_20_hoofdletters">do</text:span>-gadget te selecteren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5015_2830447109"/>Verschillende directory-windows tegelijk<text:bookmark-end text:name="__RefHeading___Toc5015_2830447109"/></text:h>
    <text:p text:style-name="P31">De mogelijkheid om verschillende directory-windows te openen, is gemaakt voor de vol­gende toepassingen: hoe vaak gebeurt het niet dat u even twee of drie schijven wilt nakijken om te zien of ze dezelfde programma’s bevatten? Dit is nu op de volgende manier te realise­ren. U neemt de eerste schijf en stopt die in uw disk­drive. U selecteert <text:span text:style-name="Kleine_20_hoofdletters">dir 1</text:span>, haalt de schijf uit de disk-drive en stopt uw tweede erin. U selecteert nu <text:span text:style-name="Kleine_20_hoofdletters">dir 2</text:span>. U ziet nu twee direc­tory’s tegelijk op het scherm en kunt ze dus vergelijken.</text:p>
    <text:p text:style-name="P31">Dit proces is tevens te herhalen voor een derde diskette.</text:p>
@@ -2467,7 +2452,7 @@
    <text:p text:style-name="P31">Om het naar beneden scrollen iets makkelijker te maken, hebben we het mogelijk gemaakt om door één toetsaanslag de cursor in de linker benedenhoek te plaatsen, waarna u zelf ver­der kunt scrollen.</text:p>
    <text:p text:style-name="P31">U plaatst de cursor in de linker benedenhoek door gelijktijdig de toetsen <text:span text:style-name="Toets">CONTROL</text:span> en <text:span text:style-name="Toets">CLR/HOME</text:span> in te drukken.</text:p>
    <text:p text:style-name="P31">Door het gelijktijdig indrukken van de toetsen <text:span text:style-name="Toets">CONTROL</text:span> en <text:span text:style-name="Toets">DEL</text:span> verwijdert u alles wat er achter de cursor op de regel staat.</text:p>
-   <text:p text:style-name="P31">Door het indrukken van de Commodore-toets <text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span> wordt de uitvoer naar het scherm bevro­ren. De computer wacht met verder gaan totdat u de toets loslaat. Dit is handig bij het bekij­ken van listings, daar deze normaal met <text:span text:style-name="Toets">CONTROL</text:span> alleen de snelheid vertraagd wordt.</text:p>
+   <text:p text:style-name="P31">Door het indrukken van de Commodore-toets <text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span> wordt de uitvoer naar het scherm bevro­ren. De computer wacht met verder gaan totdat u de toets loslaat. Dit is handig bij het bekij­ken van listings, daar deze normaal met <text:span text:style-name="Toets">CONTROL</text:span> alleen de snelheid vertraagd wordt.</text:p>
    <text:h text:style-name="P48" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4956_2164442888"/>Printer-interface<text:bookmark-end text:name="__RefHeading___Toc4956_2164442888"/></text:h>
    <text:p text:style-name="P31">Met behulp van de Final Cartridge III is het ook mogelijk om niet-Commodore printers te gebruiken. In de Final Cartridge III zit namelijk een Centronics-interface ingebouwd waar­mee u met behulp van een speciale kabel ook met Centronics-printers kunt werken.</text:p>
    <text:p text:style-name="P31">De Centronics-interface kunt u ook vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> gebruiken met behulp van het uitgebreide <text:a xlink:type="simple" xlink:href="#OPEN (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OPEN</text:span></text:a>-commando.</text:p>
@@ -3358,9 +3343,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">De monitor meldt zich dan door het weergeven van de registers, waarbij de getoonde waarden kunnen afwijken. (De betekenis van de symbolen kunt u terugvinden bij het R(egister) com­mando)</text:p>
-   <text:p text:style-name="P24">C*</text:p>
-   <text:p text:style-name="P11"><text:s text:c="3"/>PC <text:s/>IRQ <text:s/>BK AC XR YR SP NV#BDIZC</text:p>
-   <text:p text:style-name="P15">.;AB20 EA31 07 85 FF 06 F9 *.**...*</text:p>
+   <text:p text:style-name="Monospace">C*<text:line-break/><text:s text:c="3"/>PC <text:s/>IRQ <text:s/>BK AC XR YR SP NV#BDIZC<text:line-break/>.;AB20 EA31 07 85 FF 06 F9 *.**...*</text:p>
    <text:p text:style-name="Standard">Om te stoppen met de monitor kunt u altijd na de prompt het commando X van Exit intypen. Hierna gaat de computer verder vanaf het moment u de monitor inschakelde.</text:p>
    <text:p text:style-name="Standard"/>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4786_2830447109"/>Algemene termen en technieken<text:bookmark-end text:name="__RefHeading___Toc4786_2830447109"/></text:h>
@@ -3934,7 +3917,7 @@
    <text:p text:style-name="Text_20_body">Hoewel de Final Cartridge III geen geheugen gebruikt, maakt de desktop wel gebruik van het geheugen. Dit is de reden waarom u eerst gewaarschuwd wordt als u <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> verlaat.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4802_2830447109"/>Opmerkingen over de reset<text:bookmark-end text:name="__RefHeading___Toc4802_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Met de resetknop achter op de Final Cartridge III kunt u alle programma’s resetten.</text:p>
-   <text:p text:style-name="Text_20_body">Door de Commodore <text:span text:style-name="Toets"><text:span text:style-name="T1">À</text:span></text:span>-toets ingedrukt te houden terwijl u reset, komt u altijd in de desktop terecht.</text:p>
+   <text:p text:style-name="Text_20_body">Door de Commodore <text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span>-toets ingedrukt te houden terwijl u reset, komt u altijd in de desktop terecht.</text:p>
    <text:p text:style-name="Text_20_body">Door de toets <text:span text:style-name="Toets">RUN/STOP</text:span> ingedrukt te houden terwijl u reset, komt u altijd in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> te­recht.</text:p>
    <text:p text:style-name="Text_20_body">Door enkel de resetknop in te drukken komt u in de huidige stand terecht.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4804_2830447109"/>Opmerkingen over Basic<text:bookmark-end text:name="__RefHeading___Toc4804_2830447109"/></text:h>
