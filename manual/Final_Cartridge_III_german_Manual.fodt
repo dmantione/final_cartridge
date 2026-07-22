@@ -136,13 +136,7 @@
    <config:config-item config:name="TabOverflow" config:type="boolean">false</config:config-item>
   </config:config-item-set>
  </office:settings>
- <office:scripts>
-  <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <ooo:library-embedded ooo:name="Standard"/>
-   </ooo:libraries>
-  </office:script>
- </office:scripts>
+ 
  <office:font-face-decls>
   <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
@@ -321,7 +315,7 @@
   </style:style>
   <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
   <style:style style:name="Monospace" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt"/>
+   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt"/>
   </style:style>
   <style:style style:name="Page_20_Number" style:display-name="Page Number" style:family="text"/>
   <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
@@ -329,7 +323,7 @@
   </style:style>
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
-   <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
+   <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
   </style:style>
   <style:style style:name="Placeholder" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:color="#008080" loext:opacity="100%" style:text-underline-style="dotted" style:text-underline-width="auto" style:text-underline-color="font-color"/>
@@ -338,7 +332,7 @@
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Kleine_20_hoofdletters" style:display-name="Kleine hoofdletters" style:family="text">
-   <style:text-properties fo:font-variant="small-caps"/>
+   <style:text-properties fo:font-variant="small-caps" fo:language="zxx" fo:country="none"/>
   </style:style>
   <style:style style:name="Endnote_20_anchor" style:display-name="Endnote anchor" style:family="text">
    <style:text-properties style:text-position="super 58%"/>

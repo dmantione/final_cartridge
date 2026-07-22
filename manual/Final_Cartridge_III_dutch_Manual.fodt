@@ -134,11 +134,7 @@
    <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
   </config:config-item-set>
  </office:settings>
- <office:scripts>
-  <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
-  </office:script>
- </office:scripts>
+ 
  <office:font-face-decls>
   <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
@@ -313,7 +309,7 @@
   </style:style>
   <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
   <style:style style:name="Monospace" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt"/>
+   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt"/>
   </style:style>
   <style:style style:name="Page_20_Number" style:display-name="Page Number" style:family="text"/>
   <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
@@ -321,7 +317,7 @@
   </style:style>
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
-   <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
+   <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
   </style:style>
   <style:style style:name="Placeholder" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:color="#008080" loext:opacity="100%" style:text-underline-style="dotted" style:text-underline-width="auto" style:text-underline-color="font-color"/>
@@ -330,7 +326,7 @@
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Kleine_20_hoofdletters" style:display-name="Kleine hoofdletters" style:family="text">
-   <style:text-properties fo:font-variant="small-caps"/>
+   <style:text-properties fo:font-variant="small-caps" fo:language="zxx" fo:country="none"/>
   </style:style>
   <style:style style:name="C64" style:display-name="Commodore 64" style:family="text">
    <style:text-properties style:font-name="Commodore 64" fo:font-size="10pt"/>
@@ -2095,7 +2091,7 @@
    <text:p text:style-name="P31">Als u niet tevreden bent met de veranderingen, dan kunt u door het selecteren van <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span> naar de reeds bestaande instellingen terugkeren, waarna automatisch het window gesloten wordt.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4758_2830447109"/>Disk operations<text:bookmark-end text:name="__RefHeading___Toc4758_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4983_2830447109"/>I<text:span text:style-name="T13">nleiding</text:span><text:bookmark-end text:name="__RefHeading___Toc4983_2830447109"/></text:h>
-   <text:p text:style-name="P31">In het disk operations vindow heeft u de mogelijkheid verschillende commando’s op uw schijf uit te voeren, zoals bijvoorbeeld het wijzigen van uw diskettenaam of het verwijderen van een programma.</text:p>
+   <text:p text:style-name="P31">In het disk operations window heeft u de mogelijkheid verschillende commando’s op uw schijf uit te voeren, zoals bijvoorbeeld het wijzigen van uw diskettenaam of het verwijderen van een programma.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4985_2830447109"/>Het openen en sluiten van disk operations<text:bookmark-end text:name="__RefHeading___Toc4985_2830447109"/></text:h>
    <text:p text:style-name="P31">U kunt disk operations openen door in het utilities-menu disk te selecteren.</text:p>
    <text:p text:style-name="P31">U sluit disk operations door de close-gadget in de linker bovenhoek te selecteren.</text:p>
