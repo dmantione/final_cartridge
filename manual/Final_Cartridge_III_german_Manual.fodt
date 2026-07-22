@@ -179,6 +179,9 @@
   <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.199cm" loext:contextual-spacing="false" fo:line-height="100%"/>
   </style:style>
+  <style:style style:name="Vetgedrukt" style:family="text" style:display-name="Vetgedrukt">
+   <style:text-properties fo:font-weight="bold"/>
+  </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
   <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
@@ -226,6 +229,14 @@
   </style:style>
   <style:style style:name="Monospace klein vet" style:family="paragraph" style:parent-style-name="Monospace klein">
    <style:text-properties fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="Calctab" style:display-name="Calculator-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+    <style:tab-stops>
+     <style:tab-stop style:position="4.002cm"/>
+     <style:tab-stop style:position="8.005cm"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
   </style:style>
   <style:style style:name="Table_20_Heading" style:display-name="Table Heading" style:family="paragraph" style:parent-style-name="Table_20_Contents" style:class="extra">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" text:number-lines="false" text:line-number="0"/>
@@ -324,9 +335,6 @@
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
    <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
-  </style:style>
-  <style:style style:name="Placeholder" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#008080" loext:opacity="100%" style:text-underline-style="dotted" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="Strong_20_Emphasis" style:display-name="Strong Emphasis" style:family="text">
    <style:text-properties fo:font-weight="bold"/>
@@ -583,15 +591,8 @@
   <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
-  <style:style style:name="P13" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
   <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P16" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
   </style:style>
   <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
@@ -695,15 +696,6 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P42" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="4.002cm"/>
-     <style:tab-stop style:position="8.005cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-   <style:text-properties fo:font-size="9.5pt" fo:font-weight="bold"/>
-  </style:style>
   <style:style style:name="P43" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
@@ -747,21 +739,6 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P49" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="4.002cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P50" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="4.002cm"/>
-     <style:tab-stop style:position="8.005cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
   <style:style style:name="P51" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
@@ -786,9 +763,6 @@
   </style:style>
   <style:style style:name="P57" style:family="paragraph" style:parent-style-name="Heading_20_3">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="P58" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal" />
   </style:style>
   <style:style style:name="P59" style:family="paragraph" style:parent-style-name="Heading_20_3">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
@@ -919,9 +893,6 @@
   <style:style style:name="P105" style:family="paragraph" style:parent-style-name="Heading_20_3">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal" />
   </style:style>
-  <style:style style:name="P106" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties  />
-  </style:style>
   <style:style style:name="P107" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L7">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false">
     <style:tab-stops/>
@@ -1002,19 +973,19 @@
    <style:text-properties fo:font-size="9.5pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="T11" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="16.7999992370605pt" fo:font-weight="bold"/>
+   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="16.7999992370605pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="T12" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="11pt" fo:font-weight="bold"/>
+   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="11pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="T13" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
+   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="T16" style:family="text">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
+   <style:text-properties loext:opacity="100%" fo:font-size="9.5pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="T17" style:family="text">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt" />
+   <style:text-properties loext:opacity="100%" fo:font-size="9.5pt" />
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
@@ -2141,13 +2112,13 @@
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4953_2830447109"/>Verwendung des Calculators<text:bookmark-end text:name="__RefHeading___Toc4953_2830447109"/></text:h>
    <text:p text:style-name="P38">Im Calculator-Fenster kann jede &quot;Taste&quot; mit dem Pointer ausgewählt werden.</text:p>
    <text:p text:style-name="P38">Die folgenden Tasten stimmen mit den Funktionen überein:</text:p>
-   <text:p text:style-name="P50"><text:span text:style-name="T3">Taste<text:tab/>Gadget<text:tab/>Funktion</text:span><text:line-break/><text:span text:style-name="Toets"> + </text:span><text:tab/>+<text:tab/>Addieren<text:line-break/><text:span text:style-name="Toets"> – </text:span><text:tab/>–<text:tab/>Subtrahieren<text:line-break/><text:span text:style-name="Toets"> / </text:span><text:tab/>÷<text:tab/>Dividieren<text:line-break/><text:span text:style-name="Toets"> * </text:span><text:tab/>×<text:tab/>Multiplizieren<text:line-break/><text:span text:style-name="Toets"> = </text:span>oder <text:span text:style-name="Toets">RETURN</text:span><text:tab/>= <text:tab/>Ergebnis berechnen<text:line-break/><text:span text:style-name="Toets"> E </text:span><text:tab/>ME<text:tab/>Memory Enter<text:line-break/><text:span text:style-name="Toets"> C </text:span><text:tab/>MC<text:tab/>Memory Clear<text:line-break/><text:span text:style-name="Toets"> R </text:span><text:tab/>MR<text:tab/>Memory Recall<text:line-break/><text:span text:style-name="Toets">CLR/HOME</text:span><text:tab/>C<text:tab/>Clear<text:line-break/><text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">CLR/HOME</text:span><text:line-break/><text:soft-page-break/><text:span text:style-name="Toets">INST/DEL</text:span><text:tab/>AC<text:tab/>All Clear<text:line-break/><text:span text:style-name="Toets"> . </text:span>oder <text:span text:style-name="Toets">, </text:span><text:tab/>.<text:tab/>Dezimalpunkt</text:p>
+   <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Taste<text:tab/>Gadget<text:tab/>Funktion</text:span><text:line-break/><text:span text:style-name="Toets"> + </text:span><text:tab/>+<text:tab/>Addieren<text:line-break/><text:span text:style-name="Toets"> – </text:span><text:tab/>–<text:tab/>Subtrahieren<text:line-break/><text:span text:style-name="Toets"> / </text:span><text:tab/>÷<text:tab/>Dividieren<text:line-break/><text:span text:style-name="Toets"> * </text:span><text:tab/>×<text:tab/>Multiplizieren<text:line-break/><text:span text:style-name="Toets"> = </text:span>oder <text:span text:style-name="Toets">RETURN</text:span><text:tab/>= <text:tab/>Ergebnis berechnen<text:line-break/><text:span text:style-name="Toets"> E </text:span><text:tab/>ME<text:tab/>Memory Enter<text:line-break/><text:span text:style-name="Toets"> C </text:span><text:tab/>MC<text:tab/>Memory Clear<text:line-break/><text:span text:style-name="Toets"> R </text:span><text:tab/>MR<text:tab/>Memory Recall<text:line-break/><text:span text:style-name="Toets">CLR/HOME</text:span><text:tab/>C<text:tab/>Clear<text:line-break/><text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">CLR/HOME</text:span><text:line-break/><text:soft-page-break/><text:span text:style-name="Toets">INST/DEL</text:span><text:tab/>AC<text:tab/>All Clear<text:line-break/><text:span text:style-name="Toets"> . </text:span>oder <text:span text:style-name="Toets">, </text:span><text:tab/>.<text:tab/>Dezimalpunkt</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4955_2830447109"/>Die Standardfunktionen<text:bookmark-end text:name="__RefHeading___Toc4955_2830447109"/></text:h>
    <text:p text:style-name="P38">Um Sie mit den Standardfunktionen vertraut zu machen, folgen hier einige Beispiele:</text:p>
-   <text:p text:style-name="P42">Eingabe:<text:tab/>Bildschirm:<text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>4<text:tab/>4<text:line-break/>+<text:tab/>4<text:line-break/>96<text:tab/>96<text:line-break/>=<text:tab/>1 00<text:line-break/>AC<text:tab/>0<text:line-break/>999<text:tab/>999<text:line-break/>:<text:tab/>999<text:line-break/>3<text:tab/>3<text:line-break/>=<text:tab/>333 <text:line-break/>AC<text:tab/>0<text:line-break/>1000<text:tab/>1000<text:line-break/>+<text:tab/>1000<text:line-break/>–<text:tab/>1000<text:line-break/>750<text:tab/>7 50<text:line-break/>=<text:tab/>250</text:span></text:p>
+   <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>4<text:tab/>4<text:line-break/>+<text:tab/>4<text:line-break/>96<text:tab/>96<text:line-break/>=<text:tab/>1 00<text:line-break/>AC<text:tab/>0<text:line-break/>999<text:tab/>999<text:line-break/>:<text:tab/>999<text:line-break/>3<text:tab/>3<text:line-break/>=<text:tab/>333 <text:line-break/>AC<text:tab/>0<text:line-break/>1000<text:tab/>1000<text:line-break/>+<text:tab/>1000<text:line-break/>–<text:tab/>1000<text:line-break/>750<text:tab/>7 50<text:line-break/>=<text:tab/>250</text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4957_2830447109"/>Der Speicher<text:bookmark-end text:name="__RefHeading___Toc4957_2830447109"/></text:h>
    <text:p text:style-name="P38">Um Sie mit der Verwendung des Speichers vertraut zu machen, folgen hier einige Beispie­le:</text:p>
-   <text:p text:style-name="P49"><text:span text:style-name="T6">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>MC<text:tab/>0<text:line-break/>7.25<text:tab/>7.25<text:line-break/>+<text:tab/>7.25<text:line-break/>6.25<text:tab/>6.25<text:line-break/>+<text:tab/>13.5<text:line-break/>8.5<text:tab/>8.5<text:line-break/>=<text:tab/>22<text:line-break/>ME<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>4<text:tab/>M 4<text:line-break/>=<text:tab/>M 5.5<text:line-break/>MR<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>3<text:tab/>M 3<text:line-break/>=<text:tab/>7.33333334</text:span></text:p>
+   <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>MC<text:tab/>0<text:line-break/>7.25<text:tab/>7.25<text:line-break/>+<text:tab/>7.25<text:line-break/>6.25<text:tab/>6.25<text:line-break/>+<text:tab/>13.5<text:line-break/>8.5<text:tab/>8.5<text:line-break/>=<text:tab/>22<text:line-break/>ME<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>4<text:tab/>M 4<text:line-break/>=<text:tab/>M 5.5<text:line-break/>MR<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>3<text:tab/>M 3<text:line-break/>=<text:tab/>7.33333334</text:span></text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4756_2830447109"/><text:soft-page-break/>Preferences<text:bookmark-end text:name="__RefHeading___Toc4756_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4959_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4959_2830447109"/></text:h>
    <text:p text:style-name="P38">Mit Preferences (auf Deutsch „Präferenzen&quot;) können Sie eine Reihe von Einstellungen der Final Cartridge III ändern, denken Sie nur an die Bildschirmfarben usw.</text:p>
@@ -3371,23 +3342,23 @@
    <text:p text:style-name="P38">Hinter dem Prompt haben Sie die Möglichkeit, selbst Befehle einzugeben.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4982_2164442888"/>Speicherdarstellung<text:bookmark-end text:name="__RefHeading___Toc4982_2164442888"/></text:h>
    <text:p text:style-name="P38">Sie können im Speicher verschiedene Daten ablegen. Dies können unter anderem Zahlen, Texte, Programme, Characters und Sprites sein. Die Final Cartridge III bietet Ihnen nun die Möglichkeit, den Speicher in all diesen Formen anzuzeigen. Um es Ihnen deutlicher zu machen, zeigen wir Ihnen denselben Speicherabschnitt in den verschiedenen Darstellungs­möglichkeiten:</text:p>
-   <text:p text:style-name="P13"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI<text:tab/></text:span><text:tab/>Zahlendarstellung</text:p>
-   <text:p text:style-name="P13"><text:span text:style-name="Monospace">.‘2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung</text:p>
-   <text:p text:style-name="P13"><text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..<text:tab/></text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung</text:p>
-   <text:p text:style-name="P13"><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung</text:p>
-   <text:p text:style-name="P12"><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
+   <text:p text:style-name="P38"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI<text:tab/></text:span><text:tab/>Zahlendarstellung
+   <text:span text:style-name="Monospace">.‘2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung
+   <text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung
+   <text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung
+   <text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4984_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4984_2164442888"/></text:h>
    <text:p text:style-name="P38">Wenn der Speicher in einer der Darstellungsmöglichkeiten angezeigt wird, haben Sie die Möglichkeit zu scrollen. Damit meinen wir, dass Sie den Bildschirm verschieben können, um die Speicheradressen vor oder nach dem auf dem Bildschirm angezeigten Abschnitt zu betrachten. Dies können Sie bewerkstelligen, indem Sie den Cursor am oberen oder unte­ren Bildschirmrand hinausbewegen. Dadurch wird der vorherige oder der nächste Ab­schnitt automatisch auf dem Bildschirm angezeigt.</text:p>
    <text:p text:style-name="P38">Die Scroll-Möglichkeit wurde in die Final Cartridge III eingebaut, um das Betrachten gro­ßer Teile des Speichers zu erleichtern.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4986_2164442888"/>Verbessern<text:bookmark-end text:name="__RefHeading___Toc4986_2164442888"/></text:h>
    <text:p text:style-name="P38">Eine einfache Möglichkeit, die bei vielen der Anzeigeoptionen vorhanden ist, ist das Ver­bessern des Inhalts. Hierfür müssen Sie nur die gewünschten Daten über die vorhandenen Daten tippen. Nach einem Druck auf die <text:span text:style-name="Toets">RETURN</text:span>-Taste werden die neuen Daten über­nommen.</text:p>
    <text:p text:style-name="P38">Die Daten, die Sie in den verschiedenen Darstellungsmöglichkeiten ändern können, sind in der folgenden Aufzählung unterstrichen.</text:p>
-   <text:p text:style-name="P16"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI</text:span><text:tab/><text:tab/>Zahlendarstellung</text:p>
-   <text:p text:style-name="P16"><text:span text:style-name="Monospace">.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung</text:p>
-   <text:p text:style-name="P16"><text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung</text:p>
-   <text:p text:style-name="P16"><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung</text:p>
-   <text:p text:style-name="P16"><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
-   <text:h text:style-name="P58" text:outline-level="3"><text:soft-page-break/></text:h>
+   <text:p text:style-name="P38"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI</text:span><text:tab/><text:tab/>Zahlendarstellung
+   <text:span text:style-name="Monospace">.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung
+   <text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung
+   <text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung
+   <text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
+   <text:h text:style-name="Standard" text:outline-level="3"><text:soft-page-break/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3" text:is-list-header="true"><text:bookmark-start text:name="__RefHeading___Toc4988_2164442888"/>Bank switching<text:bookmark-end text:name="__RefHeading___Toc4988_2164442888"/></text:h>
    <text:p text:style-name="P93">In Ihrem Commodore sind verschiedene ROMs untergebracht. Diese können vom Monitor aus ein- und ausgeschaltet werden. Sie schalten dann zwischen den verschiedenen Speicherbänken um, und dies nennt man Bank Switching. In der Registeranzeige wird dargestellt, welche Bänke Sie eingeschaltet haben. Welche Werte mit welchen Bänken übereinstimmen, wird ausführlich beim <text:a xlink:type="simple" xlink:href="#O (MONITOR)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">O-Befehl</text:a> besprochen.</text:p>
    <text:p text:style-name="P93"><text:span text:style-name="Kleine_20_hoofdletters">Modi</text:span></text:p>
