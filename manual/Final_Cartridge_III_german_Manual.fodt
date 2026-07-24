@@ -327,8 +327,13 @@
   <style:style style:name="Inhoudsopgave_20_1_20_inspring" style:display-name="Inhoudsopgave 1 inspring" style:family="paragraph" style:parent-style-name="Contents_20_1">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
-  <style:style style:name="LijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11"/>
-  <style:style style:name="LijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11">
+  <style:style style:name="DecLijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11"/>
+  <style:style style:name="DecLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11">
+   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
+  </style:style>
+  <style:style style:name="RomLijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
+  </style:style>
+  <style:style style:name="RomLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
   <style:style style:name="Nw_blz_r" style:family="paragraph" style:parent-style-name="Nieuwe. blz. R" style:master-page-name="Right_20_Page">
@@ -348,9 +353,6 @@
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
    <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" fo:language="zxx" fo:country="none" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
-  </style:style>
-  <style:style style:name="Strong_20_Emphasis" style:display-name="Strong Emphasis" style:family="text">
-   <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Kleine_20_hoofdletters" style:display-name="Kleine hoofdletters" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:language="zxx" fo:country="none"/>
@@ -421,105 +423,13 @@
   </text:outline-style>
   <text:list-style style:name="Numbering_20_IVX" style:display-name="Numbering IVX">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.33cm" fo:text-indent="-0.307cm" fo:margin-left="1.33cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.66cm" fo:text-indent="-0.307cm" fo:margin-left="2.66cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.101cm" fo:text-indent="-0.307cm" fo:margin-left="2.101cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.99cm" fo:text-indent="-0.307cm" fo:margin-left="3.99cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.32cm" fo:text-indent="-0.307cm" fo:margin-left="5.32cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.652cm" fo:text-indent="-0.307cm" fo:margin-left="6.652cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.982cm" fo:text-indent="-0.307cm" fo:margin-left="7.982cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="9.312cm" fo:text-indent="-0.307cm" fo:margin-left="9.312cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="10.642cm" fo:text-indent="-0.307cm" fo:margin-left="10.642cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="I">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="11.972cm" fo:text-indent="-0.307cm" fo:margin-left="11.972cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="Numbering_5f_20_5f_sub" style:display-name="Numbering_20_sub">
-   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.0cm" fo:text-indent="-0.8cm" fo:margin-left="1.0cm"/>
     </style:list-level-properties>
-   </text:list-level-style-bullet>
+   </text:list-level-style-number>
    <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.7cm" fo:text-indent="-0.5cm" fo:margin-left="1.7cm"/>
     </style:list-level-properties>
    </text:list-level-style-bullet>
   </text:list-style>
@@ -1404,7 +1314,7 @@
     </text:table-of-content-source>
     <text:index-body>
      <text:index-title text:style-name="Sect1" text:name="Inhoudsopgave1_Head">
-      <text:h text:style-name="P81" text:outline-level="1">Inhaltsabgabe</text:h>
+      <text:h text:style-name="Heading_20_1" text:outline-level="1">Inhaltsabgabe</text:h>
      </text:index-title>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4718_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Urheberrecht<text:tab/>6</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4720_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Vorwort<text:tab/>7</text:a></text:p>
@@ -1546,7 +1456,7 @@
     </text:index-body>
    </text:table-of-content>
    <text:p text:style-name="Standard"/>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4718_2830447109"/>Urheberrecht<text:bookmark-end text:name="__RefHeading___Toc4718_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4718_2830447109"/>Urheberrecht<text:bookmark-end text:name="__RefHeading___Toc4718_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III ist ein Produkt der Riska B.V. Home &amp; Personal Computers in Rotter­dam. Copyright: E. Th. v.d. Enden.</text:p>
    <text:p text:style-name="Text_20_body">Kein Teil dieses Produkts oder dieser Anleitung darf ohne vorherige schriftliche Genehmigung der Riska B.V. Home &amp; Personal Computers und/oder E. Th. v.d. Enden vervielfältigt und/oder veröffentlicht werden, sei es durch Druck, Fotokopie, Mikrofilm, magnetische Datenträger, elektronische Datenträger oder auf andere Weise.</text:p>
    <text:p text:style-name="Text_20_body">Die Riska B.V. Home &amp; Personal Computers übernimmt keinerlei Haftung für die unsachge­mäße Verwendung der Final Cartridge III.</text:p>
@@ -1559,62 +1469,56 @@
    <text:p text:style-name="P3"/>
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Vorwort<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Vorwort<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III ist eine Eigenentwicklung der Riska B.V. Home &amp; Personal Computers.</text:p>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III, die aus 64K Maschinencode besteht, bietet Ihnen neben dem <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span>, in dem alles mit <text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span> funktioniert, unter anderem: </text:p>
    <text:list xml:id="list473462835" text:style-name="Numbering_20_IVX">
     <text:list-item>
-     <text:p text:style-name="P109">Verschiedene nützliche Hilfsmittel für die Programmierung (die sogenannte <text:span text:style-name="Kleine_20_hoofdletters">Basic-Toolkit</text:span>).</text:p>
+     <text:p text:style-name="RomLijstVervolg">Verschiedene nützliche Hilfsmittel für die Programmierung (die sogenannte <text:span text:style-name="Kleine_20_hoofdletters">Basic-Toolkit</text:span>).</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Sehr einfache Disk-Befehle.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Sehr einfache Disk-Befehle.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">24K zusätzlicher Speicher in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
+     <text:p text:style-name="RomLijstVervolg">24K zusätzlicher Speicher in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Einen Tape-Schnelllader/-Schnellspeicher, der die Tape-Funktionen um das 10-fache beschleunigt.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Einen Tape-Schnelllader/-Schnellspeicher, der die Tape-Funktionen um das 10-fache beschleunigt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Einen Disk-Schnelllader/-Schnellspeicher, der die Disk-Laufwerk-Funktionen um das 15-fache beschleunigt.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Einen Disk-Schnelllader/-Schnellspeicher, der die Disk-Laufwerk-Funktionen um das 15-fache beschleunigt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Einen sehr umfangreichen Maschinensprache-Monitor, der es Ihnen ermöglicht, den gesamten Speicher des Computers einzusehen.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Einen sehr umfangreichen Maschinensprache-Monitor, der es Ihnen ermöglicht, den gesamten Speicher des Computers einzusehen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Einen Disk-Monitor.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Einen Disk-Monitor.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Eine sehr umfangreiche Drucker-Schnittstelle, die es Ihnen sogar ermöglicht, auf Centronics-Parallel-Druckern die Commodore-Grafiken auszudrucken, aber auch High-Resolution-Screen-Dumps zu erstellen.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Eine sehr umfangreiche Drucker-Schnittstelle, die es Ihnen sogar ermöglicht, auf Centronics-Parallel-Druckern die Commodore-Grafiken auszudrucken, aber auch High-Resolution-Screen-Dumps zu erstellen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Einen eingebauten Game-Trainer.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Einen eingebauten Game-Trainer.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Eine <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span>-Möglichkeit. Dies, kombiniert mit dem Befehl <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, sorgt dafür, dass Sie nach einem <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span> oder <text:span text:style-name="Monospace">NEW</text:span> nie wieder ein Programm verlieren.</text:p>
+     <text:p text:style-name="RomLijstVervolg">Eine <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span>-Möglichkeit. Dies, kombiniert mit dem Befehl <text:a xlink:type="simple" xlink:href="#OLD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OLD</text:span></text:a>, sorgt dafür, dass Sie nach einem <text:span text:style-name="Kleine_20_hoofdletters">Reset</text:span> oder <text:span text:style-name="Monospace">NEW</text:span> nie wieder ein Programm verlieren.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P110">Die Möglichkeit, jedes beliebige Programm, das sich im Speicher befindet, zu unter­brechen (<text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>), um es danach:</text:p>
-    </text:list-item>
-   </text:list>
-   <text:list xml:id="list3970118434" text:style-name="Numbering_5f_20_5f_sub">
-    <text:list-item>
+     <text:p text:style-name="RomLijstVervolg">Die Möglichkeit, jedes beliebige Programm, das sich im Speicher befindet, zu unter­brechen (<text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>), um es danach:</text:p>
      <text:list>
       <text:list-item>
-       <text:p text:style-name="P111">Wieder fortzusetzen (eine Art Pausenfunktion)</text:p>
+       <text:p text:style-name="RomLijstVervolg">Wieder fortzusetzen (eine Art Pausenfunktion)</text:p>
       </text:list-item>
       <text:list-item>
-       <text:p text:style-name="P111">Ein Backup davon zu erstellen, das sogar ohne die Final Cartridge III wieder ge­laden werden kann.</text:p>
+       <text:p text:style-name="RomLijstVervolg">Ein Backup davon zu erstellen, das sogar ohne die Final Cartridge III wieder ge­laden werden kann.</text:p>
       </text:list-item>
       <text:list-item>
-       <text:p text:style-name="P111">Einen Low- oder High-Resolution-Screen-Dump davon zu erstellen, der sogar die auf dem Bildschirm vorhandenen Sprites ausdruckt.</text:p>
+       <text:p text:style-name="RomLijstVervolg">Einen Low- oder High-Resolution-Screen-Dump davon zu erstellen, der sogar die auf dem Bildschirm vorhandenen Sprites ausdruckt.</text:p>
       </text:list-item>
      </text:list>
     </text:list-item>
-   </text:list>
-   <text:list xml:id="list192953189507281" text:continue-list="list473462835" text:style-name="Numbering_20_IVX">
     <text:list-item>
-     <text:p text:style-name="P110">Einen eingebauten Textverarbeiter, das Notepad.</text:p>
+     <text:p text:style-name="RomLijstEinde">Einen eingebauten Textverarbeiter, das Notepad.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Standard"/>
@@ -1639,7 +1543,7 @@
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Preformatted_20_Text"/>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4724_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4724_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Wir haben versucht, die Bedienungsanleitung für Sie so vollständig und klar wie möglich zu gestalten. Deshalb haben wir ein sehr ausführliches Inhaltsabgabe erstellt, das das Nach­schla­gen in dieser Anleitung sehr einfach macht.</text:p>
    <text:p text:style-name="Text_20_body">Wir beginnen mit dem Kapitel <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp;   menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Menüs</text:span></text:a>; hierin wird eine Erklärung über – der Name sagt es bereits – Windows &amp; Menüs gegeben. Dieses Kapitel ist für Personen gedacht, die noch nie mit diesen Dingen gearbeitet haben. Wir versuchen in diesem Kapitel, Ihnen alle not­wendigen Informationen zu liefern, damit Sie den Rest der Anleitung problemlos verfolgen können.</text:p>
    <text:p text:style-name="Text_20_body">Dann folgt das Kapitel <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>; hierin wird der Desktop besprochen. Vom Desktop aus sind alle Möglichkeiten der Final Cartridge III aufrufbar, und alles könnte daher in diesem Kapitel besprochen werden. Aber um die Übersichtlichkeit zu wahren, wurden vier separate Kapitel erstellt.</text:p>
@@ -1648,7 +1552,7 @@
    <text:p text:style-name="P27"><text:a xlink:type="simple" xlink:href="#10.Freezer|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:a><text:tab/>Hierin werden alle Möglichkeiten, die der Freezer Ihnen bietet, besprochen.</text:p>
    <text:p text:style-name="P27"><text:a xlink:type="simple" xlink:href="#9.Basic|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:a><text:tab/>Hierin werden alle Möglichkeiten, die das durch die Cartridge III erweiterte Basic Ihnen bietet, besprochen.</text:p>
    <text:p text:style-name="P26"><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:a><text:tab/>Hierin werden alle Möglichkeiten, die der Monitor Ihnen bietet, besprochen.</text:p>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_28304471091"/>Windows &amp; Menüs<text:bookmark-end text:name="__RefHeading___Toc4724_28304471091"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_28304471091"/>Windows &amp; Menüs<text:bookmark-end text:name="__RefHeading___Toc4724_28304471091"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4740_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4740_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Die meisten Funktionen der Final Cartridge III lassen sich über Windows &amp; Menüs steuern. In diesem Kapitel wird eine allgemeine Erklärung zur Arbeit mit Windows &amp; Menüs gegeben. Personen, die bereits mit Windows &amp; Menüs vertraut sind, können dieses Kapitel überspringen und direkt zum Kapitel Desktop gehen. Sie können später jederzeit noch einmal wichtige Teile dieses Kapitels nachlesen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4742_2830447109"/>Allgemeine Begriffe und Techniken<text:bookmark-end text:name="__RefHeading___Toc4742_2830447109"/></text:h>
@@ -1722,7 +1626,7 @@
    <text:p text:style-name="Tekstblok_N1">Erst nachdem Sie auf den Requester reagiert haben, arbeitet der Computer weiter. Sie kön­nen auf einen Requester antworten, indem Sie die darin enthaltenen Gadgets verwenden. Diese Gadgets bestehen meist aus einem Gadget, mit dem Sie die Aufgabe fortsetzen (das <text:span text:style-name="Kleine_20_hoofdletters">Continue</text:span>-Gadget u.a.) und einem Gadget, mit dem Sie die Aufgabe abbrechen (das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget u.a.). Wenn Sie auf einen Requester reagiert haben, verschwindet er und der Computer fährt mit seiner Aufgabe fort.</text:p>
    <text:p text:style-name="P5"><draw:frame draw:style-name="fr3" draw:name="Afbeelding11" text:anchor-type="as-char" svg:y="-2.898cm" svg:width="7.001cm" svg:height="3.161cm" draw:z-index="10"><draw:image xlink:href="fc3_requester.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4728_2830447109"/>Desktop<text:bookmark-end text:name="__RefHeading___Toc4728_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4728_2830447109"/>Desktop<text:bookmark-end text:name="__RefHeading___Toc4728_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4748_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4748_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Der Desktop ist das wichtigste Element der Final Cartridge III, er ist die Drehscheibe, um die sich alles dreht. Vom Desktop aus können Sie zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, zum Freezer usw. gelangen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Öffnen und Schließen des Desktops<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
@@ -2155,7 +2059,7 @@
    <text:p text:style-name="P52"><text:span text:style-name="Kleine_20_hoofdletters">Spezielle Funktionen</text:span></text:p>
    <text:p text:style-name= "Tekstblok_N2">Es ist möglich, in Ihrem Text eine spezielle Funktion einzufügen.</text:p>
    <text:p text:style-name= "Tekstblok_N2">Vorläufig ist nur die Druckerfunktion &quot;Form Feed&quot; implementiert. Sie können diese Funktion einfach in Ihren Text setzen, indem Sie die <text:span text:style-name="Toets">←</text:span>-Taste (Pfeil nach links) drü­cken. Auf dem Bildschirm erscheint dann ebenfalls dieses Zeichen, aber während des Druckens wird an der Stelle dieses Zeichens ein &quot;Form Feed&quot; ausgeführt, wodurch der Drucker mit dem Text, der nach diesem Zeichen folgt, auf einer neuen Seite beginnt.</text:p>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4732_2830447109"/>Basic<text:bookmark-end text:name="__RefHeading___Toc4732_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4732_2830447109"/>Basic<text:bookmark-end text:name="__RefHeading___Toc4732_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4768_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4768_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Vom <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus aus können Sie ganz normal in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> programmieren. Sie können diesen Modus als den Computer ohne Cartridge betrachten.</text:p>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III bietet Ihnen in diesem Modus dennoch viele Extras, wie zum Beispiel:</text:p>
@@ -2785,7 +2689,7 @@
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>A=$0F<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Die Variable A erhält den Wert 15</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>POKE $D020,A<text:tab/><text:tab/>Der Border wird grau</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>SYS $FCE2<text:tab/><text:tab/><text:tab/>Dies setzt den Computer zurück</text:p>
-   <text:h text:style-name="P81" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4734_2830447109"/>Freezer<text:bookmark-end text:name="__RefHeading___Toc4734_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4734_2830447109"/>Freezer<text:bookmark-end text:name="__RefHeading___Toc4734_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4774_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4774_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Der linke Knopf auf der Rückseite der Final Cartridge III ist der Freeze-Knopf. Durch Drü­cken dieses Knopfes können Sie alle Ihre Programme einfrieren.</text:p>
    <text:p text:style-name="Text_20_body">Nachdem Sie den Freeze-Knopf gedrückt haben, können Sie mit Hilfe der Final Cartridge III eine Reihe interessanter Befehle ausführen, wie zum Beispiel das Erstellen eines Backups. Siehe auch das Kapitel <text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Anmerkungen</text:span></text:a>!</text:p>
@@ -3030,16 +2934,16 @@
    <text:p text:style-name="Text_20_body">Sie können den Monitor der Final Cartridge III auf 4 verschiedene Arten starten, nämlich:</text:p>
    <text:list xml:id="list1412720491" text:style-name="L11">
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus geben Sie den Befehl <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> ein.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus geben Sie den Befehl <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> ein.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus drücken Sie die Funktionstaste F2 (<text:span text:style-name="Toets">SHIFT</text:span> + <text:span text:style-name="Toets">f 1</text:span>)</text:p>
+     <text:p text:style-name="DecLijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus drücken Sie die Funktionstaste F2 (<text:span text:style-name="Toets">SHIFT</text:span> + <text:span text:style-name="Toets">f 1</text:span>)</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus wählen Sie im System-Pull-Down-Menü <text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:p>
+     <text:p text:style-name="DecLijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus wählen Sie im System-Pull-Down-Menü <text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstEinde">Im <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Modus wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:p>
+     <text:p text:style-name="DecLijstEinde">Im <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Modus wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Der Monitor meldet sich dann durch die Anzeige der Register, wobei die angezeigten Werte abweichen können. (Die Bedeutung der Symbole finden Sie beim R(egister)-Befehl)</text:p>
@@ -3054,10 +2958,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4982_2164442888"/>Speicherdarstellung<text:bookmark-end text:name="__RefHeading___Toc4982_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Sie können im Speicher verschiedene Daten ablegen. Dies können unter anderem Zahlen, Texte, Programme, Characters und Sprites sein. Die Final Cartridge III bietet Ihnen nun die Möglichkeit, den Speicher in all diesen Formen anzuzeigen. Um es Ihnen deutlicher zu machen, zeigen wir Ihnen denselben Speicherabschnitt in den verschiedenen Darstellungs­möglichkeiten:</text:p>
    <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI<text:tab/></text:span><text:tab/>Zahlendarstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.‘2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/>Textdarstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
+   <text:span text:style-name="Monospace">.‘2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/>Textdarstellung<text:line-break/><text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4984_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4984_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Wenn der Speicher in einer der Darstellungsmöglichkeiten angezeigt wird, haben Sie die Möglichkeit zu scrollen. Damit meinen wir, dass Sie den Bildschirm verschieben können, um die Speicheradressen vor oder nach dem auf dem Bildschirm angezeigten Abschnitt zu betrachten. Dies können Sie bewerkstelligen, indem Sie den Cursor am oberen oder unte­ren Bildschirmrand hinausbewegen. Dadurch wird der vorherige oder der nächste Ab­schnitt automatisch auf dem Bildschirm angezeigt.</text:p>
    <text:p text:style-name="Tekstblok_N1">Die Scroll-Möglichkeit wurde in die Final Cartridge III eingebaut, um das Betrachten gro­ßer Teile des Speichers zu erleichtern.</text:p>
@@ -3065,10 +2966,7 @@
    <text:p text:style-name="Tekstblok_N1">Eine einfache Möglichkeit, die bei vielen der Anzeigeoptionen vorhanden ist, ist das Ver­bessern des Inhalts. Hierfür müssen Sie nur die gewünschten Daten über die vorhandenen Daten tippen. Nach einem Druck auf die <text:span text:style-name="Toets">RETURN</text:span>-Taste werden die neuen Daten über­nommen.</text:p>
    <text:p text:style-name="Tekstblok_N1">Die Daten, die Sie in den verschiedenen Darstellungsmöglichkeiten ändern können, sind in der folgenden Aufzählung unterstrichen.</text:p>
    <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI</text:span><text:tab/><text:tab/>Zahlendarstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/>Textdarstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/>
-   <text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
+   <text:span text:style-name="Monospace">.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/>Textdarstellung<text:line-break/><text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
    <text:h text:style-name="Standard" text:outline-level="3"></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3" text:is-list-header="true"><text:bookmark-start text:name="__RefHeading___Toc4988_2164442888"/>Bank switching<text:bookmark-end text:name="__RefHeading___Toc4988_2164442888"/></text:h>
    <text:p text:style-name="P93">In Ihrem Commodore sind verschiedene ROMs untergebracht. Diese können vom Monitor aus ein- und ausgeschaltet werden. Sie schalten dann zwischen den verschiedenen Speicherbänken um, und dies nennt man Bank Switching. In der Registeranzeige wird dargestellt, welche Bänke Sie eingeschaltet haben. Welche Werte mit welchen Bänken übereinstimmen, wird ausführlich beim <text:a xlink:type="simple" xlink:href="#O (MONITOR)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">O-Befehl</text:a> besprochen.</text:p>
@@ -3083,7 +2981,7 @@
    <text:p text:style-name="Tekstblok_N1">Bei der Auflistung der Befehle wird dies durch ein C für Computer oder ein D für Disk-Laufwerk unter &quot;Befehlsart:&quot; angegeben. Falls die Befehle sich auf beide beziehen können, werden beide genannt.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4992_2164442888"/><text:span text:style-name="Kleine_20_hoofdletters">Funktionstasten</text:span><text:bookmark-end text:name="__RefHeading___Toc4992_2164442888"/></text:h>
    <text:p text:style-name="P24">Bei der Verwendung des Monitors sind die folgenden Funktionstasten wie folgt definiert:</text:p>
-   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Toets"><text:s/>f 3 </text:span> aufwärts scrollen<text:line-break/><text:span text:style-name="Toets"><text:s/>f 5 </text:span> abwärts scrollen<text:line-break/><text:span text:style-name="Toets"><text:s/>f 7 </text:span> Directory</text:p>
+   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Toets"><text:s/>f 3 </text:span><text:s/>aufwärts scrollen<text:line-break/><text:span text:style-name="Toets"><text:s/>f 5 </text:span><text:s/>abwärts scrollen<text:line-break/><text:span text:style-name="Toets"><text:s/>f 7 </text:span><text:s/>Directory</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4788_2830447109"/>Übersicht der Monitor-Befehle<text:bookmark-end text:name="__RefHeading___Toc4788_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Unten sehen Sie eine Übersicht aller Befehle, die Ihnen nach dem Start des Monitors zur Verfügung stehen. Jeder Befehl wird behandelt.</text:p>
    <text:table-of-content text:style-name="Sect1" text:name="Inhoudsopgave3">
