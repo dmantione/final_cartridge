@@ -230,10 +230,10 @@
   <style:style style:name="Monospace" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt"/>
   </style:style>
-  <style:style style:name="Monospace klein" style:family="paragraph" style:parent-style-name="Monospace">
+  <style:style style:name="Monospace klein" style:display-name="Monospace klein" style:family="paragraph" style:parent-style-name="Monospace">
    <style:text-properties fo:font-size="8pt"/>
   </style:style>
-  <style:style style:name="Monospace klein vet" style:family="paragraph" style:parent-style-name="Monospace klein">
+  <style:style style:name="Monospace klein vet" style:display-name="Monospace klein vet" style:family="paragraph" style:parent-style-name="Monospace klein">
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Calctab" style:display-name="Calculator-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -304,9 +304,13 @@
    <style:paragraph-properties fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none"/>
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
-  <style:style style:name="Monitorinhoud1" style:family="paragraph" style:parent-style-name="Contents_20_1" style:master-page-name="">
+  <style:style style:name="Monitorinhoud" style:family="paragraph" style:parent-style-name="Contents_20_1" style:master-page-name="">
    <style:paragraph-properties style:page-number="auto">
     <style:drop-cap/>
+    <style:tab-stops>
+     <style:tab-stop style:position="0.75cm" style:type="left"/>
+     <style:tab-stop style:position="12.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+    </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_1" style:display-name="Freezer kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -745,10 +749,6 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P51" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
   <style:style style:name="P52" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
@@ -806,204 +806,7 @@
   <style:style style:name="P74" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.101cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
-  <style:style style:name="P76" style:family="paragraph" style:parent-style-name="Monitorinhoud1">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="12.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P78" style:family="paragraph" style:parent-style-name="Inhoudsopgave_20_1_20_inspring">
-   <style:paragraph-properties>
-    <style:tab-stops>
-     <style:tab-stop style:position="12.4cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P81" style:family="paragraph" style:parent-style-name="Heading_20_1">
-   <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
-  <style:style style:name="P82" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P83" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P84" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P85" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P86" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P87" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P88" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P90" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P91" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P92" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P93" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P96" style:family="paragraph" style:parent-style-name="Table_20_Contents">
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P100" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties  />
-  </style:style>
-  <style:style style:name="P101" style:family="paragraph" style:parent-style-name="Heading_20_1">
-   <style:paragraph-properties fo:break-before="page"/>
-  </style:style>
-  <style:style style:name="P102" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="11pt" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="P103" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P104" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="P105" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal" />
-  </style:style>
-  <style:style style:name="P107" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L7">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P108" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L7">
-   <style:paragraph-properties>
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P109" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Numbering_20_IVX" style:master-page-name="">
-   <style:paragraph-properties style:page-number="auto">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P110" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Numbering_20_IVX">
-   <style:paragraph-properties>
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P111" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Numbering_5f_20_5f_sub"/>
-  <style:style style:name="P112" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1"/>
-  <style:style style:name="P113" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L1">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P114" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L2">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P115" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L2">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P116" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P117" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P118" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P119" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P120" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P121" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P122" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6"/>
-  <style:style style:name="P123" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P124" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P125" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties />
-  </style:style>
-  <style:style style:name="P126" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8"/>
-  <style:style style:name="P127" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P128" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9"/>
-  <style:style style:name="P129" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P130" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10"/>
-  <style:style style:name="P131" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="T1" style:family="text">
-   <style:text-properties style:font-name="Commodore 64" fo:font-size="10pt"/>
-  </style:style>
-  <style:style style:name="T3" style:family="text">
-   <style:text-properties fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="T4" style:family="text">
-   <style:text-properties fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="T6" style:family="text">
-   <style:text-properties fo:font-size="9.5pt" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="T11" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="16.7999992370605pt" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="T12" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="11pt" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="T13" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="T16" style:family="text">
-   <style:text-properties loext:opacity="100%" fo:font-size="9.5pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
-  </style:style>
-  <style:style style:name="T17" style:family="text">
-   <style:text-properties loext:opacity="100%" fo:font-size="9.5pt" />
-  </style:style>
-  <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="fr2" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="fr3" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="from-top" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="fr4" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="from-top" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="fr5" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="Sect1" style:family="section">
-   <style:section-properties style:editable="false">
-    <style:columns fo:column-count="1" fo:column-gap="0cm"/>
-   </style:section-properties>
-  </style:style>
+  
   <text:list-style style:name="L1">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -1502,7 +1305,7 @@
   </style:master-page>
  </office:master-styles>
  <office:body>
-  <office:text text:use-soft-page-breaks="true">
+  <office:text text:use-soft-page-breaks="false">
    <text:sequence-decls>
     <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
@@ -1643,7 +1446,7 @@
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4965_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Pointer<text:tab/>20</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4967_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Screen<text:tab/>20</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4969_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Driver<text:tab/>20</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:soft-page-break/><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4971_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Velocity<text:tab/>20</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4971_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Velocity<text:tab/>20</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4973_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Acceleration<text:tab/>20</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4975_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Default<text:tab/>21</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4977_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">View<text:tab/>21</text:a></text:p>
@@ -1689,7 +1492,7 @@
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4766_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Notepad<text:tab/>30</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5049_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Einleitung<text:tab/>30</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5051_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Öffnen und Schließen von Notepad<text:tab/>30</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:soft-page-break/><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5053_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Verwendung der Notepad-Befehle<text:tab/>30</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5053_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Verwendung der Notepad-Befehle<text:tab/>30</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5055_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Das eingeben von Text<text:tab/>32</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4732_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Basic<text:tab/>33</text:a></text:p>
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4768_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Einleitung<text:tab/>33</text:a></text:p>
@@ -1735,7 +1538,7 @@
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4800_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zum Desktop<text:tab/>68</text:a></text:p>
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4802_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zum Reset<text:tab/>68</text:a></text:p>
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4804_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zu Basic<text:tab/>68</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:soft-page-break/><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4806_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zu Mäusen<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4806_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zu Mäusen<text:tab/>68</text:a></text:p>
      <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4808_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Anmerkungen zum Disk-Schnelllader<text:tab/>68</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
@@ -1858,7 +1661,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4815_2830447109"/>Klicken und Auswählen<text:bookmark-end text:name="__RefHeading___Toc4815_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Die meisten Befehle der Final Cartridge III werden ausgewählt, indem man den entspre­chenden Befehl auf dem Bildschirm anzeigt und dann den Feuerknopf des Joysticks oder der Maus drückt, das sogenannte Klicken.</text:p>
    <text:p text:style-name="Tekstblok_N1">Wenn ein Befehl durch Anzeigen und Klicken ausgewählt wird, nennen wir das Auswäh­len.</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4744_2830447109"/><text:soft-page-break/>Menüs<text:bookmark-end text:name="__RefHeading___Toc4744_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4744_2830447109"/>Menüs<text:bookmark-end text:name="__RefHeading___Toc4744_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4817_2830447109"/>Einführung in die Menüs<text:bookmark-end text:name="__RefHeading___Toc4817_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Ein Menü ist eine Liste verschiedener Funktionen, die mit Hilfe des Pointers und des Feu­erknopfes aufgerufen wird.</text:p>
    <text:p text:style-name="Tekstblok_N1">Oben auf dem Bildschirm finden Sie:</text:p>
@@ -1874,7 +1677,7 @@
    <text:p text:style-name="Tekstblok_N1">In Menüs kommen zwei verschiedene Arten von Items vor. Befehle sind Items, die Sie wählen, um eine Aktion auszuführen. So ist zum Beispiel Calculator ein Befehl (also auch ein Item) im Utilities-Menü. Optionen sind Auswahlen, die so lange wirken, bis sie wieder ausgeschaltet werden. So ist zum Beispiel Time eine Option im Clock-Menü (solange Time gewählt ist, erscheint die Uhrzeit in der Menüleiste). Wenn Sie eine Option einge­schaltet haben, können Sie das daran erkennen, dass im Menü hinter dem Item ein Häk­chen gesetzt wird. Um die Option wieder auszuschalten, wählen Sie die Option erneut aus, woraufhin das Häkchen verschwindet.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4746_2830447109"/>Windows<text:bookmark-end text:name="__RefHeading___Toc4746_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4821_2830447109"/>Einführung in Windows<text:bookmark-end text:name="__RefHeading___Toc4821_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Sie können sich Windows wie Zettel vorstellen, die über den Bildschirm verteilt sind. Ein Zettel enthält zum Beispiel das Directory einer Diskette. Darüber legen Sie einen anderen Zettel, der das Directory einer zweiten Diskette enthält. Wenn der zweite Zettel nun ent­fernt wird, ist der erste wieder zu sehen – und so funktioniert es auch bei der Final Cart­ridge III. Später in diesem Abschnitt werden einige Techniken zur Manipulation von Win­dows besprochen, aber für den Moment reicht es zu wissen, dass jedes Fenster – und es <text:soft-page-break/>passen mehr auf den Bildschirm, als Sie erwarten – genauso viele Informationen des Com­puters enthalten kann wie ein einzelner Bildschirm des Standard-Commodore.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Sie können sich Windows wie Zettel vorstellen, die über den Bildschirm verteilt sind. Ein Zettel enthält zum Beispiel das Directory einer Diskette. Darüber legen Sie einen anderen Zettel, der das Directory einer zweiten Diskette enthält. Wenn der zweite Zettel nun ent­fernt wird, ist der erste wieder zu sehen – und so funktioniert es auch bei der Final Cart­ridge III. Später in diesem Abschnitt werden einige Techniken zur Manipulation von Win­dows besprochen, aber für den Moment reicht es zu wissen, dass jedes Fenster – und es passen mehr auf den Bildschirm, als Sie erwarten – genauso viele Informationen des Com­puters enthalten kann wie ein einzelner Bildschirm des Standard-Commodore.</text:p>
    <text:p text:style-name="P6"><draw:frame draw:style-name="fr2" draw:name="Afbeelding6" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.68cm" draw:z-index="5"><draw:image xlink:href="fc3_desktop3.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_N1">Die Möglichkeit, verschiedene Windows gleichzeitig auf dem Bildschirm anzuzeigen, ist zum Beispiel sehr praktisch, wenn Sie, während das Directory in einem Fenster angezeigt wird, schnell ein paar Berechnungen mit dem Calculator in einem anderen Fenster durch­führen möchten.</text:p>
@@ -1888,7 +1691,7 @@
    <text:p text:style-name="P41">Toback-Gadget<text:tab/>Um Fenster nach hinten zu setzen</text:p>
    <text:p text:style-name="P41">String-Gadget<text:tab/>Um Texte einzugeben</text:p>
    <text:p text:style-name="P40">Toggle-Gadget<text:tab/>Um Optionen auszuwählen.</text:p>
-   <text:p text:style-name="P61"><text:soft-page-break/>Viele dieser Gadgets finden Sie in der untenstehenden Abbildung eines Windows.</text:p>
+   <text:p text:style-name="P61">Viele dieser Gadgets finden Sie in der untenstehenden Abbildung eines Windows.</text:p>
    <text:p text:style-name="P7"><draw:frame draw:style-name="fr2" draw:name="Afbeelding7" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.919cm" draw:z-index="6"><draw:image xlink:href="fc3_calculator.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_N1">Windows können eines oder mehrere dieser Gadgets enthalten. Darüber hinaus können Windows andere Gadgets enthalten, die für die spezielle Aufgabe dieses Fensters benötigt werden. So enthält der Calculator Gadgets, die die einzudrückenden Tasten darstellen.</text:p>
@@ -1906,7 +1709,7 @@
     </draw:frame></text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Schließen von Fenstern<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Um ein Fenster zu schließen, wählen Sie das Close-Gadget. Dieses Gadget finden Sie in fast jedem Fenster in der linken oberen Ecke.</text:p>
-   <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/><text:soft-page-break/>Kommunikation mit einem Fenster<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
+   <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Kommunikation mit einem Fenster<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Wenn ein Programm einen Namen von Ihnen benötigt, zum Beispiel um den Namen und die ID einer neu zu formatierenden Diskette zu erfragen, müssen Sie ein String-Gadget verwenden. Wenn Sie ein solches String-Gadget auswählen, erscheint ein Cursor, worauf­hin Sie den gewünschten Namen eingeben können. Wenn Sie außerhalb des Gadgets kli­cken oder die <text:span text:style-name="Toets">RETURN</text:span>-Taste drücken, verschwindet der Cursor und das Gadget ist nicht mehr ausgewählt. Um das Gadget erneut auszuwählen, zeigen Sie mit dem Pointer irgend­wo innerhalb des Gadgets und klicken.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requester<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Manchmal ist es erforderlich, ein Programm zu steuern oder eine bestimmte Aktion zu be­stätigen. Dies geschieht mittels eines Requesters. Wenn Sie zum Beispiel eine Diskette for­matieren möchten, erscheint ein Requester, der Ihnen die Möglichkeit bietet, den Befehl fortzusetzen oder abzubrechen. Diesen Requester sehen Sie hier abgebildet.</text:p>
@@ -1951,7 +1754,7 @@
    <text:p text:style-name= "Tekstblok_N2">Mit dem Version-Befehl wird ein Requester geöffnet, in dem die Versionsnummern der verschiedenen Komponenten der Final Cartridge III zu finden sind.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4941_2830447109"/>System<text:bookmark-end text:name="__RefHeading___Toc4941_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Im System-Menü stehen einige Systembefehle.</text:p>
-   <text:p text:style-name="P19"><text:soft-page-break/><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:p>
+   <text:p text:style-name="P19"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:p>
    <text:p text:style-name= "Tekstblok_N2">Mit dem &quot;Basic&quot;-Befehl können Sie vom Desktop aus zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> gelangen.</text:p>
    <text:p text:style-name= "Tekstblok_N2">Nachdem Sie auf den dann geöffneten Requester reagiert haben, landen Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>. Da die Final Cartridge III <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> so erweitert, werden alle Möglichkeiten des erweiter­ten <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> in einem separaten Kapitel mit dem Namen <text:a xlink:type="simple" xlink:href="#9.Basic|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Basic</text:a> besprochen.</text:p>
    <text:p text:style-name="P19"><text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span></text:p>
@@ -1973,7 +1776,7 @@
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4947_2830447109"/>Clock<text:bookmark-end text:name="__RefHeading___Toc4947_2830447109"/></text:h>
    <text:p text:style-name= "Tekstblok_N2">Im Clock-Menü stehen einige Befehle, die sich auf die in der Final Cartridge III einge­baute Uhr beziehen.</text:p>
    <text:p text:style-name="P19"><text:span text:style-name="Kleine_20_hoofdletters">Time</text:span></text:p>
-   <text:p text:style-name= "Tekstblok_N2"><text:soft-page-break/>Mit der Time-Option können Sie bestimmen, ob die Systemzeit in der Menüleiste ange­zeigt wird. Wenn Time ausgewählt ist, wird die Zeit in der Menüleiste angezeigt. Wenn Sie die Time-Option erneut auswählen, verschwindet die Zeit wieder.</text:p>
+   <text:p text:style-name= "Tekstblok_N2">Mit der Time-Option können Sie bestimmen, ob die Systemzeit in der Menüleiste ange­zeigt wird. Wenn Time ausgewählt ist, wird die Zeit in der Menüleiste angezeigt. Wenn Sie die Time-Option erneut auswählen, verschwindet die Zeit wieder.</text:p>
    <text:p text:style-name= "Tekstblok_N2"><text:span text:style-name="Kleine_20_hoofdletters">Alarm</text:span></text:p>
    <text:p text:style-name= "Tekstblok_N2">Mit der Alarm-Option können Sie den Alarm ein- und ausschalten. Wenn der Alarm eingeschaltet ist, wird der Alarm zur von Ihnen eingestellten Zeit ausgelöst. Wenn Sie die Alarm-Option erneut auswählen, schalten Sie den Alarm wieder aus.</text:p>
    <text:p text:style-name="P19"><text:span text:style-name="Kleine_20_hoofdletters">Settings</text:span></text:p>
@@ -2017,14 +1820,14 @@
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4953_2830447109"/>Verwendung des Calculators<text:bookmark-end text:name="__RefHeading___Toc4953_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Im Calculator-Fenster kann jede &quot;Taste&quot; mit dem Pointer ausgewählt werden.</text:p>
    <text:p text:style-name="Tekstblok_N1">Die folgenden Tasten stimmen mit den Funktionen überein:</text:p>
-   <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Taste<text:tab/>Gadget<text:tab/>Funktion</text:span><text:line-break/><text:span text:style-name="Toets"> + </text:span><text:tab/>+<text:tab/>Addieren<text:line-break/><text:span text:style-name="Toets"> – </text:span><text:tab/>–<text:tab/>Subtrahieren<text:line-break/><text:span text:style-name="Toets"> / </text:span><text:tab/>÷<text:tab/>Dividieren<text:line-break/><text:span text:style-name="Toets"> * </text:span><text:tab/>×<text:tab/>Multiplizieren<text:line-break/><text:span text:style-name="Toets"> = </text:span>oder <text:span text:style-name="Toets">RETURN</text:span><text:tab/>= <text:tab/>Ergebnis berechnen<text:line-break/><text:span text:style-name="Toets"> E </text:span><text:tab/>ME<text:tab/>Memory Enter<text:line-break/><text:span text:style-name="Toets"> C </text:span><text:tab/>MC<text:tab/>Memory Clear<text:line-break/><text:span text:style-name="Toets"> R </text:span><text:tab/>MR<text:tab/>Memory Recall<text:line-break/><text:span text:style-name="Toets">CLR/HOME</text:span><text:tab/>C<text:tab/>Clear<text:line-break/><text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">CLR/HOME</text:span><text:line-break/><text:soft-page-break/><text:span text:style-name="Toets">INST/DEL</text:span><text:tab/>AC<text:tab/>All Clear<text:line-break/><text:span text:style-name="Toets"> . </text:span>oder <text:span text:style-name="Toets">, </text:span><text:tab/>.<text:tab/>Dezimalpunkt</text:p>
+   <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Taste<text:tab/>Gadget<text:tab/>Funktion</text:span><text:line-break/><text:span text:style-name="Toets"> + </text:span><text:tab/>+<text:tab/>Addieren<text:line-break/><text:span text:style-name="Toets"> – </text:span><text:tab/>–<text:tab/>Subtrahieren<text:line-break/><text:span text:style-name="Toets"> / </text:span><text:tab/>÷<text:tab/>Dividieren<text:line-break/><text:span text:style-name="Toets"> * </text:span><text:tab/>×<text:tab/>Multiplizieren<text:line-break/><text:span text:style-name="Toets"> = </text:span>oder <text:span text:style-name="Toets">RETURN</text:span><text:tab/>= <text:tab/>Ergebnis berechnen<text:line-break/><text:span text:style-name="Toets"> E </text:span><text:tab/>ME<text:tab/>Memory Enter<text:line-break/><text:span text:style-name="Toets"> C </text:span><text:tab/>MC<text:tab/>Memory Clear<text:line-break/><text:span text:style-name="Toets"> R </text:span><text:tab/>MR<text:tab/>Memory Recall<text:line-break/><text:span text:style-name="Toets">CLR/HOME</text:span><text:tab/>C<text:tab/>Clear<text:line-break/><text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">CLR/HOME</text:span><text:line-break/><text:span text:style-name="Toets">INST/DEL</text:span><text:tab/>AC<text:tab/>All Clear<text:line-break/><text:span text:style-name="Toets"> . </text:span>oder <text:span text:style-name="Toets">, </text:span><text:tab/>.<text:tab/>Dezimalpunkt</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4955_2830447109"/>Die Standardfunktionen<text:bookmark-end text:name="__RefHeading___Toc4955_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Um Sie mit den Standardfunktionen vertraut zu machen, folgen hier einige Beispiele:</text:p>
    <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>4<text:tab/>4<text:line-break/>+<text:tab/>4<text:line-break/>96<text:tab/>96<text:line-break/>=<text:tab/>1 00<text:line-break/>AC<text:tab/>0<text:line-break/>999<text:tab/>999<text:line-break/>:<text:tab/>999<text:line-break/>3<text:tab/>3<text:line-break/>=<text:tab/>333 <text:line-break/>AC<text:tab/>0<text:line-break/>1000<text:tab/>1000<text:line-break/>+<text:tab/>1000<text:line-break/>–<text:tab/>1000<text:line-break/>750<text:tab/>7 50<text:line-break/>=<text:tab/>250</text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4957_2830447109"/>Der Speicher<text:bookmark-end text:name="__RefHeading___Toc4957_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Um Sie mit der Verwendung des Speichers vertraut zu machen, folgen hier einige Beispie­le:</text:p>
    <text:p text:style-name="Calctab"><text:span text:style-name="Vetgedrukt">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>MC<text:tab/>0<text:line-break/>7.25<text:tab/>7.25<text:line-break/>+<text:tab/>7.25<text:line-break/>6.25<text:tab/>6.25<text:line-break/>+<text:tab/>13.5<text:line-break/>8.5<text:tab/>8.5<text:line-break/>=<text:tab/>22<text:line-break/>ME<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>4<text:tab/>M 4<text:line-break/>=<text:tab/>M 5.5<text:line-break/>MR<text:tab/>M 22<text:line-break/>/<text:tab/>M 22<text:line-break/>3<text:tab/>M 3<text:line-break/>=<text:tab/>7.33333334</text:span></text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4756_2830447109"/><text:soft-page-break/>Preferences<text:bookmark-end text:name="__RefHeading___Toc4756_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4756_2830447109"/>Preferences<text:bookmark-end text:name="__RefHeading___Toc4756_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4959_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4959_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Mit Preferences (auf Deutsch „Präferenzen&quot;) können Sie eine Reihe von Einstellungen der Final Cartridge III ändern, denken Sie nur an die Bildschirmfarben usw.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4961_2830447109"/>Öffnen und Schließen von Preferences<text:bookmark-end text:name="__RefHeading___Toc4961_2830447109"/></text:h>
@@ -2044,7 +1847,7 @@
    <text:p text:style-name="Tekstblok_N1">Die drei Gadgets bei <text:span text:style-name="Kleine_20_hoofdletters">Velocity</text:span> ermöglichen es Ihnen, die Geschwindigkeit des Pointers zu ändern.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4973_2830447109"/>Acceleration<text:bookmark-end text:name="__RefHeading___Toc4973_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Die drei Gadgets bei <text:span text:style-name="Kleine_20_hoofdletters">Acceleration</text:span> ermöglichen es Ihnen, die Akzelleration des Pointers zu ändern.</text:p>
-   <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4975_2830447109"/><text:soft-page-break/>Default<text:bookmark-end text:name="__RefHeading___Toc4975_2830447109"/></text:h>
+   <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4975_2830447109"/>Default<text:bookmark-end text:name="__RefHeading___Toc4975_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Wenn Sie die Standardeinstellungen sehen möchten, wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">Default</text:span>.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4977_2830447109"/>View<text:bookmark-end text:name="__RefHeading___Toc4977_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Wenn Sie sehen möchten, wie Sie alles eingestellt haben, wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">View</text:span> (ansehen). Die Einstellungen bleiben dann aktiv, bis Sie den Feuerknopf wieder loslassen.</text:p>
@@ -2062,7 +1865,7 @@
    <text:p text:style-name="Tekstblok_N1">Die Möglichkeiten, die das &quot;Disk Operations&quot;-Fenster Ihnen bietet, werden hier unten kurz aufgeführt. Weiter unten werden alle diese Befehle im Detail mit Ihnen durchgegangen.</text:p>
    <text:p text:style-name="Tekstblok_N1">Einen Programmnamen ändern<text:line-break/>Ein Programm starten<text:line-break/>Einen Diskettennamen ändern<text:line-break/>Eine Diskette schnell formatieren<text:line-break/>Eine Diskette leeren<text:line-break/>Eine Diskette initialisieren<text:line-break/>Eine Diskette validieren<text:line-break/>Ein Programm von der Diskette löschen<text:line-break/>Das Anzeigen von Directories (bis zu drei gleichzeitig!)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4989_2830447109"/>Öffnen eines Directory-Fensters<text:bookmark-end text:name="__RefHeading___Toc4989_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Sie können ein Directory auf dem Bildschirm anzeigen, indem Sie eines der drei <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gad­<text:soft-page-break/>gets auswählen. (Wenn Sie zwei Diskettenlaufwerke besitzen, können Sie durch vorheriges Auswählen des 9-Gadgets auch das Directory des Diskettenlaufwerks mit der Gerätenum­mer 9 auf dem Bildschirm anzeigen.) Wenn Sie das <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget auswählen, erscheint ein Fenster, das vorübergehend den Namen <text:span text:style-name="Kleine_20_hoofdletters">Loading Directory</text:span> trägt. Sobald das Directory ge­laden ist, erscheint der Name des Directories als Fenstername (dies dient dazu, später die verschiedenen Directories auseinanderhalten zu können). Um in einem bereits geöffneten Directory-Fenster ein neues Directory zu lesen, wählen Sie das Read-Gadget, das Sie rechts unten in jedem Directory-Fenster finden können.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Sie können ein Directory auf dem Bildschirm anzeigen, indem Sie eines der drei <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gad­gets auswählen. (Wenn Sie zwei Diskettenlaufwerke besitzen, können Sie durch vorheriges Auswählen des 9-Gadgets auch das Directory des Diskettenlaufwerks mit der Gerätenum­mer 9 auf dem Bildschirm anzeigen.) Wenn Sie das <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget auswählen, erscheint ein Fenster, das vorübergehend den Namen <text:span text:style-name="Kleine_20_hoofdletters">Loading Directory</text:span> trägt. Sobald das Directory ge­laden ist, erscheint der Name des Directories als Fenstername (dies dient dazu, später die verschiedenen Directories auseinanderhalten zu können). Um in einem bereits geöffneten Directory-Fenster ein neues Directory zu lesen, wählen Sie das Read-Gadget, das Sie rechts unten in jedem Directory-Fenster finden können.</text:p>
    <text:p text:style-name="P6"><draw:frame draw:style-name="fr2" draw:name="Afbeelding14" text:anchor-type="as-char" svg:width="4.5cm" svg:height="3.33cm" draw:z-index="13"><draw:image xlink:href="fc3_diskops2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame><text:s text:c="12"/><draw:frame draw:style-name="fr2" draw:name="Afbeelding15" text:anchor-type="as-char" svg:width="3.5cm" svg:height="3.15cm" draw:z-index="14"><draw:image xlink:href="fc3_directorywindow.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
@@ -2073,7 +1876,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4995_2830447109"/>Sortieren eines Directories<text:bookmark-end text:name="__RefHeading___Toc4995_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Mit der Final Cartridge III ist es möglich, das Directory Ihrer Diskette zu sortieren. Dies tun Sie wie folgt: Zuerst öffnen Sie ein Directory-Fenster, in dem Sie das Sort-Gadget aus­wählen. Wenn Sie nun ein Programm auswählen, können Sie es mit Hilfe der Up- oder Down-Gadgets verschieben. Wenn es an der gewünschten Stelle steht, wählen Sie einfach ein anderes Programm aus, das Sie verschieben möchten, solange, bis alle richtig stehen. Sie können dann sogar noch leere Zeilen im Directory platzieren, um alles übersichtlich zu halten. Dies tun Sie, indem Sie zuerst das Programm auswählen, über dem Sie die leere Zeile haben möchten, dann das Line-Gadget auswählen und auf den Requester antworten. Erst wenn das gesamte Directory nach Ihren Wünschen ist, wählen Sie erneut das Sort-Gadget aus, woraufhin ein Requester geöffnet wird, der fragt, ob Sie sich sicher sind. Wenn ja, wird das Directory auf Ihrer Diskette erneuert.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4997_2830447109"/>Anzeigen des Error-Kanals<text:bookmark-end text:name="__RefHeading___Toc4997_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Mit Hilfe des Toggle-Gadgets <text:span text:style-name="Kleine_20_hoofdletters">Read Status</text:span> können Sie den Status Ihres Diskettenlaufwerks abfragen. Wenn <text:span text:style-name="Kleine_20_hoofdletters">Read Status</text:span> ausgewählt ist, wird nach jedem Disk-Befehl der Error-Kanal angezeigt. Der Nachteil der Auswahl dieses Gadgets ist, dass Sie, während der Computer <text:soft-page-break/>auf den Error-Kanal wartet, keine Kontrolle über den Pointer haben.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Mit Hilfe des Toggle-Gadgets <text:span text:style-name="Kleine_20_hoofdletters">Read Status</text:span> können Sie den Status Ihres Diskettenlaufwerks abfragen. Wenn <text:span text:style-name="Kleine_20_hoofdletters">Read Status</text:span> ausgewählt ist, wird nach jedem Disk-Befehl der Error-Kanal angezeigt. Der Nachteil der Auswahl dieses Gadgets ist, dass Sie, während der Computer auf den Error-Kanal wartet, keine Kontrolle über den Pointer haben.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4999_2830447109"/>Runnen eines Programms<text:bookmark-end text:name="__RefHeading___Toc4999_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Zuerst wählen Sie das Programm aus, das Sie starten möchten. Danach wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Run</text:span>-Gadget und dann das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget, um den endgültigen Befehl zu geben. Nachdem Sie auf den dann geöffneten Requester reagiert haben, wird das Programm mit Hilfe des einge­bauten Schnellladers geladen und automatisch gestartet.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5001_2830447109"/>Validieren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5001_2830447109"/></text:h>
@@ -2091,7 +1894,7 @@
    <text:p text:style-name="Tekstblok_N1">Legen Sie die Diskette, die Sie leeren möchten, in Ihr Diskettenlaufwerk ein. Danach wäh­len Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Empty</text:span>. Nun wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-String-Gadget aus, um den Namen der Diskette einzugeben. Den endgültigen Befehl geben Sie, indem Sie das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget auswählen und auf den geöffneten Requester reagieren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5011_2830447109"/>Ändern eines Programmnamens<text:bookmark-end text:name="__RefHeading___Toc5011_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Zuerst wählen Sie das Programm aus, dessen Namen Sie ändern möchten. Danach wählen Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Rename</text:span>, woraufhin der Name des ausgewählten Pro­gramms im String-Gadget <text:span text:style-name="Kleine_20_hoofdletters">From</text:span> erscheint.</text:p>
-   <text:p text:style-name="Tekstblok_N1">Im <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-Gadget steht der Name, den das Programm derzeit hat. Im <text:span text:style-name="Kleine_20_hoofdletters">To</text:span>-Gadget können Sie, indem Sie es auswählen, den Namen des Programms anpassen oder erneuern. Den endgül­<text:soft-page-break/>tigen Befehl zum Ändern des Namens geben Sie, indem Sie das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget auswählen.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Im <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-Gadget steht der Name, den das Programm derzeit hat. Im <text:span text:style-name="Kleine_20_hoofdletters">To</text:span>-Gadget können Sie, indem Sie es auswählen, den Namen des Programms anpassen oder erneuern. Den endgül­tigen Befehl zum Ändern des Namens geben Sie, indem Sie das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget auswählen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5013_2830447109"/>Ändern eines Diskettennamens<text:bookmark-end text:name="__RefHeading___Toc5013_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Zuerst wählen Sie das Verzeichnis aus, dessen Namen Sie ändern möchten. Danach wählen Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Rename</text:span>, woraufhin der Name der Diskette im String-Gad­get <text:span text:style-name="Kleine_20_hoofdletters">From</text:span> erscheint.</text:p>
    <text:p text:style-name="Tekstblok_N1">Im <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-Gadget steht der Name, den die Diskette derzeit hat. Im <text:span text:style-name="Kleine_20_hoofdletters">To</text:span>-Gadget können Sie, indem Sie es auswählen, den Namen der Diskette anpassen oder erneuern. Den endgülti­gen Befehl zum Ändern des Namens geben Sie, indem Sie das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget auswählen.</text:p>
@@ -2111,7 +1914,7 @@
    <text:p text:style-name="Tekstblok_N1">Sie schließen das Tape-Fenster, indem Sie das Close-Gadget in der linken oberen Ecke auswählen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5023_2830447109"/>Verwendung von Tape<text:bookmark-end text:name="__RefHeading___Toc5023_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Das Tape-Fenster bietet Ihnen zwei Gadgets zum Laden eines Programms:</text:p>
-   <text:p text:style-name="Tekstblok_N1"><text:soft-page-break/><text:span text:style-name="Kleine_20_hoofdletters">Slow</text:span> zum langsamen Laden eines Programms<text:line-break/><text:span text:style-name="Kleine_20_hoofdletters">Fast</text:span> zum schnellen Laden eines Programms</text:p>
+   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Kleine_20_hoofdletters">Slow</text:span> zum langsamen Laden eines Programms<text:line-break/><text:span text:style-name="Kleine_20_hoofdletters">Fast</text:span> zum schnellen Laden eines Programms</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4762_2830447109"/>Basic Preferences<text:bookmark-end text:name="__RefHeading___Toc4762_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5025_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc5025_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Von diesem Fenster aus können Sie Einstellungen, die aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> heraus nützlich sind, än­dern, wie zum Beispiel das Blinken des Cursors, die Randfarbe usw. Diese Einstellungen sind nur in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> aktiv.</text:p>
@@ -2134,7 +1937,7 @@
    <text:p text:style-name="Tekstblok_N1">Wenn Sie diese Option ausschalten, können Sie das numerische Tastenfeld des Commodo­re 128 nicht mehr verwenden.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4764_2830447109"/>Printer<text:bookmark-end text:name="__RefHeading___Toc4764_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5043_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc5043_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Vom Printer-Fenster aus haben Sie die Möglichkeit, Bildschirme auszudrucken. Dies nen­nen wir Screen-Dumps erstellen. Bevor Sie einen Screen-Dump erstellen, haben Sie zu­<text:soft-page-break/>nächst die Möglichkeit, den richtigen Drucker, die Schnittstelle, die Größe usw. einzustel­len, woraufhin Sie erst den eigentlichen Druckbefehl auswählen.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Vom Printer-Fenster aus haben Sie die Möglichkeit, Bildschirme auszudrucken. Dies nen­nen wir Screen-Dumps erstellen. Bevor Sie einen Screen-Dump erstellen, haben Sie zu­nächst die Möglichkeit, den richtigen Drucker, die Schnittstelle, die Größe usw. einzustel­len, woraufhin Sie erst den eigentlichen Druckbefehl auswählen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5045_2830447109"/>Öffnen und Schließen des Printer-Fensters<text:bookmark-end text:name="__RefHeading___Toc5045_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Sie können das Printer-Fenster vom Freezer aus öffnen.</text:p>
    <text:p text:style-name="P6"><draw:frame draw:style-name="fr2" draw:name="Afbeelding17" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.669cm" draw:z-index="16"><draw:image xlink:href="fc3_printer.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
@@ -2246,7 +2049,7 @@
    <text:p text:style-name="Tekstblok_N1">Mit Hilfe dieser Einstellungen können Sie die Final Cartridge III an Ihren Drucker anpas­sen. Für einige Drucker haben wir bereits Einstellungen ausgesucht.</text:p>
    <text:p text:style-name="P21"><text:bookmark-start text:name="__RefHeading___Toc6034_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Interface</text:span><text:bookmark-end text:name="__RefHeading___Toc6034_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
-   <text:p text:style-name="P43">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­<text:line-break/><text:tab/>sendet.<text:line-break/>Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­<text:line-break/><text:soft-page-break/><text:tab/>nics-Drucker gesendet.<text:line-break/>RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-<text:line-break/><text:tab/>Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
+   <text:p text:style-name="P43">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­<text:line-break/><text:tab/>sendet.<text:line-break/>Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­<text:line-break/><text:tab/>nics-Drucker gesendet.<text:line-break/>RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-<text:line-break/><text:tab/>Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
    <text:p text:style-name="P21"><text:bookmark-start text:name="__RefHeading___Toc6052_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Type</text:span><text:bookmark-end text:name="__RefHeading___Toc6052_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
    <text:p text:style-name="P44">CBM Compatible<text:tab/>Der Screen-Dump wird nun mit COMMODORE-Steuerzeichen an<text:line-break/><text:tab/>den Drucker gesendet.<text:line-break/>EPSON Compatible<text:tab/>Der Screen-Dump wird nun mit EPSON-Steuerzeichen an den<text:line-break/><text:tab/><text:tab/>Drucker gesendet.<text:line-break/>NEC P Series<text:tab/>Der Screen-Dump wird nun mit speziellen NEC-Steuerzeichen an<text:line-break/><text:tab/><text:tab/>den Drucker gesendet.</text:p>
@@ -2262,7 +2065,7 @@
    <text:p text:style-name="Tekstblok_N1">Die Zahlen stellen Verhältnisse dar. Damit meinen wir, dass durch die Wahl von 2 anstatt 1 der Screen-Dump doppelt so groß wird. Achten Sie also darauf! Im Grafikmodus Single Density liefert ein Screen-Dump, eingestellt mit Horizontal 2 und Vertical 2, nicht dasselbe Ergebnis wie beispielsweise im Quadruple-Density-Modus.</text:p>
    <text:p text:style-name="Tekstblok_N1">Wird der Screen-Dump zu groß für das Papier, dann müssen Sie <text:span text:style-name="Kleine_20_hoofdletters">Sideways</text:span> auswählen.</text:p>
    <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6042_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Graphics Modes 8/24 Pins</text:span><text:bookmark-end text:name="__RefHeading___Toc6042_3037178849"/></text:p>
-   <text:p text:style-name="Tekstblok_N1">Mit Hilfe dieser Gadgets können Sie den Grafikmodus des Druckers einstellen. Die linke Spalte ist für 8-Nadel-Drucker und die rechte Spalte ist für 24-Nadel-Drucker. Nicht jeder <text:soft-page-break/>Drucker besitzt alle Grafikmodi; welche verschiedenen Modi Ihr Drucker besitzt, können Sie in der Bedienungsanleitung Ihres Druckers nachlesen. Auch können Sie in dieser An­leitung eine ausführlichere Beschreibung der verschiedenen Grafikmodi finden.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Mit Hilfe dieser Gadgets können Sie den Grafikmodus des Druckers einstellen. Die linke Spalte ist für 8-Nadel-Drucker und die rechte Spalte ist für 24-Nadel-Drucker. Nicht jeder Drucker besitzt alle Grafikmodi; welche verschiedenen Modi Ihr Drucker besitzt, können Sie in der Bedienungsanleitung Ihres Druckers nachlesen. Auch können Sie in dieser An­leitung eine ausführlichere Beschreibung der verschiedenen Grafikmodi finden.</text:p>
    <text:p text:style-name="Tekstblok_N1">Mit Hilfe dieser Grafikmodi können Sie die Dichte (engl.: Density) des Druckers einstel­len. Diese Dichte wird meistens in Dots per Inch (dpi) ausgedrückt. Je schärfer Sie das Bild haben möchten, desto größer müssen Sie die Dichte wählen und desto länger müssen Sie warten.</text:p>
    <text:p text:style-name="Tekstblok_N1">Kurz zusammengefasst sind die Modi:</text:p>
    <text:p text:style-name="P47">Single Density<text:tab/>Dies liefert ein Bild mit 60 dpi. 8 oder 24<text:line-break/>Double Density<text:tab/>Dies liefert ein Bild mit 120 dpi. 8 oder 24<text:line-break/>Triple Density<text:tab/>Dies liefert ein Bild mit 180 dpi. 24<text:line-break/>Quadruple Density<text:tab/>Dies liefert ein Bild mit 240 dpi. 8<text:line-break/>8 High Speed, DD<text:tab/>Dies liefert ein Bild mit 120 dpi, aber mit normaler Geschwindigkeit (dies<text:line-break/><text:tab/>liegt daran, dass nur die Hälfte ausgedruckt wird). 8<text:line-break/>CRT Graphics<text:tab/>Dies liefert ein Bild mit 80 dpi. 8<text:line-break/>CRT Graphics II<text:tab/>Dies liefert ein Bild mit 90 dpi. 8 oder 24</text:p>
@@ -2277,16 +2080,16 @@
    <text:p text:style-name="Tekstblok_N1">Diese Werte geben Sie (natürlich) ein, bevor Sie das Programm laden, von dem Sie einen Screen-Dump erstellen möchten. Falls Sie keine dieser speziellen Funktionen nutzen möchten, müssen Sie natürlich auch nichts POKEn. Diese Werte, die spezielle Funktionen ermöglichen, werden nun einzeln mit Ihnen durchgegangen.</text:p>
    <text:p text:style-name="Tekstblok_N1">POKE $DC0C,$FF<text:tab/>Keine Centronics-Überprüfung.</text:p>
    <text:p text:style-name= "Tekstblok_N2">Normalerweise wird immer überprüft, ob ein Centronics-Drucker am Computer ange­schlossen ist, auf den gedruckt werden soll. Durch das POKEn von $FF in $DC0C schalten Sie diese Überprüfung aus.</text:p>
-   <text:p text:style-name="Tekstblok_N1"><text:soft-page-break/>POKE $DC0C,$FE<text:tab/>RS-232-Drucken.</text:p>
+   <text:p text:style-name="Tekstblok_N1">POKE $DC0C,$FE<text:tab/>RS-232-Drucken.</text:p>
    <text:p text:style-name= "Tekstblok_N2">Durch das POKEn des Wertes $FE in $DC0C wird die Zeichnung über die User-Port-Schnittstelle an einen RS-232-Drucker gesendet.</text:p>
    <text:p text:style-name="P60">Bevor wir die letzten Funktionen mit Ihnen durchgehen, müssen wir zunächst etwas aus­führlicher auf EPSON-Steuerzeichen zum Ausdrucken von Zeichnungen eingehen. Es gibt zwei Arten von Be­fehlen zum Ausdrucken von Zeichnungen. Es gibt die Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt;&quot;*&quot; CHR$(x) nl n2 ml m2</text:span> ..., wobei der Wert von x für die verschiede­nen Grafikmodi un­terschiedlich ist. Aber auch Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., wobei der Großbuchstabe X einer der folgenden Großbuchstaben sein kann: K, L, Y, Z, um ver­schiedene Grafikmodi anzugeben. Nun verwenden wir bei der Final Cart­ridge III die Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., da diese Form von so gut wie allen Druckern unterstützt wird (die Mehrheit der Drucker unterstützt sogar beide Formen). Lei­der gibt es auch einige Drucker, die nur die Befehle der anderen Form unterstützen, und deshalb haben wir es er­möglicht, durch das POKEn eines der Werte $30 bis $36 in die Speicheradresse $DC0C Befehle der anderen Form zu geben. Die Bedeutung des benötig­ten Wertes und weitere In­formationen zu EPSON-Steuerzeichen finden Sie in der Bedie­nungsanleitung Ihres Dru­ckers.</text:p>
    <text:p text:style-name="Tekstblok_N1">POKE $DC0C,$30<text:tab/>Drucken im Single-Density-Modus.<text:line-break/>POKE $DC0C,$31<text:tab/>Drucken im Double-Density-Modus.<text:line-break/>POKE $DC0C,$32<text:tab/>Drucken im High-Speed-Double-Density-Modus.<text:line-break/>POKE $DC0C,$33<text:tab/>Drucken im Quadruple-Density-Modus.<text:line-break/>POKE $DC0C,$34<text:tab/>Drucken im CRT-Graphics-Modus.<text:line-break/>POKE $DC0C,$35<text:tab/>Drucken im Plotter-Graphics-Modus.<text:line-break/>POKE $DC0C,$36<text:tab/>Drucken im CRT-Graphics-II-Modus.</text:p>
-   <text:p text:style-name="P51"><text:span text:style-name="Kleine_20_hoofdletters">Getestete Drucker</text:span></text:p>
+   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Kleine_20_hoofdletters">Getestete Drucker</text:span></text:p>
    <text:p text:style-name="Tekstblok_N1">Die unten aufgeführten Drucker wurden mit der Final Cartridge III getestet und arbeiten mit den folgenden Einstellungen.</text:p>
    <text:p text:style-name="P48"><text:span text:style-name="T3">Drucker<text:tab/>Interface<text:tab/>Typ</text:span><text:line-break/>Star NL-10 (CBM)<text:tab/>Commodore<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (IBM)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (Cent)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Epson EX-800<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1509<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1709<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>NEC P6<text:tab/>Centronics<text:tab/>NEC P Series<text:line-break/>OLIVETTI DM 105<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>PANASONIC X-P1081<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Commodore MCS 801<text:tab/>Commodore<text:tab/>CBM Compatible (COLORS YES)</text:p>
-   <text:p text:style-name="P51"><text:span text:style-name="Kleine_20_hoofdletters">Druckerkabel</text:span></text:p>
+   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Kleine_20_hoofdletters">Druckerkabel</text:span></text:p>
    <text:p text:style-name="Tekstblok_N1">Wenn Sie einen Centronics- oder RS-232-Drucker an Ihren Commodore anschließen möchten, benötigen Sie dafür ein spezielles Kabel. Dieses Kabel erhalten Sie bei Ihrem Händler.</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4766_2830447109"/><text:soft-page-break/>Notepad<text:bookmark-end text:name="__RefHeading___Toc4766_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4766_2830447109"/>Notepad<text:bookmark-end text:name="__RefHeading___Toc4766_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5049_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc5049_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Notepad ist eine kleine Textverarbeitung, die in die Final Cartridge III eingebaut ist. Die Texte, die Sie in Notepad erstellen, können Sie speichern (auf Kassette oder Diskette) und ausdrucken. Die Textverarbeitung verwendet einen proportionalen Zeichensatz (das bedeu­tet, dass ein i weniger Platz einnimmt als ein m).</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5051_2830447109"/>Öffnen und Schließen von Notepad<text:bookmark-end text:name="__RefHeading___Toc5051_2830447109"/></text:h>
@@ -2306,7 +2109,7 @@
    <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span></text:p>
    <text:p text:style-name="P70">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text von Kassette laden. Nachdem Sie den Namen des Textes eingegeben haben, müssen Sie noch PLAY drücken.</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">Save</text:span></text:p>
-   <text:p text:style-name="P70">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl können Sie Ihren Text auf Diskette speichern. Nachdem Sie Save ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des <text:soft-page-break/>Textes eingeben müssen, den Sie speichern möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl ausgewählt haben, wäh­len Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
+   <text:p text:style-name="P70">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl können Sie Ihren Text auf Diskette speichern. Nachdem Sie Save ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des Textes eingeben müssen, den Sie speichern möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl ausgewählt haben, wäh­len Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span></text:p>
    <text:p text:style-name="P70">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text auf Kassette speichern. Nachdem Sie den Namen des Textes eingegeben ha­ben, müssen Sie noch <text:span text:style-name="Kleine_20_hoofdletters">Play &amp; Record</text:span> drücken.</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">Print</text:span></text:p>
@@ -2328,7 +2131,7 @@
    <text:p text:style-name="P70">Mit dieser Option können Sie Ihren Text am Ende der Zeile auf verschiedene Weise umbrechen lassen. Wenn Wordwrap ausgewählt ist, wird ein Wort, das nicht mehr vollständig in die Zeile passt, automatisch in die nächste Zeile gesetzt. Wenn Word­wrap nicht ausgewählt ist, werden die Buchstaben, die noch in die Zeile passen, dort hingesetzt und die anderen in die nächste Zeile.</text:p>
    <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">Bold</text:span></text:p>
    <text:p text:style-name="P70">Mit dieser Option können Sie Ihren Text fett auf dem Bildschirm darstellen.</text:p>
-   <text:p text:style-name="P53"><text:soft-page-break/><text:span text:style-name="Kleine_20_hoofdletters">Proportional</text:span></text:p>
+   <text:p text:style-name="P53"><text:span text:style-name="Kleine_20_hoofdletters">Proportional</text:span></text:p>
    <text:p text:style-name="P70">Mit dieser Option können Sie wählen, ob Sie den Text proportional oder normal auf dem Bildschirm haben möchten. Wenn Sie mit Spalten arbeiten möchten, ist es rat­sam, Proportional auszuschalten.</text:p>
    <text:p text:style-name="P52"><text:span text:style-name="Kleine_20_hoofdletters">Line</text:span></text:p>
    <text:p text:style-name= "Tekstblok_N2">Im Line-Menü stehen verschiedene Befehle, um den Abstand zwischen den Zeilen zu­verändern.</text:p>
@@ -2408,7 +2211,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4952_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4952_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Genau wie im Maschinensprache-Monitor haben Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> die Möglichkeit, Ihre <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Programme durchzuscrollen. Hierfür verwenden Sie die normalen Cursortasten. Sie kön­nen das Scrollen selbst ausprobieren, indem Sie, nachdem ein kleiner Teil Ihres <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Pro­gramms auf dem Bildschirm angezeigt wird, mit dem Cursor nach oben oder unten gehen.</text:p>
    <text:h text:style-name="P57" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4954_2164442888"/>Editierfunktionen<text:bookmark-end text:name="__RefHeading___Toc4954_2164442888"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Die Final Cartridge III bietet Ihnen eine Reihe zusätzlicher Editierfunktionen, die Ihnen beim Programmierenoft nützlich sein werden. Das Korrigieren von Programmen auf dem <text:soft-page-break/>Bildschirm wird dadurch erheblich vereinfacht.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Die Final Cartridge III bietet Ihnen eine Reihe zusätzlicher Editierfunktionen, die Ihnen beim Programmierenoft nützlich sein werden. Das Korrigieren von Programmen auf dem Bildschirm wird dadurch erheblich vereinfacht.</text:p>
    <text:p text:style-name="Tekstblok_N1">Um das Scrollen nach unten etwas einfacher zu machen, haben wir es ermöglicht, durch einen einzigen Tastendruck den Cursor in die linke untere Ecke zu setzen, woraufhin Sie selbst weiter scrollen können.</text:p>
    <text:p text:style-name="Tekstblok_N1">Sie setzen den Cursor in die linke untere Ecke, indem Sie gleichzeitig die Tasten <text:span text:style-name="Toets">CONTROL</text:span> und <text:span text:style-name="Toets">CLR/HOME</text:span> drücken.</text:p>
    <text:p text:style-name="Tekstblok_N1">Durch das gleichzeitige Drücken der Tasten <text:span text:style-name="Toets">CONTROL</text:span> und <text:span text:style-name="Toets">DEL</text:span> entfernen Sie alles, was sich hinter dem Cursor in der Zeile befindet.</text:p>
@@ -2426,7 +2229,7 @@
    <text:p text:style-name="P45">LOAD &quot;name&quot;,7<text:tab/>Laden mit dem eingebauten Schnelllader (10-mal schneller)</text:p>
    <text:p text:style-name="P44">SAVE &quot;name&quot;,7<text:tab/>Speichern mit dem eingebauten Schnellspeicher (10-mal schneller)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4962_2164442888"/>Disk-Schnelllader/-Schnellspeicher<text:bookmark-end text:name="__RefHeading___Toc4962_2164442888"/></text:h>
-   <text:p text:style-name="Tekstblok_N1">Die Final Cartridge III ist darüber hinaus mit einem Disk-Schnelllader/-Schnellspeicher <text:soft-page-break/>ausgestattet, der esermöglicht, Programme 15-mal schneller von Diskette zu laden und 7-mal schneller auf Diskette zu speichern. Die Standardbefehle <text:span text:style-name="Monospace">LOAD</text:span> und <text:span text:style-name="Monospace">SAVE</text:span> verwenden automatisch den Schnelllader/-Schnellspeicher.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Die Final Cartridge III ist darüber hinaus mit einem Disk-Schnelllader/-Schnellspeicher ausgestattet, der esermöglicht, Programme 15-mal schneller von Diskette zu laden und 7-mal schneller auf Diskette zu speichern. Die Standardbefehle <text:span text:style-name="Monospace">LOAD</text:span> und <text:span text:style-name="Monospace">SAVE</text:span> verwenden automatisch den Schnelllader/-Schnellspeicher.</text:p>
    <text:p text:style-name="Tekstblok_N1">Die <text:span text:style-name="Kleine_20_hoofdletters">Disk</text:span>-Befehle sind:</text:p>
    <text:p text:style-name="P39"><text:a xlink:type="simple" xlink:href="#DLOAD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DLOAD</text:span></text:a></text:p>
    <text:p text:style-name="Tekstblok_N1"><text:a xlink:type="simple" xlink:href="#DSAVE (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DSAVE</text:span></text:a><text:tab/><text:tab/>diese Befehle werden beide deutlich bei den zusätzlichen Befehlen beschrieben.</text:p>
@@ -2464,7 +2267,7 @@
      <text:p text:style-name="P108">Anmerkungen zum Befehl</text:p>
     </text:list-item>
    </text:list>
-   <text:p text:style-name="P32"><text:soft-page-break/></text:p>
+   <text:p text:style-name="P32"></text:p>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Inhoudsopgave2">
     <text:table-of-content-source text:outline-level="10" text:use-outline-level="false" text:use-index-marks="false" text:use-index-source-styles="true" text:index-scope="chapter">
      <text:index-title-template text:style-name="Contents_20_Heading"/>
@@ -2597,7 +2400,7 @@
    <text:p text:style-name="P62">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, fertig erstellte Unterprogramme, die Sie auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Kasset­te oder Diskette haben, an ein Programm anzuhängen, das<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>sich im Speicher befindet.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>APPEND &quot;Dateiname&quot;<text:tab/><text:tab/><text:tab/>für Kassette</text:p>
-   <text:p text:style-name="P62"><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>APPEND &quot;Dateiname&quot;,8<text:tab/><text:tab/>für Diskette</text:p>
+   <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>APPEND &quot;Dateiname&quot;,8<text:tab/><text:tab/>für Diskette</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Anmerkungen:<text:tab/>Da die ursprünglichen Zeilennummern erhalten bleiben, kann es<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>sinnvoll sein, zuerst den Befehl <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> anzuwenden.</text:p>
    <text:p text:style-name="P62"/>
@@ -2631,7 +2434,7 @@
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>BAR [OFF]</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>bA [oF]</text:p>
-   <text:p text:style-name="P62"><text:soft-page-break/></text:p>
+   <text:p text:style-name="P62"></text:p>
    <text:p text:style-name="P62">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, die Möglichkeit, die Pull-Down-Menüs<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>aufzurufen, ein- und auszuschalten.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>BAR OFF<text:tab/><text:tab/><text:tab/>schaltet die Menüs aus</text:p>
@@ -2670,7 +2473,7 @@
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>DESKTOP</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>deS</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="P62"><text:soft-page-break/>Dieser Befehl<text:tab/>ermöglicht es Ihnen, <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> zu verlassen und zum <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a> zu wechseln.</text:p>
+   <text:p text:style-name="P62">Dieser Befehl<text:tab/>ermöglicht es Ihnen, <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> zu verlassen und zum <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a> zu wechseln.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>DESKTOP<text:tab/><text:tab/>hiermit gelangen Sie in den <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Desktop</text:a></text:p>
    <text:p text:style-name="P62"/>
@@ -2705,7 +2508,7 @@
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;V<text:tab/><text:tab/><text:tab/><text:tab/>validiert eine Diskette</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;9<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>alle Disk-Befehle beziehen sich nun auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>die Diskette mit Nummer 9</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="P62"><text:soft-page-break/>Anmerkungen:<text:tab/><text:tab/>DOS&quot;test<text:tab/><text:tab/><text:tab/>entspricht der folgenden Befehlsreihe:</text:p>
+   <text:p text:style-name="P62">Anmerkungen:<text:tab/><text:tab/>DOS&quot;test<text:tab/><text:tab/><text:tab/>entspricht der folgenden Befehlsreihe:</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 15,8,15<text:tab/><text:span text:style-name="Toets">RETURN</text:span></text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>PRINT#15,&quot;test<text:span text:style-name="Toets">RETURN</text:span></text:p>
    <text:p text:style-name="P83"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Die Disk-Befehle sind in der Bedienungsanleitung Ihres Dis­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ketten­laufwerks beschrieben.</text:p>
@@ -2742,7 +2545,7 @@
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Anmerkungen:<text:tab/>Um Arrays zu betrachten, müssen Sie den Befehl <text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:a xlink:type="simple" xlink:href="#ARRAY (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">ARRAY</text:a> verwenden.</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10682_2164442888"/><text:soft-page-break/>DVERIFY<text:bookmark-end text:name="__RefHeading___Toc10682_2164442888"/></text:p>
+   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10682_2164442888"/>DVERIFY<text:bookmark-end text:name="__RefHeading___Toc10682_2164442888"/></text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>DVERIFY [&quot;&lt;Dateiname&gt;&quot;]</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dV [&quot;&lt;Dateiname&gt;&quot;]</text:p>
@@ -2774,7 +2577,7 @@
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>KILL</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>kI</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="P82">Dieser Befehl<text:tab/><text:tab/>schaltet alle Funktionen der Final Cartridge III aus. Der Freeze funk­<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>tio­niert noch, wird aber in den Standard-Commodore 64/128 zu­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>rückkehren, es sei denn, Sie den Freezer über den Monitor<text:tab/>verlassen.</text:p>
+   <text:p text:style-name="P82">Dieser Befehl<text:tab/><text:tab/>schaltet alle Funktionen der Final Cartridge III aus. Der Freeze funk­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>tio­niert noch, wird aber in den Standard-Commodore 64/128 zu­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>rückkehren, es sei denn, Sie den Freezer über den Monitor<text:tab/>verlassen.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10676_2164442888"/>LIST<text:bookmark-end text:name="__RefHeading___Toc10676_2164442888"/></text:p>
    <text:p text:style-name="P62"/>
@@ -2811,7 +2614,7 @@
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P82">Dieser Befehl<text:tab/><text:tab/>aktiviert den in der Final Cartridge III enthaltenen <text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Maschin­en­<text:line-break/></text:a><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/></text:a><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">sprache-Monitor</text:a>. Eine <text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">ausführliche Beschreibung dieses her­<text:line-break/></text:a><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/></text:a><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">vorragenden Monitors</text:a> wird weiter hinten in dieser Anleitung<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>gegeben.</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10670_2164442888"/><text:bookmark text:name="MREAD   (BASIC)"/><text:soft-page-break/>MREAD<text:bookmark-end text:name="__RefHeading___Toc10670_2164442888"/></text:p>
+   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10670_2164442888"/><text:bookmark text:name="MREAD   (BASIC)"/>MREAD<text:bookmark-end text:name="__RefHeading___Toc10670_2164442888"/></text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>MREAD &lt;Speicheradresse&gt;</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mR &lt;Speicheradresse&gt;</text:p>
@@ -2842,7 +2645,7 @@
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>MREAD $A000 + I * 192</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>MWRITE $0400 + I * 192</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>NEXT I</text:p>
-   <text:p text:style-name="P62"><text:soft-page-break/></text:p>
+   <text:p text:style-name="P62"></text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Auf diese Weise können Sie den Bildschirm aus dem zusätzlichen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Speicher holen.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Anmerkungen:<text:tab/>Siehe <text:a xlink:type="simple" xlink:href="#MREAD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">MREAD</text:a>.</text:p>
@@ -2874,7 +2677,7 @@
    <text:p text:style-name="P62">Dieser Befehl<text:tab/><text:tab/>öffnet einen Kanal für Ein- und Ausgabe und wurde durch die Final<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Cartridge III für Centronics-Drucker erweitert.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>OPEN 1,4,2<text:tab/>Normaler Druckmodus; nun können Sie alle ASCII-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Zeichen des Druckers verwenden, außer den &quot;Control-Characters&quot;.</text:p>
-   <text:p text:style-name="P82"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 1,4,3<text:tab/>Transparenter Modus; nun funktioniert der Drucker<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>so, wie in der Bedienungsanleitung des Druckers be­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>schrieben. Alle ASCII- und Control-Codes funk­tion­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ieren gemäß der Druckerbedienungsanleitung.</text:p>
+   <text:p text:style-name="P82"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 1,4,3<text:tab/>Transparenter Modus; nun funktioniert der Drucker<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>so, wie in der Bedienungsanleitung des Druckers be­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>schrieben. Alle ASCII- und Control-Codes funk­tion­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ieren gemäß der Druckerbedienungsanleitung.</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 1,4,9<text:tab/>Der vollständige Commodore-Zeichensatz wird nun<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ausgedruckt.</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 1,4,10<text:tab/>Der vollständige Commodore-Zeichensatz wird nun<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>invers ausgedruckt.</text:p>
    <text:p text:style-name="P62"/>
@@ -2900,7 +2703,7 @@
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P82">Anmerkungen:<text:tab/>Ein Programm, das Sie packen möchten, muss bei $0801 (hexa­de­zi­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mal) beginnen. Auch sind viele Programme heutzutage bereits &quot;ge­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>packt&quot;, wodurch ein Programm beim erneuten &quot;Packen&quot; nur noch<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>größer wird. Siehe auch <text:a xlink:type="simple" xlink:href="#UNPACK (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">UNPACK</text:a>.</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10656_2164442888"/><text:soft-page-break/>PDIR<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc10656_2164442888"/></text:p>
+   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10656_2164442888"/>PDIR<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc10656_2164442888"/></text:p>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>PDIR</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>pD</text:p>
    <text:p text:style-name="P62"/>
@@ -2939,7 +2742,7 @@
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>RENUM 300<text:tab/><text:tab/>ist dasselbe wie RENUM 300,10</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P84">Anmerkungen:<text:tab/>Dieser Befehl berücksichtigt GOTOs und GOSUBs und ist prak­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>tisch, wenn die Zeilennummern direkt aufeinander folgen und Sie<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>etwas dazwischen setzen möchten.</text:p>
-   <text:p text:style-name="P62"><text:soft-page-break/></text:p>
+   <text:p text:style-name="P62"></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10650_2164442888"/>REPLACE<text:bookmark-end text:name="__RefHeading___Toc10650_2164442888"/></text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>REPLACE &lt;Befehl1&gt;,&lt;Befehl2&gt; / &quot;Text1&quot;,&quot;Text2&quot;</text:p>
@@ -2974,7 +2777,7 @@
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Syntax:<text:tab/><text:tab/><text:tab/>$&lt;Zahl in hexadezimal&gt;</text:p>
    <text:p text:style-name="P62"/>
-   <text:p text:style-name="P62"><text:soft-page-break/>Dieser Befehl<text:tab/>ermöglicht es, Zahlen im hexadezimalen System zu verwenden.</text:p>
+   <text:p text:style-name="P62">Dieser Befehl<text:tab/>ermöglicht es, Zahlen im hexadezimalen System zu verwenden.</text:p>
    <text:p text:style-name="P62"/>
    <text:p text:style-name="P62">Beispiel:<text:tab/><text:tab/><text:tab/>A=$0F<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Die Variable A erhält den Wert 15</text:p>
    <text:p text:style-name="P62"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>POKE $D020,A<text:tab/><text:tab/>Der Border wird grau</text:p>
@@ -3116,7 +2919,7 @@
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5764_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup Tape<text:tab/>49</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5762_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup FDisk<text:tab/>49</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5760_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">BackUp FTape<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:soft-page-break/><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5758_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite I<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5758_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite I<text:tab/>50</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5756_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite II<text:tab/>50</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5754_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Joyswap<text:tab/>50</text:a></text:p>
      <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5752_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Autofire<text:tab/>50</text:a></text:p>
@@ -3151,7 +2954,7 @@
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5764_224738076"/>Backup Tape<text:bookmark-end text:name="__RefHeading___Toc5764_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dieser Befehl erstellt ein Backup auf Ihrer Kassette mit normaler Geschwindigkeit.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5762_224738076"/>Backup FDisk<text:bookmark-end text:name="__RefHeading___Toc5762_224738076"/></text:p>
-   <text:p text:style-name="Tekstblok_N1"><text:soft-page-break/>Dieser Befehl erstellt ein Backup auf Ihrer Diskette mit dem Schnellspeicher.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Dieser Befehl erstellt ein Backup auf Ihrer Diskette mit dem Schnellspeicher.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5760_224738076"/>BackUp FTape<text:bookmark-end text:name="__RefHeading___Toc5760_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dieser Befehl erstellt ein Backup auf Ihrer Kassette mit dem Schnellspeicher.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4970_2164442888"/>Game<text:bookmark-end text:name="__RefHeading___Toc4970_2164442888"/></text:h>
@@ -3169,7 +2972,7 @@
    <text:p text:style-name="Text_20_body">Dieses Menü bietet Ihnen die Möglichkeit, die Farben des Bildschirms zu ändern. Dies kön­nen Sie zum Beispiel verwenden, wenn Ihnen die Farben eines Programms nicht gefallen, oder wenn Sie die Bildschirmfarben vor dem Drucken ändern möchten, um beispielsweise einen besseren Grauwert zu erzielen. Um die neuen Farben zu betrachten, können Sie den Befehl Print View verwenden.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5750_224738076"/>Colors BackGnd<text:bookmark-end text:name="__RefHeading___Toc5750_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dieser Befehl ändert die Hintergrundfarbe.</text:p>
-   <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5748_224738076"/><text:soft-page-break/>Colors ForeGnd<text:bookmark-end text:name="__RefHeading___Toc5748_224738076"/></text:p>
+   <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5748_224738076"/>Colors ForeGnd<text:bookmark-end text:name="__RefHeading___Toc5748_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dieser Befehl ändert die Vordergrundfarbe.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5746_224738076"/>Colors Border<text:bookmark-end text:name="__RefHeading___Toc5746_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dieser Befehl ändert die Rahmenfarbe.</text:p>
@@ -3191,7 +2994,7 @@
    <text:p text:style-name="Freezer_20_kop_20_2"><text:bookmark-start text:name="__RefHeading___Toc5774_224738076"/>Print View BColor2<text:bookmark-end text:name="__RefHeading___Toc5774_224738076"/></text:p>
    <text:p text:style-name= "Tekstblok_N2">Dieser Befehl ändert die Hintergrundfarbe 2 (Er erhöht den Inhalt von Register 53283 (D023 hex) um eins).</text:p>
    <text:p text:style-name="Freezer_20_kop_20_2"><text:bookmark-start text:name="__RefHeading___Toc5772_224738076"/>Print View BColor3<text:bookmark-end text:name="__RefHeading___Toc5772_224738076"/></text:p>
-   <text:p text:style-name= "Tekstblok_N2"><text:soft-page-break/>Dieser Befehl ändert die Hintergrundfarbe 3 (Er erhöht den Inhalt von Register53284 (D024 hex) um eins).</text:p>
+   <text:p text:style-name= "Tekstblok_N2">Dieser Befehl ändert die Hintergrundfarbe 3 (Er erhöht den Inhalt von Register53284 (D024 hex) um eins).</text:p>
    <text:p text:style-name="Freezer_20_kop_20_2"><text:bookmark-start text:name="__RefHeading___Toc5770_224738076"/>Print View Exit<text:bookmark-end text:name="__RefHeading___Toc5770_224738076"/></text:p>
    <text:p text:style-name= "Tekstblok_N2">Dieser Befehl verlässt die Ansicht; Sie gelangen zurück zu den Freezer-Pull-Down-Menüs.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_2"><text:bookmark-start text:name="__RefHeading___Toc5768_224738076"/>Print Set<text:bookmark-end text:name="__RefHeading___Toc5768_224738076"/></text:p>
@@ -3242,7 +3045,7 @@
    <text:p text:style-name="Standard"/>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4786_2830447109"/>Allgemeine Begriffe und Techniken<text:bookmark-end text:name="__RefHeading___Toc4786_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Als Erstes möchten wir einige allgemeine Begriffe mit Ihnen durchgehen.</text:p>
-   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4980_2164442888"/><text:soft-page-break/>Prompt<text:bookmark-end text:name="__RefHeading___Toc4980_2164442888"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4980_2164442888"/>Prompt<text:bookmark-end text:name="__RefHeading___Toc4980_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Der Monitor verwendet einen Prompt. Dies bedeutet, dass Sie am Anfang jederZeile einen Punkt sehen (den Prompt).</text:p>
    <text:p text:style-name="Tekstblok_N1">Hinter dem Prompt haben Sie die Möglichkeit, selbst Befehle einzugeben.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4982_2164442888"/>Speicherdarstellung<text:bookmark-end text:name="__RefHeading___Toc4982_2164442888"/></text:h>
@@ -3263,7 +3066,7 @@
    <text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/>
    <text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/>
    <text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
-   <text:h text:style-name="Standard" text:outline-level="3"><text:soft-page-break/></text:h>
+   <text:h text:style-name="Standard" text:outline-level="3"></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3" text:is-list-header="true"><text:bookmark-start text:name="__RefHeading___Toc4988_2164442888"/>Bank switching<text:bookmark-end text:name="__RefHeading___Toc4988_2164442888"/></text:h>
    <text:p text:style-name="P93">In Ihrem Commodore sind verschiedene ROMs untergebracht. Diese können vom Monitor aus ein- und ausgeschaltet werden. Sie schalten dann zwischen den verschiedenen Speicherbänken um, und dies nennt man Bank Switching. In der Registeranzeige wird dargestellt, welche Bänke Sie eingeschaltet haben. Welche Werte mit welchen Bänken übereinstimmen, wird ausführlich beim <text:a xlink:type="simple" xlink:href="#O (MONITOR)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">O-Befehl</text:a> besprochen.</text:p>
    <text:p text:style-name="P93"><text:span text:style-name="Kleine_20_hoofdletters">Modi</text:span></text:p>
@@ -3277,15 +3080,13 @@
    <text:p text:style-name="Tekstblok_N1">Bei der Auflistung der Befehle wird dies durch ein C für Computer oder ein D für Disk-Laufwerk unter &quot;Befehlsart:&quot; angegeben. Falls die Befehle sich auf beide beziehen können, werden beide genannt.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4992_2164442888"/><text:span text:style-name="Kleine_20_hoofdletters">Funktionstasten</text:span><text:bookmark-end text:name="__RefHeading___Toc4992_2164442888"/></text:h>
    <text:p text:style-name="P24">Bei der Verwendung des Monitors sind die folgenden Funktionstasten wie folgt definiert:</text:p>
-   <text:p text:style-name="P91"><text:span text:style-name="Toets">f 3</text:span> aufwärts scrollen</text:p>
-   <text:p text:style-name="P91"><text:span text:style-name="Toets">f 5</text:span> abwärts scrollen</text:p>
-   <text:p text:style-name="P91"><text:span text:style-name="Toets">f 7</text:span> Directory</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4788_2830447109"/><text:soft-page-break/>Übersicht der Monitor-Befehle<text:bookmark-end text:name="__RefHeading___Toc4788_2830447109"/></text:h>
+   <text:p text:style-name="Tekstblok_N1"><text:span text:style-name="Toets">f 3</text:span> aufwärts scrollen<text:line-break/><text:span text:style-name="Toets">f 5</text:span> abwärts scrollen<text:line-break/><text:span text:style-name="Toets">f 7</text:span> Directory</text:p>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4788_2830447109"/>Übersicht der Monitor-Befehle<text:bookmark-end text:name="__RefHeading___Toc4788_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Unten sehen Sie eine Übersicht aller Befehle, die Ihnen nach dem Start des Monitors zur Verfügung stehen. Jeder Befehl wird behandelt.</text:p>
    <text:table-of-content text:style-name="Sect1" text:name="Inhoudsopgave3">
     <text:table-of-content-source text:outline-level="10" text:use-outline-level="false" text:use-index-marks="false" text:use-index-source-styles="true" text:index-scope="chapter">
      <text:index-title-template text:style-name="Contents_20_Heading"/>
-     <text:table-of-content-entry-template text:outline-level="1" text:style-name="Monitorinhoud1">
+     <text:table-of-content-entry-template text:outline-level="1" text:style-name="Monitorinhoud">
       <text:index-entry-link-start text:style-name="Index_20_Link"/>
       <text:index-entry-chapter/>
       <text:index-entry-text/>
@@ -3370,29 +3171,29 @@
      </text:index-source-styles>
     </text:table-of-content-source>
     <text:index-body>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10809_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">A Assemble<text:tab/>56</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10853_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C Compare Memory<text:tab/>57</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10851_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">D Disassemble<text:tab/>57</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10849_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">EC Edit Character Zeichen ändern<text:tab/>58</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10847_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ES Edit Sprites Sprites ändern<text:tab/>58</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">F Fill Memory Einen Teil des Speichers füllen<text:tab/>59</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10843_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">G Go<text:tab/>59</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10841_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">H Hunt Memory Suchen nach Zahlen oder Strings<text:tab/>59</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10839_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I Interrogate<text:tab/>60</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10837_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">L Load<text:tab/>60</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10835_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">M Memory Display Betrachten des Speichers<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10833_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">O Bank Switching Umschalten der Speicherbänke<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10831_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OD Disk-Monitor<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10829_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">P Print Memory Ausdrucken auf dem Drucker<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10827_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">R Registers Display Betrachten der Register<text:tab/>62</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10825_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">S Save Memory Speichern von Maschinensprache-Pro­ grammen<text:tab/>62</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10823_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">T Transfer Memory Verschieben von Speicherbereichen<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10821_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">X Exit<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10819_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link"># Dezimal in Hexadezimal umrechnen<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10817_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$ Hexadezimal in Dezimal umrechnen<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10815_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">@ Disk-Befehle Disk-Befehle<text:tab/>64</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10813_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*R Read Block<text:tab/>64</text:a></text:p>
-     <text:p text:style-name="P76"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10811_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*W Write Block<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10809_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">A<text:tab/>Assemble<text:tab/>56</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10853_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C<text:tab/>Compare Memory<text:tab/>57</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10851_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">D<text:tab/>Disassemble<text:tab/>57</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10849_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">EC<text:tab/>Edit Character<text:tab/>58</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10847_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ES<text:tab/>Edit Sprites<text:tab/>58</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">F<text:tab/>Fill Memory<text:tab/>59</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10843_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">G<text:tab/>Go<text:tab/>59</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10841_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">H<text:tab/>Hunt Memory<text:tab/>59</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10839_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I<text:tab/>Interrogate<text:tab/>60</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10837_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">L<text:tab/>Load<text:tab/>60</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10835_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">M<text:tab/>Memory Display<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10833_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">O<text:tab/>Bank Switching<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10831_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OD<text:tab/>Disk-Monitor<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10829_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">P<text:tab/>Print Memory<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10827_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">R<text:tab/>Registers Display<text:tab/>62</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10825_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">S<text:tab/>Save Memory<text:tab/>62</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10823_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">T<text:tab/>Transfer Memory<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10821_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">X<text:tab/>Exit<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10819_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">#<text:tab/>Dezimal in Hexadezimal umrechnen<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10817_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$<text:tab/>Hexadezimal in Dezimal umrechnen<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10815_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">@<text:tab/>Disk-Befehle<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10813_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*R<text:tab/>Read Block<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10811_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*W<text:tab/>Write Block<text:tab/>64</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:p text:style-name="Standard"/>
@@ -3401,7 +3202,7 @@
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, selbst in Maschinensprache zu programmieren.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">AC000 LDA #$00</text:span><text:tab/><text:tab/>Hiermit setzen Sie die Speicherstelle C000</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Wenn Sie fortlaufend programmieren möchten, müssen Sie diesen Be­fehl<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>nur einmal eingeben. Der Computer berechnet nämlich selbst die darauf­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>folgen­de Speicherstelle für den nächsten Befehl. Sie müssen nur den Befeh<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>(gefolgt von dem Operanden) eingeben.</text:p>
-   <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Wenn Sie die Eingabe des Programms beenden möchten, drücken Sie nach<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der<text:tab/>letzten Programmzeile noch einmal die <text:span text:style-name="Toets">RETURN</text:span>-Taste, woraufhin der<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/>Mo­nitor wieder alle anderen Befehle akzeptiert.</text:p>
+   <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Wenn Sie die Eingabe des Programms beenden möchten, drücken Sie nach<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der<text:tab/>letzten Programmzeile noch einmal die <text:span text:style-name="Toets">RETURN</text:span>-Taste, woraufhin der<text:line-break/><text:tab/><text:tab/><text:tab/>Mo­nitor wieder alle anderen Befehle akzeptiert.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10853_2164442888"/>C<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Compare Memory<text:tab/><text:tab/>Speicherblöcke vergleichen<text:bookmark-end text:name="__RefHeading___Toc10853_2164442888"/></text:p>
@@ -3418,7 +3219,7 @@
    <text:p text:style-name="Text_20_body">Bildschirm:<text:tab/><text:tab/><text:span text:style-name="Monospace">.D 3000 300A<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.,3000 A9 00 LDA #$00<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.,3002 8D 20 D0 STA $D020<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.,3005 A9 00 LDA #$00<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.,3007 8D 21 D0 STA $D021<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.,300a 00 BRK</text:span></text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Um ein großes Programm zu disassemblieren, können Sie das Scrollen ver­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>wenden. Dazu müssen Sie nur D, gefolgt von der Startadresse, eingeben.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Dies wird dann einen Befehl disassemblieren. Um nun fortzufahren, scroll­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>en Sie den Bildschirm einfach weiter.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
-   <text:p text:style-name="Standard"><text:soft-page-break/></text:p>
+   <text:p text:style-name="Standard"></text:p>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10849_2164442888"/>EC<text:tab/><text:tab/><text:tab/><text:tab/>Edit Character<text:tab/><text:tab/>Zeichen ändern<text:bookmark-end text:name="__RefHeading___Toc10849_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">EC xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= die Startadresse<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= die Endadresse</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, Zeichen anzuzeigen und anschließend zu ändern. Nach<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der Eingabe dieses Befehls wird der Inhalt des Speichers in der Character-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Darstellung angezeigt. Sie haben nun die Möglichkeit, das Zei­chen zu än­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dern, indem Sie in der entsprechenden Zeile ein Sternchen (*) einge­ben,<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>wenn Sie ein Bit auf 1 setzen möchten, oder einen Punkt (.), wenn Sie ein<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Bit<text:tab/>auf 0 setzen möchten.</text:p>
@@ -3430,7 +3231,7 @@
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">ES xxxx</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span> = die Startadresse</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, Sprites anzuzeigen und anschließend zu ändern.<text:tab/>Nach<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der Eingabe dieses Befehls wird der Inhalt des Speichers in der Sprite-Dar­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>stellung angezeigt. Sie haben nun die Möglichkeit, das Sprite zu ändern,<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>indem Sie in der entsprechenden Zeile ein Sternchen (*) eingeben, wenn<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sie ein Bit auf 1 setzen möchten, oder einen Punkt (.), wenn Sie ein Bit auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>0 setzen möchten.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">ES 2000 2018</text:span></text:p>
-   <text:p text:style-name="Text_20_body">Bildschirm:<text:tab/><text:tab/><text:span text:style-name="Monospace">.ES 2000 2018<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2000 ************..**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2003 ************..**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2006 ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2009 ********......**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[200C ********......**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[200F ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2012 ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2015 ****..........**..**..**<text:line-break/></text:span><text:soft-page-break/><text:span text:style-name="Monospace"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2018 ****..........**..**..**</text:span></text:p>
+   <text:p text:style-name="Text_20_body">Bildschirm:<text:tab/><text:tab/><text:span text:style-name="Monospace">.ES 2000 2018<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2000 ************..**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2003 ************..**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2006 ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2009 ********......**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[200C ********......**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[200F ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2012 ****..........**..**..**<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2015 ****..........**..**..**<text:line-break/></text:span><text:span text:style-name="Monospace"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.[2018 ****..........**..**..**</text:span></text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10958_2164442888"/>F<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Fill Memory<text:tab/><text:tab/><text:tab/>Einen Teil des Speichers füllen<text:bookmark-end text:name="__RefHeading___Toc10958_2164442888"/></text:p>
@@ -3450,7 +3251,7 @@
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10841_2164442888"/>H<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Hunt Memory<text:tab/><text:tab/>Suchen nach Zahlen oder Strings<text:bookmark-end text:name="__RefHeading___Toc10841_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H xxxx yyyy zl z2 z3/&quot;&lt;Text&gt;&quot;</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= die Startadresse<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= die Endadresse<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zn</text:span><text:tab/><text:tab/>= die gesuchte Zahl<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">Text</text:span><text:tab/>= der gesuchte Text</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, eine bestimmte Zahlenkombination oder einen Text­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>abschnitt im Speicher zu suchen. Wenn die gesuchte Kombination oder der<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>gesuchte Textabschnitt gefunden wird, werden die Speicheradressen, an de­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>nen sich das Gesuchte befindet, auf dem Bildschirm angezeigt.</text:p>
-   <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 1000 8000 A9 00</text:span><text:tab/>Hiermit suchen Sie im Bereich von 1000 bis<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>8000 nach A9 00<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 2000 F000 &quot;FINAL&quot;</text:span><text:tab/>Hiermit suchen Sie im Bereich von 2000 bis<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>F000 nach dem Text FINAL</text:p>
+   <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 1000 8000 A9 00</text:span><text:tab/>Hiermit suchen Sie im Bereich von 1000 bis<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>8000 nach A9 00<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">H 2000 F000 &quot;FINAL&quot;</text:span><text:tab/>Hiermit suchen Sie im Bereich von 2000 bis<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>F000 nach dem Text FINAL</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Mit diesem Befehl können Sie zum Beispiel einen bestimmten Teil eines<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programms suchen, da das Programm intern als Zahlen gespeichert wird.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Wenn Sie zum Beispiel nach dem Befehl LDA #$00 suchen, geben Sie als<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Zahlen A9 00 an.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/>C, D.</text:p>
    <text:p text:style-name="Standard"/>
@@ -3468,7 +3269,7 @@
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Das Relozieren von Programmen ist nur möglich, wenn Sie mit Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>arbeiten.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/>C.</text:p>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10835_2164442888"/><text:soft-page-break/>M<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Memory Display<text:tab/><text:tab/>Betrachten des Speichers<text:bookmark-end text:name="__RefHeading___Toc10835_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10835_2164442888"/>M<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Memory Display<text:tab/><text:tab/>Betrachten des Speichers<text:bookmark-end text:name="__RefHeading___Toc10835_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">M xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= die Startadresse<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= die Endadresse</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>zeigt Ihnen den Inhalt eines Speicherabschnitts an, sowohl hexadezimal<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>als auch, wo möglich, als Zeichen. Sie können den Inhalt des Speichers<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ändern, indem Sie die Zahlen einfach verbessern.</text:p>
    <text:p text:style-name="Text_20_body">Bildschirm:<text:tab/><text:tab/><text:span text:style-name="Monospace">.M 2000 201F<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2000 48 41 4C 4C 4F 20 44 49 HALLO DI<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>:2008 54 20 49 53 20 45 45 4E T IS EEN</text:span></text:p>
@@ -3720,7 +3521,7 @@
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/><text:tab/>schaltet vom Computer-Monitor in den Disk-Monitor um. Nach diesem<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Befehl arbeiten die Speicherbefehle mit dem Speicher des Disk-Lauf­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>werks.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10829_2164442888"/>P<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Print Memory<text:tab/><text:tab/>Ausdrucken auf dem Drucker<text:bookmark-end text:name="__RefHeading___Toc10829_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">P</text:span></text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">P</text:span></text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/><text:tab/>sendet die Ausgabe des folgenden Befehls an den Drucker. Durch noch­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mali­ges Drücken von P wird die Ausgabe wieder auf dem Bildschirm<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>an­gezeigt.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C.</text:p>
    <text:p text:style-name="Standard"/>
@@ -3732,7 +3533,7 @@
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Das Verbessern der angezeigten Werte ist zum Beispiel sehr nützlich,<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>wenn Sie eine Interrupt-Routine schreiben. Normalerweise müssten Sie<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dann ein kleines Programm schreiben, das den Interrupt-Vektor umsetzt,<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>aber jetzt müssen Sie nur den richtigen Wert über den IRQ-Wert tippen.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10825_2164442888"/>S<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Save Memory<text:tab/><text:tab/><text:tab/>Speichern von Maschinensprache-Pro­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>grammen<text:bookmark-end text:name="__RefHeading___Toc10825_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">S &quot;&lt;Dateiname&gt;&quot;,xx,yyyy,zzzz</text:span></text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">S &quot;&lt;Dateiname&gt;&quot;,xx,yyyy,zzzz</text:span></text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/><text:tab/>ermöglicht es Ihnen, ein Programm sowohl auf Kassette als auch auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Diskette zu speichern.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">S &quot;test&quot;,01,1000,2000<text:tab/></text:span>Hiermit speichern Sie das Programm<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>aus dem Speicher von 1000 bis 1FFF <text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>unter dem Namen “test” auf Kassette.<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">S &quot;test&quot;,08,1000,2000</text:span><text:tab/>Gleiches für Diskette</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/><text:tab/><text:tab/>Beachten Sie, dass die von Ihnen angegebene Endadresse beim <text:tab/><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Speichern um eins größer ist als die Stelle, an der Ihr Programm endet.</text:p>
@@ -3754,7 +3555,7 @@
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace"># 53281</text:span><text:tab/>Hiermit lassen Sie die Zahl 53281 umrechnen. Die Antwort<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>wird $D021 sein.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10817_2164442888"/>$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Hexadezimal in Dezimal umrechnen<text:bookmark-end text:name="__RefHeading___Toc10817_2164442888"/></text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">$ xxxx</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx<text:tab/></text:span>=<text:tab/>die gewünschte Zahl</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">$ xxxx</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx<text:tab/></text:span>=<text:tab/>die gewünschte Zahl</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/><text:tab/>ermöglicht es Ihnen, Zahlen vom hexadezimalen Zahlensystem in das<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dezimale Zahlensystem umzurechnen.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">$ D021</text:span><text:tab/>Hiermit lassen Sie die Zahl D020 umrechnen. Die Antwort<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>wird 53281 (dezimal) sein.</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -3772,7 +3573,7 @@
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/>Schreiben eines Blocks<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">*W xx yy zz</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xx</text:span><text:tab/>=<text:tab/>die Track-Nummer des Blocks<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yy</text:span><text:tab/>=<text:tab/>die Sektor-Nummer des Blocks<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">zz</text:span><text:tab/>=<text:tab/>die Stelle des Blocks im Speicher des Computers, den Sie auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Diskette schreiben möchten (zz entspricht zz00)</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/><text:tab/>ermöglicht es Ihnen, einen Speicherblock (zurück) auf die Diskette zu<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>schreiben.</text:p>
-   <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">*W 12 00 CE</text:span><text:tab/>Dies schreibt den Speicher von CE00 bis CEFF auf<text:line-break/><text:soft-page-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>die<text:tab/>Diskette als den ersten Block des Directories.</text:p>
+   <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">*W 12 00 CE</text:span><text:tab/>Dies schreibt den Speicher von CE00 bis CEFF auf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>die<text:tab/>Diskette als den ersten Block des Directories.</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/><text:tab/>Falls keine Speicheradresse angegeben wird, wird angenommen, dass<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der Block auf Adresse $CF00 steht.</text:p>
    <text:p text:style-name="Text_20_body">Art:<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C.</text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4738_2830447109"/>Anmerkungen<text:bookmark-end text:name="__RefHeading___Toc4738_2830447109"/></text:h>
@@ -3793,7 +3594,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4796_2830447109"/>Drucken<text:bookmark-end text:name="__RefHeading___Toc4796_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Leider ist es uns nicht vollständig gelungen, alle Raster-Interrupts abzufangen. Daher kann es vorkommen, dass Sie einige Zeichnungen nicht korrekt ausdrucken können.</text:p>
    <text:p text:style-name="Text_20_body">Split-Screens arbeiten mit Raster-Interrupts, d.h. ein Teil des Bildes wird aufgebaut, wenn der Video-Scan die entsprechende &quot;Line&quot; des Bildschirms passiert hat. Unser Auge nimmt dies nicht wahr; wir sehen nur ein vollständiges Bild. Diese Screens können nicht vollständig ge­druckt werden.</text:p>
-   <text:p text:style-name="Text_20_body"><text:soft-page-break/>Vom Druck-Menü aus gelangen Sie immer in den Desktop.</text:p>
+   <text:p text:style-name="Text_20_body">Vom Druck-Menü aus gelangen Sie immer in den Desktop.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4798_2830447109"/>Game<text:bookmark-end text:name="__RefHeading___Toc4798_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Nach dem Aktivieren des Autofire können Sie das Programm nur noch über Autofire fortset­zen, wenn Sie es noch einmal einfrieren.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4800_2830447109"/>Anmerkungen zum Desktop<text:bookmark-end text:name="__RefHeading___Toc4800_2830447109"/></text:h>
@@ -3817,3 +3618,4 @@
   </office:text>
  </office:body>
 </office:document>
+
