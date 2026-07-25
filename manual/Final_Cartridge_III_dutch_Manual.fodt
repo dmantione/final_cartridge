@@ -235,10 +235,17 @@
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Calctab" style:display-name="Calculator-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="4.002cm"/>
-     <style:tab-stop style:position="8.005cm"/>
+     <style:tab-stop style:position="4.0cm"/>
+     <style:tab-stop style:position="8.0cm"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="Hoofdstuk-tabel" style:display-name="Hoofdstuk-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:margin-left="2.5cm" fo:text-indent="-2.5cm" fo:margin-bottom="0cm">
+    <style:tab-stops>
+     <style:tab-stop style:position="2.5cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -341,6 +348,11 @@
   <style:style style:name="RomLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Numbering_20_IVX">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
+  <style:style style:name="NumLijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Numbering_20_123">
+  </style:style>
+  <style:style style:name="NumLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Numbering_20_123">
+   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
+  </style:style>
   <style:style style:name="Nw_blz_r" style:family="paragraph" style:parent-style-name="Nieuwe. blz. R" style:master-page-name="Right_20_Page">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
@@ -429,6 +441,58 @@
     </style:list-level-properties>
    </text:outline-level-style>
   </text:outline-style>
+  <text:list-style style:name="Numbering_20_123" style:display-name="Numbering 123">
+   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.7cm" fo:text-indent="-0.7cm" fo:margin-left="1.33cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.401cm" fo:text-indent="-0.7cm" fo:margin-left="2.03cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.101cm" fo:text-indent="-0.7cm" fo:margin-left="2.731cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.801cm" fo:text-indent="-0.7cm" fo:margin-left="3.431cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.501cm" fo:text-indent="-0.7cm" fo:margin-left="4.131cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.2cm" fo:text-indent="-0.7cm" fo:margin-left="4.83cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.9cm" fo:text-indent="-0.7cm" fo:margin-left="5.53cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.6cm" fo:text-indent="-0.7cm" fo:margin-left="6.23cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.301cm" fo:text-indent="-0.7cm" fo:margin-left="6.93cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.001cm" fo:text-indent="-0.7cm" fo:margin-left="7.631cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+  </text:list-style>
   <text:list-style style:name="Numbering_20_IVX">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="I">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -549,20 +613,6 @@
   <style:style style:name="P20" style:family="paragraph" style:parent-style-name="BASICpref_20_kop_20_1">
    <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
-  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="2.401cm" fo:margin-right="0cm" fo:text-indent="-2.401cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="2.48cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P22" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="2.401cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="-2.401cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="2.48cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
   <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Text_20_body" style:master-page-name="">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" style:page-number="auto"/>
   </style:style>
@@ -589,20 +639,6 @@
   </style:style>
   <style:style style:name="P32" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P33" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="3.969cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P34" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="3.969cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
   </style:style>
   <style:style style:name="P36" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
@@ -648,9 +684,6 @@
   </style:style>
   <style:style style:name="P51" style:family="paragraph" style:parent-style-name="Standard">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P53" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P54" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
@@ -739,18 +772,6 @@
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
   <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P90" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10"/>
-  <style:style style:name="P91" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L10">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P92" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11"/>
-  <style:style style:name="P93" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L11">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P94" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12"/>
-  <style:style style:name="P95" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L12">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
   <style:style style:name="T2" style:family="text">
@@ -1099,162 +1120,6 @@
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.484cm" fo:text-indent="-0.635cm" fo:margin-left="7.484cm"/>
     </style:list-level-properties>
    </text:list-level-style-bullet>
-  </text:list-style>
-  <text:list-style style:name="L10">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L11">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L12">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
   </text:list-style>
   <text:list-style style:name="L13">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
@@ -1673,21 +1538,17 @@
    <text:p text:style-name="Text_20_body">We beginnen met het hoofdstuk <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">menu&apos;s</text:span></text:a>; hierin wordt een uitleg gegeven over <text:span text:style-name="T2">–</text:span> de naam zegt het al <text:span text:style-name="T2">–</text:span> windows &amp; menu&apos;s. Dit hoofdstuk is bedoeld voor mensen die nog nooit met deze dingen hebben gewerkt. We proberen in dit hoofdstuk u alle nodige informatie te ver­schaffen, waarna u zonder problemen de rest van de handleiding makkelijk kunt volgen.</text:p>
    <text:p text:style-name="Text_20_body">Dan volgt het hoofdstuk <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>; hierin wordt de desktop besproken. Vanuit de desktop zijn alle mogelijkheden van de Final Cartridge III aan te roepen en alles zou dus in dit hoofdstuk be­sproken kunnen worden, maar om het overzichtelijk te houden zijn er nog vier aparte hoofd­stukken gemaakt.</text:p>
    <text:p text:style-name="Text_20_body">Die aparte hoofdstukken zijn:</text:p>
-   <text:p text:style-name="P22"><text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tools</text:span></text:a><text:tab/>hierin worden de Notepad, Desktop Utilities en Printer Selections besproken.</text:p>
-   <text:p text:style-name="P22"><text:a xlink:type="simple" xlink:href="#10.Freezer|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die de freezer u biedt besproken.</text:p>
-   <text:p text:style-name="P22"><text:a xlink:type="simple" xlink:href="#9.Basic|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die het door Cartridge III uitgebreide <text:span text:style-name="Kleine_20_hoofdletters">Ba­sic</text:span> u biedt besproken.</text:p>
-   <text:p text:style-name="P21"><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die de monitor u biedt besproken.</text:p>
+   <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tools</text:span></text:a><text:tab/>hierin worden de Notepad, Desktop Utilities en Printer Selections besproken.</text:p>
+   <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#10.Freezer|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die de freezer u biedt besproken.</text:p>
+   <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#9.Basic|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die het door Cartridge III uitgebreide <text:span text:style-name="Kleine_20_hoofdletters">Ba­sic</text:span> u biedt besproken.</text:p>
+   <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#11.De monitor|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Monitor</text:span></text:a><text:tab/>hierin worden alle mogelijkheden die de monitor u biedt besproken.</text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4726_2830447109"/>Window&apos;s &amp; menu&apos;s<text:bookmark-end text:name="__RefHeading___Toc4726_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4740_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4740_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">De meeste funkties van de Final Cartridge III zijn te besturen door Windows &amp; Menu&apos;s. In dit hoofdstuk wordt algemene uitleg over het werken met de Windows &amp; Menu&apos;s gegeven. De men­sen die al bekend zijn in de omgang met Windows &amp; Menu&apos;s kunnen dit hoofdstuk over­slaan en direct naar het hoofdstuk desktop gaan, later kunnen ze dan altijd nog even een paar belangrijke gedeelten van dit hoofdstuk doorlezen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4742_2830447109"/>Algemene termen en technieken<text:bookmark-end text:name="__RefHeading___Toc4742_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4813_2830447109"/>Het gebruik van de pointer<text:bookmark-end text:name="__RefHeading___Toc4813_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Nadat de Final Cartridge III is opgestart, verschijnt er een pijl op het scherm. Deze pijl noe­men we de pointer. De pointer volgt op het scherm de bewegingen die u met de joystick of met de muis maakt. Indien u geen van beide tot uw bezit heeft, dan kunt u een joystick met behulp van het toetsenbord nabootsen:</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 1 </text:span>: naar boven</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 3 </text:span>: naar beneden</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 5 </text:span>: naar links</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:s/>f 7 </text:span>: naar rechts</text:p>
-   <text:p text:style-name="P53"><text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span>: de vuurknop</text:p>
+   <text:p text:style-name="Tekstblok_N2"><text:span text:style-name="Toets"><text:s/>f 1 </text:span>: naar boven<text:line-break/><text:span text:style-name="Toets"><text:s/>f 3 </text:span>: naar beneden<text:line-break/><text:span text:style-name="Toets"><text:s/>f 5 </text:span>: naar links<text:line-break/><text:span text:style-name="Toets"><text:s/>f 7 </text:span>: naar rechts<text:line-break/><text:span text:style-name="Toets"><text:span text:style-name="C64">À</text:span></text:span>: de vuurknop</text:p>
    <text:p text:style-name="Tekstblok_N1">Hoewel we het mogelijk hebben gemaakt de pointer door beide joystickpoorten aan te laten sturen, raden wij u ten sterkste aan poort 2 te gebruiken. Ook kunnen we helaas niets aan het feit doen dat sommige muizen het toetsen­bord blokkeren (dit is een fout in de hardware van de muis), waardoor het soms noodzake­lijk is dat u de muis uit de computer moet ver­wijderen als u het toetsenbord wilt gebruiken.</text:p>
    <text:p text:style-name="Tekstblok_N1">Als de pointer te snel, respectievelijk te langzaam beweegt of de kleur ervan bevalt u niet, dan kunt u deze instellingen veranderen vanuit <text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a>. Dit wordt verderop bij <text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Pre</text:span></text:a><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">­</text:span></text:a><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">fe­rences</text:span></text:a> uitgelegd.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4815_2830447109"/>Klikken en selecteren<text:bookmark-end text:name="__RefHeading___Toc4815_2830447109"/></text:h>
@@ -1719,10 +1580,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4823_2830447109"/>Gadgets<text:bookmark-end text:name="__RefHeading___Toc4823_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Om nu met het window te communiceren, maakt u gebruik van gadgets.</text:p>
    <text:p text:style-name="Tekstblok_N1">Dit zijn grafische afbeeldingen die opdrachten voorstellen. Met behulp van zo’n gadget kunt u bijvoorbeeld een window verplaatsen of het window sluiten. De meest voorkomende gad­gets zijn:</text:p>
-   <text:p text:style-name="P34">Close-gadget<text:tab/>Om een window te sluiten</text:p>
-   <text:p text:style-name="P34">Toback-gadget<text:tab/>Om windows achteraan te zetten</text:p>
-   <text:p text:style-name="P34">String-gadget<text:tab/>Om teksten in te voeren</text:p>
-   <text:p text:style-name="P33">Toggle-gadget<text:tab/>Om opties te selecteren.</text:p>
+   <text:p text:style-name="Calctab">Close-gadget<text:tab/>Om een window te sluiten<text:line-break/>Toback-gadget<text:tab/>Om windows achteraan te zetten<text:line-break/>String-gadget<text:tab/>Om teksten in te voeren<text:line-break/>Toggle-gadget<text:tab/>Om opties te selecteren.</text:p>
    <text:p text:style-name="P50">Veel van deze gadgets kunt u in onderstaande tekening van een window terugvinden.</text:p>
    <text:p text:style-name="P7"><draw:frame draw:style-name="fr2" draw:name="Afbeelding7" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.919cm" draw:z-index="6"><draw:image xlink:href="fc3_calculator.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
@@ -1846,7 +1704,7 @@
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4754_2830447109"/>Calculator<text:bookmark-end text:name="__RefHeading___Toc4754_2830447109"/></text:h>
-   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4949_2830447109"/>I<text:span text:style-name="T13">nleiding</text:span><text:bookmark-end text:name="__RefHeading___Toc4949_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4949_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4949_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Calculator is een rekenmachine, die behalve optellen, aftrekken, delen en vermenigvuldi­gen, ook over een geheugen beschikt. De werking ervan is hetzelfde als een normale calcu­lator en we menen hierdoor niet uitgebreid in te hoeven gaan op alle instrukties.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4951_2830447109"/>Het openen en sluiten van de calculator<text:bookmark-end text:name="__RefHeading___Toc4951_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_N1">U kunt de calculator openen door in het Utilities-menu calculator te selecteren.</text:p>
@@ -2133,7 +1991,7 @@
    <text:p text:style-name="Tekstblok_N1">De commando’s in Notepad worden net zoals in de desktop vanuit pull­down-menu’s geko­zen. Bovenaan de Notepad vindt u dan ook een menu-bar.</text:p>
    <text:p text:style-name="Tekstblok_N1">We behandelen de commando’s van de Notepad in de volgorde van de menu’s.</text:p>
    <text:p text:style-name="P18"><text:span text:style-name="Kleine_20_hoofdletters">Project</text:span></text:p>
-   <text:p text:style-name="Tekstblok_N2">In het project menu staan commando’s om uw tekst te bewaren, af te drukken etc.</text:p>
+   <text:p text:style-name="Tekstblok_N2">In het project-menu staan commando’s om uw tekst te bewaren, af te drukken etc.</text:p>
    <text:p text:style-name="P45"><text:span text:style-name="Kleine_20_hoofdletters">New</text:span></text:p>
    <text:p text:style-name="P58">Met het <text:span text:style-name="Kleine_20_hoofdletters">new</text:span>-commando maakt u de Notepad leeg. De cursor komt aan het begin te staan en wacht op de tekst die u wilt gaan intypen.</text:p>
    <text:p text:style-name="P45"><text:span text:style-name="Kleine_20_hoofdletters">Load</text:span></text:p>
@@ -2887,38 +2745,38 @@
    <text:p text:style-name="Text_20_body">Nadat u de freeze-button ingedrukt heeft, kunt u met behulp van de Final Cartridge III een aan­tal interessante commando’s gaan uitvoe­ren, zoals het maken van een back up. Zie ook het hoofdstuk <text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Opmerkingen</text:span></text:a> !</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4776_2830447109"/>Het starten en stoppen van de freezer<text:bookmark-end text:name="__RefHeading___Toc4776_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 4 manieren opstarten:</text:p>
-   <text:list xml:id="list582442391" text:style-name="L10">
+   <text:list xml:id="list582442391" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P91">U kiest vanuit de desktop in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U kiest vanuit de desktop in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">U kiest vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U kiest vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> in het system-menu het item <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P91">U drukt terwijl u in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> bent op de freeze-knop.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U drukt terwijl u in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> bent op de freeze-knop.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P90">U drukt terwijl de Final Cartridge III uit staat op de freeze-knop.</text:p>
+     <text:p text:style-name="NumLijstEinde">U drukt terwijl de Final Cartridge III uit staat op de freeze-knop.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">U kunt de freezer op de volgende 2 wijze verlaten:</text:p>
-   <text:list xml:id="list3977804874" text:style-name="L11">
+   <text:list xml:id="list3977804874" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P93">U kiest één van de exit-commando’s</text:p>
+     <text:p text:style-name="NumLijstVervolg">U kiest één van de exit-commando’s</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P92">U kiest één van de reset-commando’s</text:p>
+     <text:p text:style-name="NumLijstEinde">U kiest één van de reset-commando’s</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4778_2830447109"/>Het gebruik van de freezer<text:bookmark-end text:name="__RefHeading___Toc4778_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Nadat u de freezer heeft opgestart verschijnt de menu-bar. In tegens­telling tot alle andere pull-down menu’s gebruiken we bij het kiezen in deze menu’s geen pointer.</text:p>
    <text:p text:style-name="Text_20_body">Deze pull-down-menu’s kunt u op twee manieren doorbladeren:</text:p>
-   <text:list xml:id="list3544406242" text:style-name="L12">
+   <text:list xml:id="list3544406242" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P95">Door gebruik te maken van een joystick bladert u links en rechts door de verschillende menu’s. Door naar voor of achter te gaan bladert u door één bepaald menu. Het door u gewenste commando selecteert u door op de vuurknop te drukken.</text:p>
+     <text:p text:style-name="NumLijstVervolg">Door gebruik te maken van een joystick bladert u links en rechts door de verschillende menu’s. Door naar voor of achter te gaan bladert u door één bepaald menu. Het door u gewenste commando selecteert u door op de vuurknop te drukken.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P94">Door gebruik te maken van de cursor. Met cursor rechts en cursor links (dit alleen m.b.v. de rechter shift-knop !!) bladert u door de verschillende menu’s. M.b.v. cursor down en cursor up (dit alleen m.b.v. de rechter shift-knop !!), bladert u door één be­paald menu. Het door u gewenste commando selecteert u door op <text:span text:style-name="Toets"><text:s/>f 7 </text:span><text:s/>te drukken.</text:p>
+     <text:p text:style-name="NumLijstEinde">Door gebruik te maken van de cursor. Met cursor rechts en cursor links (dit alleen m.b.v. de rechter shift-knop !!) bladert u door de verschillende menu’s. M.b.v. cursor down en cursor up (dit alleen m.b.v. de rechter shift-knop !!), bladert u door één be­paald menu. Het door u gewenste commando selecteert u door op <text:span text:style-name="Toets"><text:s/>f 7 </text:span><text:s/>te drukken.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4780_2830447109"/>Freezer-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4780_2830447109"/></text:h>
@@ -3066,7 +2924,7 @@
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5754_224738076"/>Game Joyswap<text:bookmark-end text:name="__RefHeading___Toc5754_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_N1">Dit commando verwisselt van joystickpoort. Door van dit commando gebruik te maken, hoeft u zelf niet van joystick poort te wisselen als het spel de andere poort gebruikt, waar­door u het opblazen van uw computer voorkomt.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5752_224738076"/>Game Autofire<text:bookmark-end text:name="__RefHeading___Toc5752_224738076"/></text:p>
-   <text:p text:style-name="Tekstblok_N1">Dit commando maakt van een normale joystick een dure autofire joy­ stick. Dit is erg handig bij Invader-spelen. Als u nu de vuurknop indrukt, vuurt de joystick automatisch achter el­kaar.</text:p>
+   <text:p text:style-name="Tekstblok_N1">Dit commando maakt van een normale joy­stick een dure autofire joy­stick. Dit is erg handig bij Invader-spelen. Als u nu de vuurknop indrukt, vuurt de joystick automatisch achter el­kaar.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4972_2164442888"/>Colors<text:bookmark-end text:name="__RefHeading___Toc4972_2164442888"/></text:h>
    <text:p text:style-name="Text_20_body">Dit menu biedt u de mogelijkheid de kleuren van het scherm te veranderen. Dit kunt u bijvoor­beeld gebruiken als de kleuren van het programma u niet bevallen, of als u de kleuren van het scherm wilt veranderen voordat u gaat printen om bijvoorbeeld een betere grijs­waarde te ver­krijgen. Om de nieuwe kleuren te bekijken kunt u gebruik maken van het Print View comman­do.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5750_224738076"/>Colors BackGnd<text:bookmark-end text:name="__RefHeading___Toc5750_224738076"/></text:p>
@@ -3348,7 +3206,7 @@
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">I xxxx yyyy</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">xxxx</text:span> = het beginadres<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">yyyy</text:span> = het eindadres</text:p>
    <text:p text:style-name="Text_20_body">Dit commando<text:tab/>stelt u in staat teksten te tonen of te veranderen. Na het intypen van dit com-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>mando wordt de inhoud van het geheugen in tekst representatie weergeven<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>en. Het is nu moge­lijk om de teksten te veranderen door ze te verbeteren.</text:p>
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">I 2000 203F</text:span></text:p>
-   <text:p text:style-name="Text_20_body">Scherm:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">. I 2000 203F<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span></text:p>
+   <text:p text:style-name="Text_20_body">Scherm:<text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">.I 2000 203F<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span></text:p>
    <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/>Door gebruik te maken van dit commando, hoeft u niet steeds de waarden<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>van de teksten op te zoeken en deze dan in te typen, u kunt nu de tekst zelf<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>intypen.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10837_2164442888"/>L<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Load<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Laadt een machinetaalprogramma<text:bookmark-end text:name="__RefHeading___Toc10837_2164442888"/></text:p>
@@ -3676,7 +3534,7 @@
    <text:p text:style-name="Text_20_body">Voorbeeld:<text:tab/><text:tab/><text:tab/><text:tab/><text:span text:style-name="Monospace">*W 12 00 CE</text:span><text:tab/>Dit schrijft het geheugen van CE00 t/m CEFF op de<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>diskette als het eerste blok van de directory</text:p>
    <text:p text:style-name="Text_20_body">Opmerkingen:<text:tab/><text:tab/><text:tab/>Indien geen geheugenadres wordt opgegeven, wordt het blok altijd veron-<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dersteld op adres $CF00 te staan.</text:p>
    <text:p text:style-name="Text_20_body">Soort:<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>C.</text:p>
-   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4738_2830447109"/>O<text:span text:style-name="T11">pmerkingen</text:span><text:bookmark-end text:name="__RefHeading___Toc4738_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4738_2830447109"/>Opmerkingen<text:bookmark-end text:name="__RefHeading___Toc4738_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4790_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4790_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In dit hoofdstuk vindt u verschillende opmerkingen over de Final Cartridge III. Bij deze opmer­kingen kunt u verschillende redenen vinden waarom iets niet doet wat u ervan verwacht.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4792_2830447109"/>Opmerkingen over de freezer<text:bookmark-end text:name="__RefHeading___Toc4792_2830447109"/></text:h>
@@ -3695,7 +3553,7 @@
    <text:p text:style-name="Text_20_body">Helaas zijn we er niet helemaal in geslaagd alle rasterinterrupts te ondervangen, hierdoor kan het voorkomen dat u enkele tekeningen niet correct kunt uitprinten.</text:p>
    <text:p text:style-name="Text_20_body">Split screens werken met rasterinterrupts, d.w.z. een deel van het beeld wordt opgebouwd als de video-scan voorbij de betreffende “line” van het scherm is. Ons oog neemt dit niet waar; wij zien slechts een volledig beeld. Deze screens kunnen niet volledig worden geprint.</text:p>
    <text:p text:style-name="Text_20_body">Vanuit het print-menu komt u altijd in de desktop.</text:p>
-   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4798_2830447109"/>G<text:span text:style-name="T12">ame</text:span><text:bookmark-end text:name="__RefHeading___Toc4798_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4798_2830447109"/>Game<text:bookmark-end text:name="__RefHeading___Toc4798_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Na het activeren van de autofire kunt u alleen weer via autofire het programma te vervolgen als u het nog een keer freezet.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4800_2830447109"/>Opmerkingen over de desktop<text:bookmark-end text:name="__RefHeading___Toc4800_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Hoewel de Final Cartridge III geen geheugen gebruikt, maakt de desktop wel gebruik van het geheugen. Dit is de reden waarom u eerst gewaarschuwd wordt als u <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> verlaat.</text:p>
