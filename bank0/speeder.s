@@ -32,10 +32,13 @@ send_byte:
         lsr     a
         lsr     a
         tax
+        ; Avoid the line before a bad line. A bad line itself is no problem because BA low
+        ; starts on cycle 11 of the line. By the time we write to $DD00 more than 11
+        ; cycles have past; it will happen after VIC-II DMA is completed.
 @2:     lda     $D012
         cmp     #$31
         bcc     @3
-        and     #$06
+        and     #$07
         cmp     #$02
         beq     @2
 @3:     lda     #$07
@@ -72,33 +75,34 @@ iec_tab:
 
 receive_4_bytes:
         ; Note $DD00 is set to 0 before this routine is called
-        lda     $02A6   ; PAL or NTSC?
+        lda     $02A6     ; PAL or NTSC?
         beq     @ntsc
         ; PAL
-@pal:   bit     $DD00  ; Wait until clock in low
-        bvs     @pal
-        ldx     #3
-        nop
-        bit     $01    ; Consume 3 cycles
-@1:     lda     $DD00
-        lsr     a
-        lsr     a
-        nop
-        nop
-        ora     $DD00
-        lsr     a
-        lsr     a
-        nop
-        nop
-        ora     $DD00
-        lsr     a
-        lsr     a
-        nop
-        nop
-        ora     $DD00
-        sta     a:$00C1,x ; 16 bit adress for timing
-        dex
-        bpl     @1
+@pal:   bit     $DD00     ; 4 Wait until clock in low
+        bvs     @pal      ; 2
+        ldx     #3        ; 3
+        nop               ; 2
+        bit     $01       ; 3 = 14 Consume 3 cycles
+        ; = 0
+@1:     lda     $DD00     ; 4
+        lsr     a         ; 2
+        lsr     a         ; 2
+        nop               ; 2
+        nop               ; 2 = 12
+        ora     $DD00     ; 4
+        lsr     a         ; 2
+        lsr     a         ; 2
+        nop               ; 2
+        nop               ; 2 = 12
+        ora     $DD00     ; 4
+        lsr     a         ; 2
+        lsr     a         ; 2
+        nop               ; 2
+        nop               ; 2 = 12
+        ora     $DD00     ; 4
+        sta     a:$00C1,x ; 5 16 bit adress for timing
+        dex               ; 2
+        bpl     @1        ; 3 = 14
 .assert >* = >@pal, error, "Page boundary!"
         rts
 
