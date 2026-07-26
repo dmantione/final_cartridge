@@ -186,6 +186,9 @@
   <style:style style:name="Vetgedrukt" style:family="text" style:display-name="Vetgedrukt">
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
+  <style:style style:name="Onderstreept" style:family="text">
+   <style:text-properties style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
+  </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
   <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
@@ -441,6 +444,58 @@
     </style:list-level-properties>
    </text:outline-level-style>
   </text:outline-style>
+  <text:list-style style:name="Bullet_20_Symbols">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+  </text:list-style>
   <text:list-style style:name="Numbering_20_123" style:display-name="Numbering 123">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -734,48 +789,22 @@
   <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Heading_20_3">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
-  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="Bullet_20_Symbols">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="L9">
+  <style:style style:name="P73" style:family="paragraph" style:parent-style-name="List_20_1" style:list-style-name="Bullet_20_Symbols">
    <style:paragraph-properties>
     <style:tab-stops/>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P77" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P78" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
+  <style:style style:name="P87" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Bullet_20_Symbols"/>
+  <style:style style:name="P88" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Bullet_20_Symbols">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="P79" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
+  <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Bullet_20_Symbols">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P80" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P81" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3"/>
-  <style:style style:name="P82" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L3">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P83" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6"/>
-  <style:style style:name="P84" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L6">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P85" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7"/>
-  <style:style style:name="P86" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L7">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P87" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8"/>
-  <style:style style:name="P88" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L8">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P89" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="L9">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="T2" style:family="text">
-   <style:text-properties style:font-name="Liberation Serif"/>
   </style:style>
   <style:style style:name="T11" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif3" fo:font-size="16.7999992370605pt" fo:font-weight="bold"/>
@@ -785,9 +814,6 @@
   </style:style>
   <style:style style:name="T13" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif2" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="T16" style:family="text">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
@@ -860,266 +886,6 @@
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L3">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L6">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L7">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L8">
-   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.769cm" fo:text-indent="-0.635cm" fo:margin-left="1.769cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.404cm" fo:text-indent="-0.635cm" fo:margin-left="2.404cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.039cm" fo:text-indent="-0.635cm" fo:margin-left="3.039cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.674cm" fo:text-indent="-0.635cm" fo:margin-left="3.674cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.309cm" fo:text-indent="-0.635cm" fo:margin-left="4.309cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.944cm" fo:text-indent="-0.635cm" fo:margin-left="4.944cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.579cm" fo:text-indent="-0.635cm" fo:margin-left="5.579cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.214cm" fo:text-indent="-0.635cm" fo:margin-left="6.214cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.849cm" fo:text-indent="-0.635cm" fo:margin-left="6.849cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.484cm" fo:text-indent="-0.635cm" fo:margin-left="7.484cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-  </text:list-style>
-  <text:list-style style:name="L9">
-   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.769cm" fo:text-indent="-0.635cm" fo:margin-left="1.769cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.404cm" fo:text-indent="-0.635cm" fo:margin-left="2.404cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.039cm" fo:text-indent="-0.635cm" fo:margin-left="3.039cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.674cm" fo:text-indent="-0.635cm" fo:margin-left="3.674cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.309cm" fo:text-indent="-0.635cm" fo:margin-left="4.309cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.944cm" fo:text-indent="-0.635cm" fo:margin-left="4.944cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.579cm" fo:text-indent="-0.635cm" fo:margin-left="5.579cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.214cm" fo:text-indent="-0.635cm" fo:margin-left="6.214cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.849cm" fo:text-indent="-0.635cm" fo:margin-left="6.849cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.484cm" fo:text-indent="-0.635cm" fo:margin-left="7.484cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
   </text:list-style>
   <text:list-style style:name="L13">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
@@ -1535,7 +1301,7 @@
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4724_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">We hebben geprobeerd de handleiding zo compleet en duidelijk mogelijk voor u te houden, daarom hebben we een zeer uitgebreide inhoudsopgave die het zoeken in deze handleiding erg makkelijk maakt.</text:p>
-   <text:p text:style-name="Text_20_body">We beginnen met het hoofdstuk <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">menu&apos;s</text:span></text:a>; hierin wordt een uitleg gegeven over <text:span text:style-name="T2">–</text:span> de naam zegt het al <text:span text:style-name="T2">–</text:span> windows &amp; menu&apos;s. Dit hoofdstuk is bedoeld voor mensen die nog nooit met deze dingen hebben gewerkt. We proberen in dit hoofdstuk u alle nodige informatie te ver­schaffen, waarna u zonder problemen de rest van de handleiding makkelijk kunt volgen.</text:p>
+   <text:p text:style-name="Text_20_body">We beginnen met het hoofdstuk <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">menu&apos;s</text:span></text:a>; hierin wordt een uitleg gegeven over – de naam zegt het al – windows &amp; menu&apos;s. Dit hoofdstuk is bedoeld voor mensen die nog nooit met deze dingen hebben gewerkt. We proberen in dit hoofdstuk u alle nodige informatie te ver­schaffen, waarna u zonder problemen de rest van de handleiding makkelijk kunt volgen.</text:p>
    <text:p text:style-name="Text_20_body">Dan volgt het hoofdstuk <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>; hierin wordt de desktop besproken. Vanuit de desktop zijn alle mogelijkheden van de Final Cartridge III aan te roepen en alles zou dus in dit hoofdstuk be­sproken kunnen worden, maar om het overzichtelijk te houden zijn er nog vier aparte hoofd­stukken gemaakt.</text:p>
    <text:p text:style-name="Text_20_body">Die aparte hoofdstukken zijn:</text:p>
    <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tools</text:span></text:a><text:tab/>hierin worden de Notepad, Desktop Utilities en Printer Selections besproken.</text:p>
@@ -1615,18 +1381,18 @@
    <text:p text:style-name="Text_20_body">Desktop is het belangrijkste element van de Final Cartridge III, het is de spil waarom alles draait. Vanuit desktop kunt u naar <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>, naar de freezer, etc.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Het openen en sluiten van desktop<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
    <text:p text:style-name="P23">U kunt op 4 verschillende manieren in de desktop terecht komen:</text:p>
-   <text:list xml:id="list3356108256" text:style-name="L3">
+   <text:list xml:id="list3356108256" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P78">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
+     <text:p text:style-name="NumLijstVervolg">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">U selecteert vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> het commando <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het system-menu.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U selecteert vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> het commando <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het system-menu.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P78">U typt in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> het commando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> in.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U typt in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> het commando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> in.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P77">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
+     <text:p text:style-name="NumLijstEinde">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om vanuit desktop zelf opnieuw te beginnen drukt u de toetsen <text:span text:style-name="Toets">CONTROL</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> tegelijk in, waarna desktop reset en opnieuw opstart.</text:p>
@@ -1683,24 +1449,24 @@
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Tools<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In dit hoofdstuk worden tools besproken. Tools zijn gereedschappen die de Final Cartridge III u biedt.</text:p>
    <text:p text:style-name="Text_20_body">De tools die in dit hoofdstuk worden besproken zijn:</text:p>
-   <text:list xml:id="list3416176229" text:style-name="L3">
+   <text:list xml:id="list3416176229" text:style-name="Bullet_20_Symbols">
     <text:list-item>
-     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstVervolg"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstVervolg"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstVervolg"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstVervolg"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P79"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstVervolg"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P80"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
+     <text:p text:style-name="NumLijstEinde"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4754_2830447109"/>Calculator<text:bookmark-end text:name="__RefHeading___Toc4754_2830447109"/></text:h>
@@ -2047,55 +1813,55 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4768_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4768_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Vanuit de <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-stand kunt u gewoon in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> gaan programmeren. U kunt deze stand op­vatten als de computer zonder cartridge.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III levert u in deze stand toch veel extra’s zoals:</text:p>
-   <text:list xml:id="list2067266749" text:style-name="L3">
+   <text:list xml:id="list2067266749" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P82">Het scrollen van <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma’s.</text:p>
+     <text:p text:style-name="NumLijstVervolg">Het scrollen van <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma’s.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P82">Een printer-interface.</text:p>
+     <text:p text:style-name="NumLijstVervolg">Een printer-interface.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P82">Het afdrukken van een scherm op de printer.</text:p>
+     <text:p text:style-name="NumLijstVervolg">Het afdrukken van een scherm op de printer.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P82">De tape/disk snellader.</text:p>
+     <text:p text:style-name="NumLijstVervolg">De tape/disk snellader.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P82">Het gebruik van Pull-Down-menu’s.</text:p>
+     <text:p text:style-name="NumLijstVervolg">Het gebruik van Pull-Down-menu’s.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P81">Het gebruik van ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters">basic-</text:span>commando’s.</text:p>
+     <text:p text:style-name="NumLijstEinde">Het gebruik van ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters">basic-</text:span>commando’s.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4770_2830447109"/>Het starten en stoppen van de Basic-stand<text:bookmark-end text:name="__RefHeading___Toc4770_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">U kunt in de <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-stand op de volgende 3 manieren komen:</text:p>
-   <text:list xml:id="list1942686972" text:style-name="L6">
+   <text:list xml:id="list1942686972" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P84">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/STOP</text:span> inge­drukt.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/STOP</text:span> inge­drukt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P84">U selecteert vanuit de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> het item <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> in het menu <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U selecteert vanuit de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> het item <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> in het menu <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P83">U selecteert vanuit het <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>-menu het item <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>.</text:p>
+     <text:p text:style-name="NumLijstEinde">U selecteert vanuit het <text:span text:style-name="Kleine_20_hoofdletters">freezer</text:span>-menu het item <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om te stoppen met de <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> stand en over te gaan naar een andere stand van de Final Cartrid­ge III zijn er de volgende mogelijkheden:</text:p>
-   <text:list xml:id="list879725054" text:style-name="L7">
+   <text:list xml:id="list879725054" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P86">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>-menu, waarna u (na een bevestiging ge­geven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> komt.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> in het <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>-menu, waarna u (na een bevestiging ge­geven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P86">U typt <text:span text:style-name="Monospace">DESKTOP</text:span> in, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> komt.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U typt <text:span text:style-name="Monospace">DESKTOP</text:span> in, waarna u (na een bevestiging gegeven te hebben) in de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P86">U drukt op de <text:span text:style-name="Kleine_20_hoofdletters">freeze</text:span>-knop, waarna u in het <text:span text:style-name="Kleine_20_hoofdletters">freeze</text:span>-menu komt.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U drukt op de <text:span text:style-name="Kleine_20_hoofdletters">freeze</text:span>-knop, waarna u in het <text:span text:style-name="Kleine_20_hoofdletters">freeze</text:span>-menu komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P86">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters">final kill</text:span>, waarna de Final Cartridge III wordt uitgeschakeld en u in de standaard Commodore 64/128 komt.</text:p>
+     <text:p text:style-name="NumLijstVervolg">U selecteert het item <text:span text:style-name="Kleine_20_hoofdletters">final kill</text:span>, waarna de Final Cartridge III wordt uitgeschakeld en u in de standaard Commodore 64/128 komt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P85">U typt <text:span text:style-name="Monospace">KILL</text:span> in, waarna de Final Cartridge III wordt uitgeschakeld en u in de stan­daard Commodore 64/128 komt.</text:p>
+     <text:p text:style-name="NumLijstEinde">U typt <text:span text:style-name="Monospace">KILL</text:span> in, waarna de Final Cartridge III wordt uitgeschakeld en u in de stan­daard Commodore 64/128 komt.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4772_2830447109"/>Extra mogelijkheden in Basic<text:bookmark-end text:name="__RefHeading___Toc4772_2830447109"/></text:h>
@@ -2132,7 +1898,7 @@
    <text:p text:style-name="Tekstblok_N1">Let Op ! <text:span text:style-name="Kleine_20_hoofdletters">final kill = kill</text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4966_2164442888"/>Extra Basic-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4966_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_N1">Als u de Final Cartridge III in uw computer heeft zitten, heeft u ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-commando’s tot uw beschikking. Deze comman­do’s kunt u op twee manieren gebruiken:</text:p>
-   <text:list xml:id="list3927342599" text:style-name="L8">
+   <text:list xml:id="list3927342599" text:style-name="Bullet_20_Symbols">
     <text:list-item>
      <text:p text:style-name="P88">u kunt ze direct intypen</text:p>
     </text:list-item>
@@ -2141,7 +1907,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="Tekstblok_N1">Van elk commando geven we het volgende:</text:p>
-   <text:list xml:id="list3302647369" text:style-name="L9">
+   <text:list xml:id="list3302647369" text:style-name="Bullet_20_Symbols">
     <text:list-item>
      <text:p text:style-name="P89">de naam van het commando;</text:p>
     </text:list-item>
@@ -2415,7 +2181,7 @@
    <text:p text:style-name="P51">Syntax:<text:tab/><text:tab/><text:tab/>DOS&quot;$</text:p>
    <text:p text:style-name="P51"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dO&quot;$</text:p>
    <text:p text:style-name="P51"/>
-   <text:p text:style-name="P51">Dit commando<text:tab/>toont de directory op het scherm, <text:span text:style-name="T16">zonder</text:span> het programma dat in het<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>geheugen staat te verwijderen.</text:p>
+   <text:p text:style-name="P51">Dit commando<text:tab/>toont de directory op het scherm, <text:span text:style-name="Onderstreept">zonder</text:span> het programma dat in het<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>geheugen staat te verwijderen.</text:p>
    <text:p text:style-name="P51"/>
    <text:p text:style-name="P51">Voorbeeld:<text:tab/><text:tab/><text:tab/>DOS&quot;$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dit toont de directory van de schijf</text:p>
    <text:p text:style-name="P51"/>

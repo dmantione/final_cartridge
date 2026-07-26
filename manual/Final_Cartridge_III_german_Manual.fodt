@@ -340,16 +340,14 @@
   <style:style style:name="RomLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
   </style:style>
-  <style:style style:name="NumLijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Numbering_20_123">
-  </style:style>
-  <style:style style:name="NumLijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body" style:list-style-name="Numbering_20_123">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
   <style:style style:name="Nw_5f_blz_5f_r" style:display-name="Nw_blz_r" style:family="paragraph">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
   <style:style style:name="Vetgedrukt" style:family="text">
    <style:text-properties fo:font-weight="bold"/>
+  </style:style>
+  <style:style style:name="Onderstreept" style:family="text">
+   <style:text-properties style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="Bullet_20_Symbols" style:display-name="Bullet Symbols" style:family="text">
    <style:text-properties style:font-name="OpenSymbol" fo:font-family="OpenSymbol" style:font-charset="x-symbol"/>
@@ -433,6 +431,58 @@
     </style:list-level-properties>
    </text:outline-level-style>
   </text:outline-style>
+  <text:list-style style:name="Bullet_20_Symbols">
+   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-bullet>
+  </text:list-style>
   <text:list-style style:name="Numbering_20_123" style:display-name="Numbering 123">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
@@ -772,11 +822,9 @@
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="P61" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1"/>
-  <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L2"/>
-  <style:style style:name="P63" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L3"/>
+  <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Bullet_20_Symbols"/>
   <style:style style:name="P64" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L4"/>
   <style:style style:name="P65" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L5"/>
-  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name=""/>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
@@ -792,110 +840,6 @@
    </style:section-properties>
   </style:style>
   <text:list-style style:name="L1">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="L2">
-   <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="3" text:style-name="Bullet_20_Symbols" loext:num-list-format="%3%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="4" text:style-name="Bullet_20_Symbols" loext:num-list-format="%4%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="5" text:style-name="Bullet_20_Symbols" loext:num-list-format="%5%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="6" text:style-name="Bullet_20_Symbols" loext:num-list-format="%6%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="7" text:style-name="Bullet_20_Symbols" loext:num-list-format="%7%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="8" text:style-name="Bullet_20_Symbols" loext:num-list-format="%8%" text:bullet-char="◦">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="9" text:style-name="Bullet_20_Symbols" loext:num-list-format="%9%" text:bullet-char="▪">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-   <text:list-level-style-bullet text:level="10" text:style-name="Bullet_20_Symbols" loext:num-list-format="%10%" text:bullet-char="•">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-bullet>
-  </text:list-style>
-  <text:list-style style:name="L3">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
@@ -1050,58 +994,6 @@
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.484cm" fo:text-indent="-0.635cm" fo:margin-left="7.484cm"/>
     </style:list-level-properties>
    </text:list-level-style-bullet>
-  </text:list-style>
-  <text:list-style style:name="L9">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.905cm" fo:text-indent="-0.635cm" fo:margin-left="1.905cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
   </text:list-style>
   <style:page-layout style:name="pm1" style:page-usage="mirrored">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.251cm" fo:margin-bottom="1.251cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
@@ -1528,18 +1420,18 @@
    <text:p text:style-name="Text_20_body">Der Desktop ist das wichtigste Element der Final Cartridge III, er ist die Drehscheibe, um die sich alles dreht. Vom Desktop aus können Sie zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, zum Freezer usw. gelangen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Öffnen und Schließen des Desktops<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
    <text:p text:style-name="P20">Sie können auf 4 verschiedene Arten in den Desktop gelangen:</text:p>
-   <text:list xml:id="list307048353" text:style-name="L1">
+   <text:list xml:id="list307048353" text:style-name="Numbering_123">
     <text:list-item>
-     <text:p text:style-name="P61">Sie starten den Desktop, indem Sie den Computer einfach einschalten, während die Final Cartridge III eingesteckt ist (also immer).</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie starten den Desktop, indem Sie den Computer einfach einschalten, während die Final Cartridge III eingesteckt ist (also immer).</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P61">Sie wählen aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> im System-Menü.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> im System-Menü.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P61">Sie geben in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> den Befehl <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> ein.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie geben in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> den Befehl <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> ein.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P61">Sie wählen aus dem Freezer im <text:span text:style-name="Kleine_20_hoofdletters">Exit</text:span>-Menü <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span>.</text:p>
+     <text:p text:style-name="DecLijstEinde">Sie wählen aus dem Freezer im <text:span text:style-name="Kleine_20_hoofdletters">Exit</text:span>-Menü <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Um vom Desktop aus selbst neu zu beginnen, drücken Sie gleichzeitig die Tasten <text:span text:style-name="Toets">CONTROL</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span>, woraufhin der Desktop zurückgesetzt wird und neu startet.</text:p>
@@ -1595,7 +1487,7 @@
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Werkzeuge<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In diesem Kapitel werden Werkzeuge besprochen. Werkzeuge sind Hilfsmittel, die die Final Cartridge III Ihnen bietet.</text:p>
    <text:p text:style-name="Text_20_body">Die Werkzeuge, die in diesem Kapitel besprochen werden, sind:</text:p>
-   <text:list xml:id="list685158765" text:style-name="L2">
+   <text:list xml:id="list685158765" text:style-name="Bullet_20_Symbols">
     <text:list-item>
      <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
@@ -1960,55 +1852,55 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4768_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4768_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Vom <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus aus können Sie ganz normal in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> programmieren. Sie können diesen Modus als den Computer ohne Cartridge betrachten.</text:p>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III bietet Ihnen in diesem Modus dennoch viele Extras, wie zum Beispiel:</text:p>
-   <text:list xml:id="list1505268799" text:style-name="L3">
+   <text:list xml:id="list1505268799" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P63">Das Scrollen von <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Programmen.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Das Scrollen von <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Programmen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Eine Druckerschnittstelle.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Eine Druckerschnittstelle.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Das Ausdrucken eines Bildschirms auf dem Drucker.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Das Ausdrucken eines Bildschirms auf dem Drucker.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Den Tape/Disk-Schnelllader.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Den Tape/Disk-Schnelllader.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Die Verwendung von Pull-Down-Menüs.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Die Verwendung von Pull-Down-Menüs.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Die Verwendung von etwa 30 zusätzlichen <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Befehlen.</text:p>
+     <text:p text:style-name="DecLijstEinde">Die Verwendung von etwa 30 zusätzlichen <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Befehlen.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4770_2830447109"/>Starten und Beenden des Basic-Modus<text:bookmark-end text:name="__RefHeading___Toc4770_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Sie können auf folgende 3 Arten in den <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus gelangen:</text:p>
-   <text:list xml:id="list3638845377" text:style-name="L3">
+   <text:list xml:id="list3638845377" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P63">Sie halten beim Einschalten des Computers die <text:span text:style-name="Toets">RUN/STOP</text:span>-Taste gedrückt.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie halten beim Einschalten des Computers die <text:span text:style-name="Toets">RUN/STOP</text:span>-Taste gedrückt.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie wählen vom <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> aus den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> im Menü <text:span text:style-name="Kleine_20_hoofdletters">System</text:span>.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen vom <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> aus den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> im Menü <text:span text:style-name="Kleine_20_hoofdletters">System</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie wählen vom <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> aus den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
+     <text:p text:style-name="DecLijstEinde">Sie wählen vom <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> aus den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Um den <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus zu beenden und zu einem anderen Modus der Final Cartridge III zu wechseln, gibt es folgende Möglichkeiten:</text:p>
-   <text:list xml:id="list1794754083" text:style-name="L3">
+   <text:list xml:id="list1794754083" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="P63">Sie wählen den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> im <text:span text:style-name="Kleine_20_hoofdletters">System</text:span>-Menü, woraufhin Sie (nach einer Bestäti­gung) in den <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> gelangen.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> im <text:span text:style-name="Kleine_20_hoofdletters">System</text:span>-Menü, woraufhin Sie (nach einer Bestäti­gung) in den <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> gelangen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie geben <text:span text:style-name="Monospace">DESKTOP</text:span> ein, woraufhin Sie (nach einer Bestätigung) in den <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> ge­langen.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie geben <text:span text:style-name="Monospace">DESKTOP</text:span> ein, woraufhin Sie (nach einer Bestätigung) in den <text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span> ge­langen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie drücken die <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span>-Taste, woraufhin Sie in das <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Menü gelangen.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie drücken die <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span>-Taste, woraufhin Sie in das <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Menü gelangen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie wählen den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span>, woraufhin die Final Cartridge III ausgeschaltet wird und Sie im Standard-Commodore 64/128 landen.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span>, woraufhin die Final Cartridge III ausgeschaltet wird und Sie im Standard-Commodore 64/128 landen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P63">Sie geben <text:span text:style-name="Monospace">KILL</text:span> ein, woraufhin die Final Cartridge III ausgeschaltet wird und Sie im Standard-Commodore 64/128 landen.</text:p>
+     <text:p text:style-name="DecLijstEinde">Sie geben <text:span text:style-name="Monospace">KILL</text:span> ein, woraufhin die Final Cartridge III ausgeschaltet wird und Sie im Standard-Commodore 64/128 landen.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4772_2830447109"/>Zusätzliche Möglichkeiten in Basic<text:bookmark-end text:name="__RefHeading___Toc4772_2830447109"/></text:h>
@@ -2260,12 +2152,12 @@
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Dieser Befehl<text:tab/>ermöglicht es Ihnen, einfach den Status des Disketten­lauf­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>werks abzufra­gen. Auch können Sie mit diesem Befehl Disk-Befehle ge­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ben oder zu ei­nem zweiten Diskettenlaufwerk wechseln.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/>DOS&quot;<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>liest den ERROR-Kanal aus<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>zeigt den Inhalt der Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS &quot;N0: name, id&quot;<text:tab/>formatiert eine Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;V<text:tab/><text:tab/><text:tab/><text:tab/>validiert eine Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;9<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>alle Disk-Befehle beziehen sich nun auf die Disk­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ette mit Nummer 9</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>DOS&quot;test<text:tab/><text:tab/><text:tab/>entspricht der folgenden Befehlsreihe:<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 15,8,15<text:tab/><text:span text:style-name="Toets">RETURN<text:line-break/></text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>PRINT#15,&quot;test<text:span text:style-name="Toets">RETURN<text:line-break/></text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Die Disk-Befehle sind in der Bedienungsanleitung Ihres Dis­ketten­laufwerks<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>beschrieben.</text:p>
+   <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>DOS&quot;test<text:tab/><text:tab/><text:tab/>entspricht der folgenden Befehlsreihe:<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 15,8,15<text:tab/><text:span text:style-name="Toets">RETURN</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>PRINT#15,&quot;test<text:span text:style-name="Toets">RETURN</text:span><text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Die Disk-Befehle sind in der Bedienungsanleitung Ihres Dis­ketten­laufwerks<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>beschrieben.</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10688_2164442888"/>DOS&quot;$<text:bookmark-end text:name="__RefHeading___Toc10688_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>DOS&quot;$<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dO&quot;$</text:p>
-   <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>zeigt das Directory auf dem Bildschirm an, ohne das Programm, das sich im<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Speicher befindet, zu löschen.</text:p>
+   <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>zeigt das Directory auf dem Bildschirm an, <text:span text:style-name="Onderstreept">ohne</text:span> das Programm, das sich im<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Speicher befindet, zu löschen.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/>DOS&quot;$<text:tab/><text:tab/><text:tab/><text:tab/>dies zeigt das Directory der Diskette an</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Bei Verwendung der Funktionstaste mit diesem Befehl wird zuerst<text:tab/>der<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Bildschirm gelöscht, woraufhin das Directory angezeigt wird.</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -2431,25 +2323,25 @@
    <text:p text:style-name="Text_20_body">Sie können den Freezer auf folgende 4 Arten starten:</text:p>
    <text:list xml:id="list81838806" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="NumLijstVervolg">Sie wählen vom Desktop aus im System-Menü den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen vom Desktop aus im System-Menü den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="NumLijstVervolg">Sie wählen aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> im System-Menü den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> im System-Menü den Punkt <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="NumLijstVervolg">Sie drücken während Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> sind den Freeze-Knopf.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie drücken während Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> sind den Freeze-Knopf.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="NumLijstEinde">Sie drücken, während die Final Cartridge III ausgeschaltet ist, den Freeze-Knopf.</text:p>
+     <text:p text:style-name="DecLijstEinde">Sie drücken, während die Final Cartridge III ausgeschaltet ist, den Freeze-Knopf.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Sie können den Freezer auf folgende 2 Arten verlassen:</text:p>
    <text:list xml:id="list347037341" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="NumLijstVervolg">Sie wählen einen der Exit-Befehle</text:p>
+     <text:p text:style-name="DecLijstVervolg">Sie wählen einen der Exit-Befehle</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="NumLijstEinde">Sie wählen einen der Reset-Befehle</text:p>
+     <text:p text:style-name="DecLijstEinde">Sie wählen einen der Reset-Befehle</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4778_2830447109"/>Verwendung des Freezers<text:bookmark-end text:name="__RefHeading___Toc4778_2830447109"/></text:h>
@@ -2457,10 +2349,10 @@
    <text:p text:style-name="Text_20_body">Diese Pull-Down-Menüs können Sie auf zwei Arten durchblättern:</text:p>
    <text:list xml:id="list1350651818" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="NumLijstVervolg">Durch die Verwendung eines Joysticks blättern Sie links und rechts durch die ver­schiedenen Menüs. Indem Sie nach vorne oder hinten gehen, blättern Sie durch ein bestimmtes Menü. Den von Ihnen gewünschten Befehl wählen Sie durch Drücken des Feuerknopfes aus.</text:p>
+     <text:p text:style-name="DecLijstVervolg">Durch die Verwendung eines Joysticks blättern Sie links und rechts durch die ver­schiedenen Menüs. Indem Sie nach vorne oder hinten gehen, blättern Sie durch ein bestimmtes Menü. Den von Ihnen gewünschten Befehl wählen Sie durch Drücken des Feuerknopfes aus.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="NumLijstEinde">Durch die Verwendung des Cursors. Mit Cursor rechts und Cursor links (dies nur mit Hilfe der rechten Shift-Taste!) blättern Sie durch die verschiedenen Menüs. Mit Cur­sor runter und Cursor rauf (dies nur mit Hilfe der rechten Shift-Taste!) blättern Sie durch ein bestimmtes Menü. Den von Ihnen gewünschten Befehl wählen Sie durch Drücken von <text:span text:style-name="Toets"><text:s/>f 7 </text:span>aus.</text:p>
+     <text:p text:style-name="DecLijstEinde">Durch die Verwendung des Cursors. Mit Cursor rechts und Cursor links (dies nur mit Hilfe der rechten Shift-Taste!) blättern Sie durch die verschiedenen Menüs. Mit Cur­sor runter und Cursor rauf (dies nur mit Hilfe der rechten Shift-Taste!) blättern Sie durch ein bestimmtes Menü. Den von Ihnen gewünschten Befehl wählen Sie durch Drücken von <text:span text:style-name="Toets"><text:s/>f 7 </text:span>aus.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4780_2830447109"/>Freezer-Befehle<text:bookmark-end text:name="__RefHeading___Toc4780_2830447109"/></text:h>
@@ -2657,7 +2549,7 @@
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5730_224738076"/>Exit Desktop<text:bookmark-end text:name="__RefHeading___Toc5730_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Dieser Befehl verlässt den Freezer und startet den <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Desktop</text:a>.</text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4736_2830447109"/>Der Monitor<text:bookmark-end text:name="__RefHeading___Toc4736_2830447109"/></text:h>
-   <text:h text:style-name="P69" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4736_28304471091"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4736_28304471091"/></text:h>
+   <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4736_28304471091"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4736_28304471091"/></text:h>
    <text:p text:style-name="Text_20_body">Der Monitor der Final Cartridge III ist einzigartig in seiner Art. Er verfügt nämlich über vier Funktionen: Maschinensprache-Monitor, Disk-Monitor, Character-Monitor und Sprite-Moni­tor.</text:p>
    <text:p text:style-name="Text_20_body">Mit dem Maschinensprache-Monitor können Sie direkt in Maschinensprache mit dem Compu­ter kommunizieren. Der große Vorteil von Maschinensprache ist, dass sie um ein Vielfaches schneller ist als <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
    <text:p text:style-name="Text_20_body">Der Maschinensprache-Monitor liefert Ihnen eine Reihe zusätzlicher Befehle, die das Pro­grammieren in Maschinensprache stark vereinfachen. Auch haben einige Funktionstasten eine Funktion, während Sie mit dem Monitor arbeiten.</text:p>
@@ -2666,7 +2558,7 @@
    <text:p text:style-name="Text_20_body">Mit dem Sprite-Monitor können Sie Sprites betrachten und verändern. Sie können also einfach selbst Sprites für die Verwendung in Ihren eigenen Programmen entwerfen oder die Sprites aus einem vorhandenen Programm entnehmen und verwenden.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4784_2830447109"/>Starten und Beenden des Monitors<text:bookmark-end text:name="__RefHeading___Toc4784_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Sie können den Monitor der Final Cartridge III auf 4 verschiedene Arten starten, nämlich:</text:p>
-   <text:list xml:id="list1986092450" text:style-name="L9">
+   <text:list xml:id="list1986092450" text:style-name="Numbering_123">
     <text:list-item>
      <text:p text:style-name="DeclijstVervolg">Im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Modus geben Sie den Befehl <text:a xlink:type="simple" xlink:href="#MON (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">MON</text:span></text:a> ein.</text:p>
     </text:list-item>
