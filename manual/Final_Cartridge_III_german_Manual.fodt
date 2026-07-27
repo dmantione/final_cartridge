@@ -200,6 +200,15 @@
   <style:style style:name="Tekstblok_20_N2" style:display-name="Tekstblok N2" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="1cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
+  <style:style style:name="Tekstblok_20_N2_20_gecentreerd" style:display-name="Tekstblok N2 gecentreerd" style:family="paragraph" style:parent-style-name="Tekstblok_20_N2">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+  </style:style>
+  <style:style style:name="Tekstblok_20_N3" style:display-name="Tekstblok N3" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:margin-left="1.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+  </style:style>
+  <style:style style:name="Tekstblok_20_N3_20_gecentreerd" style:display-name="Tekstblok N3 gecentreerd" style:family="paragraph" style:parent-style-name="Tekstblok_20_N3">
+   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
+  </style:style>
   <style:style style:name="Preformatted_20_Text" style:display-name="Preformatted Text" style:family="paragraph" style:parent-style-name="Standard" style:class="html">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
    <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="10pt"/>
@@ -259,6 +268,14 @@
    <style:paragraph-properties fo:margin-left="2.5cm" fo:text-indent="-2.5cm" fo:margin-bottom="0cm">
     <style:tab-stops>
      <style:tab-stop style:position="2.5cm"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
+  <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+    <style:tab-stops>
+     <style:tab-stop style:position="3.507cm"/>
+     <style:tab-stop style:position="5.507cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -649,69 +666,6 @@
   <style:style style:name="Tabel1.G10" style:family="table-cell">
    <style:table-cell-properties fo:padding="0cm" fo:border-left="none" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000" style:writing-mode="page"/>
   </style:style>
-  <style:style style:name="P8" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P10" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P11" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P13" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P16" style:family="paragraph" style:parent-style-name="BASICpref_20_kop_20_1">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P17" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Text_20_body" style:master-page-name="">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" style:page-number="auto"/>
-  </style:style>
-  <style:style style:name="P21" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-  </style:style>
-  <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Standard" style:master-page-name="">
-   <style:paragraph-properties fo:margin-left="1.3cm" fo:margin-right="0cm" fo:text-indent="-1.101cm" style:auto-text-indent="false" style:page-number="auto">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P24" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="1.3cm" fo:margin-right="0cm" fo:text-indent="-1.101cm" style:auto-text-indent="false">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P25" style:family="paragraph" style:parent-style-name="Standard" style:master-page-name="">
-   <style:paragraph-properties style:page-number="auto">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P26" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties>
-    <style:tab-stops/>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P28" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P29" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
   <style:style style:name="P32" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
@@ -740,14 +694,6 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="P36" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="3.507cm"/>
-     <style:tab-stop style:position="5.507cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
   <style:style style:name="P37" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
@@ -759,52 +705,24 @@
   <style:style style:name="P39" style:family="paragraph" style:parent-style-name="BASICpref_20_kop_20_1">
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
-  <style:style style:name="P40" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
   <style:style style:name="P41" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="P42" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="P43" style:family="paragraph" style:parent-style-name="Text_20_body" style:master-page-name="">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:keep-together="always" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto" fo:keep-with-next="always"/>
   </style:style>
-  <style:style style:name="P44" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="1cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
   <style:style style:name="P46" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="1cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P47" style:family="paragraph" style:parent-style-name="Table_20_Contents">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:orphans="0" fo:widows="0" fo:text-indent="0cm" style:auto-text-indent="false" text:number-lines="false" text:line-number="0"/>
   </style:style>
   <style:style style:name="P48" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
-  <style:style style:name="P49" style:family="paragraph" style:parent-style-name="Table_20_Contents">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-size="8pt"/>
-  </style:style>
-  <style:style style:name="P50" style:family="paragraph" style:parent-style-name="Table_20_Contents">
-   <style:paragraph-properties fo:margin-left="0.101cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P51" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.101cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P57" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
   <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Bullet_20_Symbols"/>
-  <style:style style:name="P64" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L4"/>
-  <style:style style:name="P65" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L5"/>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
   <style:style style:name="fr2" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline" style:mirror="none" fo:clip="rect(0cm, 0cm, 0cm, 0cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
+   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline" style:mirror="none" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
   <style:style style:name="Sect1" style:family="section">
    <style:section-properties style:editable="false">
@@ -1234,7 +1152,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4748_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4748_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Der Desktop ist das wichtigste Element der Final Cartridge III, er ist die Drehscheibe, um die sich alles dreht. Vom Desktop aus können Sie zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, zum Freezer usw. gelangen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Öffnen und Schließen des Desktops<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
-   <text:p text:style-name="P20">Sie können auf 4 verschiedene Arten in den Desktop gelangen:</text:p>
+   <text:p text:style-name="LijstVervolg">Sie können auf 4 verschiedene Arten in den Desktop gelangen:</text:p>
    <text:list xml:id="list307048353" text:style-name="Numbering_20_123">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Sie starten den Desktop, indem Sie den Computer einfach einschalten, während die Final Cartridge III eingesteckt ist (also immer).</text:p>
@@ -1259,24 +1177,24 @@
    <text:p text:style-name="Text_20_body">Wir behandeln die Desktop-Befehle in der Reihenfolge, in der sie in den Menüs zu finden sind.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4939_2830447109"/>Info<text:bookmark-end text:name="__RefHeading___Toc4939_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im Info-Menü stehen einige Befehle, mit denen Sie Informationen über die Final Cartridge III abrufen können.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Desktop-Befehl wird ein Requester geöffnet, in dem die Namen der Entwick­ler der Final Cartridge III zu finden sind.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Version</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Version</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Version-Befehl wird ein Requester geöffnet, in dem die Versionsnummern der verschiedenen Komponenten der Final Cartridge III zu finden sind.</text:p>
    <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4941_2830447109"/>System<text:bookmark-end text:name="__RefHeading___Toc4941_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im System-Menü stehen einige Systembefehle.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem &quot;Basic&quot;-Befehl können Sie vom Desktop aus zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> gelangen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Nachdem Sie auf den dann geöffneten Requester reagiert haben, landen Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>. Da die Final Cartridge III <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> so erweitert, werden alle Möglichkeiten des erweiter­ten <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> in einem separaten Kapitel mit dem Namen <text:a xlink:type="simple" xlink:href="#9.Basic|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Basic</text:a> besprochen.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem &quot;Final Kill&quot;-Befehl können Sie die Final Cartridge III ausschalten. Sie können dies an der LED auf der Final Cartridge III erkennen.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
    <text:p text:style-name="P46">Mit dem &quot;Freezer&quot;-Befehl können Sie vom Desktop aus zum Freezer gelangen. Von dort aus können Sie zum Beispiel verschiedene Windows ausdrucken. Vom Freezer aus können Sie über Exit Run oder Exit Desktop wieder zurückkehren. Da der Freezer der Final Cartridge III so umfangreich ist, werden alle Möglichkeiten des Freezers in ei­nem separaten Kapitel mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> besprochen.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Redraw-Befehl wird der Bildschirm neu gezeichnet. Dies ist zum Beispiel sehr nützlich, um zu sehen, wo alle Windows stehen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4943_2830447109"/>Project<text:bookmark-end text:name="__RefHeading___Toc4943_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im Projekt-Menü stehen einige Aufgaben, die vom Desktop aus gestartet werden können.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span>-Befehl gelangen Sie in das Notepad, eine sehr ausführliche Beschrei­bung des Notepads finden Sie im Kapitel <text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Werkzeuge</text:span></text:a>.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">DLink</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">DLink</text:span>-Befehl können Sie zukünftige Erweiterungen der Final Cartridge III von Diskette starten.</text:p>
@@ -1286,19 +1204,18 @@
    <text:p text:style-name="Tekstblok_20_N1">Im Utilities-Menü stehen verschiedene Befehle, um Utility-Fenster zu öffnen. Die Be­schreibung dieser Utilities finden Sie im Kapitel <text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Werkzeuge</text:span></text:a>.</text:p>
    <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4947_2830447109"/>Clock<text:bookmark-end text:name="__RefHeading___Toc4947_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N2">Im Clock-Menü stehen einige Befehle, die sich auf die in der Final Cartridge III einge­baute Uhr beziehen.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Time</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Time</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit der Time-Option können Sie bestimmen, ob die Systemzeit in der Menüleiste ange­zeigt wird. Wenn Time ausgewählt ist, wird die Zeit in der Menüleiste angezeigt. Wenn Sie die Time-Option erneut auswählen, verschwindet die Zeit wieder.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Alarm</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit der Alarm-Option können Sie den Alarm ein- und ausschalten. Wenn der Alarm eingeschaltet ist, wird der Alarm zur von Ihnen eingestellten Zeit ausgelöst. Wenn Sie die Alarm-Option erneut auswählen, schalten Sie den Alarm wieder aus.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Settings</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Settings</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Settings-Befehl öffnen Sie das &quot;Clock Settings&quot;-Fenster. Dieses Fenster, das hier unten gezeigt wird, besteht aus zwei Teilen:</text:p>
    <text:p text:style-name="Tekstblok_20_N2">die linke Seite dient zum Einstellen der Zeit für die Uhr, die rechte Seite zum Einstellen der Zeit für den Alarm.</text:p>
-   <text:p text:style-name="P15"><text:span text:style-name="Kleine_20_hoofdletters">Zeit ändern</text:span></text:p>
-   <text:p text:style-name="P48">Sie können die Zeit der Uhr und des Alarms auf genau dieselbe Weise ändern. Hier­für wählen Sie zuerst die Ziffern aus, die Sie ändern möchten, die ersten beiden Zif­fern für die Stunden und die letzten beiden Ziffern für die Minuten. Anschließend ändern Sie die Zeit durch Auswählen des Up- oder Down-Gadgets. Indem Sie da­nach das Use-Gadget auswählen, wird die eingestellte Zeit vom Computer über­nommen.</text:p>
-   <text:p text:style-name="P15"><text:span text:style-name="Kleine_20_hoofdletters">Zeitmodus ändern</text:span></text:p>
-   <text:p text:style-name="P48">Sie können sogar die Art, wie die Uhr angezeigt wird, noch ändern. Sie können da­bei zwischen dem 12- oder 24-Stunden-Modus umschalten, indem Sie das &quot;Time Mode&quot;-Gadget auswählen.</text:p>
-   <text:p text:style-name="P8"><draw:frame draw:style-name="fr2" draw:name="Afbeelding13" text:anchor-type="as-char" svg:width="8.386cm" svg:height="2.699cm" draw:z-index="12"><draw:image xlink:href="fc3_klok.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
-    </draw:frame></text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Zeit ändern</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Sie können die Zeit der Uhr und des Alarms auf genau dieselbe Weise ändern. Hier­für wählen Sie zuerst die Ziffern aus, die Sie ändern möchten, die ersten beiden Zif­fern für die Stunden und die letzten beiden Ziffern für die Minuten. Anschließend ändern Sie die Zeit durch Auswählen des Up- oder Down-Gadgets. Indem Sie da­nach das Use-Gadget auswählen, wird die eingestellte Zeit vom Computer über­nommen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Zeitmodus ändern</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Sie können sogar die Art, wie die Uhr angezeigt wird, noch ändern. Sie können da­bei zwischen dem 12- oder 24-Stunden-Modus umschalten, indem Sie das &quot;Time Mode&quot;-Gadget auswählen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding13" text:anchor-type="as-char" svg:width="8.386cm" svg:height="2.699cm" draw:z-index="12"><draw:image xlink:href="fc3_klok.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/></draw:frame></text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Werkzeuge<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In diesem Kapitel werden Werkzeuge besprochen. Werkzeuge sind Hilfsmittel, die die Final Cartridge III Ihnen bietet.</text:p>
    <text:p text:style-name="Text_20_body">Die Werkzeuge, die in diesem Kapitel besprochen werden, sind:</text:p>
@@ -1556,12 +1473,12 @@
      <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc6036_3037178849" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Spezielle Druckerfunktionen<text:tab/>27</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:p text:style-name="P14"/>
+   <text:p text:style-name="Tekstblok_20_N2"/>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Einstellungen können Sie die Final Cartridge III an Ihren Drucker anpas­sen. Für einige Drucker haben wir bereits Einstellungen ausgesucht.</text:p>
-   <text:p text:style-name="P16"><text:bookmark-start text:name="__RefHeading___Toc6034_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Interface</text:span><text:bookmark-end text:name="__RefHeading___Toc6034_3037178849"/></text:p>
+   <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6034_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Interface</text:span><text:bookmark-end text:name="__RefHeading___Toc6034_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
    <text:p text:style-name="P32">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­<text:line-break/><text:tab/>sendet.<text:line-break/>Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­<text:line-break/><text:tab/>nics-Drucker gesendet.<text:line-break/>RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-<text:line-break/><text:tab/>Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
-   <text:p text:style-name="P16"><text:bookmark-start text:name="__RefHeading___Toc6052_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Type</text:span><text:bookmark-end text:name="__RefHeading___Toc6052_3037178849"/></text:p>
+   <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6052_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Type</text:span><text:bookmark-end text:name="__RefHeading___Toc6052_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
    <text:p text:style-name="P33">CBM Compatible<text:tab/>Der Screen-Dump wird nun mit COMMODORE-Steuerzeichen an<text:line-break/><text:tab/>den Drucker gesendet.<text:line-break/>EPSON Compatible<text:tab/>Der Screen-Dump wird nun mit EPSON-Steuerzeichen an den<text:line-break/><text:tab/><text:tab/>Drucker gesendet.<text:line-break/>NEC P Series<text:tab/>Der Screen-Dump wird nun mit speziellen NEC-Steuerzeichen an<text:line-break/><text:tab/><text:tab/>den Drucker gesendet.</text:p>
    <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6050_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Picture</text:span><text:bookmark-end text:name="__RefHeading___Toc6050_3037178849"/></text:p>
@@ -1593,11 +1510,11 @@
    <text:p text:style-name="Tekstblok_20_N2">Normalerweise wird immer überprüft, ob ein Centronics-Drucker am Computer ange­schlossen ist, auf den gedruckt werden soll. Durch das POKEn von $FF in $DC0C schalten Sie diese Überprüfung aus.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">POKE $DC0C,$FE<text:tab/>RS-232-Drucken.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Durch das POKEn des Wertes $FE in $DC0C wird die Zeichnung über die User-Port-Schnittstelle an einen RS-232-Drucker gesendet.</text:p>
-   <text:p text:style-name="P29">Bevor wir die letzten Funktionen mit Ihnen durchgehen, müssen wir zunächst etwas aus­führlicher auf EPSON-Steuerzeichen zum Ausdrucken von Zeichnungen eingehen. Es gibt zwei Arten von Be­fehlen zum Ausdrucken von Zeichnungen. Es gibt die Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt;&quot;*&quot; CHR$(x) nl n2 ml m2</text:span> ..., wobei der Wert von x für die verschiede­nen Grafikmodi un­terschiedlich ist. Aber auch Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 </text:span><text:span text:style-name="Monospace">ml m2</text:span> ..., wobei der Großbuchstabe X einer der folgenden Großbuchstaben sein kann: K, L, Y, Z, um ver­schiedene Grafikmodi anzugeben. Nun verwenden wir bei der Final Cart­ridge III die Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., da diese Form von so gut wie allen Druckern unterstützt wird (die Mehrheit der Drucker unterstützt sogar beide Formen). Lei­der gibt es auch einige Drucker, die nur die Befehle der anderen Form unterstützen, und deshalb haben wir es er­möglicht, durch das POKEn eines der Werte $30 bis $36 in die Speicheradresse $DC0C Befehle der anderen Form zu geben. Die Bedeutung des benötig­ten Wertes und weitere In­formationen zu EPSON-Steuerzeichen finden Sie in der Bedie­nungsanleitung Ihres Dru­ckers.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Bevor wir die letzten Funktionen mit Ihnen durchgehen, müssen wir zunächst etwas aus­führlicher auf EPSON-Steuerzeichen zum Ausdrucken von Zeichnungen eingehen. Es gibt zwei Arten von Be­fehlen zum Ausdrucken von Zeichnungen. Es gibt die Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt;&quot;*&quot; CHR$(x) nl n2 ml m2</text:span> ..., wobei der Wert von x für die verschiede­nen Grafikmodi un­terschiedlich ist. Aber auch Befehle in der Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 </text:span><text:span text:style-name="Monospace">ml m2</text:span> ..., wobei der Großbuchstabe X einer der folgenden Großbuchstaben sein kann: K, L, Y, Z, um ver­schiedene Grafikmodi anzugeben. Nun verwenden wir bei der Final Cart­ridge III die Form <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., da diese Form von so gut wie allen Druckern unterstützt wird (die Mehrheit der Drucker unterstützt sogar beide Formen). Lei­der gibt es auch einige Drucker, die nur die Befehle der anderen Form unterstützen, und deshalb haben wir es er­möglicht, durch das POKEn eines der Werte $30 bis $36 in die Speicheradresse $DC0C Befehle der anderen Form zu geben. Die Bedeutung des benötig­ten Wertes und weitere In­formationen zu EPSON-Steuerzeichen finden Sie in der Bedie­nungsanleitung Ihres Dru­ckers.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">POKE $DC0C,$30<text:tab/>Drucken im Single-Density-Modus.<text:line-break/>POKE $DC0C,$31<text:tab/>Drucken im Double-Density-Modus.<text:line-break/>POKE $DC0C,$32<text:tab/>Drucken im High-Speed-Double-Density-Modus.<text:line-break/>POKE $DC0C,$33<text:tab/>Drucken im Quadruple-Density-Modus.<text:line-break/>POKE $DC0C,$34<text:tab/>Drucken im CRT-Graphics-Modus.<text:line-break/>POKE $DC0C,$35<text:tab/>Drucken im Plotter-Graphics-Modus.<text:line-break/>POKE $DC0C,$36<text:tab/>Drucken im CRT-Graphics-II-Modus.</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">Getestete Drucker</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die unten aufgeführten Drucker wurden mit der Final Cartridge III getestet und arbeiten mit den folgenden Einstellungen.</text:p>
-   <text:p text:style-name="P36">Drucker<text:tab/>Interface<text:tab/>Typ<text:line-break/>Star NL-10 (CBM)<text:tab/>Commodore<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (IBM)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (Cent)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Epson EX-800<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1509<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1709<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>NEC P6<text:tab/>Centronics<text:tab/>NEC P Series<text:line-break/>OLIVETTI DM 105<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>PANASONIC X-P1081<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Commodore MCS 801<text:tab/>Commodore<text:tab/>CBM Compatible (COLORS YES)</text:p>
+   <text:p text:style-name="Printtab"><text:span text:style-name="Vetgedrukt">Drucker<text:tab/>Interface<text:tab/>Typ</text:span><text:line-break/>Star NL-10 (CBM)<text:tab/>Commodore<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (IBM)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (Cent)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Epson EX-800<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1509<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1709<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>NEC P6<text:tab/>Centronics<text:tab/>NEC P Series<text:line-break/>OLIVETTI DM 105<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>PANASONIC X-P1081<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Commodore MCS 801<text:tab/>Commodore<text:tab/>CBM Compatible (COLORS YES)</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">Druckerkabel</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie einen Centronics- oder RS-232-Drucker an Ihren Commodore anschließen möchten, benötigen Sie dafür ein spezielles Kabel. Dieses Kabel erhalten Sie bei Ihrem Händler.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4766_2830447109"/>Notepad<text:bookmark-end text:name="__RefHeading___Toc4766_2830447109"/></text:h>
@@ -1611,7 +1528,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Wir behandeln die Befehle von Notepad in der Reihenfolge der Menüs.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die Befehle in Notepad werden, genau wie im Desktop, über Pull-Down-Menüs ausge­wählt. Oben in Notepad finden Sie daher eine Menüleiste.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Wir behandeln die Befehle von Notepad in der Reihenfolge der Menüs.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Project</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Project</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Project-Menü stehen Befehle, um Ihren Text zu speichern, auszudrucken usw.</text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">New</text:span></text:p>
    <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">New</text:span>-Befehl machen Sie Notepad leer. Der Cursor kommt an den Anfang und wartet auf den Text, den Sie eingeben möchten.</text:p>
@@ -1629,14 +1546,14 @@
    <text:p text:style-name="P48">Normalerweise verlieren Sie Ihren Text, wenn Sie <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>, <text:span text:style-name="Kleine_20_hoofdletters">New</text:span> oder <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span> wählen. Aber indem Sie im Project-Menü den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Recover</text:span> auswählen, können Sie den verlorenen Text zurückerhalten.</text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span></text:p>
    <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>-Befehl schließen Sie Notepad und gelangen zurück zum Desktop.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">File</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">File</text:span></text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span></text:p>
    <text:p text:style-name="P48">Mit dem &quot;<text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span>&quot;-Befehl können Sie mit dem Cursor auf einmal zum Anfang Ihres Textes gehen. Dies ist auch möglich durch Drücken der <text:span text:style-name="Toets">CLR/HOME</text:span>-Taste.</text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
    <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span>-Befehl wird der gesamte Bildschirm neu gezeichnet.</text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
    <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Befehl aktivieren Sie den Freezer; indem Sie im Freezer Exit Run auswählen, gelangen Sie wieder zurück zu Notepad.</text:p>
-   <text:p text:style-name="P14"><text:span text:style-name="Kleine_20_hoofdletters">Screen</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Screen</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Screen-Menü stehen einige Befehle, die die Darstellung Ihres Textes verändern können.</text:p>
    <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Wordwrap</text:span></text:p>
    <text:p text:style-name="P48">Mit dieser Option können Sie Ihren Text am Ende der Zeile auf verschiedene Weise umbrechen lassen. Wenn Wordwrap ausgewählt ist, wird ein Wort, das nicht mehr vollständig in die Zeile passt, automatisch in die nächste Zeile gesetzt. Wenn Word­wrap nicht ausgewählt ist, werden die Buchstaben, die noch in die Zeile passen, dort hingesetzt und die anderen in die nächste Zeile.</text:p>
@@ -1740,9 +1657,9 @@
    <text:p text:style-name="P34">LOAD &quot;name&quot;,7<text:tab/>Laden mit dem eingebauten Schnelllader (10-mal schneller)</text:p>
    <text:p text:style-name="P33">SAVE &quot;name&quot;,7<text:tab/>Speichern mit dem eingebauten Schnellspeicher (10-mal schneller)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4962_2164442888"/>Disk-Schnelllader/-Schnellspeicher<text:bookmark-end text:name="__RefHeading___Toc4962_2164442888"/></text:h>
-   <text:p text:style-name="Tekstblok_20_N1">Die Final Cartridge III ist darüber hinaus mit einem Disk-Schnelllader/-Schnellspeicher ausgestattet, der esermöglicht, Programme 15-mal schneller von Diskette zu laden und 7-mal schneller auf Diskette zu speichern. Die Standardbefehle <text:span text:style-name="Monospace">LOAD</text:span> und <text:span text:style-name="Monospace">SAVE</text:span> verwenden automatisch den Schnelllader/-Schnellspeicher.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Die Final Cartridge III ist darüber hinaus mit einem Disk-Schnelllader/-Schnellspeicher ausgestattet, der es ermöglicht, Programme 15-mal schneller von Diskette zu laden und 7-mal schneller auf Diskette zu speichern. Die Standardbefehle <text:span text:style-name="Monospace">LOAD</text:span> und <text:span text:style-name="Monospace">SAVE</text:span> verwenden automatisch den Schnelllader/-Schnellspeicher.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die <text:span text:style-name="Kleine_20_hoofdletters">Disk</text:span>-Befehle sind:</text:p>
-   <text:p text:style-name="P28"><text:a xlink:type="simple" xlink:href="#DLOAD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DLOAD</text:span></text:a></text:p>
+   <text:p text:style-name="Tekstblok_20_N1"><text:a xlink:type="simple" xlink:href="#DLOAD (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DLOAD</text:span></text:a></text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:a xlink:type="simple" xlink:href="#DSAVE (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DSAVE</text:span></text:a><text:tab/><text:tab/>diese Befehle werden beide deutlich bei den zusätzlichen Befehlen beschrieben.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4964_2164442888"/>Pull-Down-Menüs<text:bookmark-end text:name="__RefHeading___Toc4964_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> heraus ist es möglich, Pull-Down-Menüs zu verwenden.</text:p>
@@ -2006,7 +1923,7 @@
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10678_2164442888"/>KILL<text:bookmark-end text:name="__RefHeading___Toc10678_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>KILL<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>kI</text:p>
-   <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>schaltet alle Funktionen der Final Cartridge III aus. Der Freeze funk­tio­niert<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>noch, wird aber in den Standard-Commodore 64/128 zu­<text:tab/>rückkehren, es sei<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>denn, Sie den Freezer über den Monitor<text:tab/>verlassen.</text:p>
+   <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>schaltet alle Funktionen der Final Cartridge III aus. Der Freeze funk­tio­niert<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>noch, wird aber in den Standard-Commodore 64/128 zu­<text:tab/>rückkehren, es sei<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>denn, Sie den Freezer über den Monitor verlassen.</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10676_2164442888"/>LIST<text:bookmark-end text:name="__RefHeading___Toc10676_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body"/>
