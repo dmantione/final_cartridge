@@ -145,7 +145,6 @@
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
   <style:font-face style:name="Liberation Mono1" svg:font-family="&apos;Liberation Mono&apos;" style:font-adornments="Standaard" style:font-family-generic="modern" style:font-pitch="fixed"/>
-  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif1" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Standaard" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif2" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Vet" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -171,20 +170,16 @@
   </style:default-style>
   <style:style style:name="Standard" style:family="paragraph" style:class="text" style:master-page-name="">
    <style:paragraph-properties style:page-number="auto"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
+   <style:text-properties style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"  fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
   <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.169cm" loext:contextual-spacing="false" fo:keep-with-next="always"/>
-   <style:text-properties style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="12pt"/>
+   <style:text-properties fo:font-size="12pt"/>
   </style:style>
   <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.199cm" loext:contextual-spacing="false" fo:line-height="100%"/>
   </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
-  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
-   <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties fo:font-size="12pt" fo:font-style="italic"/>
-  </style:style>
   <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
    <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
   </style:style>
@@ -306,7 +301,7 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Contents_20_2" style:display-name="Contents 2" style:family="paragraph" style:parent-style-name="Index" style:class="index">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="12.4cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
@@ -316,7 +311,7 @@
   <style:style style:name="Contents_20_3" style:display-name="Contents 3" style:family="paragraph" style:parent-style-name="Index" style:class="index">
    <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="11.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+     <style:tab-stop style:position="11.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
    <style:text-properties fo:font-variant="small-caps"/>
@@ -632,16 +627,16 @@
    <style:table-properties style:width="12.9cm" table:align="margins"/>
   </style:style>
   <style:style style:name="Tabel1.A" style:family="table-column">
-   <style:table-column-properties style:column-width="0.487cm" style:rel-column-width="2473*"/>
+   <style:table-column-properties style:column-width="0.5cm" style:rel-column-width="2473*"/>
   </style:style>
   <style:style style:name="Tabel1.B" style:family="table-column">
-   <style:table-column-properties style:column-width="2.069cm" style:rel-column-width="10510*"/>
+   <style:table-column-properties style:column-width="2.0cm" style:rel-column-width="10510*"/>
   </style:style>
   <style:style style:name="Tabel1.G" style:family="table-column">
-   <style:table-column-properties style:column-width="2.069cm" style:rel-column-width="10512*"/>
+   <style:table-column-properties style:column-width="2.0cm" style:rel-column-width="10512*"/>
   </style:style>
   <style:style style:name="Tabel1.1" style:family="table-row">
-   <style:table-row-properties style:min-row-height="0.397cm"/>
+   <style:table-row-properties style:min-row-height="0.4cm"/>
   </style:style>
   <style:style style:name="Tabel1.A1" style:family="table-cell">
    <style:table-cell-properties fo:padding="0cm" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="none" style:writing-mode="page"/>

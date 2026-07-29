@@ -141,7 +141,6 @@
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
   <style:font-face style:name="Liberation Mono1" svg:font-family="&apos;Liberation Mono&apos;" style:font-adornments="Standaard" style:font-family-generic="modern" style:font-pitch="fixed"/>
-  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman"/>
   <style:font-face style:name="Liberation Serif1" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif2" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Standaard" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -168,14 +167,13 @@
   </style:default-style>
   <style:style style:name="Standard" style:family="paragraph" style:class="text" style:master-page-name="">
    <style:paragraph-properties style:page-number="auto"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
+   <style:text-properties style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="Roman" style:font-pitch="variable" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
   <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.169cm" loext:contextual-spacing="false" fo:keep-with-next="always"/>
-   <style:text-properties style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="12pt"/>
   </style:style>
   <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.199cm" loext:contextual-spacing="false" fo:line-height="100%"/>
+   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.2cm" loext:contextual-spacing="false" fo:line-height="100%"/>
   </style:style>
   <style:style style:name="Tekstblok_20_gecentreerd" style:display-name="Tekstblok gecentreerd" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
@@ -205,10 +203,6 @@
    <style:text-properties style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
-  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
-   <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties fo:font-size="12pt" fo:font-style="italic"/>
-  </style:style>
   <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
    <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
   </style:style>
@@ -277,8 +271,8 @@
   <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="3.507cm"/>
-     <style:tab-stop style:position="5.507cm"/>
+     <style:tab-stop style:position="3.5cm"/>
+     <style:tab-stop style:position="5.5cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -324,8 +318,8 @@
   <style:style style:name="Footer" style:family="paragraph" style:parent-style-name="Header_20_and_20_Footer" style:class="extra">
    <style:paragraph-properties text:number-lines="false" text:line-number="0">
     <style:tab-stops>
-     <style:tab-stop style:position="6.451cm" style:type="center"/>
-     <style:tab-stop style:position="12.901cm" style:type="right"/>
+     <style:tab-stop style:position="6.5cm" style:type="center"/>
+     <style:tab-stop style:position="12.9cm" style:type="right"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -584,16 +578,16 @@
    <style:table-properties style:width="12.899cm" table:align="margins"/>
   </style:style>
   <style:style style:name="Tabel1.A" style:family="table-column">
-   <style:table-column-properties style:column-width="0.487cm" style:rel-column-width="2473*"/>
+   <style:table-column-properties style:column-width="0.5cm" style:rel-column-width="2473*"/>
   </style:style>
   <style:style style:name="Tabel1.B" style:family="table-column">
-   <style:table-column-properties style:column-width="2.069cm" style:rel-column-width="10510*"/>
+   <style:table-column-properties style:column-width="2.0cm" style:rel-column-width="10510*"/>
   </style:style>
   <style:style style:name="Tabel1.G" style:family="table-column">
-   <style:table-column-properties style:column-width="2.069cm" style:rel-column-width="10512*"/>
+   <style:table-column-properties style:column-width="2.0cm" style:rel-column-width="10512*"/>
   </style:style>
   <style:style style:name="Tabel1.1" style:family="table-row">
-   <style:table-row-properties style:min-row-height="0.397cm"/>
+   <style:table-row-properties style:min-row-height="0.4cm"/>
   </style:style>
   <style:style style:name="Tabel1.A1" style:family="table-cell">
    <style:table-cell-properties fo:padding="0cm" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="none" style:writing-mode="page"/>
@@ -626,25 +620,25 @@
    <style:table-cell-properties fo:padding="0cm" fo:border-left="none" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000" style:writing-mode="page"/>
   </style:style>
   <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P6" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P7" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0cm" style:auto-text-indent="false" fo:keep-with-next="always"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:keep-together="always" fo:text-indent="0cm" style:auto-text-indent="false" fo:keep-with-next="always"/>
   </style:style>
   <style:style style:name="P8" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="1.5cm" fo:margin-right="0cm" fo:text-align="center" style:justify-single-word="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P12" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P13" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P14" style:family="paragraph" style:parent-style-name="Standard">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="1.0cm" fo:margin-right="0cm" fo:line-height="90%" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P15" style:family="paragraph" style:parent-style-name="Monospace">
    <style:paragraph-properties fo:line-height="90%"/>
@@ -688,7 +682,7 @@
    <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="P36" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="2.018cm"/>
     </style:tab-stops>
@@ -697,21 +691,21 @@
   <style:style style:name="P37" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="2.977cm"/>
+     <style:tab-stop style:position="3.0cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="P38" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="2.977cm"/>
+     <style:tab-stop style:position="3.0cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="P39" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="3.009cm"/>
+     <style:tab-stop style:position="3.0cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -747,7 +741,7 @@
   <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Contents_20_1">
    <style:paragraph-properties>
     <style:tab-stops>
-     <style:tab-stop style:position="12.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+     <style:tab-stop style:position="12.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
