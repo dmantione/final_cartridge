@@ -230,7 +230,7 @@
    <style:paragraph-properties fo:orphans="0" fo:widows="0" text:number-lines="false" text:line-number="0"/>
   </style:style>
   <style:style style:name="Heading_20_3" style:display-name="Heading 3" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="3" style:class="text">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0.199cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0.2cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif1" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Standaard" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="Numbering_20_1" style:display-name="Numbering 1" style:family="paragraph" style:parent-style-name="List" style:class="list">
@@ -259,23 +259,29 @@
   <style:style style:name="Calculator-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
-     <style:tab-stop style:position="4.002cm"/>
-     <style:tab-stop style:position="8.005cm"/>
+     <style:tab-stop style:position="4.0cm"/>
+     <style:tab-stop style:position="8.0cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Hoofdstuk-tabel" style:display-name="Hoofdstuk-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="2.5cm" fo:text-indent="-2.5cm" fo:margin-bottom="0cm">
+   <style:paragraph-properties fo:margin-left="2.5cm" fo:text-indent="-2.5cm">
     <style:tab-stops>
      <style:tab-stop style:position="2.5cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+  <style:style style:name="PrintopttabVervolg" style:display-name="PrintoptiestabelVervolg" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm" fo:margin-top="0cm" fo:margin-bottom="0cm"/>
+  </style:style>
+  <style:style style:name="PrintopttabEinde" style:display-name="PrintoptiestabelEinde" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm"/>
+  </style:style>
+  <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties>
     <style:tab-stops>
-     <style:tab-stop style:position="3.507cm"/>
-     <style:tab-stop style:position="5.507cm"/>
+     <style:tab-stop style:position="3.5cm"/>
+     <style:tab-stop style:position="5.5cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -356,11 +362,12 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_2" style:display-name="Freezer kop 2" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="1.0m" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="BASICpref_20_kop_20_1" style:display-name="BASICpref kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Inhoudsopgave_20_1_20_inspring" style:display-name="Inhoudsopgave 1 inspring" style:family="paragraph" style:parent-style-name="Contents_20_1">
    <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
@@ -666,58 +673,6 @@
   <style:style style:name="Tabel1.G10" style:family="table-cell">
    <style:table-cell-properties fo:padding="0cm" fo:border-left="none" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000" style:writing-mode="page"/>
   </style:style>
-  <style:style style:name="P32" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="2.018cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P33" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="2.977cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P34" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="2.977cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P35" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
-    <style:tab-stops>
-     <style:tab-stop style:position="3.009cm"/>
-    </style:tab-stops>
-   </style:paragraph-properties>
-  </style:style>
-  <style:style style:name="P37" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P38" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P39" style:family="paragraph" style:parent-style-name="BASICpref_20_kop_20_1">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
-  </style:style>
-  <style:style style:name="P41" style:family="paragraph" style:parent-style-name="Heading_20_3">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif1" fo:font-size="11pt" fo:font-weight="normal"/>
-  </style:style>
-  <style:style style:name="P43" style:family="paragraph" style:parent-style-name="Text_20_body" style:master-page-name="">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:keep-together="always" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto" fo:keep-with-next="always"/>
-  </style:style>
-  <style:style style:name="P46" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P48" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.498cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
-  </style:style>
-  <style:style style:name="P62" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="Bullet_20_Symbols"/>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
@@ -1116,11 +1071,11 @@
    <text:p text:style-name="Tekstblok_20_N1">Sie müssen jedoch beachten, dass, obwohl mehrere Windows auf dem Bildschirm stehen können, Sie nur mit einem Fenster gleichzeitig arbeiten können.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Dieses Fenster nennen wir das ausgewählte Fenster; es ist daran zu erkennen, dass ein Fenster, das wir auswählen, immer nach vorne kommt. Die anderen Fenster, die zu diesem Zeitpunkt auf dem Bildschirm stehen, sind nicht aktiv und stehen daher hinter dem ausge­wählten Fenster. Sie haben nun die Möglichkeit, ein anderes Fenster zu aktivieren, indem Sie einfach mit dem Pointer irgendwo in diesem Fenster hin gehen und klicken.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Um noch einmal auf unser Beispiel zurückzukommen. Wenn das Directory-Fenster aktiv ist und Sie den Calculator nutzen möchten, müssen Sie zuerst das letzte Fenster auswählen (es erscheint dann sofort als vorderstes Fenster), woraufhin Sie mit dem Calculator arbei­ten können.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4823_2830447109"/>Gadgets<text:bookmark-end text:name="__RefHeading___Toc4823_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4823_2830447109"/>Gadgets<text:bookmark-end text:name="__RefHeading___Toc4823_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Um nun mit dem Fenster zu kommunizieren, verwenden Sie Gadgets.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Dies sind grafische Darstellungen, die Befehle repräsentieren. Mit Hilfe eines solchen Gadgets können Sie zum Beispiel ein Fenster verschieben oder das Fenster schließen. Die am häufigsten vorkommenden Gadgets sind:</text:p>
    <text:p text:style-name="Calculator-tabel">Close-Gadget<text:tab/>Um ein Fenster zu schließen<text:line-break/>Toback-Gadget<text:tab/>Um Fenster nach hinten zu setzen<text:line-break/>String-Gadget<text:tab/>Um Texte einzugeben<text:line-break/>Toggle-Gadget<text:tab/>Um Optionen auszuwählen.</text:p>
-   <text:p text:style-name="P43">Viele dieser Gadgets finden Sie in der untenstehenden Abbildung eines Windows.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Viele dieser Gadgets finden Sie in der untenstehenden Abbildung eines Windows.</text:p>
    <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding7" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.919cm" draw:z-index="6"><draw:image xlink:href="fc3_calculator.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Windows können eines oder mehrere dieser Gadgets enthalten. Darüber hinaus können Windows andere Gadgets enthalten, die für die spezielle Aufgabe dieses Fensters benötigt werden. So enthält der Calculator Gadgets, die die einzudrückenden Tasten darstellen.</text:p>
@@ -1136,11 +1091,11 @@
    <text:p text:style-name="Tekstblok_20_N1">Um ein Fenster hinter ein anderes Fenster zu setzen, wählen Sie das Toback-Gadget des Fensters, das Sie nach hinten setzen möchten. Dieses Fenster erscheint dann als hinterstes auf dem Bildschirm, und das jetzt vorne stehende Fenster ist zugleich aktiv geworden.</text:p>
    <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding9" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_schikken.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Schließen von Fenstern<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Schließen von Fenstern<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Um ein Fenster zu schließen, wählen Sie das Close-Gadget. Dieses Gadget finden Sie in fast jedem Fenster in der linken oberen Ecke.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Kommunikation mit einem Fenster<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Kommunikation mit einem Fenster<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn ein Programm einen Namen von Ihnen benötigt, zum Beispiel um den Namen und die ID einer neu zu formatierenden Diskette zu erfragen, müssen Sie ein String-Gadget verwenden. Wenn Sie ein solches String-Gadget auswählen, erscheint ein Cursor, worauf­hin Sie den gewünschten Namen eingeben können. Wenn Sie außerhalb des Gadgets kli­cken oder die <text:span text:style-name="Toets">RETURN</text:span>-Taste drücken, verschwindet der Cursor und das Gadget ist nicht mehr ausgewählt. Um das Gadget erneut auszuwählen, zeigen Sie mit dem Pointer irgend­wo innerhalb des Gadgets und klicken.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requester<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requester<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Manchmal ist es erforderlich, ein Programm zu steuern oder eine bestimmte Aktion zu be­stätigen. Dies geschieht mittels eines Requesters. Wenn Sie zum Beispiel eine Diskette for­matieren möchten, erscheint ein Requester, der Ihnen die Möglichkeit bietet, den Befehl fortzusetzen oder abzubrechen. Diesen Requester sehen Sie hier abgebildet.</text:p>
    <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding10" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.249cm" draw:z-index="9"><draw:image xlink:href="fc3_diskops.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
@@ -1181,7 +1136,7 @@
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Desktop-Befehl wird ein Requester geöffnet, in dem die Namen der Entwick­ler der Final Cartridge III zu finden sind.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Version</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Version-Befehl wird ein Requester geöffnet, in dem die Versionsnummern der verschiedenen Komponenten der Final Cartridge III zu finden sind.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4941_2830447109"/>System<text:bookmark-end text:name="__RefHeading___Toc4941_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4941_2830447109"/>System<text:bookmark-end text:name="__RefHeading___Toc4941_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im System-Menü stehen einige Systembefehle.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem &quot;Basic&quot;-Befehl können Sie vom Desktop aus zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> gelangen.</text:p>
@@ -1189,7 +1144,7 @@
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Final Kill</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem &quot;Final Kill&quot;-Befehl können Sie die Final Cartridge III ausschalten. Sie können dies an der LED auf der Final Cartridge III erkennen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
-   <text:p text:style-name="P46">Mit dem &quot;Freezer&quot;-Befehl können Sie vom Desktop aus zum Freezer gelangen. Von dort aus können Sie zum Beispiel verschiedene Windows ausdrucken. Vom Freezer aus können Sie über Exit Run oder Exit Desktop wieder zurückkehren. Da der Freezer der Final Cartridge III so umfangreich ist, werden alle Möglichkeiten des Freezers in ei­nem separaten Kapitel mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> besprochen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N2">Mit dem &quot;Freezer&quot;-Befehl können Sie vom Desktop aus zum Freezer gelangen. Von dort aus können Sie zum Beispiel verschiedene Windows ausdrucken. Vom Freezer aus können Sie über Exit Run oder Exit Desktop wieder zurückkehren. Da der Freezer der Final Cartridge III so umfangreich ist, werden alle Möglichkeiten des Freezers in ei­nem separaten Kapitel mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> besprochen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Redraw-Befehl wird der Bildschirm neu gezeichnet. Dies ist zum Beispiel sehr nützlich, um zu sehen, wo alle Windows stehen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4943_2830447109"/>Project<text:bookmark-end text:name="__RefHeading___Toc4943_2830447109"/></text:h>
@@ -1200,9 +1155,9 @@
    <text:p text:style-name="Tekstblok_20_N2">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">DLink</text:span>-Befehl können Sie zukünftige Erweiterungen der Final Cartridge III von Diskette starten.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">TLink</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TLink</text:span>-Befehl können Sie zukünftige Erweiterungen der Final Cartridge III von Kassette starten.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4945_2830447109"/>Utilities<text:bookmark-end text:name="__RefHeading___Toc4945_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4945_2830447109"/>Utilities<text:bookmark-end text:name="__RefHeading___Toc4945_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im Utilities-Menü stehen verschiedene Befehle, um Utility-Fenster zu öffnen. Die Be­schreibung dieser Utilities finden Sie im Kapitel <text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Werkzeuge</text:span></text:a>.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4947_2830447109"/>Clock<text:bookmark-end text:name="__RefHeading___Toc4947_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4947_2830447109"/>Clock<text:bookmark-end text:name="__RefHeading___Toc4947_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N2">Im Clock-Menü stehen einige Befehle, die sich auf die in der Final Cartridge III einge­baute Uhr beziehen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Time</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit der Time-Option können Sie bestimmen, ob die Systemzeit in der Menüleiste ange­zeigt wird. Wenn Time ausgewählt ist, wird die Zeit in der Menüleiste angezeigt. Wenn Sie die Time-Option erneut auswählen, verschwindet die Zeit wieder.</text:p>
@@ -1221,22 +1176,22 @@
    <text:p text:style-name="Text_20_body">Die Werkzeuge, die in diesem Kapitel besprochen werden, sind:</text:p>
    <text:list xml:id="list685158765" text:style-name="Bullet_20_Symbols">
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk Operations</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk Operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape Operations</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape Operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic Preferences</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic Preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P62"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
+     <text:p text:style-name="Standard"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4754_2830447109"/>Calculator<text:bookmark-end text:name="__RefHeading___Toc4754_2830447109"/></text:h>
@@ -1245,11 +1200,11 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4951_2830447109"/>Öffnen und Schließen des Calculators<text:bookmark-end text:name="__RefHeading___Toc4951_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Sie können den Calculator öffnen, indem Sie im Utilities-Menü Calculator auswählen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sie schließen den Calculator, indem Sie das Close-Gadget in der linken oberen Ecke aus­wählen.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4953_2830447109"/>Verwendung des Calculators<text:bookmark-end text:name="__RefHeading___Toc4953_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4953_2830447109"/>Verwendung des Calculators<text:bookmark-end text:name="__RefHeading___Toc4953_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im Calculator-Fenster kann jede &quot;Taste&quot; mit dem Pointer ausgewählt werden.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die folgenden Tasten stimmen mit den Funktionen überein:</text:p>
    <text:p text:style-name="Calculator-tabel"><text:span text:style-name="Vetgedrukt">Taste<text:tab/>Gadget<text:tab/>Funktion</text:span><text:line-break/><text:span text:style-name="Toets"> + </text:span><text:tab/>+<text:tab/>Addieren<text:line-break/><text:span text:style-name="Toets"> – </text:span><text:tab/>–<text:tab/>Subtrahieren<text:line-break/><text:span text:style-name="Toets"> / </text:span><text:tab/>÷<text:tab/>Dividieren<text:line-break/><text:span text:style-name="Toets"> * </text:span><text:tab/>×<text:tab/>Multiplizieren<text:line-break/><text:span text:style-name="Toets"> = </text:span>oder <text:span text:style-name="Toets">RETURN</text:span><text:tab/>= <text:tab/>Ergebnis berechnen<text:line-break/><text:span text:style-name="Toets"> E </text:span><text:tab/>ME<text:tab/>Memory Enter<text:line-break/><text:span text:style-name="Toets"> C </text:span><text:tab/>MC<text:tab/>Memory Clear<text:line-break/><text:span text:style-name="Toets"> R </text:span><text:tab/>MR<text:tab/>Memory Recall<text:line-break/><text:span text:style-name="Toets">CLR/HOME</text:span><text:tab/>C<text:tab/>Clear<text:line-break/><text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">CLR/HOME</text:span><text:line-break/><text:span text:style-name="Toets">INST/DEL</text:span><text:tab/>AC<text:tab/>All Clear<text:line-break/><text:span text:style-name="Toets"> . </text:span>oder <text:span text:style-name="Toets">, </text:span><text:tab/>.<text:tab/>Dezimalpunkt</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4955_2830447109"/>Die Standardfunktionen<text:bookmark-end text:name="__RefHeading___Toc4955_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4955_2830447109"/>Die Standardfunktionen<text:bookmark-end text:name="__RefHeading___Toc4955_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Um Sie mit den Standardfunktionen vertraut zu machen, folgen hier einige Beispiele:</text:p>
    <text:p text:style-name="Calculator-tabel"><text:span text:style-name="Vetgedrukt">Eingabe:<text:tab/>Bildschirm:</text:span><text:line-break/><text:span text:style-name="Monospace">AC<text:tab/>0<text:line-break/>4<text:tab/>4<text:line-break/>+<text:tab/>4<text:line-break/>96<text:tab/>96<text:line-break/>=<text:tab/>1 00<text:line-break/>AC<text:tab/>0<text:line-break/>999<text:tab/>999<text:line-break/>:<text:tab/>999<text:line-break/>3<text:tab/>3<text:line-break/>=<text:tab/>333 <text:line-break/>AC<text:tab/>0<text:line-break/>1000<text:tab/>1000<text:line-break/>+<text:tab/>1000<text:line-break/>–<text:tab/>1000<text:line-break/>750<text:tab/>7 50<text:line-break/>=<text:tab/>250</text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4957_2830447109"/>Der Speicher<text:bookmark-end text:name="__RefHeading___Toc4957_2830447109"/></text:h>
@@ -1261,27 +1216,27 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4961_2830447109"/>Öffnen und Schließen von Preferences<text:bookmark-end text:name="__RefHeading___Toc4961_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Sie können Preferences öffnen, indem Sie im Utilities-Menü Preferences auswählen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sie schließen Preferences, indem Sie das OK-, Cancel- oder Reset-Gadget auswählen.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4963_2830447109"/>Funktionsübersicht<text:bookmark-end text:name="__RefHeading___Toc4963_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4963_2830447109"/>Funktionsübersicht<text:bookmark-end text:name="__RefHeading___Toc4963_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Mit Preferences können Sie die folgenden Einstellungen ändern:</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Bildschirmfarben<text:line-break/>Pointer-Farben<text:line-break/>Pointer-Geschwindigkeit<text:line-break/>Pointer-Akzelleration<text:line-break/>Joystick-Ports<text:line-break/>Peripheriegeräte wie Diskettenlaufwerke, Recorder usw.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4965_2830447109"/>Pointer<text:bookmark-end text:name="__RefHeading___Toc4965_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4965_2830447109"/>Pointer<text:bookmark-end text:name="__RefHeading___Toc4965_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Farben des Pointers können Sie ändern, indem Sie das Up- oder Down-Gadget bei <text:span text:style-name="Kleine_20_hoofdletters">Color 1</text:span> (für die innere Farbe des Pointers) oder <text:span text:style-name="Kleine_20_hoofdletters">Color 2</text:span> (für die äußere Farbe des Poin­ters) auswählen. Sie können also wählen, ob Sie die verschiedenen Farben in aufsteigender oder absteigender Reihenfolge sehen möchten.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4967_2830447109"/>Screen<text:bookmark-end text:name="__RefHeading___Toc4967_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4967_2830447109"/>Screen<text:bookmark-end text:name="__RefHeading___Toc4967_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Auf dieselbe Weise wie oben können Sie die Farbe des Bildschirms ändern. <text:span text:style-name="Kleine_20_hoofdletters">Color 1</text:span> steht für die Vordergrundfarbe und <text:span text:style-name="Kleine_20_hoofdletters">Color 2</text:span> steht für die Hintergrundfarbe.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4969_2830447109"/>Driver<text:bookmark-end text:name="__RefHeading___Toc4969_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4969_2830447109"/>Driver<text:bookmark-end text:name="__RefHeading___Toc4969_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Sie haben auch die Möglichkeit zu bestimmen, über welchen Joystick-Port der Pointer an­gesteuert werden soll. Sie können dafür Port 1 oder Port 2 wählen, indem Sie die entspre­chenden Gadgets auswählen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Ebenso können Sie auf dieselbe Weise wählen, ob Sie einen Joystick oder eine Maus zur Steuerung des Pointers verwenden möchten.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4971_2830447109"/>Velocity<text:bookmark-end text:name="__RefHeading___Toc4971_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4971_2830447109"/>Velocity<text:bookmark-end text:name="__RefHeading___Toc4971_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die drei Gadgets bei <text:span text:style-name="Kleine_20_hoofdletters">Velocity</text:span> ermöglichen es Ihnen, die Geschwindigkeit des Pointers zu ändern.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4973_2830447109"/>Acceleration<text:bookmark-end text:name="__RefHeading___Toc4973_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4973_2830447109"/>Acceleration<text:bookmark-end text:name="__RefHeading___Toc4973_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die drei Gadgets bei <text:span text:style-name="Kleine_20_hoofdletters">Acceleration</text:span> ermöglichen es Ihnen, die Akzelleration des Pointers zu ändern.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4975_2830447109"/>Default<text:bookmark-end text:name="__RefHeading___Toc4975_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4975_2830447109"/>Default<text:bookmark-end text:name="__RefHeading___Toc4975_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie die Standardeinstellungen sehen möchten, wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">Default</text:span>.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4977_2830447109"/>View<text:bookmark-end text:name="__RefHeading___Toc4977_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4977_2830447109"/>View<text:bookmark-end text:name="__RefHeading___Toc4977_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie sehen möchten, wie Sie alles eingestellt haben, wählen Sie <text:span text:style-name="Kleine_20_hoofdletters">View</text:span> (ansehen). Die Einstellungen bleiben dann aktiv, bis Sie den Feuerknopf wieder loslassen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4979_2830447109"/>OK<text:bookmark-end text:name="__RefHeading___Toc4979_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie mit den Einstellungen zufrieden sind, wählen Sie OK, woraufhin automatisch das Fenster geschlossen wird.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4981_2830447109"/>Cancel<text:bookmark-end text:name="__RefHeading___Toc4981_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4981_2830447109"/>Cancel<text:bookmark-end text:name="__RefHeading___Toc4981_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie mit den Änderungen nicht zufrieden sind, können Sie durch Auswählen von <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span> zu den bereits bestehenden Einstellungen zurückkehren, woraufhin automatisch das Fenster geschlossen wird.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4758_2830447109"/>Disk Operations<text:bookmark-end text:name="__RefHeading___Toc4758_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4983_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4983_2830447109"/></text:h>
@@ -1289,7 +1244,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4985_2830447109"/>Öffnen und Schließen von Disk Operations<text:bookmark-end text:name="__RefHeading___Toc4985_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Sie können Disk Operations öffnen, indem Sie im Utilities-Menü Disk auswählen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sie schließen Disk Operations, indem Sie das Close-Gadget in der linken oberen Ecke aus­wählen.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4987_2830447109"/>Funktionsübersicht<text:bookmark-end text:name="__RefHeading___Toc4987_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4987_2830447109"/>Funktionsübersicht<text:bookmark-end text:name="__RefHeading___Toc4987_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Möglichkeiten, die das &quot;Disk Operations&quot;-Fenster Ihnen bietet, werden hier unten kurz aufgeführt. Weiter unten werden alle diese Befehle im Detail mit Ihnen durchgegangen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Einen Programmnamen ändern<text:line-break/>Ein Programm starten<text:line-break/>Einen Diskettennamen ändern<text:line-break/>Eine Diskette schnell formatieren<text:line-break/>Eine Diskette leeren<text:line-break/>Eine Diskette initialisieren<text:line-break/>Eine Diskette validieren<text:line-break/>Ein Programm von der Diskette löschen<text:line-break/>Das Anzeigen von Directories (bis zu drei gleichzeitig!)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4989_2830447109"/>Öffnen eines Directory-Fensters<text:bookmark-end text:name="__RefHeading___Toc4989_2830447109"/></text:h>
@@ -1318,7 +1273,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5007_2830447109"/>Schnelles Formatieren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5007_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Legen Sie die Diskette, die Sie formatieren möchten, in Ihr Diskettenlaufwerk ein.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Danach wählen Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Fast Format</text:span>. Nun wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-String-Gadget aus, um den Namen und die ID der Diskette einzugeben. Den endgültigen Befehl geben Sie, indem Sie das Do-Gadget auswählen und auf den geöffneten Requester reagieren.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5009_2830447109"/>Leeren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5009_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5009_2830447109"/>Leeren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5009_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Legen Sie die Diskette, die Sie leeren möchten, in Ihr Diskettenlaufwerk ein. Danach wäh­len Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Empty</text:span>. Nun wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-String-Gadget aus, um den Namen der Diskette einzugeben. Den endgültigen Befehl geben Sie, indem Sie das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget auswählen und auf den geöffneten Requester reagieren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5011_2830447109"/>Ändern eines Programmnamens<text:bookmark-end text:name="__RefHeading___Toc5011_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Zuerst wählen Sie das Programm aus, dessen Namen Sie ändern möchten. Danach wählen Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Rename</text:span>, woraufhin der Name des ausgewählten Pro­gramms im String-Gadget <text:span text:style-name="Kleine_20_hoofdletters">From</text:span> erscheint.</text:p>
@@ -1329,7 +1284,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5015_2830447109"/>Mehrere Directory-Fenster gleichzeitig<text:bookmark-end text:name="__RefHeading___Toc5015_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Möglichkeit, verschiedene Directory-Fenster zu öffnen, wurde für die folgenden An­wendungen geschaffen: Wie oft kommt es nicht vor, dass Sie schnell zwei oder drei Dis­ketten überprüfen möchten, um zu sehen, ob sie dieselben Programme enthalten? Dies ist nun auf folgende Weise zu realisieren. Sie nehmen die erste Diskette und legen sie in Ihr Diskettenlaufwerk ein. Sie wählen <text:span text:style-name="Kleine_20_hoofdletters">Dir 1</text:span>, nehmen die Diskette aus dem Laufwerk und le­gen Ihre zweite ein. Sie wählen nun <text:span text:style-name="Kleine_20_hoofdletters">Dir 2</text:span>. Sie sehen nun zwei Directories gleichzeitig auf dem Bildschirm und können sie also vergleichen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Dieser Vorgang ist ebenfalls für eine dritte Diskette wiederholbar.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5017_2830447109"/>Achtung<text:bookmark-end text:name="__RefHeading___Toc5017_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5017_2830447109"/>Achtung<text:bookmark-end text:name="__RefHeading___Toc5017_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie mit verschiedenen Directories arbeiten, sind die Befehle nur auf das Directory anwendbar, das durch das aktive <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget angegeben wird.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Um ein neues Directory in einem bereits geöffneten Fenster einzulesen, wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget, das Sie unten in jedem Directory-Fenster finden können.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4760_2830447109"/>Tape<text:bookmark-end text:name="__RefHeading___Toc4760_2830447109"/></text:h>
@@ -1353,15 +1308,15 @@
    <text:p text:style-name="Tekstblok_20_N1">Das &quot;Basic Preferences&quot;-Fenster bietet Ihnen verschiedene Gadgets zum Ändern der Ein­stellungen:</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5031_2830447109"/>Keyboard Click<text:bookmark-end text:name="__RefHeading___Toc5031_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie diese Option einschalten, hören Sie bei jedem Tastendruck ein Klicken.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5033_2830447109"/>Key Repeat<text:bookmark-end text:name="__RefHeading___Toc5033_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5033_2830447109"/>Key Repeat<text:bookmark-end text:name="__RefHeading___Toc5033_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie diese Option einschalten, werden alle Tasten wiederholt.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5035_2830447109"/>Cursor Blink<text:bookmark-end text:name="__RefHeading___Toc5035_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5035_2830447109"/>Cursor Blink<text:bookmark-end text:name="__RefHeading___Toc5035_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie diese Option ausschalten, blinkt der Cursor nicht mehr.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5037_2830447109"/>Default Device<text:bookmark-end text:name="__RefHeading___Toc5037_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5037_2830447109"/>Default Device<text:bookmark-end text:name="__RefHeading___Toc5037_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Hier können Sie einstellen, welches Gerät (Peripheriegerät) Sie standardmäßig verwenden.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5039_2830447109"/>Border Color<text:bookmark-end text:name="__RefHeading___Toc5039_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5039_2830447109"/>Border Color<text:bookmark-end text:name="__RefHeading___Toc5039_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Hier können Sie die gewünschte Randfarbe einstellen.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5041_2830447109"/>Numeric Keypad<text:bookmark-end text:name="__RefHeading___Toc5041_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5041_2830447109"/>Numeric Keypad<text:bookmark-end text:name="__RefHeading___Toc5041_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie diese Option ausschalten, können Sie das numerische Tastenfeld des Commodo­re 128 nicht mehr verwenden.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4764_2830447109"/>Printer<text:bookmark-end text:name="__RefHeading___Toc4764_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5043_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc5043_2830447109"/></text:h>
@@ -1477,33 +1432,43 @@
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Einstellungen können Sie die Final Cartridge III an Ihren Drucker anpas­sen. Für einige Drucker haben wir bereits Einstellungen ausgesucht.</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6034_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Interface</text:span><text:bookmark-end text:name="__RefHeading___Toc6034_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
-   <text:p text:style-name="P32">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­<text:line-break/><text:tab/>sendet.<text:line-break/>Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­<text:line-break/><text:tab/>nics-Drucker gesendet.<text:line-break/>RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-<text:line-break/><text:tab/>Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­sendet.</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­nics-Drucker gesendet.</text:p>
+   <text:p text:style-name="PrintopttabEinde">RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6052_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Type</text:span><text:bookmark-end text:name="__RefHeading___Toc6052_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
-   <text:p text:style-name="P33">CBM Compatible<text:tab/>Der Screen-Dump wird nun mit COMMODORE-Steuerzeichen an<text:line-break/><text:tab/>den Drucker gesendet.<text:line-break/>EPSON Compatible<text:tab/>Der Screen-Dump wird nun mit EPSON-Steuerzeichen an den<text:line-break/><text:tab/><text:tab/>Drucker gesendet.<text:line-break/>NEC P Series<text:tab/>Der Screen-Dump wird nun mit speziellen NEC-Steuerzeichen an<text:line-break/><text:tab/><text:tab/>den Drucker gesendet.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6050_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Picture</text:span><text:bookmark-end text:name="__RefHeading___Toc6050_3037178849"/></text:p>
+   <text:p text:style-name="PrintopttabVervolg">CBM Compatible<text:tab/>Der Screen-Dump wird nun mit COMMODORE-Steuerzeichen an den Drucker gesendet.</text:p>
+   <text:p text:style-name="PrintopttabVervolg">EPSON Compatible<text:tab/>Der Screen-Dump wird nun mit EPSON-Steuerzeichen an den Drucker gesendet.</text:p>
+   <text:p text:style-name="PrintopttabEinde">NEC P Series<text:tab/>Der Screen-Dump wird nun mit speziellen NEC-Steuerzeichen an den Drucker gesendet.</text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6050_3037178849"/>Picture<text:bookmark-end text:name="__RefHeading___Toc6050_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe des Invert-Gadgets können Sie bestimmen, ob Sie einen Screen-Dump invertiert oder normal ausdrucken möchten. Wenn Sie das Invert-Gadget auswählen, wird der Bild­schirm invertiert ausgedruckt; wenn es nicht ausgewählt ist, wird er normal ausgedruckt.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6048_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Colors</text:span><text:bookmark-end text:name="__RefHeading___Toc6048_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6048_3037178849"/>Colors<text:bookmark-end text:name="__RefHeading___Toc6048_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieses Gadgets können Sie wählen, ob Sie den Screen-Dump in Schwarz-Weiß oder in Farbe auf dem Drucker haben möchten. Diese Option hat natürlich nur Sinn, wenn Sie mit einem Farbdrucker arbeiten.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6046_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Printing</text:span><text:bookmark-end text:name="__RefHeading___Toc6046_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6046_3037178849"/>Printing<text:bookmark-end text:name="__RefHeading___Toc6046_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieses Gadgets können Sie wählen, ob Sie den Screen-Dump normal oder um eine Vierteldrehung gedreht auf dem Papier ausgedruckt haben möchten. Wenn Sie das Sideways-Gadget auswählen, wird der Bildschirm um eine Vierteldrehung gedreht auf dem Papier ausgedruckt; wenn es nicht ausgewählt ist, wird er normal ausgedruckt.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sideways-Druck ist sehr praktisch, wenn die Zeichnung nicht normal auf das Papier passt.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6044_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Horizontal/Vertical Size</text:span><text:bookmark-end text:name="__RefHeading___Toc6044_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6044_3037178849"/>Horizontal/Vertical Size<text:bookmark-end text:name="__RefHeading___Toc6044_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Gadgets können Sie die horizontale und vertikale Größe des Screen-Dumps einstellen. Auf diese Weise können Sie zwischen einem kleinen Screen-Dump und einem großen Screen-Dump wählen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die Zahlen stellen Verhältnisse dar. Damit meinen wir, dass durch die Wahl von 2 anstatt 1 der Screen-Dump doppelt so groß wird. Achten Sie also darauf! Im Grafikmodus Single Density liefert ein Screen-Dump, eingestellt mit Horizontal 2 und Vertical 2, nicht dasselbe Ergebnis wie beispielsweise im Quadruple-Density-Modus.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Wird der Screen-Dump zu groß für das Papier, dann müssen Sie <text:span text:style-name="Kleine_20_hoofdletters">Sideways</text:span> auswählen.</text:p>
-   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6042_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Graphics Modes 8/24 Pins</text:span><text:bookmark-end text:name="__RefHeading___Toc6042_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6042_3037178849"/>Graphics Modes 8/24 Pins<text:bookmark-end text:name="__RefHeading___Toc6042_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Gadgets können Sie den Grafikmodus des Druckers einstellen. Die linke Spalte ist für 8-Nadel-Drucker und die rechte Spalte ist für 24-Nadel-Drucker. Nicht jeder Drucker besitzt alle Grafikmodi; welche verschiedenen Modi Ihr Drucker besitzt, können Sie in der Bedienungsanleitung Ihres Druckers nachlesen. Auch können Sie in dieser An­leitung eine ausführlichere Beschreibung der verschiedenen Grafikmodi finden.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Grafikmodi können Sie die Dichte (engl.: Density) des Druckers einstel­len. Diese Dichte wird meistens in Dots per Inch (dpi) ausgedrückt. Je schärfer Sie das Bild haben möchten, desto größer müssen Sie die Dichte wählen und desto länger müssen Sie warten.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Kurz zusammengefasst sind die Modi:</text:p>
-   <text:p text:style-name="P35">Single Density<text:tab/>Dies liefert ein Bild mit 60 dpi. 8 oder 24<text:line-break/>Double Density<text:tab/>Dies liefert ein Bild mit 120 dpi. 8 oder 24<text:line-break/>Triple Density<text:tab/>Dies liefert ein Bild mit 180 dpi. 24<text:line-break/>Quadruple Density<text:tab/>Dies liefert ein Bild mit 240 dpi. 8<text:line-break/>8 High Speed, DD<text:tab/>Dies liefert ein Bild mit 120 dpi, aber mit normaler Geschwindigkeit<text:line-break/><text:tab/>(dies liegt daran, dass nur die Hälfte ausgedruckt wird). 8<text:line-break/>CRT Graphics<text:tab/>Dies liefert ein Bild mit 80 dpi. 8<text:line-break/>CRT Graphics II<text:tab/>Dies liefert ein Bild mit 90 dpi. 8 oder 24</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6040_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Exit</text:span><text:bookmark-end text:name="__RefHeading___Toc6040_3037178849"/></text:p>
+   <text:p text:style-name="PrintopttabVervolg">Single Density<text:tab/>Dies liefert ein Bild mit 60 dpi. 8 oder 24</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Double Density<text:tab/>Dies liefert ein Bild mit 120 dpi. 8 oder 24</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Triple Density<text:tab/>Dies liefert ein Bild mit 180 dpi. 24</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Quadruple Density<text:tab/>Dies liefert ein Bild mit 240 dpi. 8</text:p>
+   <text:p text:style-name="PrintopttabVervolg">8 High Speed, DD<text:tab/>Dies liefert ein Bild mit 120 dpi, aber mit normaler Geschwindigkeit (dies liegt daran, dass nur die Hälfte ausgedruckt wird). 8</text:p>
+   <text:p text:style-name="PrintopttabVervolg">CRT Graphics<text:tab/>Dies liefert ein Bild mit 80 dpi. 8</text:p>
+   <text:p text:style-name="PrintopttabEinde">CRT Graphics II<text:tab/>Dies liefert ein Bild mit 90 dpi. 8 oder 24</text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6040_3037178849"/>Exit<text:bookmark-end text:name="__RefHeading___Toc6040_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Hiermit verlassen Sie das Printer-Fenster und gelangen immer zurück zum Desktop.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6038_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Print</text:span><text:bookmark-end text:name="__RefHeading___Toc6038_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6038_3037178849"/>Print<text:bookmark-end text:name="__RefHeading___Toc6038_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Hiermit geben Sie den Befehl zu drucken, unter Verwendung der von Ihnen eingestellten Einstellungen. Erst wenn die Zeichnung gedruckt ist, können Sie weitermachen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">!! <text:span text:style-name="Kleine_20_hoofdletters">Abort Printing</text:span> !!</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sie können den Druckvorgang unterbrechen, indem Sie die <text:span text:style-name="Toets">RUN/STOP</text:span>-Taste drücken. Der Computer hört dann auf, Daten an den Drucker zu senden. Bei Druckern mit einem Puffer kann der Drucker noch weiterlaufen, während der Computer bereits angehalten hat.</text:p>
-   <text:p text:style-name="P39"><text:bookmark-start text:name="__RefHeading___Toc6036_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Spezielle Druckerfunktionen</text:span><text:bookmark-end text:name="__RefHeading___Toc6036_3037178849"/></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6036_3037178849"/>Spezielle Druckerfunktionen<text:bookmark-end text:name="__RefHeading___Toc6036_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Normalerweise können Sie den Drucker über das Printer-Fenster steuern, aber durch <text:span text:style-name="Kleine_20_hoofdletters">POKE</text:span>n einiger Werte in die Speicheradresse $DC0C (hexadezimal) können einige speziel­le Funktionen aufgerufen werden.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Diese Werte geben Sie (natürlich) ein, bevor Sie das Programm laden, von dem Sie einen Screen-Dump erstellen möchten. Falls Sie keine dieser speziellen Funktionen nutzen möchten, müssen Sie natürlich auch nichts POKEn. Diese Werte, die spezielle Funktionen ermöglichen, werden nun einzeln mit Ihnen durchgegangen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">POKE $DC0C,$FF<text:tab/>Keine Centronics-Überprüfung.</text:p>
@@ -1530,54 +1495,54 @@
    <text:p text:style-name="Tekstblok_20_N1">Wir behandeln die Befehle von Notepad in der Reihenfolge der Menüs.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Project</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Project-Menü stehen Befehle, um Ihren Text zu speichern, auszudrucken usw.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">New</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">New</text:span>-Befehl machen Sie Notepad leer. Der Cursor kommt an den Anfang und wartet auf den Text, den Sie eingeben möchten.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Load</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Befehl können Sie einen zuvor erstellten Text von Diskette laden. Nachdem Sie <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span> ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des Textes eingeben müssen, den Sie laden möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Befehl ausgewählt ha­ben, wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text von Kassette laden. Nachdem Sie den Namen des Textes eingegeben haben, müssen Sie noch PLAY drücken.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Save</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl können Sie Ihren Text auf Diskette speichern. Nachdem Sie Save ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des Textes eingeben müssen, den Sie speichern möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl ausgewählt haben, wäh­len Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text auf Kassette speichern. Nachdem Sie den Namen des Textes eingegeben ha­ben, müssen Sie noch <text:span text:style-name="Kleine_20_hoofdletters">Play &amp; Record</text:span> drücken.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Print</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Print</text:span>-Befehl können Sie Ihren Text auf Ihrem Drucker ausdrucken.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Recover</text:span></text:p>
-   <text:p text:style-name="P48">Normalerweise verlieren Sie Ihren Text, wenn Sie <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>, <text:span text:style-name="Kleine_20_hoofdletters">New</text:span> oder <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span> wählen. Aber indem Sie im Project-Menü den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Recover</text:span> auswählen, können Sie den verlorenen Text zurückerhalten.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>-Befehl schließen Sie Notepad und gelangen zurück zum Desktop.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">New</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">New</text:span>-Befehl machen Sie Notepad leer. Der Cursor kommt an den Anfang und wartet auf den Text, den Sie eingeben möchten.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Load</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Befehl können Sie einen zuvor erstellten Text von Diskette laden. Nachdem Sie <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span> ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des Textes eingeben müssen, den Sie laden möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span>-Befehl ausgewählt ha­ben, wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TLoad</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text von Kassette laden. Nachdem Sie den Namen des Textes eingegeben haben, müssen Sie noch PLAY drücken.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Save</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl können Sie Ihren Text auf Diskette speichern. Nachdem Sie Save ausgewählt haben, wird ein Requester geöffnet, in dem Sie den Namen des Textes eingeben müssen, den Sie speichern möchten. Anschließend wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Gadget aus. Falls Sie versehentlich den <text:span text:style-name="Kleine_20_hoofdletters">Save</text:span>-Befehl ausgewählt haben, wäh­len Sie das <text:span text:style-name="Kleine_20_hoofdletters">Cancel</text:span>-Gadget, woraufhin Sie wieder in Notepad landen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">TSave</text:span>-Befehl können Sie auf dieselbe Weise wie oben beschrieben einen Text auf Kassette speichern. Nachdem Sie den Namen des Textes eingegeben ha­ben, müssen Sie noch <text:span text:style-name="Kleine_20_hoofdletters">Play &amp; Record</text:span> drücken.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Print</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Print</text:span>-Befehl können Sie Ihren Text auf Ihrem Drucker ausdrucken.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Recover</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Normalerweise verlieren Sie Ihren Text, wenn Sie <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>, <text:span text:style-name="Kleine_20_hoofdletters">New</text:span> oder <text:span text:style-name="Kleine_20_hoofdletters">Load</text:span> wählen. Aber indem Sie im Project-Menü den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Recover</text:span> auswählen, können Sie den verlorenen Text zurückerhalten.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Quit</text:span>-Befehl schließen Sie Notepad und gelangen zurück zum Desktop.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">File</text:span></text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem &quot;<text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span>&quot;-Befehl können Sie mit dem Cursor auf einmal zum Anfang Ihres Textes gehen. Dies ist auch möglich durch Drücken der <text:span text:style-name="Toets">CLR/HOME</text:span>-Taste.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span>-Befehl wird der gesamte Bildschirm neu gezeichnet.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
-   <text:p text:style-name="P48">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Befehl aktivieren Sie den Freezer; indem Sie im Freezer Exit Run auswählen, gelangen Sie wieder zurück zu Notepad.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem &quot;<text:span text:style-name="Kleine_20_hoofdletters">Top of File</text:span>&quot;-Befehl können Sie mit dem Cursor auf einmal zum Anfang Ihres Textes gehen. Dies ist auch möglich durch Drücken der <text:span text:style-name="Toets">CLR/HOME</text:span>-Taste.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Redraw</text:span>-Befehl wird der gesamte Bildschirm neu gezeichnet.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span>-Befehl aktivieren Sie den Freezer; indem Sie im Freezer Exit Run auswählen, gelangen Sie wieder zurück zu Notepad.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Screen</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Screen-Menü stehen einige Befehle, die die Darstellung Ihres Textes verändern können.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Wordwrap</text:span></text:p>
-   <text:p text:style-name="P48">Mit dieser Option können Sie Ihren Text am Ende der Zeile auf verschiedene Weise umbrechen lassen. Wenn Wordwrap ausgewählt ist, wird ein Wort, das nicht mehr vollständig in die Zeile passt, automatisch in die nächste Zeile gesetzt. Wenn Word­wrap nicht ausgewählt ist, werden die Buchstaben, die noch in die Zeile passen, dort hingesetzt und die anderen in die nächste Zeile.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Bold</text:span></text:p>
-   <text:p text:style-name="P48">Mit dieser Option können Sie Ihren Text fett auf dem Bildschirm darstellen.</text:p>
-   <text:p text:style-name="P38"><text:span text:style-name="Kleine_20_hoofdletters">Proportional</text:span></text:p>
-   <text:p text:style-name="P48">Mit dieser Option können Sie wählen, ob Sie den Text proportional oder normal auf dem Bildschirm haben möchten. Wenn Sie mit Spalten arbeiten möchten, ist es rat­sam, Proportional auszuschalten.</text:p>
-   <text:p text:style-name="P37"><text:span text:style-name="Kleine_20_hoofdletters">Line</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Wordwrap</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dieser Option können Sie Ihren Text am Ende der Zeile auf verschiedene Weise umbrechen lassen. Wenn Wordwrap ausgewählt ist, wird ein Wort, das nicht mehr vollständig in die Zeile passt, automatisch in die nächste Zeile gesetzt. Wenn Word­wrap nicht ausgewählt ist, werden die Buchstaben, die noch in die Zeile passen, dort hingesetzt und die anderen in die nächste Zeile.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Bold</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dieser Option können Sie Ihren Text fett auf dem Bildschirm darstellen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Proportional</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Mit dieser Option können Sie wählen, ob Sie den Text proportional oder normal auf dem Bildschirm haben möchten. Wenn Sie mit Spalten arbeiten möchten, ist es rat­sam, Proportional auszuschalten.</text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Line</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Line-Menü stehen verschiedene Befehle, um den Abstand zwischen den Zeilen zu­verändern.</text:p>
-   <text:p text:style-name="P48"><text:span text:style-name="Kleine_20_hoofdletters">Space x</text:span></text:p>
-   <text:p text:style-name="P48">Durch das Auswählen der verschiedenen Space-Befehle verändern Sie den Zeilen­abstand. <text:span text:style-name="Kleine_20_hoofdletters">Space0</text:span> ist der kleinste Abstand, <text:span text:style-name="Kleine_20_hoofdletters">Space2</text:span> ist der größte Abstand.</text:p>
-   <text:p text:style-name="P37"><text:span text:style-name="Kleine_20_hoofdletters">Character</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Space x</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Durch das Auswählen der verschiedenen Space-Befehle verändern Sie den Zeilen­abstand. <text:span text:style-name="Kleine_20_hoofdletters">Space0</text:span> ist der kleinste Abstand, <text:span text:style-name="Kleine_20_hoofdletters">Space2</text:span> ist der größte Abstand.</text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Character</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Im Character-Menü stehen verschiedene Befehle, um den Abstand zwischen den Buch­staben zu verändern.</text:p>
-   <text:p text:style-name="P48"><text:span text:style-name="Kleine_20_hoofdletters">Space x</text:span></text:p>
-   <text:p text:style-name="P48">Durch das Auswählen der verschiedenen Space-Befehle verändern Sie den Buch­stabenabstand. <text:span text:style-name="Kleine_20_hoofdletters">Space0</text:span> ist der kleinste Abstand, <text:span text:style-name="Kleine_20_hoofdletters">Space4</text:span> ist der größte Abstand.</text:p>
+   <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Space x</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N3">Durch das Auswählen der verschiedenen Space-Befehle verändern Sie den Buch­stabenabstand. <text:span text:style-name="Kleine_20_hoofdletters">Space0</text:span> ist der kleinste Abstand, <text:span text:style-name="Kleine_20_hoofdletters">Space4</text:span> ist der größte Abstand.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5055_2830447109"/>Das eingeben von Text<text:bookmark-end text:name="__RefHeading___Toc5055_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Den Text können Sie auf normale Weise eingeben.</text:p>
-   <text:p text:style-name="P37"><text:span text:style-name="Kleine_20_hoofdletters">Editierfunktionen</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Editierfunktionen</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit den Cursorsteuertasten können Sie den Cursor auf gewohnte Weise bewegen:</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Einen Buchstaben nach links oder einen nach rechts.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Eine Zeile nach oben oder eine nach unten. Der Cursor kommt dann ebenfalls an den Anfang der Zeile.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Die <text:span text:style-name="Toets">INST/DEL</text:span>-Taste entfernt den Buchstaben links vom Cursor.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Es ist auch möglich, mit dem Pointer den Cursor zu bewegen. Sie zeigen dann einfach auf die Stelle, an der Sie den Cursor haben möchten, und klicken dort.</text:p>
-   <text:p text:style-name="P37"><text:span text:style-name="Kleine_20_hoofdletters">Spezielle Funktionen</text:span></text:p>
+   <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Spezielle Funktionen</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Es ist möglich, in Ihrem Text eine spezielle Funktion einzufügen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2">Vorläufig ist nur die Druckerfunktion &quot;Form Feed&quot; implementiert. Sie können diese Funktion einfach in Ihren Text setzen, indem Sie die <text:span text:style-name="Toets">←</text:span>-Taste (Pfeil nach links) drü­cken. Auf dem Bildschirm erscheint dann ebenfalls dieses Zeichen, aber während des Druckens wird an der Stelle dieses Zeichens ein &quot;Form Feed&quot; ausgeführt, wodurch der Drucker mit dem Text, der nach diesem Zeichen folgt, auf einer neuen Seite beginnt.</text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4732_2830447109"/>Basic<text:bookmark-end text:name="__RefHeading___Toc4732_2830447109"/></text:h>
@@ -1638,13 +1603,13 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4772_2830447109"/>Zusätzliche Möglichkeiten in Basic<text:bookmark-end text:name="__RefHeading___Toc4772_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4952_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4952_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Genau wie im Maschinensprache-Monitor haben Sie in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> die Möglichkeit, Ihre <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Programme durchzuscrollen. Hierfür verwenden Sie die normalen Cursortasten. Sie kön­nen das Scrollen selbst ausprobieren, indem Sie, nachdem ein kleiner Teil Ihres <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-Pro­gramms auf dem Bildschirm angezeigt wird, mit dem Cursor nach oben oder unten gehen.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4954_2164442888"/>Editierfunktionen<text:bookmark-end text:name="__RefHeading___Toc4954_2164442888"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4954_2164442888"/>Editierfunktionen<text:bookmark-end text:name="__RefHeading___Toc4954_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Final Cartridge III bietet Ihnen eine Reihe zusätzlicher Editierfunktionen, die Ihnen beim Programmieren oft nützlich sein werden. Das Korrigieren von Programmen auf dem Bildschirm wird dadurch erheblich vereinfacht.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Um das Scrollen nach unten etwas einfacher zu machen, haben wir es ermöglicht, durch einen einzigen Tastendruck den Cursor in die linke untere Ecke zu setzen, woraufhin Sie selbst weiter scrollen können.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Sie setzen den Cursor in die linke untere Ecke, indem Sie gleichzeitig die Tasten <text:span text:style-name="Toets">CONTROL</text:span> und <text:span text:style-name="Toets">CLR/HOME</text:span> drücken.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Durch das gleichzeitige Drücken der Tasten <text:span text:style-name="Toets">CONTROL</text:span> und <text:span text:style-name="Toets">DEL</text:span> entfernen Sie alles, was sich hinter dem Cursor in der Zeile befindet.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Durch Drücken der Commodore-Taste <text:span text:style-name="Toets"><text:span text:style-name="Commodore_20_64">À</text:span></text:span> wird die Ausgabe auf den Bildschirm eingefro­ren. Der Computer wartet mit dem Fortfahren, bis Sie die Taste loslassen. Dies ist prak­tisch beim Betrachten von Listings, da diese normalerweise mit <text:span text:style-name="Toets">CONTROL</text:span> nur verlang­samt werden.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4956_2164442888"/>Druckerschnittstelle<text:bookmark-end text:name="__RefHeading___Toc4956_2164442888"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4956_2164442888"/>Druckerschnittstelle<text:bookmark-end text:name="__RefHeading___Toc4956_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Final Cartridge III ist es ebenfalls möglich, Nicht-Commodore-Drucker zu verwenden. In der Final Cartridge III ist nämlich eine Centronics-Schnittstelle eingebaut, mit der Sie mit Hilfe eines speziellen Kabels auch mit Centronics-Druckern arbeiten kön­nen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die Centronics-Schnittstelle können Sie auch aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> heraus verwenden, mit Hilfe des erweiterten <text:a xlink:type="simple" xlink:href="#OPEN (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">OPEN</text:span></text:a>-Befehls.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4958_2164442888"/>Low-Resolution-Screen-Dump<text:bookmark-end text:name="__RefHeading___Toc4958_2164442888"/></text:h>
@@ -1652,10 +1617,10 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4960_2164442888"/>Tape-Schnelllader/-Schnellspeicher<text:bookmark-end text:name="__RefHeading___Toc4960_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Final Cartridge III ist mit einem Tape-Schnelllader/-Schnellspeicher ausgestattet, der es ermöglicht, Programme 10-mal schneller mit Kassette zu laden und zu speichern. Der Schnelllader/-Schnellspeicher ist vollständig austauschbar mit den gängigsten Schnellla­dern, und Sie können auch weiterhin mit dem Standardlader/-speicher arbeiten.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die TAPE-Befehle sind:</text:p>
-   <text:p text:style-name="P34">LOAD &quot;name&quot;<text:tab/>Laden mit Standardgeschwindigkeit</text:p>
-   <text:p text:style-name="P34">SAVE &quot;name&quot;<text:tab/>Speichern mit Standardgeschwindigkeit</text:p>
-   <text:p text:style-name="P34">LOAD &quot;name&quot;,7<text:tab/>Laden mit dem eingebauten Schnelllader (10-mal schneller)</text:p>
-   <text:p text:style-name="P33">SAVE &quot;name&quot;,7<text:tab/>Speichern mit dem eingebauten Schnellspeicher (10-mal schneller)</text:p>
+   <text:p text:style-name="PrintopttabVervolg">LOAD &quot;name&quot;<text:tab/>Laden mit Standardgeschwindigkeit</text:p>
+   <text:p text:style-name="PrintopttabVervolg">SAVE &quot;name&quot;<text:tab/>Speichern mit Standardgeschwindigkeit</text:p>
+   <text:p text:style-name="PrintopttabVervolg">LOAD &quot;name&quot;,7<text:tab/>Laden mit dem eingebauten Schnelllader (10-mal schneller)</text:p>
+   <text:p text:style-name="PrintopttabEinde">SAVE &quot;name&quot;,7<text:tab/>Speichern mit dem eingebauten Schnellspeicher (10-mal schneller)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4962_2164442888"/>Disk-Schnelllader/-Schnellspeicher<text:bookmark-end text:name="__RefHeading___Toc4962_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Die Final Cartridge III ist darüber hinaus mit einem Disk-Schnelllader/-Schnellspeicher ausgestattet, der es ermöglicht, Programme 15-mal schneller von Diskette zu laden und 7-mal schneller auf Diskette zu speichern. Die Standardbefehle <text:span text:style-name="Monospace">LOAD</text:span> und <text:span text:style-name="Monospace">SAVE</text:span> verwenden automatisch den Schnelllader/-Schnellspeicher.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die <text:span text:style-name="Kleine_20_hoofdletters">Disk</text:span>-Befehle sind:</text:p>
@@ -2316,10 +2281,10 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4982_2164442888"/>Speicherdarstellung<text:bookmark-end text:name="__RefHeading___Toc4982_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Sie können im Speicher verschiedene Daten ablegen. Dies können unter anderem Zahlen, Texte, Programme, Characters und Sprites sein. Die Final Cartridge III bietet Ihnen nun die Möglichkeit, den Speicher in all diesen Formen anzuzeigen. Um es Ihnen deutlicher zu machen, zeigen wir Ihnen denselben Speicherabschnitt in den verschiedenen Darstellungs­möglichkeiten:</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI<text:tab/></text:span><text:tab/>Zahlendarstellung<text:line-break/><text:span text:style-name="Monospace">.‘2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung<text:line-break/><text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4984_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4984_2164442888"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4984_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4984_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn der Speicher in einer der Darstellungsmöglichkeiten angezeigt wird, haben Sie die Möglichkeit zu scrollen. Damit meinen wir, dass Sie den Bildschirm verschieben können, um die Speicheradressen vor oder nach dem auf dem Bildschirm angezeigten Abschnitt zu betrachten. Dies können Sie bewerkstelligen, indem Sie den Cursor am oberen oder unte­ren Bildschirmrand hinausbewegen. Dadurch wird der vorherige oder der nächste Ab­schnitt automatisch auf dem Bildschirm angezeigt.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die Scroll-Möglichkeit wurde in die Final Cartridge III eingebaut, um das Betrachten gro­ßer Teile des Speichers zu erleichtern.</text:p>
-   <text:h text:style-name="P41" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4986_2164442888"/>Verbessern<text:bookmark-end text:name="__RefHeading___Toc4986_2164442888"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4986_2164442888"/>Verbessern<text:bookmark-end text:name="__RefHeading___Toc4986_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Eine einfache Möglichkeit, die bei vielen der Anzeigeoptionen vorhanden ist, ist das Ver­bessern des Inhalts. Hierfür müssen Sie nur die gewünschten Daten über die vorhandenen Daten tippen. Nach einem Druck auf die <text:span text:style-name="Toets">RETURN</text:span>-Taste werden die neuen Daten über­nommen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Die Daten, die Sie in den verschiedenen Darstellungsmöglichkeiten ändern können, sind in der folgenden Aufzählung unterstrichen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI</text:span><text:tab/><text:tab/>Zahlendarstellung<text:line-break/><text:span text:style-name="Monospace">.’2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Textdarstellung<text:line-break/><text:span text:style-name="Monospace">.]2000 .*..*...*..*...*.*..**..</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Sprite-Darstellung<text:line-break/><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character-Darstellung<text:line-break/><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Programmdarstellung</text:p>
