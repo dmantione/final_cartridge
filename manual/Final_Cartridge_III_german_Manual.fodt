@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:date>2026-07-25T17:00:53.455299407</dc:date><meta:editing-duration>P5DT15H59M14S</meta:editing-duration><meta:editing-cycles>150</meta:editing-cycles>
+ <office:meta><dc:date>2026-07-25T17:00:53.455299407</dc:date>
 
 <meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator>
 <dc:title>Final Cartridge III -  Instruktionshandbuch</dc:title>
-<dc:subject>Handbuch der Final Cartridge III</dc:subject><meta:document-statistic meta:table-count="1" meta:image-count="19" meta:object-count="0" meta:page-count="66" meta:paragraph-count="1238" meta:word-count="15120" meta:character-count="104634" meta:non-whitespace-character-count="87942"/></office:meta>
+<dc:subject>Handbuch der Final Cartridge III</dc:subject></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="ViewAreaTop" config:type="long">1280278</config:config-item>
@@ -14,24 +14,7 @@
    <config:config-item config:name="ViewAreaHeight" config:type="long">15464</config:config-item>
    <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
    <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
-   <config:config-item-map-indexed config:name="Views">
-    <config:config-item-map-entry>
-     <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">3295</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">1145404</config:config-item>
-     <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">1280278</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">20489</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">1295740</config:config-item>
-     <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-     <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
-     <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">160</config:config-item>
-     <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="KeepRatio" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
-    </config:config-item-map-entry>
-   </config:config-item-map-indexed>
+   
   </config:config-item-set>
   <config:config-item-set config:name="ooo:configuration-settings">
    <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
@@ -72,25 +55,25 @@
    <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
    <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
    <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
    <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">false</config:config-item>
    <config:config-item config:name="FrameAutowidthWithMorePara" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
-   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
+   <config:config-item config:name="PrinterIndependentLayout" config:type="string">low-resolution</config:config-item>
    <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
    <config:config-item config:name="PrintFaxName" config:type="string"/>
    <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
    <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">true</config:config-item>
    <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
    <config:config-item config:name="SaveThumbnail" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
    <config:config-item config:name="AddExternalLeading" config:type="boolean">false</config:config-item>
    <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="StylesNoDefault" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="StylesNoDefault" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary">wAH+/0NQNTIyNWRuX0E0X2tsZXVyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ1VQUzpDUDUyMjVkbl9BNF9rbGV1cgAAAAAAAAAAAAAWAAMA3AAAAAAAAAAEAAhSAAAEdAAASm9iRGF0YSAxCnByaW50ZXI9Q1A1MjI1ZG5fQTRfa2xldXIKb3JpZW50YXRpb249UG9ydHJhaXQKY29waWVzPTEKY29sbGF0ZT1mYWxzZQptYXJnaW5hZGp1c3RtZW50PTAsMCwwLDAKY29sb3JkZXB0aD0yNApwc2xldmVsPTAKcGRmZGV2aWNlPTEKY29sb3JkZXZpY2U9MApQUERDb250ZXh0RGF0YQpQYWdlU2l6ZTpBNABJbnB1dFNsb3Q6QXV0bwBEdXBsZXg6RHVwbGV4Tm9UdW1ibGUAABIAQ09NUEFUX0RVUExFWF9NT0RFFABEdXBsZXhNb2RlOjpMb25nRWRnZQ==</config:config-item>
+   
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
    
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
@@ -99,7 +82,7 @@
    <config:config-item config:name="FootnoteInColumnToPageEnd" config:type="boolean">true</config:config-item>
    <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
    <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
-   <config:config-item config:name="PrinterName" config:type="string">CP5225dn_A4_kleur</config:config-item>
+   
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">true</config:config-item>
@@ -133,14 +116,13 @@
    <config:config-item config:name="BackgroundParaOverDrawings" config:type="boolean">false</config:config-item>
    <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
    <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
    <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">false</config:config-item>
    <config:config-item config:name="TabOverflow" config:type="boolean">false</config:config-item>
   </config:config-item-set>
  </office:settings>
  
  <office:font-face-decls>
-  <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
@@ -177,7 +159,7 @@
    <style:text-properties fo:font-size="12pt"/>
   </style:style>
   <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.199cm" loext:contextual-spacing="false" fo:line-height="100%"/>
+   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.2cm" loext:contextual-spacing="false" fo:line-height="100%"/>
   </style:style>
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
   <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
@@ -213,9 +195,6 @@
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="140%" fo:font-weight="bold"/>
-  </style:style>
-  <style:style style:name="List_20_1" style:display-name="List 1" style:family="paragraph" style:parent-style-name="List" style:class="list">
-   <style:paragraph-properties fo:margin-left="0.635cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" fo:text-indent="-0.635cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="Title" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:class="chapter">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
@@ -400,9 +379,6 @@
   </style:style>
   <style:style style:name="Commodore_20_64" style:display-name="Commodore 64" style:family="text">
    <style:text-properties style:font-name="Commodore 64" fo:font-family="&apos;Commodore 64&apos;" fo:font-size="10pt"/>
-  </style:style>
-  <style:style style:name="Endnote_20_anchor" style:display-name="Endnote anchor" style:family="text">
-   <style:text-properties style:text-position="super 58%"/>
   </style:style>
   <style:style style:name="Visited_20_Internet_20_Link" style:display-name="Visited Internet Link" style:family="text">
    <style:text-properties fo:color="#800000" loext:opacity="100%" fo:language="zxx" fo:country="none" style:text-underline-style="none"/>
@@ -1024,8 +1000,8 @@
    <text:p text:style-name="Preformatted_20_Text"/>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4724_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Wir haben versucht, die Bedienungsanleitung für Sie so vollständig und klar wie möglich zu gestalten. Deshalb haben wir eine sehr ausführliche Inhaltsangabe erstellt, das das Nach­schla­gen in dieser Anleitung sehr einfach macht.</text:p>
-   <text:p text:style-name="Text_20_body">Wir beginnen mit dem Kapitel <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp;   menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Menüs</text:span></text:a>; hierin wird eine Erklärung über – der Name sagt es bereits – Windows &amp; Menüs gegeben. Dieses Kapitel ist für Personen gedacht, die noch nie mit diesen Dingen gearbeitet haben. Wir versuchen in diesem Kapitel, Ihnen alle not­wendigen Informationen zu liefern, damit Sie den Rest der Anleitung problemlos verfolgen können.</text:p>
-   <text:p text:style-name="Text_20_body">Dann folgt das Kapitel <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>; hierin wird der Desktop besprochen. Vom Desktop aus sind alle Möglichkeiten der Final Cartridge III aufrufbar, und alles könnte daher in diesem Kapitel besprochen werden. Aber um die Übersichtlichkeit zu wahren, wurden vier separate Kapitel erstellt.</text:p>
+   <text:p text:style-name="Text_20_body">Wir beginnen mit dem Kapitel <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp;   menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Menüs</text:span></text:a>; hierin wird eine Erklärung über – der Name sagt es bereits – Windows &amp; Menüs gegeben. Dieses Kapitel ist für Personen gedacht, die noch nie mit diesen Dingen gearbeitet haben. Wir versuchen in diesem Kapitel, Ihnen alle not­wen­digen Informationen zu liefern, damit Sie den Rest der Anleitung problemlos verfolgen können.</text:p>
+   <text:p text:style-name="Text_20_body">Dann folgt das Kapitel <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>; hierin wird der Desktop besprochen. Vom Desktop aus sind alle Möglichkeiten der Final Cartridge III aufrufbar, und alles könnte daher in diesem Kapitel besprochen werden. Aber um die Übersichtlichkeit zu wahren, wurden vier separate Kapitel er­stellt.</text:p>
    <text:p text:style-name="Text_20_body">Diese separaten Kapitel sind:</text:p>
    <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#8.Tools|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Werkzeuge</text:span></text:a><text:tab/>Hierin werden das Notepad, die Desktop-Utilities und die Druckerauswahl besprochen.</text:p>
    <text:p text:style-name="Hoofdstuk-tabel"><text:a xlink:type="simple" xlink:href="#10.Freezer|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span></text:a><text:tab/>Hierin werden alle Möglichkeiten, die der Freezer Ihnen bietet, besprochen.</text:p>
@@ -1426,10 +1402,9 @@
    <text:p text:style-name="Tekstblok_20_N2"/>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe dieser Einstellungen können Sie die Final Cartridge III an Ihren Drucker anpas­sen. Für einige Drucker haben wir bereits Einstellungen ausgesucht.</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6034_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Interface</text:span><text:bookmark-end text:name="__RefHeading___Toc6034_3037178849"/></text:p>
-   <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
-   <text:p text:style-name="PrintopttabVervolg">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Drucker ge­sendet.</text:p>
-   <text:p text:style-name="PrintopttabVervolg">Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Centro­nics-Drucker gesendet.</text:p>
-   <text:p text:style-name="PrintopttabEinde">RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS-232-Drucker gesendet.<text:line-break/><text:tab/>Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Commodore<text:tab/>Der Screen-Dump wird über die serielle Schnittstelle an einen Druck­er ge­sendet.</text:p>
+   <text:p text:style-name="PrintopttabVervolg">Centronics<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen Cen­tro­nics-Drucker gesendet.</text:p>
+   <text:p text:style-name="PrintopttabEinde">RS-232<text:tab/>Der Screen-Dump wird über die User-Port-Schnittstelle an einen RS‑232-Drucker gesendet. Siehe auch die <text:a xlink:type="simple" xlink:href="#12.Anmerkungen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">Anmerkungen</text:a>!</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:bookmark-start text:name="__RefHeading___Toc6052_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Type</text:span><text:bookmark-end text:name="__RefHeading___Toc6052_3037178849"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Mit Hilfe der Gadgets können Sie eine Wahl treffen zwischen:</text:p>
    <text:p text:style-name="PrintopttabVervolg">CBM Compatible<text:tab/>Der Screen-Dump wird nun mit COMMODORE-Steuerzeichen an den Drucker gesendet.</text:p>
