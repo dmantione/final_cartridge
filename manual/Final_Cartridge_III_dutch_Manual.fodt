@@ -123,7 +123,6 @@
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
-  <style:font-face style:name="Liberation Mono1" svg:font-family="&apos;Liberation Mono&apos;" style:font-adornments="Standaard" style:font-family-generic="modern" style:font-pitch="fixed"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif1" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Standaard" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif2" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Vet" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -193,10 +192,6 @@
    </style:paragraph-properties>
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="140%" fo:font-weight="bold"/>
   </style:style>
-  <style:style style:name="Title" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:class="chapter">
-   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
-   <style:text-properties fo:font-size="28pt" fo:font-weight="bold"/>
-  </style:style>
   <style:style style:name="Table_20_Contents" style:display-name="Table Contents" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:orphans="0" fo:widows="0" text:number-lines="false" text:line-number="0"/>
   </style:style>
@@ -212,7 +207,7 @@
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monospace" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="nl" fo:country="NL"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="nl" fo:country="NL"/>
   </style:style>
   <style:style style:name="Monospace_20_klein" style:display-name="Monospace klein" style:family="paragraph" style:parent-style-name="Monospace">
    <style:text-properties fo:font-size="8pt"/>
@@ -361,7 +356,7 @@
   </style:style>
   <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
   <style:style style:name="Monospace" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="zxx" fo:country="none"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="zxx" fo:country="none"/>
   </style:style>
   <style:style style:name="Page_20_Number" style:display-name="Page Number" style:family="text"/>
   <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
@@ -653,24 +648,24 @@
    </style:section-properties>
   </style:style>
   <style:page-layout style:name="pm1" style:page-usage="mirrored">
-   <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.251cm" fo:margin-bottom="1.251cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+   <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.25cm" fo:margin-bottom="1.25cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
+    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.1cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style>
-    <style:header-footer-properties fo:min-height="0.3cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.199cm"/>
+    <style:header-footer-properties fo:min-height="0.3cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.2cm"/>
    </style:footer-style>
   </style:page-layout>
   <style:page-layout style:name="pm2" style:page-usage="right">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.1cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style/>
   </style:page-layout>
   <style:page-layout style:name="pm3" style:page-usage="left">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+    <style:footnote-sep style:width="0.018cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style/>
@@ -1073,6 +1068,8 @@
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Het sluiten van windows<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Om een window te sluiten, selecteert u het close-gadget. Dit gadget kunt u in vrijwel elk window in de linker bovenhoek terugvinden.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding19" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_sluiten.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+    </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Communiceren met een window<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Als een programma een naam van u nodig heeft, dit om bijvoorbeeld de naam en id van een nieuw te formatteren diskette te vragen, moet u gebruik maken van een string gadget. Als u zo’n string gadget selecteert, komt een cursor tevoorschijn, waarna u de naam die u wenst in kunt typen. Als u buiten de gadget klikt of op <text:span text:style-name="Toets">RETURN</text:span> drukt, gaat de cursor weg en is de gadget niet langer geselecteerd. Om de gadget opnieuw te selecteren, wijst u met de pointer ergens binnen de gadget en klikt u.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requesters<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>

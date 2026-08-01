@@ -126,7 +126,6 @@
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
-  <style:font-face style:name="Liberation Mono1" svg:font-family="&apos;Liberation Mono&apos;" style:font-adornments="Standaard" style:font-family-generic="modern" style:font-pitch="fixed"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif1" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Standaard" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif2" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Vet" style:font-family-generic="roman" style:font-pitch="variable"/>
@@ -141,7 +140,7 @@
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="de" fo:country="DE" style:letter-kerning="true" />
   </style:default-style>
   <style:default-style style:family="paragraph">
-   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.499cm" style:writing-mode="page"/>
+   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.5cm" style:writing-mode="page"/>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="de" fo:country="DE" style:letter-kerning="true" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2" loext:hyphenation-no-caps="false"/>
   </style:default-style>
   <style:default-style style:family="table">
@@ -196,10 +195,6 @@
    </style:paragraph-properties>
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="140%" fo:font-weight="bold"/>
   </style:style>
-  <style:style style:name="Title" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:class="chapter">
-   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
-   <style:text-properties fo:font-size="28pt" fo:font-weight="bold"/>
-  </style:style>
   <style:style style:name="Table_20_Contents" style:display-name="Table Contents" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:orphans="0" fo:widows="0" text:number-lines="false" text:line-number="0"/>
   </style:style>
@@ -215,7 +210,7 @@
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monospace" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="de" fo:country="DE"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="de" fo:country="DE"/>
   </style:style>
   <style:style style:name="Monospace_20_klein" style:display-name="Monospace klein" style:family="paragraph" style:parent-style-name="Monospace">
    <style:text-properties fo:font-size="8pt"/>
@@ -231,7 +226,7 @@
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Calculator-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="4.0cm"/>
      <style:tab-stop style:position="8.0cm"/>
@@ -288,7 +283,7 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Contents_20_3" style:display-name="Contents 3" style:family="paragraph" style:parent-style-name="Index" style:class="index">
-   <style:paragraph-properties fo:margin-left="0.998cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
+   <style:paragraph-properties fo:margin-left="1.0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false">
     <style:tab-stops>
      <style:tab-stop style:position="11.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
@@ -298,8 +293,8 @@
   <style:style style:name="Header_20_and_20_Footer" style:display-name="Header and Footer" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties text:number-lines="false" text:line-number="0">
     <style:tab-stops>
-     <style:tab-stop style:position="6.451cm" style:type="center"/>
-     <style:tab-stop style:position="12.901cm" style:type="right"/>
+     <style:tab-stop style:position="6.5cm" style:type="center"/>
+     <style:tab-stop style:position="12.9cm" style:type="right"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
@@ -332,7 +327,7 @@
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_1" style:display-name="Freezer kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_2" style:display-name="Freezer kop 2" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -344,7 +339,7 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Inhoudsopgave_20_1_20_inspring" style:display-name="Inhoudsopgave 1 inspring" style:family="paragraph" style:parent-style-name="Contents_20_1">
-   <style:paragraph-properties fo:margin-left="0.499cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="LijstEinde" style:family="paragraph" style:parent-style-name="Text_20_body"/>
   <style:style style:name="LijstVervolg" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -364,7 +359,7 @@
   </style:style>
   <style:style style:name="Numbering_20_Symbols" style:display-name="Numbering Symbols" style:family="text"/>
   <style:style style:name="Monospace" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono1" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="zxx" fo:country="none"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="zxx" fo:country="none"/>
   </style:style>
   <style:style style:name="Page_20_Number" style:display-name="Page Number" style:family="text"/>
   <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
@@ -550,7 +545,7 @@
    </text:list-level-style-number>
    <text:list-level-style-bullet text:level="2" text:style-name="Bullet_20_Symbols" loext:num-list-format="%2%" text:bullet-char="◦">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.7cm" fo:text-indent="-0.499cm" fo:margin-left="1.7cm"/>
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.7cm" fo:text-indent="-0.5cm" fo:margin-left="1.7cm"/>
     </style:list-level-properties>
    </text:list-level-style-bullet>
    <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="I">
@@ -596,7 +591,7 @@
   </text:list-style>
   <text:notes-configuration text:note-class="footnote" style:num-format="1" text:start-value="0" text:footnotes-position="page" text:start-numbering-at="document"/>
   <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
-  <text:linenumbering-configuration text:number-lines="false" text:offset="0.499cm" style:num-format="1" text:number-position="left" text:increment="5"/>
+  <text:linenumbering-configuration text:number-lines="false" text:offset="0.5cm" style:num-format="1" text:number-position="left" text:increment="5"/>
  </office:styles>
  <office:automatic-styles>
   <style:style style:name="Tabel1" style:family="table">
@@ -656,7 +651,7 @@
    </style:section-properties>
   </style:style>
   <style:page-layout style:name="pm1" style:page-usage="mirrored">
-   <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.251cm" fo:margin-bottom="1.251cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
+   <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.25cm" fo:margin-bottom="1.25cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
     <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
@@ -681,7 +676,7 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
    </text:sequence-decls>
-   <text:p text:style-name="Preformatted_20_Text"><draw:frame draw:style-name="fr1" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="3"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Preformatted_20_Text"><draw:frame draw:style-name="fr2" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="3"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Inhoudsopgave1">
     <text:table-of-content-source text:outline-level="3">
@@ -1064,6 +1059,8 @@
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Schließen von Fenstern<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Um ein Fenster zu schließen, wählen Sie das Close-Gadget. Dieses Gadget finden Sie in fast jedem Fenster in der linken oberen Ecke.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding19" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_sluiten.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+    </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Kommunikation mit einem Fenster<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn ein Programm einen Namen von Ihnen benötigt, zum Beispiel um den Namen und die ID einer neu zu formatierenden Diskette zu erfragen, müssen Sie ein String-Gadget verwenden. Wenn Sie ein solches String-Gadget auswählen, erscheint ein Cursor, worauf­hin Sie den gewünschten Namen eingeben können. Wenn Sie außerhalb des Gadgets kli­cken oder die <text:span text:style-name="Toets">RETURN</text:span>-Taste drücken, verschwindet der Cursor und das Gadget ist nicht mehr ausgewählt. Um das Gadget erneut auszuwählen, zeigen Sie mit dem Pointer irgend­wo innerhalb des Gadgets und klicken.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requester<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>
@@ -1219,7 +1216,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Die Möglichkeiten, die das &quot;Disk Operations&quot;-Fenster Ihnen bietet, werden hier unten kurz aufgeführt. Weiter unten werden alle diese Befehle im Detail mit Ihnen durchgegangen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Einen Programmnamen ändern<text:line-break/>Ein Programm starten<text:line-break/>Einen Diskettennamen ändern<text:line-break/>Eine Diskette schnell formatieren<text:line-break/>Eine Diskette leeren<text:line-break/>Eine Diskette initialisieren<text:line-break/>Eine Diskette validieren<text:line-break/>Ein Programm von der Diskette löschen<text:line-break/>Das Anzeigen von Directories (bis zu drei gleichzeitig!)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4989_2830447109"/>Öffnen eines Directory-Fensters<text:bookmark-end text:name="__RefHeading___Toc4989_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_20_N1">Sie können ein Directory auf dem Bildschirm anzeigen, indem Sie eines der drei <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gad­gets auswählen. (Wenn Sie zwei Diskettenlaufwerke besitzen, können Sie durch vorheriges Auswählen des 9-Gadgets auch das Directory des Diskettenlaufwerks mit der Gerätenum­mer 9 auf dem Bildschirm anzeigen.) Wenn Sie das <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget auswählen, erscheint ein Fenster, das vorübergehend den Namen <text:span text:style-name="Kleine_20_hoofdletters">Loading Directory</text:span> trägt. Sobald das Directory ge­laden ist, erscheint der Name des Directories als Fenstername (dies dient dazu, später die verschiedenen Directories auseinanderhalten zu können). Um in einem bereits geöffneten Directory-Fenster ein neues Directory zu lesen, wählen Sie das Read-Gadget, das Sie rechts unten in jedem Directory-Fenster finden können.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Sie können ein Directory auf dem Bildschirm anzeigen, indem Sie eines der drei <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gad­gets auswählen. (Wenn Sie zwei Diskettenlaufwerke besitzen, können Sie durch vorheriges Auswählen des 9-Gadgets auch das Directory des Diskettenlaufwerks mit der Devicenum­mer 9 auf dem Bildschirm anzeigen.) Wenn Sie das <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget auswählen, erscheint ein Fenster, das vorübergehend den Namen <text:span text:style-name="Kleine_20_hoofdletters">Loading Directory</text:span> trägt. Sobald das Directory ge­laden ist, erscheint der Name des Directories als Fenstername (dies dient dazu, später die verschiedenen Directories auseinanderhalten zu können). Um in einem bereits geöffneten Directory-Fenster ein neues Directory zu lesen, wählen Sie das Read-Gadget, das Sie rechts unten in jedem Directory-Fenster finden können.</text:p>
    <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr2" draw:name="Afbeelding14" text:anchor-type="as-char" svg:width="4.5cm" svg:height="3.33cm" draw:z-index="13"><draw:image xlink:href="fc3_diskops2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame><text:s text:c="12"/><draw:frame draw:style-name="fr2" draw:name="Afbeelding15" text:anchor-type="as-char" svg:width="3.5cm" svg:height="3.15cm" draw:z-index="14"><draw:image xlink:href="fc3_directorywindow.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
@@ -1235,12 +1232,12 @@
    <text:p text:style-name="Tekstblok_20_N1">Zuerst wählen Sie das Programm aus, das Sie starten möchten. Danach wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Run</text:span>-Gadget und dann das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget, um den endgültigen Befehl zu geben. Nachdem Sie auf den dann geöffneten Requester reagiert haben, wird das Programm mit Hilfe des einge­bauten Schnellladers geladen und automatisch gestartet.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5001_2830447109"/>Validieren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5001_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wählen Sie beim aktiven <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget das richtige Diskettenlaufwerk aus. Danach wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Validate</text:span>-Gadget und dann das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget, um den endgültigen Befehl zu geben.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1">Wenn kein <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget aktiv ist, wird automatisch die Diskette mit der Gerätenummer 8 gewählt.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Wenn kein <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget aktiv ist, wird automatisch die Diskette mit der Devicenummer 8 gewählt.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5003_2830447109"/>Löschen eines Programms<text:bookmark-end text:name="__RefHeading___Toc5003_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Zuerst wählen Sie das Programm aus, das Sie löschen möchten. Danach wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Scratch</text:span>-Gadget und dann das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget, um den endgültigen Befehl zu geben.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5005_2830447109"/>Initialisieren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5005_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wählen Sie beim aktiven <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget das richtige Diskettenlaufwerk aus. Danach wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">Initialize</text:span>-Gadget und dann das <text:span text:style-name="Kleine_20_hoofdletters">Do</text:span>-Gadget, um den endgültigen Befehl zu geben.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1">Wenn kein <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget aktiv ist, wird automatisch die Diskette mit der Gerätenummer 8 gewählt.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Wenn kein <text:span text:style-name="Kleine_20_hoofdletters">Dir</text:span>-Gadget aktiv ist, wird automatisch die Diskette mit der Devicenummer 8 gewählt.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5007_2830447109"/>Schnelles Formatieren einer Diskette<text:bookmark-end text:name="__RefHeading___Toc5007_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Legen Sie die Diskette, die Sie formatieren möchten, in Ihr Diskettenlaufwerk ein.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Danach wählen Sie das Gadget mit dem Namen <text:span text:style-name="Kleine_20_hoofdletters">Fast Format</text:span>. Nun wählen Sie das <text:span text:style-name="Kleine_20_hoofdletters">From</text:span>-String-Gadget aus, um den Namen und die ID der Diskette einzugeben. Den endgültigen Befehl geben Sie, indem Sie das Do-Gadget auswählen und auf den geöffneten Requester reagieren.</text:p>
@@ -1284,7 +1281,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5035_2830447109"/>Cursor Blink<text:bookmark-end text:name="__RefHeading___Toc5035_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Wenn Sie diese Option ausschalten, blinkt der Cursor nicht mehr.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5037_2830447109"/>Default Device<text:bookmark-end text:name="__RefHeading___Toc5037_2830447109"/></text:h>
-   <text:p text:style-name="Tekstblok_20_N1">Hier können Sie einstellen, welches Gerät (Peripheriegerät) Sie standardmäßig verwenden.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Hier können Sie einstellen, welches Device (Peripheriegerät) Sie standardmäßig verwenden.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5039_2830447109"/>Border Color<text:bookmark-end text:name="__RefHeading___Toc5039_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Hier können Sie die gewünschte Randfarbe einstellen.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5041_2830447109"/>Numeric Keypad<text:bookmark-end text:name="__RefHeading___Toc5041_2830447109"/></text:h>
@@ -1757,7 +1754,7 @@
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10436_2164442888"/><text:bookmark text:name="APPEND   (BASIC)"/>APPEND<text:bookmark-end text:name="__RefHeading___Toc10436_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>APPEND [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Gerät&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>aP [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Gerät&gt;]</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>APPEND [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Device&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>aP [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Device&gt;]</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>ermöglicht es Ihnen, fertig erstellte Unterprogramme, die Sie auf Kasset­te<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>oder Diskette haben, an ein Programm anzuhängen, das sich im Speicher<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>befindet.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/>APPEND &quot;Dateiname&quot;<text:tab/><text:tab/><text:tab/>für Kassette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>APPEND &quot;Dateiname&quot;,8<text:tab/><text:tab/><text:tab/>für Diskette</text:p>
    <text:p text:style-name="Text_20_body">Anmerkungen:<text:tab/>Da die ursprünglichen Zeilennummern erhalten bleiben, kann es sinnvoll<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>sein, zuerst den Befehl <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> anzuwenden.</text:p>
@@ -1815,7 +1812,7 @@
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10690_2164442888"/><text:bookmark text:name="DOS   (BASIC)"/>DOS<text:bookmark-end text:name="__RefHeading___Toc10690_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>DOS&quot; [&lt;Diskbefehl&gt;]/[&lt;Gerätenummer&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dO&quot; [&lt;Diskbefehl&gt;]/[&lt;Gerätenummer&gt;]</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>DOS&quot; [&lt;Diskbefehl&gt;]/[&lt;Devicenummer&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>dO&quot; [&lt;Diskbefehl&gt;]/[&lt;Devicenummer&gt;]</text:p>
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Dieser Befehl<text:tab/>ermöglicht es Ihnen, einfach den Status des Disketten­lauf­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>werks abzufra­gen. Auch können Sie mit diesem Befehl Disk-Befehle ge­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ben oder zu ei­nem zweiten Diskettenlaufwerk wechseln.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/>DOS&quot;<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>liest den ERROR-Kanal aus<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>zeigt den Inhalt der Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS &quot;N0: name, id&quot;<text:tab/>formatiert eine Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;V<text:tab/><text:tab/><text:tab/><text:tab/>validiert eine Diskette<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>DOS&quot;9<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>alle Disk-Befehle beziehen sich nun auf die Disk­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ette mit Nummer 9</text:p>
    <text:p text:style-name="Text_20_body"/>
@@ -1914,7 +1911,7 @@
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10662_2164442888"/><text:bookmark text:name="OPEN   (BASIC)"/>OPEN<text:bookmark-end text:name="__RefHeading___Toc10662_2164442888"/></text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>OPEN &lt;Dateinummer&gt;,[&lt;Gerätenummer&gt;] [,&lt;Adresse&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>oP &lt;Dateinummer&gt;,[&lt;Gerätenummer&gt;] [,&lt;Adresse&gt;]</text:p>
+   <text:p text:style-name="Text_20_body">Syntax:<text:tab/><text:tab/><text:tab/>OPEN &lt;Dateinummer&gt;,[&lt;Devicenummer&gt;] [,&lt;Adresse&gt;]<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>oP &lt;Dateinummer&gt;,[&lt;Devicenummer&gt;] [,&lt;Adresse&gt;]</text:p>
    <text:p text:style-name="Text_20_body">Dieser Befehl<text:tab/><text:tab/>öffnet einen Kanal für Ein- und Ausgabe und wurde durch die Final Cart­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ridge III für Centronics-Drucker erweitert.</text:p>
    <text:p text:style-name="Text_20_body">Beispiel:<text:tab/><text:tab/><text:tab/>OPEN 1,4,2<text:tab/>Normaler Druckmodus; nun können Sie alle ASCII-<text:tab/>Zeichen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>des Druckers verwenden, außer den &quot;Control-Characters&quot;.</text:p>
    <text:p text:style-name="Text_20_body"><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>OPEN 1,4,3<text:tab/>Transparenter Modus; nun funktioniert der Drucker so, wie in<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>der Bedienungsanleitung des Druckers be­schrieben. Alle<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>ASCII- und Control-Codes funk­tion­ieren gemäß der Drucker­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>bedienungsanleitung.</text:p>
@@ -2804,7 +2801,7 @@
    <text:p text:style-name="Text_20_body">Um Probleme bei alten Diskettenlaufwerken und schlechten Disketten zu vermeiden, haben wir die Geschwindigkeit des Schnellladers auf das 15-fache reduziert. Der Zeitunterschied ist minimal und vermeidet viel Ärger.</text:p>
    <text:p text:style-name="Text_20_body">Viele kommerzielle Programme sind durch spezielle Laderoutinen geschützt. Es ist unmöglich, diese Routinen zu &quot;passieren&quot;, und die Final Cartridge III wird dies auch nicht versuchen. Dies bedeutet, dass die Final Cartridge III so viel wie möglich mit dem Disk-Schnelllader zu laden versucht und den Rest den speziellen Laderoutinen überlässt.</text:p>
    <text:p text:style-name="Text_20_body">Es hat sich herausgestellt, dass die erste Version der Final Cartridge III bei Computern, in die <text:span text:style-name="Kleine_20_hoofdletters">SpeedDOS</text:span> eingebaut war, nicht ganz einwandfrei funktionierte. Dieser Fehler wurde bei späte­ren Versionen behoben.</text:p>
-   <text:p text:style-name="Nw_5f_blz_5f_r"><draw:frame draw:style-name="fr1" draw:name="Afbeelding18" text:anchor-type="char" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="17"><draw:image xlink:href="FC3-achterblad.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Nw_5f_blz_5f_r"><draw:frame draw:style-name="fr2" draw:name="Afbeelding18" text:anchor-type="char" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="17"><draw:image xlink:href="FC3-achterblad.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
   </office:text>
  </office:body>
