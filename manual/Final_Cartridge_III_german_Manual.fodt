@@ -269,7 +269,7 @@
   <style:style style:name="Contents_20_1" style:display-name="Contents 1" style:family="paragraph" style:parent-style-name="Index" style:class="index" style:master-page-name="">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto">
     <style:tab-stops>
-     <style:tab-stop style:position="12.899cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
+     <style:tab-stop style:position="12.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
    </style:paragraph-properties>
    <style:text-properties fo:font-variant="small-caps"/>
@@ -636,7 +636,7 @@
    <style:table-cell-properties fo:padding="0cm" fo:border-left="none" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="none" style:writing-mode="page"/>
   </style:style>
   <style:style style:name="Tabel1.10" style:family="table-row">
-   <style:table-row-properties style:min-row-height="0.148cm"/>
+   <style:table-row-properties style:min-row-height="0.15cm"/>
   </style:style>
   <style:style style:name="Tabel1.A10" style:family="table-cell">
    <style:table-cell-properties fo:padding="0cm" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000" style:writing-mode="page"/>
@@ -649,9 +649,6 @@
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
    <style:graphic-properties style:vertical-pos="top" style:vertical-rel="paragraph" style:horizontal-pos="center" style:horizontal-rel="paragraph" style:mirror="none" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
-  </style:style>
-  <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
-   <style:graphic-properties style:vertical-pos="top" style:vertical-rel="baseline" style:mirror="none" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
   </style:style>
   <style:style style:name="Sect1" style:family="section">
    <style:section-properties style:editable="false">
