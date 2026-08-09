@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
+
+<office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
  <office:meta>
-	 <dc:date>2026-07-30T23:35:58.289287797</dc:date><meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject>
+	 <dc:date>2026-08-09T11:56:23.239529378</dc:date><meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject>
  </office:meta>
   <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
@@ -148,7 +149,7 @@
   </style:default-style>
   <style:style style:name="Standard" style:family="paragraph" style:class="text" style:master-page-name="">
    <style:paragraph-properties style:page-number="auto"/>
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="9.5pt"/>
+   <style:text-properties style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"  fo:color="#09285f" loext:opacity="100%" fo:font-size="9.5pt"/>
   </style:style>
   <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
    <style:paragraph-properties fo:margin-top="0.42cm" fo:margin-bottom="0.169cm" loext:contextual-spacing="false" fo:keep-with-next="always"/>
@@ -230,20 +231,20 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="Hoofdstuk-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="2.5cm" fo:margin-right="0cm" fo:text-indent="-2.5cm" style:auto-text-indent="false">
+  <style:style style:name="Hoofdstuk-tabel" style:display-name="Hoofdstuk-tabel" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:paragraph-properties fo:margin-left="2.5cm" fo:text-indent="-2.5cm">
     <style:tab-stops>
      <style:tab-stop style:position="2.5cm"/>
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="PrintoptiestabelVervolg" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
-   <style:paragraph-properties fo:margin-left="3.5cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false" fo:text-indent="-3cm" style:auto-text-indent="false"/>
+  <style:style style:name="PrintoptiestabelVervolg" style:display-name="PrintoptiestabelVervolg" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm" fo:margin-top="0cm" fo:margin-bottom="0cm"/>
   </style:style>
-  <style:style style:name="PrintoptiestabelEinde" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
-   <style:paragraph-properties fo:margin-left="3.5cm" fo:margin-right="0cm" fo:text-indent="-3cm" style:auto-text-indent="false"/>
+  <style:style style:name="PrintoptiestabelEinde" style:display-name="PrintoptiestabelEinde" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm"/>
   </style:style>
-  <style:style style:name="Printer-tabel" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+  <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
    <style:paragraph-properties>
     <style:tab-stops>
      <style:tab-stop style:position="3.5cm"/>
@@ -296,18 +297,18 @@
    </style:paragraph-properties>
   </style:style>
   <style:style style:name="Footer" style:family="paragraph" style:parent-style-name="Header_20_and_20_Footer" style:class="extra">
-   <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" text:number-lines="false" text:line-number="0"/>
+   <style:paragraph-properties text:number-lines="false" text:line-number="0" fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
   <style:style style:name="BASIC_20_kop_20_1" style:display-name="BASIC kop 1" style:family="paragraph" style:parent-style-name="Standard" style:master-page-name="">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:keep-together="always" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto" fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none" fo:keep-with-next="always"/>
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monitor_20_kop_20_1" style:display-name="Monitor kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:padding="0.05cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none" fo:keep-with-next="always"/>
+   <style:paragraph-properties fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none" fo:keep-with-next="always"/>
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Basicinhoud" style:family="paragraph" style:parent-style-name="Contents_20_1" style:class="index" style:master-page-name="">
-   <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto">
+   <style:paragraph-properties fo:margin-left="0.5cm">
     <style:tab-stops>
      <style:tab-stop style:position="12.9cm" style:type="right" style:leader-style="dotted" style:leader-text="."/>
     </style:tab-stops>
@@ -328,7 +329,7 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_2" style:display-name="Freezer kop 2" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="1.0m" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="BASICpref_20_kop_20_1" style:display-name="BASICpref kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -353,6 +354,15 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
+  <style:style style:name="Kabeltabel" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+   <style:paragraph-properties>
+    <style:tab-stops>
+     <style:tab-stop style:position="1.0cm"/>
+     <style:tab-stop style:position="6.0cm"/>
+     <style:tab-stop style:position="7.0cm"/>
+    </style:tab-stops>
+   </style:paragraph-properties>
+  </style:style>
   <style:style style:name="Vetgedrukt" style:family="text">
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
@@ -373,9 +383,6 @@
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
    <style:text-properties style:font-name="ITC Avant Garde Gothic Std" fo:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-style-name="Standaard" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="8pt" fo:language="zxx" fo:country="none" fo:font-weight="normal" loext:padding="0.049cm" loext:border="0.06pt solid #09285f" loext:shadow="#5672a4 0.101cm 0.101cm"/>
-  </style:style>
-  <style:style style:name="Placeholder" style:family="text">
-   <style:text-properties fo:font-variant="small-caps" fo:color="#008080" loext:opacity="100%" style:text-underline-style="dotted" style:text-underline-width="auto" style:text-underline-color="font-color"/>
   </style:style>
   <style:style style:name="Kleine_20_hoofdletters" style:display-name="Kleine hoofdletters" style:family="text">
    <style:text-properties fo:font-variant="small-caps" fo:language="zxx" fo:country="none"/>
@@ -441,59 +448,7 @@
     </style:list-level-properties>
    </text:outline-level-style>
   </text:outline-style>
-  <text:list-style style:name="Numbering_20_123" style:display-name="Numbering 123">
-   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.7cm" fo:text-indent="-0.7cm" fo:margin-left="1.33cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.401cm" fo:text-indent="-0.7cm" fo:margin-left="2.03cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.101cm" fo:text-indent="-0.7cm" fo:margin-left="2.731cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.801cm" fo:text-indent="-0.7cm" fo:margin-left="3.431cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.501cm" fo:text-indent="-0.7cm" fo:margin-left="4.131cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.2cm" fo:text-indent="-0.7cm" fo:margin-left="4.83cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.9cm" fo:text-indent="-0.7cm" fo:margin-left="5.53cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.6cm" fo:text-indent="-0.7cm" fo:margin-left="6.23cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.301cm" fo:text-indent="-0.7cm" fo:margin-left="6.93cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.001cm" fo:text-indent="-0.7cm" fo:margin-left="7.631cm"/>
-    </style:list-level-properties>
-   </text:list-level-style-number>
-  </text:list-style>
-  <text:list-style style:name="Bullet_5f_20_5f_Symbols" style:display-name="Bullet_20_Symbols">
+  <text:list-style style:name="Bullet_20_Symbols">
    <text:list-level-style-bullet text:level="1" text:style-name="Bullet_20_Symbols" loext:num-list-format="%1%" text:bullet-char="•">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.27cm" fo:text-indent="-0.635cm" fo:margin-left="1.27cm"/>
@@ -545,7 +500,59 @@
     </style:list-level-properties>
    </text:list-level-style-bullet>
   </text:list-style>
-  <text:list-style style:name="Numbering_5f_20_5f_IVX" style:display-name="Numbering_20_IVX">
+  <text:list-style style:name="Numbering_20_123" style:display-name="Numbering 123">
+   <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="0.7cm" fo:text-indent="-0.7cm" fo:margin-left="1.33cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.4cm" fo:text-indent="-0.7cm" fo:margin-left="2.03cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.101cm" fo:text-indent="-0.7cm" fo:margin-left="2.731cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.801cm" fo:text-indent="-0.7cm" fo:margin-left="3.431cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.501cm" fo:text-indent="-0.7cm" fo:margin-left="4.131cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.2cm" fo:text-indent="-0.7cm" fo:margin-left="4.83cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.9cm" fo:text-indent="-0.7cm" fo:margin-left="5.53cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.6cm" fo:text-indent="-0.7cm" fo:margin-left="6.23cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.301cm" fo:text-indent="-0.7cm" fo:margin-left="6.93cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.001cm" fo:text-indent="-0.7cm" fo:margin-left="7.631cm"/>
+    </style:list-level-properties>
+   </text:list-level-style-number>
+  </text:list-style>
+  <text:list-style style:name="Numbering_20_IVX" style:display-name="Numbering IVX">
    <text:list-level-style-number text:level="1" text:style-name="Numbering_20_Symbols" loext:num-list-format="%1%." style:num-suffix="." style:num-format="I">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1cm" fo:text-indent="-0.801cm" fo:margin-left="1cm"/>
@@ -556,44 +563,44 @@
      <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.7cm" fo:text-indent="-0.5cm" fo:margin-left="1.7cm"/>
     </style:list-level-properties>
    </text:list-level-style-bullet>
-   <text:list-level-style-number text:level="3" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.54cm" fo:text-indent="-0.635cm" fo:margin-left="2.54cm"/>
+   <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="2.101cm" fo:text-indent="-0.307cm" fo:margin-left="2.101cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="4" loext:num-list-format="%4%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.175cm" fo:text-indent="-0.635cm" fo:margin-left="3.175cm"/>
+   <text:list-level-style-number text:level="4" text:style-name="Numbering_20_Symbols" loext:num-list-format="%4%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.99cm" fo:text-indent="-0.307cm" fo:margin-left="3.99cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="5" loext:num-list-format="%5%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="3.81cm" fo:text-indent="-0.635cm" fo:margin-left="3.81cm"/>
+   <text:list-level-style-number text:level="5" text:style-name="Numbering_20_Symbols" loext:num-list-format="%5%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.32cm" fo:text-indent="-0.307cm" fo:margin-left="5.32cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="6" loext:num-list-format="%6%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="4.445cm" fo:text-indent="-0.635cm" fo:margin-left="4.445cm"/>
+   <text:list-level-style-number text:level="6" text:style-name="Numbering_20_Symbols" loext:num-list-format="%6%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.652cm" fo:text-indent="-0.307cm" fo:margin-left="6.652cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="7" loext:num-list-format="%7%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.08cm" fo:text-indent="-0.635cm" fo:margin-left="5.08cm"/>
+   <text:list-level-style-number text:level="7" text:style-name="Numbering_20_Symbols" loext:num-list-format="%7%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="7.982cm" fo:text-indent="-0.307cm" fo:margin-left="7.982cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="8" loext:num-list-format="%8%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="5.715cm" fo:text-indent="-0.635cm" fo:margin-left="5.715cm"/>
+   <text:list-level-style-number text:level="8" text:style-name="Numbering_20_Symbols" loext:num-list-format="%8%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="9.312cm" fo:text-indent="-0.307cm" fo:margin-left="9.312cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="9" loext:num-list-format="%9%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.35cm" fo:text-indent="-0.635cm" fo:margin-left="6.35cm"/>
+   <text:list-level-style-number text:level="9" text:style-name="Numbering_20_Symbols" loext:num-list-format="%9%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="10.642cm" fo:text-indent="-0.307cm" fo:margin-left="10.642cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
-   <text:list-level-style-number text:level="10" loext:num-list-format="%10%." style:num-suffix="." style:num-format="1">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="6.985cm" fo:text-indent="-0.635cm" fo:margin-left="6.985cm"/>
+   <text:list-level-style-number text:level="10" text:style-name="Numbering_20_Symbols" loext:num-list-format="%10%." style:num-suffix="." style:num-format="I">
+    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment" fo:text-align="end">
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="11.972cm" fo:text-indent="-0.307cm" fo:margin-left="11.972cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
   </text:list-style>
@@ -603,7 +610,7 @@
  </office:styles>
  <office:automatic-styles>
   <style:style style:name="Tabel1" style:family="table">
-   <style:table-properties style:width="12.9cm" table:align="margins"/>
+   <style:table-properties style:width="12.899cm" table:align="margins"/>
   </style:style>
   <style:style style:name="Tabel1.A" style:family="table-column">
    <style:table-column-properties style:column-width="0.5cm" style:rel-column-width="2473*"/>
@@ -657,7 +664,7 @@
   </style:style>
   <style:page-layout style:name="pm1" style:page-usage="mirrored">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="1.25cm" fo:margin-bottom="1.25cm" fo:margin-left="2cm" fo:margin-right="1cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.1cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style>
@@ -666,27 +673,30 @@
   </style:page-layout>
   <style:page-layout style:name="pm2" style:page-usage="right">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.1cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+    <style:footnote-sep style:width="0.018cm" style:distance-before-sep="0.101cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style/>
   </style:page-layout>
   <style:page-layout style:name="pm3" style:page-usage="left">
    <style:page-layout-properties fo:page-width="15.9cm" fo:page-height="20.8cm" style:num-format="1" style:print-orientation="portrait" fo:margin-top="2cm" fo:margin-bottom="2cm" fo:margin-left="2cm" fo:margin-right="2cm" style:writing-mode="lr-tb" style:layout-grid-color="#c0c0c0" style:layout-grid-lines="20" style:layout-grid-base-height="0.706cm" style:layout-grid-ruby-height="0.353cm" style:layout-grid-mode="none" style:layout-grid-ruby-below="false" style:layout-grid-print="false" style:layout-grid-display="false" style:footnote-max-height="0cm" loext:margin-gutter="0cm">
-    <style:footnote-sep style:width="0.018cm" style:distance-after-sep="0.1cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
+    <style:footnote-sep style:width="0.018cm" style:distance-after-sep="0.101cm" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style/>
   </style:page-layout>
+  <style:style style:name="dp1" style:family="drawing-page">
+   <style:drawing-page-properties draw:background-size="full"/>
+  </style:style>
  </office:automatic-styles>
  <office:master-styles>
-  <style:master-page style:name="Standard" style:page-layout-name="pm1">
+  <style:master-page style:name="Standard" style:page-layout-name="pm1" draw:style-name="dp1">
    <style:footer>
-    <text:p text:style-name="Footer"><text:page-number text:select-page="current">61</text:page-number></text:p>
+    <text:p text:style-name="Footer"><text:page-number text:select-page="current">72</text:page-number></text:p>
    </style:footer>
   </style:master-page>
-  <style:master-page style:name="Right_20_Page" style:display-name="Right Page" style:page-layout-name="pm2" style:next-style-name="Left_20_Page"/>
-  <style:master-page style:name="Left_20_Page" style:display-name="Left Page" style:page-layout-name="pm3" style:next-style-name="Right_20_Page"/>
+  <style:master-page style:name="Right_20_Page" style:display-name="Right Page" style:page-layout-name="pm2" draw:style-name="dp1" style:next-style-name="Left_20_Page"/>
+  <style:master-page style:name="Left_20_Page" style:display-name="Left Page" style:page-layout-name="pm3" draw:style-name="dp1" style:next-style-name="Right_20_Page"/>
  </office:master-styles>
  <office:body>
   <office:text text:use-soft-page-breaks="false">
@@ -697,7 +707,7 @@
     <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
     <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
    </text:sequence-decls>
-   <text:p text:style-name="Standard"><draw:frame draw:style-name="fr1" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="17"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Standard"><draw:frame draw:style-name="fr1" draw:name="Voorblad" text:anchor-type="paragraph" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="18"><draw:image xlink:href="FC3-voorpagina.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Inhoudsopgave1">
     <text:table-of-content-source text:outline-level="3">
@@ -873,58 +883,59 @@
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5043_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>24</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5045_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het openen en sluiten van het printer-window<text:tab/>24</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5047_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Overzicht functies<text:tab/>25</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4766_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Notepad<text:tab/>28</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5049_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>28</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5051_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het openen en sluiten van Notepad<text:tab/>28</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4766_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Notepad<text:tab/>29</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5049_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>29</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5051_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het openen en sluiten van Notepad<text:tab/>29</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5053_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het gebruik van de Notepad-commando&apos;s<text:tab/>29</text:a></text:p>
      <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5055_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het intypen van de tekst<text:tab/>31</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4732_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Basic<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4768_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4770_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de Basic-stand<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4772_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Extra mogelijkheden in Basic<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4952_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Scrollen<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4954_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Editing-functies<text:tab/>32</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4956_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Printer-interface<text:tab/>33</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Low-resolution screendump<text:tab/>33</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4960_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Tape snellader/snelsaver<text:tab/>33</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4962_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Disk snellader/snelsaver<text:tab/>33</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4964_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Pull-down menu&apos;s<text:tab/>34</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4966_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Extra Basic-commando&apos;s<text:tab/>34</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4734_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Freezer<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4774_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4776_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de freezer<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4778_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het gebruik van de freezer<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4780_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Freezer-commando&apos;s<text:tab/>47</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4968_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Back Up<text:tab/>48</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4970_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4972_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4974_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4976_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4978_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4736_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">De monitor<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4782_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4784_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de monitor<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4786_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Algemene termen en technieken<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4980_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Prompt<text:tab/>52</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4982_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Geheugenrepresentatie<text:tab/>53</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4984_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Scrollen<text:tab/>53</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4986_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Verbeteren<text:tab/>53</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4988_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Bank switching<text:tab/>53</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4988_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Modes<text:tab/>54</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4990_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Commandosoort<text:tab/>54</text:a></text:p>
-     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4992_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Functietoetsen<text:tab/>54</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4788_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Overzicht monitor-instructies<text:tab/>54</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4738_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4790_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4792_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de freezer<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4794_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backups<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4796_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4798_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game<text:tab/>65</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4800_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de desktop<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4802_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de reset<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4804_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over Basic<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4806_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over muizen<text:tab/>66</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4808_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de disk-snellader<text:tab/>66</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4732_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Basic<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4768_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4770_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de Basic-stand<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4772_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Extra mogelijkheden in Basic<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5124_2906995687" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Functietoetsen<text:tab/>33</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4952_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Scrollen<text:tab/>34</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4954_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Editing-functies<text:tab/>34</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4956_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Printer-interface<text:tab/>34</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Low-resolution screendump<text:tab/>34</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4960_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Tape snellader/snelsaver<text:tab/>35</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4962_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Disk snellader/snelsaver<text:tab/>35</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4964_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Pull-down menu&apos;s<text:tab/>35</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4966_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Extra Basic-commando&apos;s<text:tab/>35</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4734_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Freezer<text:tab/>48</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4774_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>48</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4776_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de freezer<text:tab/>48</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4778_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het gebruik van de freezer<text:tab/>48</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4780_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Freezer-commando&apos;s<text:tab/>48</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4968_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Back Up<text:tab/>49</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4970_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4972_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4974_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4976_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4978_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4736_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">De monitor<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4782_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4784_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Het starten en stoppen van de monitor<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4786_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Algemene termen en technieken<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4980_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Prompt<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4982_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Geheugenrepresentatie<text:tab/>54</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4984_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Scrollen<text:tab/>54</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4986_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Verbeteren<text:tab/>54</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4988_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Bank switching<text:tab/>54</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc31435_2754449836" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Modes<text:tab/>55</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4990_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Commandosoort<text:tab/>55</text:a></text:p>
+     <text:p text:style-name="Contents_20_3"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4992_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Functietoetsen<text:tab/>55</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4788_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Overzicht monitor-instructies<text:tab/>55</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4738_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4790_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Inleiding<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4792_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de freezer<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4794_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backups<text:tab/>67</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4796_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4798_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4800_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de desktop<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4802_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de reset<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4804_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over Basic<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4806_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over muizen<text:tab/>68</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc4808_2830447109" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Opmerkingen over de disk-snellader<text:tab/>69</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4718_2830447109"/>Copyright<text:bookmark-end text:name="__RefHeading___Toc4718_2830447109"/></text:h>
@@ -935,13 +946,13 @@
    <text:p text:style-name="Text_20_body">Riska B.V. Home &amp; Personal Computers behoudt het recht om veranderingen aan te brengen in de specificaties van de Final Cartridge III en de handleiding.</text:p>
    <text:p text:style-name="Auteurtabel">Produkt-idee en realisatie:<text:tab/>Wil Sparreboom<text:line-break/>Desktop en menu’s:<text:tab/>Gerard van Assem<text:line-break/><text:tab/>Marc Derksen<text:line-break/>Tools, freezer, fastloader en printerinterface:<text:tab/>Uwe Stahl<text:line-break/>Supporting software:<text:tab/>Wil Sparreboom<text:line-break/>Hardware ontwerp:<text:tab/>Ton Peters<text:line-break/><text:tab/>Jacques van Schajik<text:line-break/>Handleiding:<text:tab/>Patrick Mast<text:line-break/><text:line-break/>Exclusieve verkooprechten voor Nederland en België:<text:tab/>Dunnet Int. Trading<text:line-break/><text:tab/>Company B.V. Rotterdam</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding1" text:anchor-type="as-char" svg:y="-2.639cm" svg:width="8.999cm" svg:height="4.611cm" draw:z-index="0"><draw:image xlink:href="fc3_colofon.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding1" text:anchor-type="as-char" svg:width="9.0cm" svg:height="4.611cm" draw:z-index="0"><draw:image xlink:href="fc3_colofon.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4720_2830447109"/>Voorwoord<text:bookmark-end text:name="__RefHeading___Toc4720_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">De Final Cartridge III is een eigen ontwikkeling van Riska B.V. Home &amp; Personal Computers.</text:p>
    <text:p text:style-name="Text_20_body">De Final Cartridge III die uit 64K machinecode bestaat biedt u naast de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> waarin al­les met <text:span text:style-name="Kleine_20_hoofdletters">windows</text:span> werkt o.a. :</text:p>
-   <text:list xml:id="list1174130652" text:style-name="Numbering_5f_20_5f_IVX">
+   <text:list xml:id="list2602840125" text:style-name="Numbering_20_IVX">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Verschillende handige hulpmiddelen bij het programmeren (de zogenaamde <text:span text:style-name="Kleine_20_hoofdletters">basic toolkit</text:span>).</text:p>
     </text:list-item>
@@ -993,8 +1004,8 @@
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard">De user-interface, windows en pull-down-menu&apos;s zijn gebaseerd op ideeën toegepast in o.a. de Apple Macintosh en de Commodore Amiga.</text:p>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding2" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="1"><draw:image xlink:href="fc3_desktop1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
-    </draw:frame><text:s text:c="5"/><draw:frame draw:style-name="fr1" draw:name="Afbeelding3" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="2"><draw:image xlink:href="fc3_desktop2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding2" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="1"><draw:image xlink:href="fc3_desktop1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
+    </draw:frame><text:s text:c="5"/><draw:frame draw:style-name="fr1" draw:name="Afbeelding3" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="2"><draw:image xlink:href="fc3_desktop2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4722_2830447109"/>Installatie<text:bookmark-end text:name="__RefHeading___Toc4722_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">!!! <text:span text:style-name="Kleine_20_hoofdletters">Let op</text:span> !!!</text:p>
@@ -1036,19 +1047,20 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4817_2830447109"/>Inleiding menu&apos;s<text:bookmark-end text:name="__RefHeading___Toc4817_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Een menu is een lijst van verschillende functies die door middel van de pointer en de vuur­knop wordt opgeroepen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Boven in het scherm vindt u:</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding4" text:anchor-type="as-char" svg:width="9.0cm" svg:height="0.415cm" draw:z-index="3"><draw:image xlink:href="fc3_menubalk1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding4" text:anchor-type="as-char" svg:width="9.0cm" svg:height="0.415cm" draw:z-index="3"><draw:image xlink:href="fc3_menubalk1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">In deze menu-bar staat de opsomming van de verschillende titels, waaruit u op dat mo­ment keuze kunt maken.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Om de menu&apos;s door te bladeren beweegt u, terwijl u de vuurknop ingedrukt houdt, de poin­ter door de menu bar. Elke keer dat u een titel aanwijst, zal het desbetreffende menu ver­schijnen.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding5" text:anchor-type="as-char" svg:width="9.0cm" svg:height="1.523cm" draw:z-index="4"><draw:image xlink:href="fc3_menubalk2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding5" text:anchor-type="as-char" svg:width="9.0cm" svg:height="1.522cm" draw:z-index="4"><draw:image xlink:href="fc3_menubalk2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">De mogelijkheden noemen we items. In sommige menu&apos;s zijn niet alle items altijd te kiezen. Die items die u niet kunt kiezen, verschij­nen in ghost-mode, een gevolg hiervan is dat die items vervaagd worden weergegeven.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Om nu een van de items te kiezen, gaat u met de pointer terwijl u de vuurknop nog inge­drukt houdt op het door u te kiezen item staan. Door nu de vuurknop los te laten, selecteert u het item.</text:p>
-   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4819_2830447109"/>Commando&apos;s en opties<text:bookmark-end text:name="__RefHeading___Toc4819_2830447109"/></text:h>­   <text:p text:style-name="Tekstblok_20_N1">In menu&apos;s komen twee verschillende soorten items voor. Commando&apos;s zijn items die je kiest om een actie uit te voeren. Zo is bijvoorbeeld calculator een commando (dus ook een item) in het Utilities-menu. Opties zijn keuzes die blijven werken totdat ze weer worden uitgezet. Zo is bijvoorbeeld time een optie in het Clock-menu (zolang time gekozen is verschijnt de tijd in de menu-bar). Als u een optie ingeschakeld heeft, kunt u dat zien doordat in het menu achter het item een vlag gezet wordt. Om de optie weer uit te schakelen, selecteert u nog eens de optie, waarna de vlag verdwijnt.</text:p>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4819_2830447109"/>Commando&apos;s en opties<text:bookmark-end text:name="__RefHeading___Toc4819_2830447109"/></text:h>
+   <text:p text:style-name="Tekstblok_20_N1">In menu&apos;s komen twee verschillende soorten items voor. Commando&apos;s zijn items die je kiest om een actie uit te voeren. Zo is bijvoorbeeld calculator een commando (dus ook een item) in het Utilities-menu. Opties zijn keuzes die blijven werken totdat ze weer worden uitgezet. Zo is bijvoorbeeld time een optie in het Clock-menu (zolang time gekozen is verschijnt de tijd in de menu-bar). Als u een optie ingeschakeld heeft, kunt u dat zien doordat in het menu achter het item een vlag gezet wordt. Om de optie weer uit te schakelen, selecteert u nog eens de optie, waarna de vlag verdwijnt.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4746_2830447109"/>Windows<text:bookmark-end text:name="__RefHeading___Toc4746_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4821_2830447109"/>Inleiding windows<text:bookmark-end text:name="__RefHeading___Toc4821_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">U kunt zich windows voorstellen als stukjes papier die o­ver het scherm zijn verspreid. Een papiertje bevat bijvoorbeeld de direc­tory van een diskette. Daar legt u een ander papiertje o­ver­heen dat de directory van een tweede diskette bevat. Als het tweede papier­tje nu wordt verwijderd, is het eerste weer te zien en zo werkt het bij de Final Cartridge III ook. Later in dit gedeelte worden enige technieken besproken om windows te manipuleren, maar voor het moment is het voldoende om te weten dat ieder window – en er passen er meer op het scherm dan u verwacht – net zoveel informatie van de computer kan bevatten als één enkel scherm van de standaard Commodore.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding6" text:anchor-type="as-char" svg:width="9.0cm" svg:height="5.68cm" draw:z-index="5"><draw:image xlink:href="fc3_desktop3.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding6" text:anchor-type="as-char" svg:width="9.0cm" svg:height="5.68cm" draw:z-index="5"><draw:image xlink:href="fc3_desktop3.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">De mogelijkheid om verschillende windows tegelijk op het scherm te tonen, is bijvoorbeeld erg handig als u, terwijl de directory op het scherm getoond wordt in het ene window, even een paar bereke­ningen wilt uitvoeren met de calculator in het andere window.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">U moet er wel op letten dat, hoewel er meerdere windows op het scherm kunnen staan, u maar met een window tegelijk kunt werken.</text:p>
@@ -1059,41 +1071,41 @@
    <text:p text:style-name="Tekstblok_20_N1">Dit zijn grafische afbeeldingen die opdrachten voorstellen. Met behulp van zo’n gadget kunt u bijvoorbeeld een window verplaatsen of het window sluiten. De meest voorkomende gad­gets zijn:</text:p>
    <text:p text:style-name="Calculator-tabel">Close-gadget<text:tab/>Om een window te sluiten<text:line-break/>Toback-gadget<text:tab/>Om windows achteraan te zetten<text:line-break/>String-gadget<text:tab/>Om teksten in te voeren<text:line-break/>Toggle-gadget<text:tab/>Om opties te selecteren.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Veel van deze gadgets kunt u in onderstaande tekening van een window terugvinden.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding7" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.919cm" draw:z-index="6"><draw:image xlink:href="fc3_calculator.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding7" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.919cm" draw:z-index="6"><draw:image xlink:href="fc3_calculator.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Windows kunnen een of meerdere van deze gadgets bevatten. Bovendien kunnen windows andere gadgets bevatten die nodig zijn voor de speciale taak van dit window. Zo bevat de calculator gadgets die de in te drukken toetsen voorstellen.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Gadgets selecteren</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">U kunt een gadget selecteren door met de pointer op de gadget te gaan staan en dan te klikken. U ziet dan dat de gadget even in inverse video wordt weergegeven. Toggle-gad­gets blijven in inverse video staan. Selecteert u per ongeluk een verkeerde gadget dan moet u, terwijl u de vuurknop ingedrukt houdt, de pointer van de gadget verwijde­ren, waarna u de vuurknop weer los kunt laten.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4825_2830447109"/>Het verplaatsen van windows<text:bookmark-end text:name="__RefHeading___Toc4825_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Zo kunt u een window verplaatsen: ga ergens in de dragbar van de window staan. Als u nu de vuurknop indrukt, ziet u de hoekpunten verschijnen. Deze hoekpunten stellen de hoeken van uw window voor. Als u nu de pointer verplaatst, ziet u die hoeken mee verplaatsen. Door nu naar de plek te gaan waar u het window wilt neerzetten, en de vuurknop los te la­ten, heeft u het window verplaatst.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding8" text:anchor-type="as-char" svg:width="4.867cm" svg:height="0.609cm" draw:z-index="7"><draw:image xlink:href="fc3_tape.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding8" text:anchor-type="as-char" svg:width="4.867cm" svg:height="0.609cm" draw:z-index="7"><draw:image xlink:href="fc3_tape.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4827_2830447109"/>Het verplaatsen van windows voor en achter andere windows<text:bookmark-end text:name="__RefHeading___Toc4827_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Als windows elkaar overlappen, verschijnt het ene window voor het andere.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Om een window voor een ander window te zetten, selecteert u het window, dit window ver­schijnt dan vooraan op het scherm en is tevens actief.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Om een window achter een ander window te zetten, selecteert u het toback-gadget van het window dat u achteraan wilt zetten, dit window verschijnt dan als achterste op het scherm en het window dat nu vooraan staat is tevens actief geworden.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding9" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_schikken.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding9" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_schikken.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4829_2830447109"/>Het sluiten van windows<text:bookmark-end text:name="__RefHeading___Toc4829_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Om een window te sluiten, selecteert u het close-gadget. Dit gadget kunt u in vrijwel elk window in de linker bovenhoek terugvinden.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding19" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="8"><draw:image xlink:href="fc3_sluiten.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding19" text:anchor-type="as-char" svg:width="0.609cm" svg:height="0.609cm" draw:z-index="9"><draw:image xlink:href="fc3_sluiten.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4831_2830447109"/>Communiceren met een window<text:bookmark-end text:name="__RefHeading___Toc4831_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Als een programma een naam van u nodig heeft, dit om bijvoorbeeld de naam en id van een nieuw te formatteren diskette te vragen, moet u gebruik maken van een string gadget. Als u zo’n string gadget selecteert, komt een cursor tevoorschijn, waarna u de naam die u wenst in kunt typen. Als u buiten de gadget klikt of op <text:span text:style-name="Toets">RETURN</text:span> drukt, gaat de cursor weg en is de gadget niet langer geselecteerd. Om de gadget opnieuw te selecteren, wijst u met de pointer ergens binnen de gadget en klikt u.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4833_2830447109"/>Requesters<text:bookmark-end text:name="__RefHeading___Toc4833_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Soms is het verplicht om een programma te sturen of om een bepaalde actie te bevestigen. Dit gaat door middel van een requester. Als u bijvoorbeeld een schijf wilt formatteren, ver­schijnt er een requester dat u de mogelijkheid biedt om de opdracht te vervolgen of af te breken. Dit requester ziet u hierbij afgebeeld:</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding10" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.249cm" draw:z-index="9"><draw:image xlink:href="fc3_diskops.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding10" text:anchor-type="as-char" svg:width="9.0cm" svg:height="5.249cm" draw:z-index="10"><draw:image xlink:href="fc3_diskops.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Pas nadat u op de requester reageert, gaat de computer verder. U kunt op een requester ant­woorden door gebruik te maken van de gadgets die het heeft. Die gadgets bestaan meestal uit een gadget waarmee u de taak voortzet (het <text:span text:style-name="Kleine_20_hoofdletters">continue</text:span>-gadget e.a.) en een gadget waar­mee u de taak afbreekt (het <text:span text:style-name="Kleine_20_hoofdletters">cancel</text:span>-gadget e.a.). Als u op een requester gereageerd heeft, verdwijnt het en gaat de computer verder met z’n taak.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding11" text:anchor-type="as-char" svg:y="-2.898cm" svg:width="7.001cm" svg:height="3.161cm" draw:z-index="10"><draw:image xlink:href="fc3_requester.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding11" text:anchor-type="as-char" svg:width="7.001cm" svg:height="3.161cm" draw:z-index="11"><draw:image xlink:href="fc3_requester.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1"/>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4728_2830447109"/>Desktop<text:bookmark-end text:name="__RefHeading___Toc4728_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4748_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4748_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Desktop is het belangrijkste element van de Final Cartridge III, het is de spil waarom alles draait. Vanuit desktop kunt u naar <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>, naar de freezer, etc.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Het openen en sluiten van desktop<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
-   <text:p text:style-name="Text_20_body">U kunt op 4 verschillende manieren in de desktop terecht komen:</text:p>
-   <text:list xml:id="list3465099393" text:style-name="Numbering_20_123">
+   <text:p text:style-name="Text_20_body">U kunt op 5 verschillende manieren in de desktop terecht komen:</text:p>
+   <text:list xml:id="list4036209782" text:style-name="Numbering_20_123">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">U start de desktop op door gewoon de computer aan te zetten als de Final Cartridge III erin zit (altijd dus).</text:p>
     </text:list-item>
@@ -1104,7 +1116,10 @@
      <text:p text:style-name="LijstVervolg">U typt in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> het commando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a> in.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstEinde">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
+     <text:p text:style-name="LijstVervolg">U selecteert vanuit de freezer in het <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-menu <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span>.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstEinde">U drukt op de reset-knop terwijl u de Commodore-toets ingedrukt houdt.</text:p>
     </text:list-item>
    </text:list>
    <text:p text:style-name="Text_20_body">Om vanuit desktop zelf opnieuw te beginnen drukt u de toetsen <text:span text:style-name="Toets">CONTROL</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> &amp; <text:span text:style-name="Toets">SHIFT</text:span> tegelijk in, waarna desktop reset en opnieuw opstart.</text:p>
@@ -1112,7 +1127,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4752_2830447109"/>Het gebruik van desktop<text:bookmark-end text:name="__RefHeading___Toc4752_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">De commando’s in desktop worden vanuit pull-down menu’s gekozen. Als u niet bekend bent met pull-down menu’s, raden wij u aan het vorige hoofdstuk <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows &amp; Menu’s</text:span></text:a> zeer goed door te lezen.</text:p>
    <text:p text:style-name="Text_20_body">Bovenin de desktop vindt u deze menu-bar:</text:p>
-   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding12" text:anchor-type="as-char" svg:y="-0.076cm" svg:width="8.999cm" svg:height="0.409cm" draw:z-index="11"><draw:image xlink:href="fc3_menubalk1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding12" text:anchor-type="as-char" svg:width="9.0cm" svg:height="0.409cm" draw:z-index="12"><draw:image xlink:href="fc3_menubalk1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Text_20_body">We behandelen de desktop-commando’s in de volgorde waarin ze in de menu’s zijn terug te vinden.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4939_2830447109"/>Info<text:bookmark-end text:name="__RefHeading___Toc4939_2830447109"/></text:h>
@@ -1156,29 +1171,29 @@
    <text:p text:style-name="Tekstblok_20_N3"><text:span text:style-name="Kleine_20_hoofdletters">Veranderen tijdmode</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N3">U kunt zelfs de wijze waarop de klok getoond wordt nog verande­ren. U kunt hierbij omschakelen tussen de 12-of 24-uursmode, door het “time mode”-gadget te selecte­ren.</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Tekstblok_20_N3_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding13" text:anchor-type="as-char" svg:width="8.386cm" svg:height="2.699cm" draw:z-index="12"><draw:image xlink:href="fc3_klok.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N3_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding13" text:anchor-type="as-char" svg:width="8.386cm" svg:height="2.699cm" draw:z-index="13"><draw:image xlink:href="fc3_klok.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4730_2830447109"/>Tools<text:bookmark-end text:name="__RefHeading___Toc4730_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">In dit hoofdstuk worden tools besproken. Tools zijn gereedschappen die de Final Cartridge III u biedt.</text:p>
    <text:p text:style-name="Text_20_body">De tools die in dit hoofdstuk worden besproken zijn:</text:p>
-   <text:list xml:id="list4215323833" text:style-name="Bullet_5f_20_5f_Symbols">
+   <text:list xml:id="list3060847248" text:style-name="Bullet_20_Symbols">
     <text:list-item>
-     <text:p text:style-name="LijstVervolg"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.1.Calculator|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Calculator</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.2.Preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.3.Disk operations|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Disk operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.4.Tape|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Tape operations</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.5.Basic preferences|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Basic preferences</text:span></text:a></text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstEinde"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
+     <text:p text:style-name="Bullet_20_Symbols"><text:a xlink:type="simple" xlink:href="#8.7.Notepad|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Notepad</text:span></text:a></text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4754_2830447109"/>Calculator<text:bookmark-end text:name="__RefHeading___Toc4754_2830447109"/></text:h>
@@ -1236,8 +1251,8 @@
    <text:p text:style-name="Tekstblok_20_N1">Een programmanaam veranderen<text:line-break/>Een programma runnen<text:line-break/>Een diskettenaam veranderen<text:line-break/>Een diskette snel formatteren<text:line-break/>Een diskette leeg maken<text:line-break/>Een diskette initialiseren<text:line-break/>Een diskette valideren<text:line-break/>Een programma van schijf verwijderen<text:line-break/>Het bekijken van directory’s (tot drie tegelijk !)</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4989_2830447109"/>Het openen van een directory-window<text:bookmark-end text:name="__RefHeading___Toc4989_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">U kunt een directory op het scherm bekijken door een van de drie <text:span text:style-name="Kleine_20_hoofdletters">dir</text:span>-gadgets te kiezen. (Als u twee disk-drives in uw bezit heeft, kunt u door eerst de 9-gadget te selecteren ook de directory van de disk-drive met devicenummer 9 op het beeld tonen.) Als u de <text:span text:style-name="Kleine_20_hoofdletters">dir</text:span>-gadget selecteert, verschijnt er een window dat tijdelijk de naam <text:span text:style-name="Kleine_20_hoofdletters">loading directory</text:span> heeft, maar als de directory geladen is, verschijnt de naam van de directory als window-naam (dit om later de verschillende directory&apos;s uit elkaar te houden). Om in een al geopend directory-win­dow een nieuwe directory te lezen, selecteert u het read-gadget dat u rechtsonder in elk di­rectory-window kunt vinden.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding14" text:anchor-type="as-char" svg:width="4.5cm" svg:height="3.33cm" draw:z-index="13"><draw:image xlink:href="fc3_diskops2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
-    </draw:frame><text:s text:c="12"/><draw:frame draw:style-name="fr1" draw:name="Afbeelding15" text:anchor-type="as-char" svg:width="3.5cm" svg:height="3.15cm" draw:z-index="14"><draw:image xlink:href="fc3_directorywindow.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding14" text:anchor-type="as-char" svg:width="4.5cm" svg:height="3.33cm" draw:z-index="14"><draw:image xlink:href="fc3_diskops2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
+    </draw:frame><text:s text:c="12"/><draw:frame draw:style-name="fr1" draw:name="Afbeelding15" text:anchor-type="as-char" svg:width="3.5cm" svg:height="3.15cm" draw:z-index="15"><draw:image xlink:href="fc3_directorywindow.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4991_2830447109"/>Het doorbladeren van de directory<text:bookmark-end text:name="__RefHeading___Toc4991_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Het kan natuurlijk voorkomen dat de directory langer is dan in het window getoond kan worden. Om nu de rest van de inhoud van de schijf te bekijken, kunt u door middel van de up- of down-gadgets, de directory doorbladeren.</text:p>
@@ -1279,7 +1294,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Vanuit dit window kunt u een programma van cassette laden.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5021_2830447109"/>Het openen en sluiten van tape<text:bookmark-end text:name="__RefHeading___Toc5021_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">U kunt het tape-window openen door in het Utilities-menu tape te selecteren.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding16" text:anchor-type="as-char" svg:width="4.001cm" svg:height="1.69cm" draw:z-index="15"><draw:image xlink:href="fc3_tape2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding16" text:anchor-type="as-char" svg:width="4.001cm" svg:height="1.69cm" draw:z-index="16"><draw:image xlink:href="fc3_tape2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">U sluit het tape window door de close gadget in de linker bovenhoek te selecteren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5023_2830447109"/>Het gebruik van tape<text:bookmark-end text:name="__RefHeading___Toc5023_2830447109"/></text:h>
@@ -1310,7 +1325,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Vanuit het printer-window heeft u de mogelijkheid schermen af te drukken, dit noemen we screendumps maken. Voordat u een screendump maakt, heeft u eerst nog de mogelijkheid om de juiste printer, interface, grootte e.d. in te stellen waarna u pas de echte printopdracht selecteert.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5045_2830447109"/>Het openen en sluiten van het printer-window<text:bookmark-end text:name="__RefHeading___Toc5045_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">U kunt het printer-window vanuit de freezer openen.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding17" text:anchor-type="as-char" svg:width="8.999cm" svg:height="5.669cm" draw:z-index="16"><draw:image xlink:href="fc3_printer.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Tekstblok_20_N1_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding17" text:anchor-type="as-char" svg:width="9.0cm" svg:height="5.669cm" draw:z-index="17"><draw:image xlink:href="fc3_printer.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
    <text:p text:style-name="Tekstblok_20_N1">U sluit het printer-window door de <text:span text:style-name="Kleine_20_hoofdletters">exit</text:span>-gadget te selecteren.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5047_2830447109"/>Overzicht functies<text:bookmark-end text:name="__RefHeading___Toc5047_2830447109"/></text:h>
@@ -1412,6 +1427,8 @@
      <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc6042_3037178849" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Graphics modes 8/24 pins<text:tab/>26</text:a></text:p>
      <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc6038_3037178849" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print<text:tab/>27</text:a></text:p>
      <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc6036_3037178849" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Speciale printerfuncties<text:tab/>27</text:a></text:p>
+     <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5128_2906995687" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Geteste printers<text:tab/>28</text:a></text:p>
+     <text:p text:style-name="Inhoudsopgave_20_1_20_inspring"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5126_2906995687" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Printerkabel<text:tab/>28</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:p text:style-name="Tekstblok_20_N1"/>
@@ -1463,11 +1480,16 @@
    <text:p text:style-name="Tekstblok_20_N2">Door het poken van de waarde $FE in $DC0C wordt de tekening via de user-port naar een RS-232 printer gestuurd.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">Voordat we de laatste functies met u doornemen, moeten we eerst iets uitgebreider ingaan op EPSON-aansturingstekens om tekeningen af te drukken. Er zijn twee soorten com­mando’s om tekeningen af te drukken. Er zijn de commando’s in de vorm van <text:span text:style-name="Monospace">&lt;ESC&gt;&quot;*&quot; CHR$(x) nl n2 ml m2 </text:span>..., waarin de waarde van x verschilt voor de verschil­lende gra­fische modes. Maar ook commando’s in de vorm van <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., waarin de hoofdletter X een van de volgende hoofdletters kan zijn: K, L, Y, Z om verschil­lende grafi­sche modes aan te geven. Nu maken we met de Final Cartridge III gebruik van de vorm <text:span text:style-name="Monospace">&lt;ESC&gt; &quot;X&quot; nl n2 ml m2</text:span> ..., daar deze vorm door vrijwel alle printers onder­steund wordt (het merendeel van de printers onder­steunt zelfs beide vormen). Helaas zijn er ook enkele printers die alleen de commando’s van de andere vorm ondersteu­nen en daarom heb­ben we het mogelijk gemaakt door het POKEn van een van de waarden $30 tot en met $36 in ge­heugenlocatie $DC0C commando’s van de andere vorm te geven. De betekenis van de waarde die u nodig heeft en verdere informatie omtrent EPSON-aanstu­ringstekens kunt u te­rugvinden in de handleiding die bij uw printer hoort.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">POKE $DC0C,$30<text:tab/>Printen in Single Density.<text:line-break/>POKE $DC0C,$31<text:tab/>Printen in Double Density.<text:line-break/>POKE $DC0C,$32<text:tab/>Printen in High Speed, Double Density.<text:line-break/>POKE $DC0C,$33<text:tab/>Printen in Quadruple Density.<text:line-break/>POKE $DC0C,$34<text:tab/>Printen in CRT graphics.<text:line-break/>POKE $DC0C,$35<text:tab/>Printen in Plotter graphics.<text:line-break/>POKE $DC0C,$36<text:tab/>Printen in CRT graphics II.</text:p>
-   <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">Geteste printers</text:span></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5128_2906995687"/>Geteste printers<text:bookmark-end text:name="__RefHeading___Toc5128_2906995687"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">De hieronder vermelde printers zijn getest met de Final Cartridge III en werken met behulp van de volgende zettingen.</text:p>
    <text:p text:style-name="Printer-tabel"><text:span text:style-name="Vetgedrukt">Printer<text:tab/>Interface<text:tab/>Type</text:span><text:line-break/>Star NL-10 (CBM)<text:tab/>Commodore<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (IBM)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Star NL-10 (Cent)<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Epson EX-800<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1509<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Brother M 1709<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>NEC P6<text:tab/>Centronics<text:tab/>NEC P Series<text:line-break/>OLIVETTI DM 105<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>PANASONIC X-P1081<text:tab/>Centronics<text:tab/>EPSON Compatible<text:line-break/>Commodore MCS 801<text:tab/>Commodore<text:tab/>CBM Compatible (COLORS YES) </text:p>
-   <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">Printerkabels</text:span></text:p>
+   <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5126_2906995687"/>Printerkabel<text:bookmark-end text:name="__RefHeading___Toc5126_2906995687"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Als u een Centronics of RS-232 printer op uw Commodore aan wilt sluiten, dan heeft u hier een speciale kabel voor nodig. Deze kabel kunt u bij uw dealer verkrijgen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Als u de kabel zelf wilt maken, stellen wij u hierbij vriendelijk een schema voor een Cen­tronics-kabel ter beschikking! Centronics is hierbij de destijds gebruikelijke parallelle prin­terverbinding (de brede printeraansluiting), terwijl RS-232 een seriële verbinding is.</text:p>
+   <text:p text:style-name="Kabeltabel"><text:span text:style-name="Vetgedrukt">Commodore User port pin<text:tab/>Centronics pin</text:span><text:line-break/>A<text:tab/>GND<text:tab/>16<text:tab/>GND<text:line-break/>B<text:tab/>FLAG2<text:tab/>10<text:tab/>ACK<text:line-break/>C<text:tab/>PB0<text:tab/>2<text:tab/>D0<text:line-break/>D<text:tab/>PB1<text:tab/>3<text:tab/>D1<text:line-break/>E<text:tab/>PB2<text:tab/>4<text:tab/>D2<text:line-break/>F<text:tab/>PB3<text:tab/>5<text:tab/>D3<text:line-break/>H<text:tab/>PB4<text:tab/>6<text:tab/>D4<text:line-break/>J<text:tab/>PB5<text:tab/>7<text:tab/>D5<text:line-break/>K<text:tab/>PB6<text:tab/>8<text:tab/>D6<text:line-break/>L<text:tab/>PB7<text:tab/>9<text:tab/>D7<text:line-break/>M<text:tab/>PA2<text:tab/>1<text:tab/>STROBE<text:line-break/>N<text:tab/>GND<text:tab/>17<text:tab/>GND</text:p>
+   <text:p text:style-name="Tekstblok_20_N1"><draw:frame draw:style-name="fr1" draw:name="Afbeelding20" text:anchor-type="as-char" svg:width="6.001cm" svg:height="2cm" draw:z-index="20"><draw:image xlink:href="userport.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
+    </draw:frame><draw:frame draw:style-name="fr1" draw:name="Afbeelding21" text:anchor-type="as-char" svg:width="6.001cm" svg:height="2.3cm" draw:z-index="21"><draw:image xlink:href="centronics.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
+    </draw:frame></text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4766_2830447109"/>Notepad<text:bookmark-end text:name="__RefHeading___Toc4766_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5049_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc5049_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Notepad is een kleine tekstverwerker, die in de Final Cartridge III ingebouwd is. De teksten die u in Notepad maakt, kunt u opslaan (op cassette of diskette) en afdrukken. De tekstver­werker maakt gebruik van een proportioneel karakterset (dat houdt in dat een i minder ruim­te inneemt dan een m).</text:p>
@@ -1558,7 +1580,7 @@
    <text:p text:style-name="Text_20_body">U kunt in de <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-stand op de volgende 3 manieren komen:</text:p>
    <text:list xml:id="list1942686972" text:style-name="Numbering_20_123">
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">U houdt, terwijl u de computer aanzet, de toets <text:span text:style-name="Toets">RUN/STOP</text:span> inge­drukt.</text:p>
+     <text:p text:style-name="LijstVervolg">U houdt, terwijl u de computer aanzet of reset, de toets <text:span text:style-name="Toets">RUN/STOP</text:span> inge­drukt.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="LijstVervolg">U selecteert vanuit de <text:span text:style-name="Kleine_20_hoofdletters">desktop</text:span> het item <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> in het menu <text:span text:style-name="Kleine_20_hoofdletters">system</text:span>.</text:p>
@@ -1586,6 +1608,10 @@
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4772_2830447109"/>Extra mogelijkheden in Basic<text:bookmark-end text:name="__RefHeading___Toc4772_2830447109"/></text:h>
+   <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc5124_2906995687"/>Functietoetsen<text:bookmark-end text:name="__RefHeading___Toc5124_2906995687"/></text:h>
+   <text:p text:style-name="Tekstblok_20_N1">De functietoetsen zijn met veelgebruikte commando&apos;s voorgeprogrammeerd.</text:p>
+   <text:p text:style-name="Calculator-tabel"><text:span text:style-name="Toets"> f 1 </text:span><text:s/>= LIST<text:tab/>Een BASIC-programma tonen<text:line-break/><text:span text:style-name="Toets"> f 2 </text:span><text:s/>= MONITOR<text:tab/>De machinetaalmonitor oproepen<text:line-break/><text:span text:style-name="Toets"> f 3 </text:span><text:s/>= RUN<text:tab/>Een BASIC-programma starten<text:line-break/><text:span text:style-name="Toets"> f 4 </text:span><text:s/>= OLD<text:tab/>Een BASIC-programma &quot;redden&quot; na NEW of RESET<text:line-break/><text:span text:style-name="Toets"> f 5 </text:span><text:s/>= DLOAD<text:tab/>Programma van diskette laden<text:line-break/><text:span text:style-name="Toets"> f 6 </text:span><text:s/>= DSAVE<text:tab/>Programma op diskette opslaan<text:line-break/><text:span text:style-name="Toets"> f 7 </text:span><text:s/>= DOS&quot;$<text:tab/>Directory tonen zonder programmavelies<text:line-break/><text:span text:style-name="Toets"> f 8 </text:span><text:s/>= DOS<text:tab/>Diskette-commando versturen</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">De betekenis van de functies (behalve LIST en RUN), die u als standaard BASIC-functies reeds bekend zijn, wordt in de volgende hoofdstukken nog uitvoerig beschreven.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4952_2164442888"/>Scrollen<text:bookmark-end text:name="__RefHeading___Toc4952_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Net als in de machinetaalmonitor heeft u in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> de mogelijkheid om uw <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-pro­gram­ma’s door te scrollen. Hiervoor gebruikt u de normale cursortoetsen. U kunt het scrol­len zelf proberen door, nadat een klein gedeelte van uw <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma op het scherm ge­toond wordt, met de cursor naar boven of naar beneden te gaan.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4954_2164442888"/>Editing-functies<text:bookmark-end text:name="__RefHeading___Toc4954_2164442888"/></text:h>
@@ -1618,7 +1644,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Let Op ! <text:span text:style-name="Kleine_20_hoofdletters">final kill = kill</text:span></text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4966_2164442888"/>Extra Basic-commando&apos;s<text:bookmark-end text:name="__RefHeading___Toc4966_2164442888"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Als u de Final Cartridge III in uw computer heeft zitten, heeft u ongeveer 30 extra <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-commando’s tot uw beschikking. Deze comman­do’s kunt u op twee manieren gebruiken:</text:p>
-   <text:list xml:id="list3927342599" text:style-name="Bullet_5f_20_5f_Symbols">
+   <text:list xml:id="list3927342599" text:style-name="Bullet_20_Symbols">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">u kunt ze direct intypen</text:p>
     </text:list-item>
@@ -1627,7 +1653,7 @@
     </text:list-item>
    </text:list>
    <text:p text:style-name="Tekstblok_20_N1">Van elk commando geven we het volgende:</text:p>
-   <text:list xml:id="list3302647369" text:style-name="Bullet_5f_20_5f_Symbols">
+   <text:list xml:id="list3302647369" text:style-name="Bullet_20_Symbols">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">de naam van het commando;</text:p>
     </text:list-item>
@@ -1644,7 +1670,7 @@
      <text:p text:style-name="LijstEinde">opmerkingen over het commando</text:p>
     </text:list-item>
    </text:list>
-   <text:p text:style-name="Tekstblok_20_N1"></text:p>
+   <text:p text:style-name="Tekstblok_20_N1"/>
    <text:table-of-content text:style-name="Sect1" text:protected="true" text:name="Inhoudsopgave2">
     <text:table-of-content-source text:outline-level="10" text:use-outline-level="false" text:use-index-marks="false" text:use-index-source-styles="true" text:index-scope="chapter">
      <text:index-title-template text:style-name="Contents_20_Heading"/>
@@ -1733,38 +1759,39 @@
      </text:index-source-styles>
     </text:table-of-content-source>
     <text:index-body>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10436_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">APPEND<text:tab/>35</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10438_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ARRAY<text:tab/>35</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10702_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">AUTO<text:tab/>36</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10700_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">BAR<text:tab/>36</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10698_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DAPPEND<text:tab/>37</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10696_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DEL<text:tab/>37</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10694_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DESKTOP<text:tab/>37</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10692_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DLOAD<text:tab/>38</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10690_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DOS<text:tab/>38</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10688_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DOS&quot;$<text:tab/>38</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10686_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DSAVE<text:tab/>39</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10684_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DUMP<text:tab/>39</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10682_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DVERIFY<text:tab/>39</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10680_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">FIND<text:tab/>40</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10678_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">KILL<text:tab/>40</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10676_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">LIST<text:tab/>40</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10674_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MEM<text:tab/>40</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10672_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MON<text:tab/>41</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10670_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MREAD<text:tab/>41</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10668_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MWRITE<text:tab/>42</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10666_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OFF<text:tab/>42</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10664_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OLD<text:tab/>42</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10662_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OPEN<text:tab/>43</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10660_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ORDER<text:tab/>43</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10658_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PACK<text:tab/>43</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10656_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PDIR<text:tab/>44</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10654_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PLIST<text:tab/>44</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10652_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">RENUM<text:tab/>44</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10650_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">REPLACE<text:tab/>45</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10648_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">TRACE<text:tab/>45</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10646_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">UNPACK<text:tab/>45</text:a></text:p>
-     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10709_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$<text:tab/>46</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10436_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">APPEND<text:tab/>37</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10438_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ARRAY<text:tab/>37</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10702_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">AUTO<text:tab/>37</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10700_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">BAR<text:tab/>38</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10698_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DAPPEND<text:tab/>38</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10696_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DEL<text:tab/>38</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10694_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DESKTOP<text:tab/>39</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10692_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DLOAD<text:tab/>39</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10690_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DOS<text:tab/>39</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10688_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DOS&quot;$<text:tab/>40</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10686_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DSAVE<text:tab/>40</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10684_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DUMP<text:tab/>40</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10682_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">DVERIFY<text:tab/>41</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10680_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">FIND<text:tab/>41</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5134_2906995687" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">HELP<text:tab/>41</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10678_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">KILL<text:tab/>42</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10676_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">LIST<text:tab/>42</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10674_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MEM<text:tab/>42</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10672_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MON<text:tab/>43</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10670_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MREAD<text:tab/>43</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10668_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">MWRITE<text:tab/>44</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10666_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OFF<text:tab/>44</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10664_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OLD<text:tab/>44</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10662_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OPEN<text:tab/>44</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10660_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ORDER<text:tab/>45</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10658_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PACK<text:tab/>45</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10656_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PDIR<text:tab/>46</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10654_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">PLIST<text:tab/>46</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10652_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">RENUM<text:tab/>46</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10650_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">REPLACE<text:tab/>47</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10648_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">TRACE<text:tab/>47</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10646_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">UNPACK<text:tab/>47</text:a></text:p>
+     <text:p text:style-name="Basicinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10709_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$<text:tab/>47</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:p text:style-name="Standard"/>
@@ -1774,7 +1801,7 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>APPEND [&quot;&lt;file-naam&gt;&quot;] [,&lt;device&gt;]<text:line-break/>aP [&quot;&lt;file-naam&gt;&quot;] [,&lt;device&gt;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat kant en klare subroutines die u op cassette of diskette heeft<text:line-break/>staan, aan een programma dat in het geheugen staat, toe te voegen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>APPEND &quot;file-naam”<text:tab/>voor tape<text:line-break/>APPEND &quot;file-naam&quot;,8<text:tab/>voor disk</text:p>
-   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Daar de originele regelnummers blijven bestaan, kan het handig zijn als eerste het commando <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> toe te passen.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>De regelnummers van het nageladen programma worden niet veranderd. U moet daarom met <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> opnieuw nummeren voordat u het nieuwe pro­gramma, dat uit de afzonderlijke modules is ontstaan, verder bewerkt en op­slaat. Anders treden er fouten op als een toegevoegd programmadeel lagere regelnummers bevat dan het hoogste nummer van de reeds eerder in het <text:span text:style-name="Kleine_20_hoofdletters">Ba­sic</text:span>-RAM aanwezige programmaregels.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10438_2164442888"/><text:bookmark text:name="ARRAY (BASIC)"/>ARRAY<text:bookmark-end text:name="__RefHeading___Toc10438_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -1795,7 +1822,7 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>BAR [OFF]<text:line-break/>bA [oF]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat de mogelijkheid om de pull-down menu&apos;s op te roepen en<text:line-break/>aan/uit te schakelen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>BAR OFF<text:tab/>zet de menu&apos;s uit<text:line-break/>BAR<text:tab/>zet de menu&apos;s aan</text:p>
-   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Deze optie is ingebouwd om de Final Cartridge III vanuit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> ook goed<text:line-break/>com­patible te houden met de meeste program­ma&apos;s. Mocht een programma<text:line-break/>van­uit <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span> niet werken, probeer het dan nog een keer<text:tab/>door het commando<text:line-break/>BAR OFF te gebruiken.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Voor de weergave van de menubalk wordt het geheugen onder de KERNAL vanaf $E000 gebruikt. Deze optie is ingebouwd om de Final Cartridge III vanuit Basic goed compatibel te houden met de meeste programma&apos;s. Mocht een programma vanuit Basic niet werken, probeer het dan nog eens met het commando BAR OFF.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10698_2164442888"/><text:bookmark text:name="DAPPEND (BASIC)"/>DAPPEND<text:bookmark-end text:name="__RefHeading___Toc10698_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -1868,10 +1895,17 @@
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>zoekt in het gehele programma naar een tekst, variabele, getal of commando.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>FIND &quot;test&quot;<text:tab/><text:tab/>toont de regels waar het woord test in voor-<text:line-break/><text:tab/><text:tab/>komt.<text:line-break/>FIND POKE 53280<text:tab/>toont de regels waarin dit POKE-commando<text:line-break/><text:tab/><text:tab/>voorkomt.<text:line-break/>FIND Z<text:tab/><text:tab/>toont de regels vaar de variabelen Z, Z%, Z$<text:line-break/><text:tab/><text:tab/>al dan niet geïndexeerd in voorkomen<text:line-break/>FIND Z$<text:tab/><text:tab/>toont de regels vaar de variabele Z$ al dan niet<text:line-break/><text:tab/><text:tab/>geïndexeerd in voorkomt<text:line-break/>FIND Z%<text:tab/><text:tab/>toont de regels vaar de variabele Z% al dan<text:line-break/><text:tab/><text:tab/>niet geïndexeerd in voorkomt<text:line-break/>FIND 9<text:tab/><text:tab/>toont de regels vaar een 9 in voorkomt, zoals:<text:line-break/><text:tab/><text:tab/>POKE 19,0;POKE 12,191;z=0.192 enz.<text:line-break/>FIND<text:tab/><text:tab/>toont alle regels</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
+   <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5134_2906995687"/>HELP<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc5134_2906995687"/></text:p>
+   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>HELP<text:line-break/>hE</text:p>
+   <text:p text:style-name="Commando_5f_T25">Dit commando:<text:tab/>toont de regel waar een <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-programma werd afgebroken door een fout.</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/>Levert een <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-programma een fout op die een foutmelding van het sys­teem veroorzaakt, dan wordt in het standaard CBM-<text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> de foutieve <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-instructie niet op het scherm getoond. HELP zorgt voor de uitvoer van de gehele <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-regel die de fout veroorzaakt.</text:p>
+   <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10678_2164442888"/>KILL<text:bookmark-end text:name="__RefHeading___Toc10678_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>KILL<text:line-break/>kI</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>schakelt alle functies van de Final Cartridge III uit. De freezer werkt nog wel, maar zal terugkeren naar de standaard Commodore 64/128 tenzij u de freezer via de monitor verlaat.</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/>De led op de cartridge geeft de status aan:</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/>Led brandt = cartridge geactiveerd<text:line-break/>Led brandt niet = cartridge uitgeschakeld</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10676_2164442888"/>LIST<text:bookmark-end text:name="__RefHeading___Toc10676_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -1935,13 +1969,13 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>ORDER<text:line-break/>oR</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>ordert heel het <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma dat in het geheugen staat. Het kan name­lijk voorkomen dat na een (D)APPEND-instructie de regel-nummering niet meer klopt. Door nu het commando ORDER te gebruiken worden alle regels op de juiste plaats ingevoegd.</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Dit commando is bedoeld voor gebruik in samenhang met de commando&apos;s <text:a xlink:type="simple" xlink:href="#APPEND (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">APPEND</text:a>, <text:a xlink:type="simple" xlink:href="#DAPPEND (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">DAPPEND</text:a> en <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a>.</text:p>
-   <text:p text:style-name="Commando_5f_T25"/>
+   <text:p text:style-name="Commando_5f_T25"></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10658_2164442888"/><text:bookmark text:name="PACK (BASIC)"/>PACK<text:bookmark-end text:name="__RefHeading___Toc10658_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>PACK<text:line-break/>pA</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>“packt” (“cruncht”) het in het geheugen aanwezige program­ma. Hierdoor wordt (veel) geheugen bespaard. Nadat u het programma gepackt heeft, kunt u het gewoon wegschrijven naar cassette of diskette. Het gepackte program­ma is normaal te runnen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Een programma dat u wilt packen, moet wel op 0801 (hexadecimaal) begin­nen. Ook zijn veel programma&apos;s tegenwoordig al &quot;gepackt”, waardoor een programma bij het opnieuw &quot;packen” alleen maar groter wordt. Zie ook <text:a xlink:type="simple" xlink:href="#UNPACK (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">UNPACK</text:a>.</text:p>
-   <text:p text:style-name="P1"/>
+   <text:p text:style-name="Standard"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10656_2164442888"/>PDIR<text:bookmark-end text:name="__RefHeading___Toc10656_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>PDIR<text:line-break/>pD</text:p>
@@ -1967,7 +2001,7 @@
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10650_2164442888"/>REPLACE<text:bookmark-end text:name="__RefHeading___Toc10650_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
-   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>REPLACE &lt;commandol&gt;,&lt;commando2&gt; / “tekst 1&quot;,“tekst2”<text:line-break/>reP &lt;commandol&gt;,&lt;commando2&gt; / &quot;tekstl&quot; “tekst2”</text:p>
+   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>REPLACE &lt;commandol&gt;,&lt;commando2&gt; / “tekst1&quot;,“tekst2”<text:line-break/>reP &lt;commandol&gt;,&lt;commando2&gt; / &quot;tekst1&quot; “tekst2”</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>maakt het mogelijk in heel uw <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma een stuk tekst door een an­der stuk tekst, of een <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-commando door een ander commando te laten ver­vangen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>REPLACE PRINT#1,PRINT<text:line-break/><text:tab/>Dit vervangt in heel het programma de PRINT#1 statements<text:line-break/><text:tab/>door normale PRINT statements.<text:line-break/>REPLACE &quot;FCS&quot;,&quot;Final Cartridge III&quot;<text:line-break/><text:tab/>Dit vervangt in heel het programma FC3 door Final Cartridge<text:line-break/><text:tab/>III.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
@@ -1976,13 +2010,13 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>TRACE [OFF]<text:line-break/>tR [oF]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>maakt het mogelijk dat u een <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>-programma stap voor stap uit kunt voe­ren. Nadat u dan uw programma &quot;runt&quot; drukt het de regel die op dat moment uitgevoerd wordt boven in het scherm af. TRACE OFF schakelt weer terug naar de normale stand.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>TRACE<text:tab/>als u nu uw programma runt, wordt elke uit te voeren regel<text:line-break/><text:tab/>getoond</text:p>
-   <text:p text:style-name="Commando_5f_T25"/>
+   <text:p text:style-name="Commando_5f_T25"></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10646_2164442888"/><text:bookmark text:name="UNPACK (BASIC)"/>UNPACK<text:bookmark-end text:name="__RefHeading___Toc10646_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>UNPACK<text:line-break/>uN</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>maakt van een door de Final Cartridge III gepackt program­ma weer een nor­maal programma, waarna het weer gewoon te listen is.</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Zie ook <text:a xlink:type="simple" xlink:href="#PACK (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">PACK</text:a>.</text:p>
-   <text:p text:style-name="Commando_5f_T25"></text:p>
+   <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10709_2164442888"/>$<text:bookmark-end text:name="__RefHeading___Toc10709_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>$&lt;getal in hexadecimaal&gt;</text:p>
@@ -2121,33 +2155,33 @@
      </text:index-source-styles>
     </text:table-of-content-source>
     <text:index-body>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5728_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup Disk<text:tab/>48</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5764_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup Tape<text:tab/>48</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5762_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup FDisk<text:tab/>48</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5760_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">BackUp FTape<text:tab/>48</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5758_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite I<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5756_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite II<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5754_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Joyswap<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5752_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Autofire<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5750_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors BackGnd<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5748_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors ForeGnd<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5746_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors Border<text:tab/>49</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5744_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print Settings<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5742_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5766_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Border<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5780_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View ForeGround<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5778_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Bcolor0<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5776_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Bcolor1<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5774_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View BColor2<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5772_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View BColor3<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5770_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Exit<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5768_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print Set<text:tab/>50</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5740_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset Kill<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5738_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset Zero Fill<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5736_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset CBM64<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5734_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Run<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5732_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Monitor<text:tab/>51</text:a></text:p>
-     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5730_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Desktop<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5728_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup Disk<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5764_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup Tape<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5762_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Backup FDisk<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5760_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">BackUp FTape<text:tab/>50</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5758_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite I<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5756_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Sprite II<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5754_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Joyswap<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5752_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Game Autofire<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5750_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors BackGnd<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5748_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors ForeGnd<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5746_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Colors Border<text:tab/>51</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5744_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print Settings<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5742_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5766_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Border<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5780_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View ForeGround<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5778_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Bcolor0<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5776_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Bcolor1<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5774_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View BColor2<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5772_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View BColor3<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5770_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print View Exit<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_2"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5768_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Print Set<text:tab/>52</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5740_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset Kill<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5738_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset Zero Fill<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5736_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Reset CBM64<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5734_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Run<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5732_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Monitor<text:tab/>53</text:a></text:p>
+     <text:p text:style-name="Contents_20_1"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc5730_224738076" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">Exit Desktop<text:tab/>53</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
    <text:p text:style-name="Standard"/>
@@ -2367,37 +2401,40 @@
      </text:index-source-styles>
     </text:table-of-content-source>
     <text:index-body>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10809_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">A<text:tab/>Assemble<text:tab/>55</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10853_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C<text:tab/>Compare Memory<text:tab/>55</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10851_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">D<text:tab/>Disassemble<text:tab/>56</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10849_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">EC<text:tab/>Edit character<text:tab/>56</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10847_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ES<text:tab/>Edit sprites<text:tab/>57</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">F<text:tab/>Fill memory<text:tab/>57</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10843_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">G<text:tab/>Go<text:tab/>58</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10841_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">H<text:tab/>Hunt memory<text:tab/>58</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10839_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I<text:tab/>Interrogate<text:tab/>58</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10837_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">L<text:tab/>Load<text:tab/>59</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10835_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">M<text:tab/>Memory display<text:tab/>59</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10833_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">O<text:tab/>Bank switching<text:tab/>60</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10831_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OD<text:tab/>Diskmonitor<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10829_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">P<text:tab/>Print memory<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10827_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">R<text:tab/>Registers display<text:tab/>61</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10825_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">S<text:tab/>Save memory<text:tab/>62</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10823_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">T<text:tab/>Transfer memory<text:tab/>62</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10821_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">X<text:tab/>Exit<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10819_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">#<text:tab/>Decimaal naar hexadecimaal omzetten<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10817_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$<text:tab/>Hexadecimaal naar decimaal omzetten<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10815_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">@<text:tab/>Disk commands<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10813_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*R<text:tab/>Read Block<text:tab/>63</text:a></text:p>
-     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10811_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*W<text:tab/>Write Block<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10809_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">A<text:tab/>Assemble<text:tab/>57</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10853_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">C<text:tab/>Compare Memory<text:tab/>58</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10851_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">D<text:tab/>Disassemble<text:tab/>58</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10849_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">EC<text:tab/>Edit character<text:tab/>59</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10847_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">ES<text:tab/>Edit sprites<text:tab/>59</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10958_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">F<text:tab/>Fill memory<text:tab/>60</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10843_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">G<text:tab/>Go<text:tab/>60</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10841_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">H<text:tab/>Hunt memory<text:tab/>60</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10839_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">I<text:tab/>Interrogate<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10837_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">L<text:tab/>Load<text:tab/>61</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10835_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">M<text:tab/>Memory display<text:tab/>62</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10833_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">O<text:tab/>Bank switching<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10831_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">OD<text:tab/>Diskmonitor<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10829_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">P<text:tab/>Print memory<text:tab/>63</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10827_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">R<text:tab/>Registers display<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10825_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">S<text:tab/>Save memory<text:tab/>64</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10823_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">T<text:tab/>Transfer memory<text:tab/>65</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10821_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">X<text:tab/>Exit<text:tab/>65</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10819_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">#<text:tab/>Decimaal naar hexadecimaal omzetten<text:tab/>65</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10817_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">$<text:tab/>Hexadecimaal naar decimaal omzetten<text:tab/>65</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10815_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">@<text:tab/>Disk commands<text:tab/>66</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10813_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*R<text:tab/>Read Block<text:tab/>66</text:a></text:p>
+     <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10811_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*W<text:tab/>Write Block<text:tab/>66</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="Tekstblok_20_N1"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10809_2164442888"/>A<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Assemble<text:tab/><text:tab/><text:tab/><text:tab/>Assembleren van machinetaalprogramma’s<text:bookmark-end text:name="__RefHeading___Toc10809_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">Axxxx mnemo [operand]</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:span text:style-name="Monospace">mnemo</text:span><text:tab/>= de machinetaalopdracht<text:line-break/><text:span text:style-name="Monospace">operand</text:span><text:tab/>= de operand waarop de opdracht betrekking heeft</text:p>
-   <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat zelf in machinetaal te programmeren.</text:p>
-   <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">AC000 LDA #$00<text:tab/></text:span>Hiermee zet u de geheugenplaats C000</text:p>
-   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Als u achter elkaar door wilt programmeren, hoeft u dit commando maar één­maal in te typen. De computer berekent namelijk zelf de opvolgende geheu­gen­plaats voor de volgende instruktie, het enige dat u doet is het in­typen van de opdracht (gevolgd door de operand).</text:p>
+   <text:p text:style-name="Commando_5f_T25">Dit commando:<text:tab/>stelt u in staat om zelf in machinetaal te programmeren. De monitor is uit­gerust met een ingebouwde direct-assembler, zodat u kleinere pro­gramma&apos;s direct in assembleertaal kunt invoeren, testen en opslaan, zonder eerst een editor en een assembler te hoeven laden. Let u erop dat het start­adres altijd 4-cijferig (evt. met een voorloopnul) en direct na de A wordt in­gevoerd.</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/>Zodra u een assemblerinstructie hebt ingevoerd, wordt deze direct vertaald en in de regel zo uitgelijnd dat vóór de instructie de opcode en de operand hexadecimaal in de juiste volgorde worden weergegeven.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/>Geef het volgende kleine programma in en start het met G 1000. Bij correcte invoer krijgt u linksboven de letter &quot;A&quot; in gele kleur. Onder het G-comman­do worden de registerinhouden getoond.</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/><text:span text:style-name="Monospace">A1000 LDA #$01<text:line-break/>A1002 STA $0400<text:line-break/>A1005 LDA #$07<text:line-break/>A1007 STA $D800<text:line-break/>A100A BRK</text:span></text:p>
+   <text:p text:style-name="Commando_5f_T25">Scherm:<text:tab/><text:span text:style-name="Monospace">.A1000 A9 01 <text:s text:c="3"/></text:span><text:span text:style-name="Monospace">LDA #$01<text:line-break/>.A1002 8D 00 04 STA $0400<text:line-break/>.A1005 A9 07 <text:s text:c="3"/>LDA #$07<text:line-break/>.A1007 8D 00 D8 STA $D800<text:line-break/>.A100A 00 <text:s text:c="6"/>BRK</text:span></text:p>
+   <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Als u achter elkaar door wilt programmeren, hoeft u dit commando maar één­maal in te typen. De computer berekent namelijk zelf de opvolgende ge­heugenplaats voor de volgende instruktie, het enige dat u doet is het in­typen van de opdracht (gevolgd door de operand).</text:p>
    <text:p text:style-name="Commando_5f_T25"><text:tab/>Als u wilt stoppen met het invoeren van het programma drukt u na de laatste programmaregel nog één keer <text:span text:style-name="Toets">RETURN</text:span> in, waarna de monitor alle andere com­mando’s weer accep­teert.</text:p>
    <text:p text:style-name="Commando_5f_T25">Soort:<text:tab/>C, D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
@@ -2433,7 +2470,6 @@
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10958_2164442888"/>F<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Fill memory<text:tab/><text:tab/><text:tab/>Een deel van het geheugen vullen<text:bookmark-end text:name="__RefHeading___Toc10958_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">F xxxx yyyy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= het beginadres<text:line-break/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= het eindadres<text:line-break/><text:span text:style-name="Monospace">zz</text:span><text:tab/>= het getal waarmee het geheugen gevuld moet worden </text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat snel een bepaald gedeelte van het geheugen met een getal te vullen.</text:p>
-   <text:p text:style-name="Commando_5f_T25"></text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">F 3000 4000 00</text:span><text:tab/>Hiermee vult u het geheugen van 3000 t/m<text:line-break/><text:tab/><text:tab/>4000 met het getal 00.</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Dit commando is makkelijk om een gedeelte van het geheugen te wissen waarin u gaat programmeren, zodat u uw programma gemakkelijk kunt te­rugvinden.</text:p>
    <text:p text:style-name="Commando_5f_T25">Soort:<text:tab/>C,D.</text:p>
@@ -2459,7 +2495,7 @@
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Door gebruik te maken van dit commando, hoeft u niet steeds de waarden van de teksten op te zoeken en deze dan in te typen, u kunt nu de tekst zelf<text:line-break/>intypen.</text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10837_2164442888"/>L<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Load<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Laadt een machinetaalprogramma<text:bookmark-end text:name="__RefHeading___Toc10837_2164442888"/></text:p>
-   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">L &quot;&lt;file-naam&gt;&quot;,xx[,yyyy]</text:span><text:line-break/><text:span text:style-name="Monospace">xx<text:s text:c="3"/>= </text:span>het devicenummer<text:tab/><text:tab/>01 voor cassette<text:line-break/><text:tab/><text:tab/><text:tab/>08 voor diskette<text:line-break/><text:span text:style-name="Monospace">yyyy = </text:span>het beginadres</text:p>
+   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">L &quot;&lt;file-naam&gt;&quot;,xx[,yyyy]</text:span><text:line-break/><text:span text:style-name="Monospace">xx <text:s text:c="2"/>= </text:span>het devicenummer<text:tab/><text:tab/>01 voor cassette<text:line-break/><text:tab/><text:tab/><text:tab/>08 voor diskette<text:line-break/><text:span text:style-name="Monospace">yyyy = </text:span>het beginadres</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat een programma te laden.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">L &quot;test&quot;,01</text:span><text:tab/>Hiermee laadt u het programma test van cas-<text:line-break/><text:tab/><text:tab/>sette<text:line-break/><text:span text:style-name="Monospace">L &quot;test&quot;,08<text:tab/></text:span>Idem voor diskette<text:line-break/><text:span text:style-name="Monospace">L &quot;test&quot;,08,2000</text:span><text:tab/>Idem voor diskette maar op een door u gewenst<text:line-break/><text:tab/><text:tab/>beginadres</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Het opgeven van een beginadres is bedoeld om een program­ma te “reloce­ren”, d.w.z. op een andere plaats zetten. Dit is uiteraard geschikt om allerlei<text:line-break/>kleine machinetaalroutines aan elkaar vast te koppelen; tevens bezit u hier­mee de mogelijkheid om zelfstartende programma’s te bekijken door ze op een andere geheugenlocatie te laden.</text:p>
@@ -2477,7 +2513,7 @@
    <text:p text:style-name="Commando_5f_T25">Soort:<text:tab/>C,D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10833_2164442888"/><text:bookmark text:name="O (MONITOR)"/>O<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Bank switching<text:tab/><text:tab/>Omschakelen geheugenbanken.<text:bookmark-end text:name="__RefHeading___Toc10833_2164442888"/></text:p>
-   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">Ox<text:s text:c="2"/></text:span>(De letter O gevolgd door een getal)<text:line-break/><text:span text:style-name="Monospace">x = </text:span>is een getal van 0 t/m 7</text:p>
+   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">Ox <text:s/></text:span>(De letter O gevolgd door een getal)<text:line-break/><text:span text:style-name="Monospace">x = </text:span>is een getal van 0 t/m 7</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat ROM’s in en uit te schakelen, zodat u voor een machinetaal­programma de volledige 64 K kunt benutten. Door het kiezen van verschil­lende waarden, kunt u verschillende banken in- en uitschakelen.</text:p>
    <text:p text:style-name="Commando_5f_T25"><text:tab/>Ook kunt u met dit commando vanuit de diskmonitor in te computermonitor<text:line-break/>terugkomen.</text:p>
    <text:p text:style-name="Commando_5f_T25"><text:tab/>De betekenis van de waarden kunt u in onderstaande tabel terugvinden.</text:p>
@@ -2692,7 +2728,6 @@
       <text:p text:style-name="Monospace_20_klein">KERNAL</text:p>
      </table:table-cell>
     </table:table-row>
-    
     <table:table-row table:style-name="Tabel1.10">
      <table:table-cell table:style-name="Tabel1.A10" office:value-type="string">
       <text:p text:style-name="Monospace_20_klein">O7</text:p>
@@ -2752,10 +2787,10 @@
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>De computer berekent zelf het eindadres.<text:line-break/>Let op dat u de delen elkaar niet laat overlappen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Soort:<text:tab/>C, D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10821_2164442888"/>X<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Exit<text:tab/><text:tab/><text:tab/><text:tab/>Het verlaten van de monitor<text:bookmark-end text:name="__RefHeading___Toc10821_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10821_2164442888"/>X<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Exit<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Het verlaten van de monitor<text:bookmark-end text:name="__RefHeading___Toc10821_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">X</text:span></text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat de monitor te verlaten.</text:p>
-   <text:p text:style-name="Commando_5f_T25"/>
+   <text:p text:style-name="Commando_5f_T25"></text:p>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10819_2164442888"/>#<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Decimaal naar hexadecimaal omzetten<text:bookmark-end text:name="__RefHeading___Toc10819_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace"># &lt;getal&gt;<text:line-break/>getal</text:span><text:tab/>= het gewenste getal (in het decimale getalstelsel)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat getallen van het decimale getalstelsel, naar het hexadecimale getalstelsel om te rekenen.</text:p>
@@ -2766,20 +2801,20 @@
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat getallen van het hexadecimale getalstelsel, naar het decimale getalstelsel om te rekenen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">$ D021</text:span><text:tab/>Hiermee laat u het getal D020 omrekenen. Het antwoord zal<text:line-break/><text:tab/>53281 (decimaal) zijn.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10815_2164442888"/>@<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Disk commands<text:tab/>Diskcommando’s<text:bookmark-end text:name="__RefHeading___Toc10815_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10815_2164442888"/>@<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Disk commands<text:tab/><text:tab/>Diskcommando’s<text:bookmark-end text:name="__RefHeading___Toc10815_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>@[&lt;diskcommando&gt;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat gemakkelijk de status van de disk-drive op te vragen. Ook kunt u met dit commando diskcommando’s geven, of overgaan naar een tweede disk-drive.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">@</text:span><text:tab/><text:tab/>leest het <text:span text:style-name="Kleine_20_hoofdletters">error</text:span>-kanaal uit<text:line-break/><text:span text:style-name="Monospace">@$</text:span><text:tab/><text:tab/>toont de directory<text:line-break/><text:span text:style-name="Monospace">@N:naam,id</text:span><text:tab/><text:tab/>formatteert een diskette</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Dit commando is vrijwel hetzelfde als het commando <text:a xlink:type="simple" xlink:href="#DOS (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">DOS&quot;</text:a> in <text:span text:style-name="Kleine_20_hoofdletters">basic</text:span>.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:tab/><text:tab/>Het lezen van een blok van de disk in het geheugen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>van de computer<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:tab/><text:tab/><text:tab/>Het lezen van een blok van de disk in het geheugen<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>van de computer<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">*R xx yy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xx = </text:span>het tracknummer van het blok<text:line-break/><text:span text:style-name="Monospace">yy = </text:span>het sectornummer van het blok<text:line-break/><text:span text:style-name="Monospace">zz = </text:span>de plaats waar u het blok in het geheugen van de computer wilt heb-<text:line-break/><text:span text:style-name="Monospace"> <text:s text:c="4"/></text:span>ben (zz komt overeen met <text:s/>zz00)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat een blok van de diskette te lezen en deze te veranderen. Nadat het blok gelezen is, staat het in het geheugen van de computer. Nu heeft u de mogelijkheid om dat blok op alle door de Final Cartridge III geboden ma­nier­en te bekijken en te veranderen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">*R 12 00 CE</text:span><text:tab/>Dit leest het eerste blok van de directory</text:p>
    <text:p text:style-name="Commando_5f_T25">Opmerkingen:<text:tab/>Indien geen geheugenadres wordt opgegeven, wordt het blok altijd weg­geschreven op adres $CF00</text:p>
    <text:p text:style-name="Commando_5f_T25">Soort:<text:tab/>C.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/>Het schrijven van een blok<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/><text:tab/>Het schrijven van een blok<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">*W xx yy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xx = </text:span>het tracknummer van het blok<text:line-break/><text:span text:style-name="Monospace">yy = </text:span>het sectornummer van het blok<text:line-break/><text:span text:style-name="Monospace">zz = </text:span>de plaats van het blok in het geheugen van de computer dat u op<text:line-break/><text:span text:style-name="Monospace"> <text:s text:c="4"/></text:span>schijf wilt zetten (zz komt overeen met zz00)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dit commando<text:tab/>stelt u in staat een blok geheugen (terug) op de diskette te zetten.</text:p>
    <text:p text:style-name="Commando_5f_T25">Voorbeeld:<text:tab/><text:span text:style-name="Monospace">*W 12 00 CE</text:span><text:tab/>Dit schrijft het geheugen van CE00 t/m CEFF<text:line-break/><text:tab/><text:tab/>op de diskette als het eerste blok van de direc-<text:line-break/><text:tab/><text:tab/>tory</text:p>
@@ -2792,6 +2827,25 @@
    <text:p text:style-name="Text_20_body">Bij sommige programma’s kan het vrij lang duren voordat het freezer-menu verschijnt.</text:p>
    <text:p text:style-name="Text_20_body">Bevries nooit een programma tijdens het laden.</text:p>
    <text:p text:style-name="Text_20_body">Hoewel bijna alle programma’s gefreezed kunnen worden, kan het mogelijk zijn dat u van som­mige programma’s geen backup kunt maken, of deze programma’s niet kunt vervolgen. Dit komt door nieuwe ingewikkelde beveiligingen.</text:p>
+   <text:p text:style-name="Text_20_body">Druk de FREEZE-toets bij voorkeur op een moment dat het te beveiligen programma zich in het hoofdmenu bevindt, tenzij u bijv. een spelprogramma bij een bepaalde tussenstand wilt &quot;be­vriezen&quot;.</text:p>
+   <text:p text:style-name="Text_20_body">In enkele gevallen kan de FREEZE-functie falen. De redenen:</text:p>
+   <text:list xml:id="list115625413097409" text:continue-list="list3060847248" text:style-name="Bullet_20_Symbols">
+    <text:list-item>
+     <text:p text:style-name="LijstVervolg">U probeert de FREEZER vanuit de monitor te activeren.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstVervolg">Het programma heeft een kopieerbeveiliging die gebruik maakt van de geluidschip (6581 SID = Sound Interface Device). Omdat de geluidschip alleen-schrijf- en enkele alleen-lees-registers heeft, is het niet mogelijk de opgeslagen waarden van een bepaal­de programmastatus vast te houden en te reconstrueren.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstVervolg">Het programma leest tijdens het gebruik aanvullende programmadelen in. In dat geval moet de originele diskette aanwezig zijn wanneer het &quot;bevroren&quot; en opnieuw geacti­veerde programma verdere programmamodules wil bijladen.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstVervolg">Het programma maakt zeer intensief gebruik van de beide interrupt-timers in de 6526-chips (CIA#1 en CIA#2). Bijv. bij een spraakuitvoer is het onder bepaalde omstandig­heden niet mogelijk het programma voort te zetten, omdat door de hoge timersnelheid een foutloze opslag van het programma niet mogelijk is.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstEinde">Wordt een beeld in meerdere raster-interrupts opgebouwd, dan kan het voorkomen dat u niet meteen bij de eerste poging met FREEZE een beeldstatus bereikt die aan uw wensen voldoet. Probeer dan op een andere plaats opnieuw te FREEZEN tot het &quot;be­vroren&quot; beeld aan uw verwachtingen voldoet.</text:p>
+    </text:list-item>
+   </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4794_2830447109"/>Backups<text:bookmark-end text:name="__RefHeading___Toc4794_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Bij het maken van backups raden wij u aan eerst vanuit de freezer het commando zero fill te ge­bruiken voordat u uw programma laadt. Op die manier bespaart u meestal een hoop geheugen en wordt de backup dus zo klein mogelijk.</text:p>
    <text:p text:style-name="Text_20_body">Als u een backup met de Final Cartridge III maakt, bestaat hij uit twee delen. Dit is speciaal ge­daan om de backups uitwisselbaar met de Final Cartridge II te houden.</text:p>
@@ -2823,7 +2877,7 @@
    <text:p text:style-name="Text_20_body">Veel commerciële programmatuur is beveiligd door middel van speciale laad-routines. Het is onmogelijk deze routines te “passeren” en de Final Cartridge III zal dat ook niet proberen. Dit houdt in, dat de Final Cartridge III zoveel mogelijk met de disk-snellader zal proberen in te la­den en de rest aan de speciale laad-routines zal overlaten.</text:p>
    <text:p text:style-name="Text_20_body">Het is gebleken dat de eerste versie van de Final Cartridge III niet helemaal goed werkte bij computers waar <text:span text:style-name="Kleine_20_hoofdletters">SpeedDOS</text:span> ingebouwd was. Dit euvel is bij latere versies verholpen.</text:p>
    <text:p text:style-name="Text_20_body"/>
-   <text:p text:style-name="Nw_5f_blz_5f_r"><draw:frame draw:style-name="fr1" draw:name="Afbeelding18" text:anchor-type="char" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="18"><draw:image xlink:href="FC3-achterblad.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
+   <text:p text:style-name="Nw_5f_blz_5f_r"><draw:frame draw:style-name="fr1" draw:name="Afbeelding18" text:anchor-type="char" svg:width="15.9cm" svg:height="20.8cm" draw:z-index="19"><draw:image xlink:href="FC3-achterblad.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" draw:mime-type="image/png"/>
     </draw:frame></text:p>
   </office:text>
  </office:body>

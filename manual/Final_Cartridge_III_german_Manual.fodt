@@ -240,10 +240,10 @@
     </style:tab-stops>
    </style:paragraph-properties>
   </style:style>
-  <style:style style:name="PrintopttabVervolg" style:display-name="PrintoptiestabelVervolg" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+  <style:style style:name="PrintoptiestabelVervolg" style:display-name="PrintoptiestabelVervolg" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
    <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm" fo:margin-top="0cm" fo:margin-bottom="0cm"/>
   </style:style>
-  <style:style style:name="PrintopttabEinde" style:display-name="PrintoptiestabelEinde" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
+  <style:style style:name="PrintoptiestabelEinde" style:display-name="PrintoptiestabelEinde" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
    <style:paragraph-properties fo:margin-left="3.5cm" fo:text-indent="-3.0cm"/>
   </style:style>
   <style:style style:name="Printtab" style:display-name="Printer-tabel" style:family="paragraph" style:parent-style-name="Tekstblok_20_N1">
@@ -510,7 +510,7 @@
    </text:list-level-style-number>
    <text:list-level-style-number text:level="2" text:style-name="Numbering_20_Symbols" loext:num-list-format="%2%." style:num-suffix="." style:num-format="1">
     <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.401cm" fo:text-indent="-0.7cm" fo:margin-left="2.03cm"/>
+     <style:list-level-label-alignment text:label-followed-by="listtab" text:list-tab-stop-position="1.4cm" fo:text-indent="-0.7cm" fo:margin-left="2.03cm"/>
     </style:list-level-properties>
    </text:list-level-style-number>
    <text:list-level-style-number text:level="3" text:style-name="Numbering_20_Symbols" loext:num-list-format="%3%." style:num-suffix="." style:num-format="1">
@@ -670,7 +670,7 @@
    </style:page-layout-properties>
    <style:header-style/>
    <style:footer-style>
-    <style:header-footer-properties fo:min-height="0.3cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.199cm"/>
+    <style:header-footer-properties fo:min-height="0.3cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.2cm"/>
    </style:footer-style>
   </style:page-layout>
  </office:automatic-styles>
@@ -1786,7 +1786,7 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>APPEND [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Device&gt;]<text:line-break/>aP [&quot;&lt;Dateiname&gt;&quot;] [,&lt;Device&gt;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, fertig erstellte Unterprogramme, die Sie auf Kasset­te oder Diskette haben, an ein Programm anzuhängen, das sich im Speicher befindet.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/>APPEND &quot;Dateiname&quot;<text:tab/>für Kassette<text:line-break/>APPEND &quot;Dateiname&quot;,8<text:tab/>für Diskette</text:p>
-   <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Die Zeilennummern des nachgeladenen Programms werden nicht verändert. Sie sollten daher mit <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> eine Neunummerierung vornehmen, bevor Sie das neue aus den Einzelmodulen entstandene Programm weiterbearbeiten und abspeichern. Andernfalls treten Fehler auf, wenn ein angefügter Programmteil niedrigere Zeilennummern enthält als die höchste Nummer der bereits vorher im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-RAM befindlichen Programmzeilen.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Die Zeilennummern des nachgeladenen Programms werden nicht verändert. Sie sollten daher mit <text:a xlink:type="simple" xlink:href="#RENUM (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">RENUM</text:a> eine Neunummerierung vornehmen, bevor Sie das neue aus den Einzelmodulen entstandene Programm weiterbearbeiten und abspeichern. Andernfalls treten Fehler auf, wenn ein angefügter Pro­grammteil niedrigere Zeilennummern enthält als die höchste Nummer der bereits vorher im <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>-RAM befindlichen Programmzeilen.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10438_2164442888"/><text:bookmark text:name="ARRAY (BASIC)"/>ARRAY<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc10438_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>ARRAY<text:line-break/>aR</text:p>
@@ -1804,7 +1804,7 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>BAR [OFF]<text:line-break/>bA [oF]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, die Möglichkeit, die Pull-Down-Menüs aufzurufen, ein-und auszuschalten.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/>BAR OFF<text:tab/>schaltet die Menüs aus<text:line-break/>BAR<text:tab/>schaltet die Menüs ein</text:p>
-   <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Für die Darstellung der Menüleiste wird der Speicher unterhalb des KERNAL ab $E000 verwendet. Diese Option wurde eingebaut, um die Final Cartridge III aus <text:span text:style-name="Kleine_20_hoofdletters">Basic </text:span>her­aus auch gut kompatibel mit den meisten Programmen zu halten. Sollte ein Pro­gramm aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> heraus nicht funktionieren, versuchen Sie es noch einmal mit dem Befehl BAR OFF.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Für die Darstellung der Menüleiste wird der Speicher unterhalb des KER­NAL ab $E000 verwendet. Diese Option wurde eingebaut, um die Final Car­tridge III aus <text:span text:style-name="Kleine_20_hoofdletters">Basic </text:span>her­aus auch gut kompatibel mit den meisten Program­men zu halten. Sollte ein Pro­gramm aus <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> heraus nicht funktionieren, versuchen Sie es noch einmal mit dem Befehl BAR OFF.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10698_2164442888"/><text:bookmark text:name="DAPPEND (BASIC)"/>DAPPEND<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc10698_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>DAPPEND [&quot;&lt;Dateiname&gt;&quot;]<text:line-break/>dA [&quot;&lt;Dateiname&gt;&quot;]</text:p>
@@ -1869,7 +1869,8 @@
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc4944_3897406594"/>HELP<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc4944_3897406594"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>HELP<text:line-break/>hE</text:p>
-   <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>läuft ein BASIC-Programm auf einen Fehler, der eine Fehlermeldung des Systems auslöst, wird Ihnen im Standard-CBM-BASIC die fehlerhafte BASIC-Anweisung nicht auf den Bildschirm gebracht. Help veranlaßt die Ausgabe der ganzen BASIC-Zeile, die den Fehler auslöst.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>zeigt die Zeile an, in der ein BASIC-Programm aufgrund eines Fehlers abgebrochen wurde.</text:p>
+   <text:p text:style-name="Commando_5f_T25"><text:tab/>Läuft ein BASIC-Programm auf einen Fehler, der eine Fehlermeldung des Systems auslöst, wird Ihnen im Standard-CBM-BASIC die fehlerhafte BASIC-Anweisung nicht auf den Bildschirm gebracht. Help veranlaßt die Ausgabe der ganzen BASIC-Zeile, die den Fehler auslöst.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc4942_3897406594"/>KILL<text:line-break/><text:bookmark-end text:name="__RefHeading___Toc4942_3897406594"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>KILL<text:line-break/>kI</text:p>
@@ -2141,7 +2142,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4968_2164442888"/>Back Up<text:bookmark-end text:name="__RefHeading___Toc4968_2164442888"/></text:h>
    <text:p text:style-name="Text_20_body">Die Final Cartridge III verfügt über die Möglichkeit, Backups (Sicherheitskopien) all Ihrer Disk- und Tape-Programme zu erstellen. Beachten Sie jedoch, dass diese Möglichkeit für den eigenen Gebrauch gedacht ist und nicht dazu entwickelt wurde, illegale Kopien anzufertigen.</text:p>
    <text:p text:style-name="Text_20_body">Die von Ihnen erstellten Backups können von jedem geladen werden, auch wenn diese keine Final Cartridge III besitzen. Aber beachten Sie, dass Sie, falls Sie ein Backup erstellen, das Sie später ohne Final Cartridge III laden möchten, dies nicht tun sollten, nachdem Sie eine der fol­genden Möglichkeiten aktiviert haben (da für diese besonderen Möglichkeiten eine Final Cart­ridge III erforderlich ist): den Sprite-Killer, den Joystick-Port-Changer oder den Autofire.</text:p>
-   <text:p text:style-name="Text_20_body">Wir empfehlen Ihnen, bevor Sie ein Backup erstellen möchten, zuerst den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Zero ill</text:span> aus dem Freezer zu verwenden, dann Ihr Programm zu laden und erst dann ein Backup zu er­stellen. Dadurch sparen Sie meist eine große Menge Speicherplatz.</text:p>
+   <text:p text:style-name="Text_20_body">Wir empfehlen Ihnen, bevor Sie ein Backup erstellen möchten, zuerst den Befehl <text:span text:style-name="Kleine_20_hoofdletters">Zero Fill</text:span> aus dem Freezer zu verwenden, dann Ihr Programm zu laden und erst dann ein Backup zu er­stellen. Dadurch sparen Sie meist eine große Menge Speicherplatz.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5728_224738076"/>Backup Disk<text:bookmark-end text:name="__RefHeading___Toc5728_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Dieser Befehl erstellt ein Backup auf Ihrer Diskette mit normaler Geschwindigkeit.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5764_224738076"/>Backup Tape<text:bookmark-end text:name="__RefHeading___Toc5764_224738076"/></text:p>
@@ -2380,7 +2381,7 @@
      <text:p text:style-name="Monitorinhoud"><text:a xlink:type="simple" xlink:href="#__RefHeading___Toc10811_2164442888" text:style-name="Index_20_Link" text:visited-style-name="Index_20_Link">*W<text:tab/>Write Block<text:tab/>66</text:a></text:p>
     </text:index-body>
    </text:table-of-content>
-   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="Tekstblok_20_N1"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10809_2164442888"/>A<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Assemble<text:tab/><text:tab/><text:tab/><text:tab/>Assemblierung von Maschinenspracheprogram­<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>men<text:bookmark-end text:name="__RefHeading___Toc10809_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">Axxxx mnemo [Operand]<text:line-break/>xxx</text:span><text:tab/>= die Startadresse<text:line-break/><text:span text:style-name="Monospace">mnemo</text:span><text:tab/>= der Maschinensprache-Befehl<text:line-break/><text:span text:style-name="Monospace">Operand</text:span><text:tab/>= der Operand, auf den sich der Befehl bezieht</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, selbst in Maschinensprache zu programmieren. Der Mo­nitor ist mit einem eingebauten Direktassembler ausgestattet, so daß Sie kleinere Programme direkt in Assemblersprache eingeben, testen und abspei­chern können, ohne zuvor einen Editor und einen Assembler laden zu müs­sen. Achten Sie bitte darauf, daß die Startadresse stets 4-stellig (ggf. mit füh­render 0) und direkt hinter dem A eingegeben wird.</text:p>
@@ -2733,32 +2734,32 @@
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/><text:span text:style-name="Monospace">T 2000 3000 9000</text:span><text:tab/>Hiermit verschieben Sie den Block von 2000<text:line-break/><text:tab/><text:tab/>bis 3000 nach 9000</text:p>
    <text:p text:style-name="Commando_5f_T25">Art:<text:tab/>C, D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10821_2164442888"/>X<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Exit<text:tab/><text:tab/><text:tab/><text:tab/>Verlassen des Monitors<text:bookmark-end text:name="__RefHeading___Toc10821_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10821_2164442888"/>X<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Exit<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Verlassen des Monitors<text:bookmark-end text:name="__RefHeading___Toc10821_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">X</text:span></text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, den Monitor zu verlassen.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10819_2164442888"/>#<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Dezimal in Hexadezimal umrechnen<text:bookmark-end text:name="__RefHeading___Toc10819_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10819_2164442888"/>#<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Dezimal in Hexadezimal umrechnen<text:bookmark-end text:name="__RefHeading___Toc10819_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace"># &lt;Zahl&gt;<text:line-break/>Zahl</text:span><text:tab/>= die gewünschte Zahl (im dezimalen Zahlensystem)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, Zahlen vom dezimalen Zahlensystem in das hexa­de­zimale Zahlensystem umzurechnen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/><text:span text:style-name="Monospace"># 53281</text:span><text:tab/>Hiermit lassen Sie die Zahl 53281 umrechnen. Die Antwort<text:line-break/><text:tab/>wird $D021 sein.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10817_2164442888"/>$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Hexadezimal in Dezimal umrechnen<text:bookmark-end text:name="__RefHeading___Toc10817_2164442888"/></text:p>
-   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">$ xxxx</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx<text:tab/></text:span>=<text:tab/>die gewünschte Zahl</text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10817_2164442888"/>$<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Hexadezimal in Dezimal umrechnen<text:bookmark-end text:name="__RefHeading___Toc10817_2164442888"/></text:p>
+   <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">$ xxxx</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= die gewünschte Zahl</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, Zahlen vom hexadezimalen Zahlensystem in das dezi­ma­le Zahlensystem umzurechnen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/><text:span text:style-name="Monospace">$ D021</text:span><text:tab/>Hiermit lassen Sie die Zahl D020 umrechnen. Die Antwort<text:line-break/><text:tab/>wird 53281 (dezimal) sein.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10815_2164442888"/>@<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Disk-Befehle<text:tab/><text:tab/><text:tab/>Disk-Befehle<text:bookmark-end text:name="__RefHeading___Toc10815_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10815_2164442888"/>@<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Disk Commands<text:tab/><text:tab/>Disk-Befehle<text:bookmark-end text:name="__RefHeading___Toc10815_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>@[&lt;Disk-Befehl&gt;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, einfach den Status des Disk-Laufwerks abzufragen.<text:line-break/>Auch können Sie mit diesem Befehl Disk-Befehle geben oder zu einem zweiten Disk-Laufwerk wechseln.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/><text:span text:style-name="Monospace">@</text:span><text:tab/><text:tab/>liest den ERROR-Kanal aus<text:line-break/><text:span text:style-name="Monospace">@$</text:span><text:tab/><text:tab/>zeigt das Directory an<text:line-break/><text:span text:style-name="Monospace">@N:name,id</text:span><text:tab/><text:tab/>formatiert eine Diskette</text:p>
    <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Dieser Befehl ist so gut wie identisch mit dem Befehl <text:a xlink:type="simple" xlink:href="#DOS (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link">DOS&quot;</text:a> in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:tab/><text:tab/><text:tab/>Das Einlesen eines Blocks von der Festplatte in den<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Arbeitsspeicher des Computers<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">*R xx yy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xx = </text:span>die Track-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">yy = </text:span>die Sektor-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">zz = </text:span>die Stelle, an der Sie den Block im Speicher des Computers ha-<text:line-break/><text:span text:style-name="Monospace"> <text:s text:c="4"/></text:span>ben möchten (zz entspricht zz00)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, einen Block von der Diskette zu lesen und ihn zu verändern.</text:p>
    <text:p text:style-name="Commando_5f_T25">Art:<text:tab/>C.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
-   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/>Schreiben eines Blocks<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
+   <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/><text:tab/>Schreiben eines Blocks<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">*W xx yy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xx = </text:span>die Track-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">yy = </text:span>die Sektor-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">zz = </text:span>die Stelle des Blocks im Speicher des Computers, den Sie auf Dis-<text:line-break/><text:span text:style-name="Monospace"> <text:s text:c="4"/></text:span>kette schreiben möchten (zz entspricht zz00)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, einen Speicherblock (zurück) auf die Diskette zu schrei­ben.</text:p>
    <text:p text:style-name="Commando_5f_T25">Beispiel:<text:tab/><text:span text:style-name="Monospace">*W 12 00 CE<text:tab/></text:span>Dies schreibt den Speicher von CE00 bis CEFF<text:line-break/><text:tab/><text:tab/>auf die<text:tab/>Diskette als den ersten Block des Direc-<text:line-break/><text:tab/><text:tab/>tories.</text:p>
