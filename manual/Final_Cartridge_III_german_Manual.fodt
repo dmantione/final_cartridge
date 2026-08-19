@@ -331,7 +331,7 @@
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="Freezer_20_kop_20_2" style:display-name="Freezer kop 2" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:margin-left="1.0m" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
+   <style:paragraph-properties fo:margin-left="1.0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false"/>
    <style:text-properties fo:font-variant="small-caps"/>
   </style:style>
   <style:style style:name="BASICpref_20_kop_20_1" style:display-name="BASICpref kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
@@ -1091,7 +1091,7 @@
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4748_2830447109"/>Einleitung<text:bookmark-end text:name="__RefHeading___Toc4748_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">Der Desktop ist das wichtigste Element der Final Cartridge III, er ist die Drehscheibe, um die sich alles dreht. Vom Desktop aus können Sie zu <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, zum Freezer usw. gelangen.</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4750_2830447109"/>Öffnen und Schließen des Desktops<text:bookmark-end text:name="__RefHeading___Toc4750_2830447109"/></text:h>
-   <text:p text:style-name="LijstVervolg">Sie können auf 4 verschiedene Arten in den Desktop gelangen:</text:p>
+   <text:p text:style-name="LijstVervolg">Sie können auf 5 verschiedene Arten in den Desktop gelangen:</text:p>
    <text:list xml:id="list4289173502" text:style-name="Numbering_20_123">
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Sie starten den Desktop, indem Sie den Computer einfach einschalten, während die Final Cartridge III eingesteckt ist (also immer).</text:p>
@@ -1120,7 +1120,7 @@
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4939_2830447109"/>Info<text:bookmark-end text:name="__RefHeading___Toc4939_2830447109"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Im Info-Menü stehen einige Befehle, mit denen Sie Informationen über die Final Cartridge III abrufen können.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:p>
-   <text:p text:style-name="Tekstblok_20_N2">Mit dem Desktop-Befehl wird ein Requester geöffnet, in dem die Namen der Entwick­ler der Final Cartridge III zu finden sind.</text:p>
+   <text:p text:style-name="Tekstblok_20_N2">Mit dem Desktop-Befehl wird ein Requester geöffnet, in dem die Namen der Entwer­fers der Final Cartridge III zu finden sind.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Version</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Mit dem Version-Befehl wird ein Requester geöffnet, in dem die Versionsnummern der verschiedenen Komponenten der Final Cartridge III zu finden sind.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc4941_2830447109"/>System<text:bookmark-end text:name="__RefHeading___Toc4941_2830447109"/></text:h>
