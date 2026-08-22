@@ -943,7 +943,7 @@
    <text:p text:style-name="Text_20_body">La Riska B.V. Home &amp; Personal Computers non può assumersi alcuna responsabilità per un uso scorretto della Final Cartridge III.</text:p>
    <text:p text:style-name="Text_20_body">Il materiale contenuto in questo manuale ha il solo scopo di fornire informazioni ed è soggetto a modifiche senza preavviso.</text:p>
    <text:p text:style-name="Text_20_body">La Riska B.V. Home &amp; Personal Computers si riserva il diritto di apportare modifiche alle spe­cifiche della Final Cartridge III e a questo manuale.</text:p>
-   <text:p text:style-name="Auteurtabel">Ideazione e realizzazione del prodotto:<text:tab/>Wil Sparreboom<text:line-break/>Desktop e menù:<text:tab/>Gerard van Assem<text:line-break/><text:tab/>Marc Derksen<text:line-break/>Tools, freezer, fastloader e interfaccia stampante:<text:tab/>Uwe Stahl<text:line-break/>Software di supporto:<text:tab/>Wil Sparreboom<text:line-break/>Progettazione hardware:<text:tab/>Ton Peters<text:line-break/><text:tab/>Jacques van Schajik<text:line-break/>Manuale:<text:tab/>Patrick Mast<text:line-break/><text:line-break/>Diritti esclusivi di vendita per i Paesi Bassi e il Belgio:<text:tab/>Dunnet Int. Trading<text:line-break/><text:tab/>Company B.V. Rotterdam</text:p>
+   <text:p text:style-name="Auteurtabel">Ideazione e realizzazione del prodotto:<text:tab/>Wil Sparreboom<text:line-break/>Desktop e menù:<text:tab/>Gerard van Assem<text:line-break/><text:tab/>Marc Derksen<text:line-break/>Tools, Freezer, fastloader e interfaccia stampante:<text:tab/>Uwe Stahl<text:line-break/>Software di supporto:<text:tab/>Wil Sparreboom<text:line-break/>Progettazione hardware:<text:tab/>Ton Peters<text:line-break/><text:tab/>Jacques van Schajik<text:line-break/>Manuale:<text:tab/>Patrick Mast<text:line-break/><text:line-break/>Diritti esclusivi di vendita per i Paesi Bassi e il Belgio:<text:tab/>Dunnet Int. Trading<text:line-break/><text:tab/>Company B.V. Rotterdam</text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding1" text:anchor-type="as-char" svg:width="8.999cm" svg:height="4.611cm" draw:z-index="0"><draw:image xlink:href="fc3_colofon.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame></text:p>
@@ -1016,7 +1016,7 @@
    <text:p text:style-name="Text_20_body">Se accende semplicemente il computer con la Final Cartridge III inserita, esso si avvia automa­ticamente nel <text:a xlink:type="simple" xlink:href="#7.Desktop|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Desktop</text:span></text:a>. Questa modalità è descritta nel capitolo Desktop.</text:p>
    <text:p text:style-name="Text_20_body">Se vuole lavorare direttamente in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, tenga premuto il tasto <text:span text:style-name="Toets">RUN/STOP</text:span> mentre accende il computer.</text:p>
    <text:p text:style-name="Text_20_body">Se non riceve alcun messaggio e, dopo aver premuto il pulsante di reset, non appare nulla sullo schermo, la Final Cartridge III è probabilmente inserita in modo non corretto nel computer.</text:p>
-   <text:p text:style-name="Text_20_body">Con i computer di vecchio tipo può essere necessario premere il pulsante di reset (eventualmen­te in combinazione con <text:span text:style-name="Toets">RUN/STOP</text:span> o <text:span text:style-name="Toets"><text:span text:style-name="Commodore_20_64">À</text:span></text:span>).</text:p>
+   <text:p text:style-name="Text_20_body">Con i computer di vecchio tipo può essere necessario premere il pulsante di reset (eventualmen­te in combinazione con <text:span text:style-name="Toets">RUN/STOP</text:span> o <text:span text:style-name="Toets"><text:span text:style-name="Commodore_20_64">À</text:span></text:span>) per avviare la Final Cartridge III.</text:p>
    <text:p text:style-name="Text_20_body">!!!<text:span text:style-name="Kleine_20_hoofdletters"> Vedere anche il capitolo </text:span><text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Annotazioni</text:span></text:a> <text:span text:style-name="Kleine_20_hoofdletters">!!!</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Preformatted_20_Text"/>
@@ -1114,7 +1114,7 @@
      <text:p text:style-name="LijstVervolg">Digiti in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span> il comando <text:a xlink:type="simple" xlink:href="#DESKTOP (BASIC)" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Monospace">DESKTOP</text:span></text:a>.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Selezioni dal freezer nel menu <text:span text:style-name="Kleine_20_hoofdletters">exit &quot;Desktop&quot;</text:span></text:p>
+     <text:p text:style-name="LijstVervolg">Selezioni dal Freezer nel menu <text:span text:style-name="Kleine_20_hoofdletters">exit &quot;Desktop&quot;</text:span></text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="LijstEinde">Prema il pulsante di reset tenendo premuto il tasto Commodore.</text:p>
@@ -1160,7 +1160,7 @@
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Time</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Con l&apos;opzione Time può stabilire se l&apos;ora di sistema viene mostrata nella barra dei menù. Se Time è selezionato, l&apos;ora viene mostrata nella barra dei menù. Se seleziona ancora una volta l&apos;opzione Time, l&apos;ora scompare di nuovo.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Alarm</text:span></text:p>
-   <text:p text:style-name="Tekstblok_20_N2">Con l&apos;opzione Alarm può attivare e disattivare la sveglia. Se la sveglia è attiva, suona all&apos;ora da Lei impostata. Se seleziona ancora una volta l&apos;opzione Alarm, spegnete di nuovo la sveglia.</text:p>
+   <text:p text:style-name="Tekstblok_20_N2">Con l&apos;opzione Alarm può attivare e disattivare la sveglia. Se la sveglia è attiva, suona all&apos;ora da Lei impostata. Se seleziona ancora una volta l&apos;opzione Alarm, spegna di nuovo la sveglia.</text:p>
    <text:p text:style-name="Tekstblok_20_N2"><text:span text:style-name="Kleine_20_hoofdletters">Settings</text:span></text:p>
    <text:p text:style-name="Tekstblok_20_N2">Con il comando Settings apre il window &quot;Clock settings&quot;. Questo window, mostrato qui sotto, è composto da due parti:</text:p>
    <text:p text:style-name="Tekstblok_20_N2">il lato sinistro serve per impostare l&apos;ora dell&apos;orologio, il lato destro per impostare l&apos;ora della sveglia.</text:p>
@@ -1297,7 +1297,7 @@
    <text:p text:style-name="Tekstblok_20_N1">Può chiudere il window Tape selezionando il close gadget nell&apos;angolo superiore sinistro.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc15519_871302656"/>L&apos;uso di Tape<text:bookmark-end text:name="__RefHeading___Toc15519_871302656"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Il window Tape Le offre due gadget per il caricamento di un programma:</text:p>
-   <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">slow</text:span> per caricare lentamente un programmma<text:line-break/><text:span text:style-name="Kleine_20_hoofdletters">fast</text:span> per caricare rapidamente un programma</text:p>
+   <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Kleine_20_hoofdletters">slow</text:span> per caricare lentamente un programma<text:line-break/><text:span text:style-name="Kleine_20_hoofdletters">fast</text:span> per caricare rapidamente un programma</text:p>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4762_2830447109"/>Basic preferences<text:bookmark-end text:name="__RefHeading___Toc4762_2830447109"/></text:h>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc15521_871302656"/>Introduzione<text:bookmark-end text:name="__RefHeading___Toc15521_871302656"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">Da questo window può modificare le impostazioni utili in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>, come il lampeggiamento del cursore, il colore del bordo, ecc. Queste impostazioni sono attive solo in <text:span text:style-name="Kleine_20_hoofdletters">Basic</text:span>.</text:p>
@@ -1820,14 +1820,14 @@
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/>BAR [OFF]<text:line-break/>bA [oF]</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>Le consente di attivare e disattivare la possibilità di richiamare i menù<text:line-break/> a tendina.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/>BAR OFF<text:tab/>disattiva i menù<text:line-break/>BAR<text:tab/>attiva i menù</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni:per<text:tab/>la visualizzazione della barra dei menù viene usata la memoria sotto il KER­NAL a partire da $E000. Questa opzione è stata incorporata per mantenere la Final Cartridge III ben compatibile, da Basic, con la maggior parte dei pro­grammi. Se un programma non funziona da Basic, provi ancora una volta con il comando BAR OFF.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Per la visualizzazione della barra dei menù viene usata la memoria sotto il KER­NAL a partire da $E000. Questa opzione è stata incorporata per mantenere la Final Cartridge III ben compatibile, da Basic, con la maggior parte dei pro­grammi. Se un programma non funziona da Basic, provi ancora una volta con il comando BAR OFF.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10698_2164442888"/><text:bookmark text:name="DAPPEND (BASIC)"/>DAPPEND<text:bookmark-end text:name="__RefHeading___Toc10698_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/>DAPPEND [&quot;&lt;nome-file&gt;&quot;]<text:line-break/>dA [&quot;&lt;nome-file&gt;&quot;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>equivale a APPEND &quot;nome-file&quot;,8.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/>DAPPEND &quot;parte2&quot;<text:tab/>aggiunge &quot;parte2&quot; alla memoria<text:line-break/>DAPPEND<text:tab/><text:tab/>aggiunge alla memoria il primo programma<text:line-break/><text:tab/><text:tab/>presente sul disco</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni:con<text:tab/>questo comando non deve usare il suffisso &quot;,8&quot;.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Con questo comando non deve usare il suffisso &quot;,8&quot;.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10696_2164442888"/>DEL<text:bookmark-end text:name="__RefHeading___Toc10696_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -1849,7 +1849,7 @@
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/>DLOAD [&quot;&lt;nome-file&gt;&quot;]<text:line-break/>dL [&quot;&lt;nome-file&gt;&quot;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>carica un programma dal disco usando il fastloader incorporato. In questo modo i programmi vengono caricati dal disco 15 volte più velocemente del normale.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/>DLOAD &quot;test&quot;<text:tab/><text:tab/>carica il programma &quot;test&quot; dal dischetto<text:line-break/>DLOAD<text:tab/><text:tab/>carica il primo programma dal dischetto</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni:con<text:tab/>questo comando non deve usare il suffisso &quot;,8&quot;.<text:line-break/>DLOAD &quot;nome&quot; equivale a LOAD &quot;nome&quot;,8,1</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Con questo comando non deve usare il suffisso &quot;,8&quot;.<text:line-break/>DLOAD &quot;nome&quot; equivale a LOAD &quot;nome&quot;,8,1</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10690_2164442888"/><text:bookmark text:name="DOS (BASIC)"/>DOS<text:bookmark-end text:name="__RefHeading___Toc10690_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -1885,7 +1885,7 @@
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/>DVERIFY [&quot;&lt;nome-file&gt;&quot;]<text:line-break/>dV [&quot;&lt;nome-file&gt;&quot;]</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>verifica se un programma sul dischetto con il nome &quot;nome-file&quot; è identico al programma nella memoria del computer. Se i due programmi sono uguali, il computer produce i normali messaggi &quot;OK&quot; e &quot;READY&quot;; se invece differi­scono, viene dato un &quot;VERIFY ERROR&quot;.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/>DVERIFY &quot;test&quot;<text:tab/>verifica il programma test sul disco<text:line-break/>DVERIFY<text:tab/><text:tab/>verifica il primo programma sul disco</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni: <text:tab/><text:span text:style-name="Monospace">DVERIFY</text:span> equivale a <text:span text:style-name="Monospace">VERIFY &quot;nome-file&quot;,8</text:span>. Ma con questo comando non deve usare il suffisso &quot;,8&quot;.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/><text:span text:style-name="Monospace">DVERIFY</text:span> equivale a <text:span text:style-name="Monospace">VERIFY &quot;nome-file&quot;,8</text:span>. Ma con questo comando non deve usare il suffisso &quot;,8&quot;.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10680_2164442888"/>FIND<text:bookmark-end text:name="__RefHeading___Toc10680_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -2199,7 +2199,7 @@
    <text:p text:style-name="Text_20_body">Questo menu contiene item che rendono ancora più facile giocare. Le offre uno sprite killer, un joystick port changer e un autofire. Dopo la selezione di una delle opzioni del menu, il pro­gramma prosegue dopo circa 20 secondi. I comandi restano attivi finché non resetta il program­ma e ricomincia.</text:p>
    <text:p text:style-name="Text_20_body">Purtroppo può accadere che un programma disattivi una delle opzioni Game, per cui deve riatti­vare in seguito tale opzione.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5758_224738076"/>Game Sprite I<text:bookmark-end text:name="__RefHeading___Toc5758_224738076"/></text:p>
-   <text:p text:style-name="Tekstblok_20_N1">Questo comando disattiva la &quot;sprite to sprite detection&quot;, così gli effetti delle collisioni tra sprite non vengono più rilevati dal computer e può proseguire il gioco fino alla fine. Tenga presente che non tutti i giochi usano gli sprite; quindi se morite comunque, il programma non usa sprite oppure non usa il registro di rilevamento sprite-to-sprite.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">Questo comando disattiva la &quot;sprite to sprite detection&quot;, così gli effetti delle collisioni tra sprite non vengono più rilevati dal computer e può proseguire il gioco fino alla fine. Tenga presente che non tutti i giochi usano gli sprite; quindi se muoia comunque, il programma non usa sprite oppure non usa il registro di rilevamento sprite-to-sprite.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5756_224738076"/>Game Sprite II<text:bookmark-end text:name="__RefHeading___Toc5756_224738076"/></text:p>
    <text:p text:style-name="Tekstblok_20_N1">Questo comando disattiva la &quot;sprite to background detection&quot;, così gli effetti delle collisioni degli sprite con gli oggetti di sfondo non vengono più rilevati dal computer e può prosegui­re il gioco fino alla fine.</text:p>
    <text:p text:style-name="Freezer_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc5754_224738076"/>Game Joyswap<text:bookmark-end text:name="__RefHeading___Toc5754_224738076"/></text:p>
@@ -2440,7 +2440,7 @@
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/><text:span text:style-name="Monospace">C xxxx yyyy zzzz</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/><text:tab/>= l&apos;indirizzo iniziale del primo blocco<text:line-break/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/><text:tab/>= l&apos;indirizzo finale del primo blocco<text:line-break/><text:span text:style-name="Monospace">zzzz</text:span><text:tab/><text:tab/>= l&apos;indirizzo iniziale del secondo blocco</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>Le consente di confrontare un blocco di memoria con un altro e Le tiene in­formati sulle eventuali differenze. I numeri mostrati sullo schermo sono le locazioni di memoria che non sono uguali. Quindi, se confronta due blocchi uguali, non viene mostrato nulla sullo schermo.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/><text:span text:style-name="Monospace">C 1000 1FFF 4000<text:tab/></text:span>con questo confronta il blocco da 1000 a <text:line-break/><text:tab/><text:tab/>1FFF con il blocco di memoria da 4000 a<text:line-break/><text:tab/><text:tab/>4FFF.</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni:non<text:tab/>deve fornire l&apos;indirizzo finale del secondo blocco; lo calcola il computer per Lei.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Non deve fornire l&apos;indirizzo finale del secondo blocco; lo calcola il computer per Lei.</text:p>
    <text:p text:style-name="Commando_5f_T25">Tipo:C,<text:tab/>D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc15427_216290078"/>D<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Disassemble<text:tab/><text:tab/><text:tab/>Disassemblaggio<text:bookmark-end text:name="__RefHeading___Toc15427_216290078"/></text:p>
@@ -2469,12 +2469,12 @@
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/><text:span text:style-name="Monospace">F xxxx yyyy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= l&apos;indirizzo iniziale <text:line-break/><text:span text:style-name="Monospace">yyyy</text:span><text:tab/>= l&apos;indirizzo finale <text:line-break/><text:span text:style-name="Monospace">zz</text:span><text:tab/>= il numero con cui riempire la memoria</text:p>
    <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>Le consente di riempire rapidamente una determinata parte della memoria con un numero.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/><text:span text:style-name="Monospace">F 3000 4000 00</text:span><text:tab/>con questo riempie la memoria da 3000 a <text:line-break/><text:tab/><text:tab/>4000 con il numero 00.</text:p>
-   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Questo comando è comodo per azzerare una parte della memoria in cui pro­grammerete, così da ritrovare facilmente il suo programma.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Annotazioni:<text:tab/>Questo comando è comodo per azzerare una parte della memoria in cui pro­gramma, così da ritrovare facilmente il suo programma.</text:p>
    <text:p text:style-name="Commando_5f_T25">Tipo:<text:tab/>C, D.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc15423_216290078"/>G<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Go<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Eseguire programmi<text:tab/> in linguaggio macchina<text:bookmark-end text:name="__RefHeading___Toc15423_216290078"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Sintassi:<text:tab/><text:span text:style-name="Monospace">G XXXX</text:span><text:line-break/><text:span text:style-name="Monospace">xxxx</text:span><text:tab/>= l&apos;indirizzo iniziale</text:p>
-   <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>avvia un programma in linguaggio macchina all&apos;indirizzo iniziale da Lei in­dicato.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Questo comando<text:tab/>avvia un programma in linguaggio macchina all&apos;indirizzo iniziale da Lei indicato. Questo comando è adatto anche per testare un programma in linguaggio macchina, se ha inserito nel programma istruzioni BRK. Il Program Counter, raggiunto il breakpoint, indica l&apos;istruzione successiva, così può seguire e controllare miratamente l&apos;esecuzione del programma. Dopo aver testato il programma, può rimuovere le istruzioni BRK o, se non desidera gli spostamenti che ne derivano, sostituirle con NOP.</text:p>
    <text:p text:style-name="Commando_5f_T25">Esempio:<text:tab/><text:span text:style-name="Monospace">G 3000<text:tab/></text:span>con questo avvia il programma che inizia a 3000.</text:p>
    <text:p text:style-name="Commando_5f_T25">Tipo:<text:tab/>C,D.</text:p>
    <text:p text:style-name="Standard"/>
@@ -2826,9 +2826,9 @@
    <text:p text:style-name="Text_20_body">Sebbene quasi tutti i programmi possano essere freezati, può accadere che di alcuni programmi non possa creare un backup, oppure non possa proseguirli. Ciò è dovuto alle nuove e complesse protezioni.</text:p>
    <text:p text:style-name="Text_20_body">Prema preferibilmente il tasto FREEZE in un momento in cui il programma da proteggere si trova nel menu principale, a meno che non voglia ad esempio &quot;freezare&quot; un gioco a un certo punto intermedio.</text:p>
    <text:p text:style-name="Text_20_body">In alcuni casi la funzione FREEZE può fallire. I motivi:</text:p>
-   <text:list xml:id="list215432604862988" text:continue-list="list3130524719" text:style-name="Numbering_20_123">
+    <text:list xml:id="list215432604862988" text:continue-list="list3130524719" text:style-name="Bullet_20_Symbols">
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Tentate di attivare il FREEZER dal monitor.</text:p>
+     <text:p text:style-name="LijstVervolg">Tenti di attivare il FREEZER dal monitor.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Il programma ha una protezione anticopia che usa il chip audio (6581 SID = Sound Interface Device). Poiché il chip audio dispone di registri solo-scrittura e di alcuni solo-lettura, non è possibile conservare e ricostruire i valori salvati di un determinato stato del programma.</text:p>
@@ -2840,9 +2840,15 @@
      <text:p text:style-name="LijstVervolg">Il programma fa un uso molto intensivo dei due timer di interrupt nei chip 6526 (CIA#1 e CIA#2). Ad esempio, con un&apos;uscita vocale in determinate circostanze non è possibile proseguire il programma, poiché a causa dell&apos;elevata velocità del timer non è possibile un salvataggio senza errori del programma.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstEinde">Se un&apos;immagine viene costruita in più raster interrupt, può accadere che non raggiun­ga subito al primo tentativo, con FREEZE, uno stato dell&apos;immagine che soddisfi i suoi desideri. Provi allora a freezare di nuovo in un altro punto finché l&apos;immagine &quot;freeza­ta&quot; non corrisponde alle sue aspettative.</text:p>
+     <text:p text:style-name="LijstVervolg">Se un&apos;immagine viene costruita in più raster interrupt, può accadere che non raggiun­ga subito al primo tentativo, con FREEZE, uno stato dell&apos;immagine che soddisfi i suoi desideri. Provi allora a freezare di nuovo in un altro punto finché l&apos;immagine &quot;freeza­ta&quot; non corrisponde alle sue aspettative.</text:p>
     </text:list-item>
-   </text:list>
+    <text:list-item>
+     <text:p text:style-name="LijstVervolg">Molti programmi commerciali protetti hanno le proprie speciali routine di caricamento che non possono essere aggirate. La Final Cartridge III userà le sue routine turbo il più possibile, ma passerà il controllo alla eventuale routine speciale più lenta quando ciò sarà tecnicamente necessario. Le copie di programmi salvate con il FREEZER vengono però sempre caricate alla velocità turbo.</text:p>
+    </text:list-item>
+    <text:list-item>
+     <text:p text:style-name="LijstEinde">Dalla cassetta originale i programmi commerciali possono essere caricati solo normalmente. Il ReSAVE con il FREEZER aiuta però anche qui.</text:p>
+    </text:list-item>
+    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc15599_871302656"/>Backup<text:bookmark-end text:name="__RefHeading___Toc15599_871302656"/></text:h>
    <text:p text:style-name="Text_20_body">Per la creazione dei backup Le consigliamo di usare prima, dal Freezer, il comando Zero Fill prima di caricare il suo programma. In questo modo risparmi di solito molta memoria e il back­up diventa quindi il più piccolo possibile.</text:p>
    <text:p text:style-name="Text_20_body">Se crea un backup con la Final Cartridge III, esso è composto da due parti. Questo è stato fatto appositamente per mantenere i backup intercambiabili con la Final Cartridge II.</text:p>

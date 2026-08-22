@@ -73,7 +73,6 @@
    <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
    <config:config-item config:name="StylesNoDefault" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
-   
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
    
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
@@ -82,7 +81,6 @@
    <config:config-item config:name="FootnoteInColumnToPageEnd" config:type="boolean">true</config:config-item>
    <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
    <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
-   
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">true</config:config-item>
@@ -210,7 +208,7 @@
    <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monospace" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="de" fo:country="DE"/>
+   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="zxx" fo:country="none"/>
   </style:style>
   <style:style style:name="Monospace_20_klein" style:display-name="Monospace klein" style:family="paragraph" style:parent-style-name="Monospace">
    <style:text-properties fo:font-size="8pt"/>
@@ -989,7 +987,6 @@
    </text:list>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard">Die Benutzeroberfläche, Windows und Pull-Down-Menüs basieren auf Ideen, die unter ande­rem beim Apple Macintosh und dem Commodore Amiga Anwendung fanden.</text:p>
-   <text:p text:style-name="Standard"/>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="Tekstblok_20_gecentreerd"><draw:frame draw:style-name="fr1" draw:name="Afbeelding2" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="1"><draw:image xlink:href="fc3_desktop1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
     </draw:frame><text:s text:c="5"/><draw:frame draw:style-name="fr1" draw:name="Afbeelding3" text:anchor-type="as-char" svg:width="4.5cm" svg:height="2.829cm" draw:z-index="18"><draw:image xlink:href="fc3_desktop2.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" loext:mime-type="image/png"/>
@@ -2757,6 +2754,7 @@
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10813_2164442888"/>*R<text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Read Block<text:tab/><text:tab/><text:tab/>Das Einlesen eines Blocks von der Festplatte in den<text:line-break/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Arbeitsspeicher des Computers<text:bookmark-end text:name="__RefHeading___Toc10813_2164442888"/></text:p>
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/><text:span text:style-name="Monospace">*R xx yy zz</text:span><text:line-break/><text:span text:style-name="Monospace">xx = </text:span>die Track-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">yy = </text:span>die Sektor-Nummer des Blocks<text:line-break/><text:span text:style-name="Monospace">zz = </text:span>die Stelle, an der Sie den Block im Speicher des Computers ha-<text:line-break/><text:span text:style-name="Monospace"> <text:s text:c="4"/></text:span>ben möchten (zz entspricht zz00)</text:p>
    <text:p text:style-name="Commando_5f_T25">Dieser Befehl<text:tab/>ermöglicht es Ihnen, einen Block von der Diskette zu lesen und ihn zu verändern.</text:p>
+    <text:p text:style-name="Commando_5f_T25">Anmerkungen:<text:tab/>Falls keine Speicheradresse angegeben wird, wird das Block immer an Adresse $CF00 gelesen.</text:p>
    <text:p text:style-name="Commando_5f_T25">Art:<text:tab/>C.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="Monitor_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10811_2164442888"/>*W<text:tab/><text:tab/><text:tab/><text:tab/>Write Block<text:tab/><text:tab/><text:tab/>Schreiben eines Blocks<text:bookmark-end text:name="__RefHeading___Toc10811_2164442888"/></text:p>
@@ -2785,7 +2783,7 @@
      <text:p text:style-name="LijstVervolg">Das Programm liest während seines Ablaufs weitere Programmteile ein. In diesem Fall müßte die Originaldiskette vorliegen, wenn der &quot;eingefrorene&quot; und reaktivierte Programmteil weitere benötigte Programmodule nachladen will.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Das Programm macht sehr intensiven Gebrauch von den beiden Interrupt Timers in den 6526-Bausteinen (CIA#1 und CIA#2). Z.B. ist bei einer Sprachausgabe u. U. ein Fortsetzen des Programms nicht möglich, da aufgrund der hohen Timer-Geschwin­dig­keit ein fehlerfreies Abspeichem des Programms nicht möglich ist.</text:p>
+     <text:p text:style-name="LijstVervolg">Das Programm macht sehr intensiven Gebrauch von den beiden Interrupt Timers in den 6526-Bausteinen (CIA#1 und CIA#2). Z.B. ist bei einer Sprachausgabe u. U. ein Fortsetzen des Programms nicht möglich, da aufgrund der hohen Timer-Geschwin­dig­keit ein fehlerfreies Abspeichern des Programms nicht möglich ist.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Wird ein Bild in mehreren Raster-Interrupts aufgebaut, kann es vorkommen, daß Sie nicht gleich beim ersten Versuch mit FREEZE einen Bildstatus erreichen, der Ihren Wünschen entspricht. Versuchen Sie dann an anderer Stelle ein erneutes FREEZE, bis das &quot;eingefrorene&quot; Bild Ihren Vorstellungen entspricht.</text:p>
