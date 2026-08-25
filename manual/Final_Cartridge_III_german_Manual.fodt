@@ -2770,11 +2770,11 @@
    <text:p text:style-name="Text_20_body">Bei manchen Programmen kann es recht lange dauern, bis das Freezer-Menü erscheint.</text:p>
    <text:p text:style-name="Text_20_body">Frieren Sie niemals ein Programm während des Ladens ein.</text:p>
    <text:p text:style-name="Text_20_body">Obwohl fast alle Programme eingefroren werden können, kann es möglich sein, dass Sie von manchen Programmen kein Backup erstellen können oder diese Programme nicht fortsetzen können. Dies liegt an neuen, komplizierten Sicherungen.</text:p>
-   <text:p text:style-name="Text_20_body">Drücken Sie die FREEZE-Taste möglichst zu einem Zeitpunkt, wenn sich das zu sichernde Programm in seinem Eingangsmenue befindet, es sei denn. Sie wollen z.B. ein Spielprogramm bei einem gewissen Zwischenstand &quot;einfrieren&quot;.</text:p>
-   <text:p text:style-name="Text_20_body">In wenigen Fallen kann die FREEZE-Funktion versagen. Die Gründe:</text:p>
+   <text:p text:style-name="Text_20_body">Drücken Sie die <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span>-Taste möglichst zu einem Zeitpunkt, wenn sich das zu sichernde Programm in seinem Eingangsmenue befindet, es sei denn. Sie wollen z.B. ein Spielprogramm bei einem gewissen Zwischenstand &quot;einfrieren&quot;.</text:p>
+   <text:p text:style-name="Text_20_body">In wenigen Fallen kann die <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span>-Funktion versagen. Die Gründe:</text:p>
    <text:list xml:id="list212942235195007" text:continue-list="list615078103" text:style-name="Bullet_20_Symbols">
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Sie versuchen, den FREEZER vom Monitor aus zu aktivieren.</text:p>
+     <text:p text:style-name="LijstVervolg">Sie versuchen, den <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> vom Monitor aus zu aktivieren.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="LijstVervolg">Das Programm hat eine Kopierschutzeinrichtung, die auf den Sound-Chip (6581 SID = Sound Interface Device) zugreift. Da der Sound Chip über Nur-Schreib- und einige Nur-Lese-Register verfügt, ist es nicht möglich, die gespeicherten Werte eines be­stimm­ten Programmstatus festzuhalten und zu rekonstruieren.</text:p>
@@ -2786,13 +2786,13 @@
      <text:p text:style-name="LijstVervolg">Das Programm macht sehr intensiven Gebrauch von den beiden Interrupt Timers in den 6526-Bausteinen (CIA#1 und CIA#2). Z.B. ist bei einer Sprachausgabe u. U. ein Fortsetzen des Programms nicht möglich, da aufgrund der hohen Timer-Geschwin­dig­keit ein fehlerfreies Abspeichern des Programms nicht möglich ist.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Wird ein Bild in mehreren Raster-Interrupts aufgebaut, kann es vorkommen, daß Sie nicht gleich beim ersten Versuch mit FREEZE einen Bildstatus erreichen, der Ihren Wünschen entspricht. Versuchen Sie dann an anderer Stelle ein erneutes FREEZE, bis das &quot;eingefrorene&quot; Bild Ihren Vorstellungen entspricht.</text:p>
+     <text:p text:style-name="LijstVervolg">Wird ein Bild in mehreren Raster-Interrupts aufgebaut, kann es vorkommen, daß Sie nicht gleich beim ersten Versuch mit <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span> einen Bildstatus erreichen, der Ihren Wünschen entspricht. Versuchen Sie dann an anderer Stelle ein erneutes <text:span text:style-name="Kleine_20_hoofdletters">Freeze</text:span>, bis das &quot;eingefrorene&quot; Bild Ihren Vorstellungen entspricht.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstVervolg">Viele kopiergeschützte kommerziell vertriebene Programme haben ihre eigenen spe­ziellen Laderoutinen, die nicht umgangen werden können. &quot;Final Cartridge III&quot; wird soweit wie möglich seine Turbo-Routinen einsetzen, aber die Steuerung dann an den evtl. langsameren Speziallader abgeben, wenn dies ablauftechnisch erforderlich wird. Mit dem FREEZER gespeicherte Programmkopien werden jedoch stets mit Tur­bo-Geschwindigkeit geladen.</text:p>
+     <text:p text:style-name="LijstVervolg">Viele kopiergeschützte kommerziell vertriebene Programme haben ihre eigenen spe­ziellen Laderoutinen, die nicht umgangen werden können. &quot;Final Cartridge III&quot; wird soweit wie möglich seine Turbo-Routinen einsetzen, aber die Steuerung dann an den evtl. langsameren Speziallader abgeben, wenn dies ablauftechnisch erforderlich wird. Mit dem <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> gespeicherte Programmkopien werden jedoch stets mit Tur­bo-Geschwindigkeit geladen.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="LijstEinde">Von Original-Kassette können kommerzielle Programme nur normal geladen werden. ReSAVE mit dem FREEZER hilft hier aber auch.</text:p>
+     <text:p text:style-name="LijstEinde">Von Original-Kassette können kommerzielle Programme nur normal geladen werden. ReSAVE mit dem <text:span text:style-name="Kleine_20_hoofdletters">Freezer</text:span> hilft hier aber auch.</text:p>
     </text:list-item>
    </text:list>
    <text:h text:style-name="Heading_20_2" text:outline-level="2"><text:bookmark-start text:name="__RefHeading___Toc4794_2830447109"/>Backups<text:bookmark-end text:name="__RefHeading___Toc4794_2830447109"/></text:h>
