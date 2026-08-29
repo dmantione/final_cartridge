@@ -1,0 +1,8 @@
+The manual uses the "ITC Avant Garde Gothic Std" font for the keys. This is the font used on the C64C keyboard.
+In order be able to display the Commodore key, we need a the "Commodore 64" font. You can download the fonts
+from the following locations:
+
+https://freefonts.co/fonts/itc-avant-garde-gothic-medium
+https://www.dafont.com/commodore-64.font
+
+After installing the fonts, LibreOffice should render the keys correctly.
