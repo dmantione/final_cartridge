@@ -5,15 +5,6 @@
 	 <dc:date>2026-08-09T11:56:23.239529378</dc:date><meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><dc:title>Final Cartridge III - Instructiehandboek</dc:title><dc:subject>Handleiding van de Final Cartridge III</dc:subject>
  </office:meta>
   <office:settings>
-  <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">1280278</config:config-item>
-   <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">20491</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">15464</config:config-item>
-   <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
-   
-  </config:config-item-set>
   <config:config-item-set config:name="ooo:configuration-settings">
    <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
@@ -36,12 +27,7 @@
    <config:config-item config:name="GutterAtTop" config:type="boolean">false</config:config-item>
    <config:config-item config:name="TreatSingleColumnBreakAsPageBreak" config:type="boolean">false</config:config-item>
    <config:config-item config:name="EmbedSystemFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedComplexScriptFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedAsianScriptFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ContinuousEndnotes" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ClippedPictures" config:type="boolean">false</config:config-item>
    <config:config-item config:name="FloattableNomargins" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
@@ -125,8 +111,6 @@
   <style:font-face style:name="ITC Avant Garde Gothic Std" svg:font-family="&apos;ITC Avant Garde Gothic Std&apos;" style:font-adornments="Standaard" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Mono" svg:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
-  <style:font-face style:name="Liberation Serif1" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Standaard" style:font-family-generic="roman" style:font-pitch="variable"/>
-  <style:font-face style:name="Liberation Serif2" svg:font-family="&apos;Liberation Serif&apos;" style:font-adornments="Vet" style:font-family-generic="roman" style:font-pitch="variable"/>
   <style:font-face style:name="OpenSymbol" svg:font-family="OpenSymbol" style:font-charset="x-symbol"/>
  </office:font-face-decls>
  <office:styles>
@@ -183,29 +167,25 @@
   <style:style style:name="Tekstblok_20_N3_20_gecentreerd" style:display-name="Tekstblok N3 gecentreerd" style:family="paragraph" style:parent-style-name="Tekstblok_20_N3">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
   </style:style>
-  <style:style style:name="Preformatted_20_Text" style:display-name="Preformatted Text" style:family="paragraph" style:parent-style-name="Standard" style:class="html">
-   <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0cm" loext:contextual-spacing="false"/>
-   <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="10pt"/>
-  </style:style>
   <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="1" style:class="text" style:master-page-name="">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.169cm" loext:contextual-spacing="false" style:page-number="auto" fo:break-before="page" fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.06pt solid #09285f">
     <style:tab-stops/>
    </style:paragraph-properties>
-   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="140%" fo:font-weight="bold"/>
+   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="140%" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Table_20_Contents" style:display-name="Table Contents" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:orphans="0" fo:widows="0" text:number-lines="false" text:line-number="0"/>
   </style:style>
   <style:style style:name="Heading_20_3" style:display-name="Heading 3" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="3" style:class="text">
    <style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0.2cm" loext:contextual-spacing="false" fo:text-indent="0cm" style:auto-text-indent="false"/>
-   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif1" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Standaard" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="normal"/>
+   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Standaard" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="normal"/>
   </style:style>
   <style:style style:name="Numbering_20_1" style:display-name="Numbering 1" style:family="paragraph" style:parent-style-name="List" style:class="list">
    <style:paragraph-properties fo:margin-left="0.635cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" fo:text-indent="-0.635cm" style:auto-text-indent="false"/>
   </style:style>
   <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="paragraph" style:parent-style-name="Heading" style:next-style-name="Text_20_body" style:default-outline-level="2" style:class="text" style:master-page-name="">
    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.169cm" loext:contextual-spacing="false" fo:keep-together="always" style:page-number="auto" fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.06pt dotted #09285f"/>
-   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="bold"/>
+   <style:text-properties fo:font-variant="small-caps" style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="11pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monospace" style:family="paragraph" style:parent-style-name="Text_20_body">
    <style:text-properties style:font-name="Liberation Mono" fo:font-family="&apos;Liberation Mono&apos;" style:font-style-name="Standaard" style:font-family-generic="modern" style:font-pitch="fixed" fo:font-size="9pt" fo:language="nl" fo:country="NL"/>
@@ -262,7 +242,7 @@
   </style:style>
   <style:style style:name="Contents_20_Heading" style:display-name="Contents Heading" style:family="paragraph" style:parent-style-name="Index_20_Heading" style:class="index">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties style:font-name="Liberation Serif2" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="16pt" fo:font-weight="bold"/>
+   <style:text-properties style:font-name="Liberation Serif" fo:font-family="&apos;Liberation Serif&apos;" style:font-style-name="Vet" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="16pt" fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Contents_20_1" style:display-name="Contents 1" style:family="paragraph" style:parent-style-name="Index" style:class="index" style:master-page-name="">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-indent="0cm" style:auto-text-indent="false" style:page-number="auto">
@@ -304,7 +284,7 @@
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Monitor_20_kop_20_1" style:display-name="Monitor kop 1" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:paragraph-properties fo:padding="0.049cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none" fo:keep-with-next="always"/>
+   <style:paragraph-properties fo:padding="0.05cm" fo:border-left="none" fo:border-right="none" fo:border-top="0.06pt fine-dashed #09285f" fo:border-bottom="none" fo:keep-with-next="always"/>
    <style:text-properties fo:font-weight="bold"/>
   </style:style>
   <style:style style:name="Basicinhoud" style:family="paragraph" style:parent-style-name="Contents_20_1" style:class="index" style:master-page-name="">
@@ -378,7 +358,7 @@
   </style:style>
   <style:style style:name="Page_20_Number" style:display-name="Page Number" style:family="text"/>
   <style:style style:name="Internet_20_link" style:display-name="Internet link" style:family="text">
-   <style:text-properties fo:color="#09285f" loext:opacity="100%" fo:language="zxx" fo:country="none" style:text-underline-style="none"/>
+   <style:text-properties fo:language="zxx" fo:country="none" style:text-underline-style="none"/>
   </style:style>
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Toets" style:family="text">
@@ -1021,7 +1001,7 @@
    <text:p text:style-name="Text_20_body"><text:span text:style-name="Kleine_20_hoofdletters">!!! Zie ook het hoofdstuk </text:span><text:a xlink:type="simple" xlink:href="#12.Opmerkingen|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Opmerkingen</text:span></text:a><text:span text:style-name="Kleine_20_hoofdletters"> !!!</text:span></text:p>
    <text:p text:style-name="Text_20_body"/>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="Preformatted_20_Text"/>
+   <text:p text:style-name="Standard"/>
    <text:h text:style-name="Heading_20_1" text:outline-level="1"><text:bookmark-start text:name="__RefHeading___Toc4724_2830447109"/>Inleiding<text:bookmark-end text:name="__RefHeading___Toc4724_2830447109"/></text:h>
    <text:p text:style-name="Text_20_body">We hebben geprobeerd de handleiding zo compleet en duidelijk mogelijk voor u te houden, daarom hebben we een zeer uitgebreide inhoudsopgave die het zoeken in deze handleiding erg makkelijk maakt.</text:p>
    <text:p text:style-name="Text_20_body">We beginnen met het hoofdstuk <text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">Windows</text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters"> &amp; </text:span></text:a><text:a xlink:type="simple" xlink:href="#6.Window&apos;s &amp; menu&apos;s|outline" text:style-name="Internet_20_link" text:visited-style-name="Visited_20_Internet_20_Link"><text:span text:style-name="Kleine_20_hoofdletters">menu&apos;s</text:span></text:a>; hierin wordt een uitleg gegeven over – de naam zegt het al – windows &amp; menu&apos;s. Dit hoofdstuk is bedoeld voor mensen die nog nooit met deze dingen hebben gewerkt. We proberen in dit hoofdstuk u alle nodige informatie te ver­schaffen, waarna u zonder problemen de rest van de handleiding makkelijk kunt volgen.</text:p>

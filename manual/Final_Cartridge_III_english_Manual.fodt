@@ -2,18 +2,8 @@
 
 <office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
  <office:meta>
-	 <dc:date>2026-08-23T16:47:10.153245469</dc:date><meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><dc:title>Final Cartridge III - User&apos;s manual</dc:title><dc:subject>User manual of the Final Cartridge III</dc:subject>
- </office:meta>
+	 <dc:date>2026-08-23T16:47:10.153245469</dc:date><meta:generator>LibreOffice/7.3.6.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><dc:title>Final Cartridge III - User&apos;s manual</dc:title><dc:subject>User manual of the Final Cartridge III</dc:subject></office:meta>
  <office:settings>
-  <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">1141926</config:config-item>
-   <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">17729</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">13774</config:config-item>
-   <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
-   
-  </config:config-item-set>
   <config:config-item-set config:name="ooo:configuration-settings">
    <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
@@ -36,12 +26,7 @@
    <config:config-item config:name="GutterAtTop" config:type="boolean">false</config:config-item>
    <config:config-item config:name="TreatSingleColumnBreakAsPageBreak" config:type="boolean">false</config:config-item>
    <config:config-item config:name="EmbedSystemFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedComplexScriptFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedAsianScriptFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ContinuousEndnotes" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ClippedPictures" config:type="boolean">false</config:config-item>
    <config:config-item config:name="FloattableNomargins" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
@@ -71,16 +56,13 @@
    <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
    <config:config-item config:name="StylesNoDefault" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
-   
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
    <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
    <config:config-item config:name="FootnoteInColumnToPageEnd" config:type="boolean">true</config:config-item>
    <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
    <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
-   
    <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
    <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
    <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">true</config:config-item>
@@ -107,7 +89,6 @@
    <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">true</config:config-item>
    <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
    <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
-   
    <config:config-item config:name="PrintHiddenText" config:type="boolean">false</config:config-item>
    <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
    <config:config-item config:name="MsWordCompMinLineHeightByFly" config:type="boolean">false</config:config-item>
@@ -119,7 +100,6 @@
    <config:config-item config:name="TabOverflow" config:type="boolean">false</config:config-item>
   </config:config-item-set>
  </office:settings>
- 
  <office:font-face-decls>
   <style:font-face style:name="Arial" svg:font-family="Arial" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Commodore 64" svg:font-family="&apos;Commodore 64&apos;"/>
@@ -137,7 +117,7 @@
    <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
-   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="GB" style:letter-kerning="true" />
+   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="GB" style:letter-kerning="true"/>
   </style:default-style>
   <style:default-style style:family="paragraph">
    <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.499cm" style:writing-mode="page"/>
@@ -163,7 +143,7 @@
   <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list"/>
   <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
    <style:paragraph-properties fo:margin-top="0.212cm" fo:margin-bottom="0.212cm" loext:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+   <style:text-properties fo:font-size="12pt" fo:font-style="italic"/>
   </style:style>
   <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
    <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
@@ -1459,7 +1439,7 @@
    <text:p text:style-name="Tekstblok_20_N1">The numbers represent proportions; by this we mean that by choosing 2 instead of 1, the screen dump becomes twice as large. So note this! In the Single Density graphics mode, a screen dump set with Horizontal 2 and Vertical 2 does not produce the same result as in, for example, Quadruple Density mode.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">If the screen dump becomes too large for the paper, you must select <text:span text:style-name="Kleine_20_hoofdletters">sideways</text:span>.</text:p>
    <text:p text:style-name="BASICpref_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc6042_3037178849"/><text:span text:style-name="Kleine_20_hoofdletters">Graphics modes 8/24 pins</text:span><text:bookmark-end text:name="__RefHeading___Toc6042_3037178849"/></text:p>
-   <text:p text:style-name="Tekstblok_20_N1">With the help of these gadgets you can set the graphics mode of the printer. The left column is for 8-pin printers and the right column is for 24-pin printers. Not every printer has all the graphics modes; which different modes your printer has you can check in the manual that belongs to your printer. In that manual you can also find a more extensive description of the various graphics modes.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">With the help of these gadgets you can set the graphics mode of the printer. The left column is for 8-pin printers and the right column is for 24-pin printers. Not every printer has all the graphics modes; you can check in the manual that belongs to your printer which different modes your printer has. In that manual you can also find a more extensive description of the various graphics modes.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">With the help of those graphics modes you can set the density (Eng: density) of the printer. This density is usually expressed in dots per inch (dpi). The sharper you want the image, the larger you must choose the density, and the longer you must wait.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">In short, the modes are:</text:p>
    <text:p text:style-name="PrintoptiestabelVervolg">Single Density<text:tab/>This gives you an image of 60 dpi. 8 or 24</text:p>
@@ -1826,7 +1806,7 @@
    <text:p text:style-name="Commando_5f_T25">Syntax:<text:tab/>BAR [OFF]<text:line-break/>bA [oF]</text:p>
    <text:p text:style-name="Commando_5f_T25">This command<text:tab/>enables you to switch the possibility of calling up the pull-down menus on and off.</text:p>
    <text:p text:style-name="Commando_5f_T25">Example:<text:tab/>BAR OFF<text:tab/>switches the menus off<text:line-break/>BAR<text:tab/>switches the menus on</text:p>
-   <text:p text:style-name="Commando_5f_T25">Comments:<text:tab/>For the display of the menu bar, the memory under the KERNAL from $E000 onwards is used. This option has been built in to keep the Final Cartridge III well compatible with most programs from BASIC. If a program does not work from BASIC, try it once more with the BAR OFF command.</text:p>
+   <text:p text:style-name="Commando_5f_T25">Comments:<text:tab/>For the display of the menu bar, the memory under the KERNAL from $E000 onwards is used. This option has been built in to keep the Final Cart­ridge III well compatible with most programs from BASIC. If a program does not work from BASIC, try it once more with the BAR OFF command.</text:p>
    <text:p text:style-name="Commando_5f_T25"/>
    <text:p text:style-name="BASIC_20_kop_20_1"><text:bookmark-start text:name="__RefHeading___Toc10698_2164442888"/><text:bookmark text:name="DAPPEND (BASIC)"/>DAPPEND<text:bookmark-end text:name="__RefHeading___Toc10698_2164442888"/></text:p>
    <text:p text:style-name="BASIC_20_kop_20_1"/>
@@ -2296,7 +2276,7 @@
    <text:p text:style-name="Tekstblok_20_N1">You can put different data in the memory. This can, among other things, be numbers, texts, programs, characters and sprites. The Final Cartridge III now offers you the possibility to have the memory displayed in all these forms. To make it clearer to you, we show you the same memory part in the different display modes:</text:p>
    <text:p text:style-name="Tekstblok_20_N1"><text:span text:style-name="Monospace">.:2000 48 41 4C 4C 4F 20 44 49 HALLO DI</text:span><text:tab/><text:tab/>Number representation<text:line-break/><text:span text:style-name="Monospace">.&apos;2000 HALLO DIT IS EEN TEST V/D FC III</text:span><text:tab/><text:tab/>Text representation<text:line-break/><text:span text:style-name="Monospace">.]2000 .*..*....*.....*.*..**..<text:tab/></text:span><text:tab/><text:tab/><text:tab/><text:tab/>Sprite representation<text:line-break/><text:span text:style-name="Monospace">.[2000 .*..*...</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Character representation<text:line-break/><text:span text:style-name="Monospace">.,2000 48 <text:s text:c="6"/>PHA</text:span><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/><text:tab/>Program representation</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc20871_2484773626"/>Scrolling<text:bookmark-end text:name="__RefHeading___Toc20871_2484773626"/></text:h>
-   <text:p text:style-name="Tekstblok_20_N1">If the memory is displayed in one of the representation modes, you have the pos­sibility to scroll. By this, we mean that you can – so to speak – shift the screen to view the memory locations before, or after, the portion currently shown on the screen. You can achieve this by moving the cursor — so to speak — to the top or the bottom of the screen. This will automatically display the preceding, or the following, section on the screen.</text:p>
+   <text:p text:style-name="Tekstblok_20_N1">If the memory is displayed in one of the representation modes, you have the pos­sibility to scroll. By this, we mean that you can – so to speak – shift the screen to view the memory locations before, or after, the portion currently shown on the screen. You can achieve this by moving the cursor – so to speak – off the top or the bottom of the screen. This will automatically display the preceding, or the following, section on the screen.</text:p>
    <text:p text:style-name="Tekstblok_20_N1">The scrolling facility is built into the Final Cartridge III to make viewing large parts of the memory easier.</text:p>
    <text:h text:style-name="Heading_20_3" text:outline-level="3"><text:bookmark-start text:name="__RefHeading___Toc20873_2484773626"/>Improving<text:bookmark-end text:name="__RefHeading___Toc20873_2484773626"/></text:h>
    <text:p text:style-name="Tekstblok_20_N1">An easy facility that is present with many of the display options is improving the contents. For this you only have to type the data you want over the existing data. After pressing the <text:span text:style-name="Toets">RETURN</text:span> key, the new data are accepted.</text:p>
