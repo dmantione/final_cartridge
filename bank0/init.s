@@ -90,7 +90,7 @@ entry:
         jsr     $E453 ; assign $0300 BASIC vectors
         jsr     init_load_and_basic_vectors
         cli
-        pla ; $ D
+        pla     ; $ D
         tax     ; X = $DC01 value
         pla
         cpx     #$7F ; runstop pressed?

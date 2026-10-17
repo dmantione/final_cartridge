@@ -1261,33 +1261,62 @@ L8986:  jsr     _relink
         sta     $2E
         rts
 
+
+
+.proc init_vectors
+        jsr     $FD15 ; init KERNAL vectors
+        ;
+        ; Workaround for JiffyDOS.
+        ;
+        ; We want to call $e453 to initialize the BASIC vectors. However, JiffyDOS
+        ; internally redirects this procedure inside the KERNAL ROM to setup its
+        ; function key vector at $00b0. If we call $e453, JiffyDOS function keys
+        ; produce garbage. As a work-around, retrieve the address of the procedure
+        ; from where it is called inside the KERNAL ($E394), so we get the address
+        ; of the hooked JiffyDOS version if JiffyDOS runs.
+        ;
+        sei
+        lda     $e395
+        sta     $0200
+        lda     $e396
+        sta     $0201
+        jsr     ibv
+        cli
+        rts
+ibv:    jmp     ($0200)
+.endproc
+
 ; ----------------------------------------------------------------
 ; "OFF" Command - disable BASIC extensions
 ; ----------------------------------------------------------------
 OFF:    bne     L89BC
-        sei
-        jsr     $FD15
-        jsr     $E453 ; assign $0300 BASIC vectors
+        jsr     init_vectors
         jsr     cond_init_load_save_vectors
-        cli
         jmp     disable_rom_then_warm_start
 
 ; ----------------------------------------------------------------
 ; "KILL" Command - disable all cartridge functionality
 ; ----------------------------------------------------------------
-KILL:   bne     L89BC
-        sei
-        jsr     $FD15
-        jsr     $E453 ; assign $0300 BASIC vectors
-        cli
-        lda     #>$E385
-        pha
-        lda     #<$E385 ; BASIC warm start
-        pha
-        lda     #$F0 ; cartridge off
-        jmp     _jmp_bank
 
+.proc kill_fc3hw
+        sta     fcio_reg
+        jmp     $E385
+.endproc
+
+KILL:   bne     L89BC
+        jsr     init_vectors
+        ; Original FC3 jumps to IO1 to switch off the FC3 hardware, but this depends on IO1
+        ; remaining accessible if cartridge is disabled. FC3 101% hardware disables IO1/IO2
+        ; to be completely invisible, but that means we cannot kill the hw through IO1/
+        ldx     #.sizeof(kill_fc3hw)-1
+:       lda     kill_fc3hw,x
+        sta     $0200,x
+        dex
+        bpl     :-
+        lda     #$F0     ; cartridge off
+        jmp     $0200
 L89BC:  rts
+
 
 ; ----------------------------------------------------------------
 ; "MON" Command - enter machine code monitor
@@ -1393,8 +1422,8 @@ DOS:    cmp     #'"'
         jsr     print_line_from_drive
 @rts:   rts
 
-@2:     ; carry is already clear
-        adc     #$0A
+@2:     ; carry is already set
+        adc     #$09
 @4:     and     #$0F
         sta     FA
         bne     @5
@@ -1415,10 +1444,10 @@ DOS:    cmp     #'"'
         bne     @1
         jsr     _CHRGET
         beq     @3
-        cmp     #'0'
-        bcc     @1
-        cmp     #'6'
-        bcc     @2
+        ; Test between '0' and '5'
+        adc     #255-'5'
+        adc     #'5'-'0'+1
+        bcs     @2
 @1:
         jsr     listen_6F_or_error
 rts_ := @rts

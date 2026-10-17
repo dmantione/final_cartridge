@@ -298,6 +298,21 @@ reu_memab_command:
 .global freezer_final_kill
 .global freezer_cbm64
 
+.proc kill_fc3hw
+      sta     fcio_reg
+      jmp     START
+.endproc
+
+freezer_final_kill:
+      ldx     #.sizeof(kill_fc3hw)-1
+:     lda     kill_fc3hw,x
+      sta     $0200,x
+      dex
+      bpl     :-
+      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
+      lda     #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
+      jmp     $0200
+
 freezer_zero_fill:
       ldy  #$00
       sty  $AC
@@ -323,11 +338,7 @@ write_mg87_and_reset:
       sta  $CFFC,x
       dex
       bpl  :-
-      bmi freezer_cbm64
-freezer_final_kill:
-      ; ROM bank 0, C64 in normal mode, NMI line released and disable FC3 hardware:
-      ldx  #fcio_bank_0|fcio_c64_crtrom_off|fcio_nmi_line|fcio_kill
-      skip_2b_instr
+;      bmi freezer_cbm64
 freezer_cbm64:
       ; ROM bank 0, C64 in 16K mode, NMI line released
       ldx  #fcio_bank_0|fcio_c64_16kcrtmode|fcio_nmi_line
